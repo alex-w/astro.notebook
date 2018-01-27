@@ -1,14 +1,14 @@
 \subsection{Формула Планка}
 \label{sec:planck-law}
-\term{Формула Планка} --- выражение для спектральной плотности мощности излучения абсолютно чёрного тела на интервале частот излучения  $[\nu, \nu + d \nu)$, которое было получено Максом Планком в 1900~году. Данное выражение имеет следующий вид:
+\term{Формула Планка}~--- выражение для спектральной плотности мощности излучения абсолютно чёрного тела на интервале частот $[\nu, \nu + d \nu)$, распространяющейся с телесном угле $d\Omega$, которое было получено Максом Планком в 1900~году. Данное выражение имеет следующий вид:
 \begin{equation}\label{Planck's formula}
-B_\nu(\nu,T)=\frac{2h\nu^3}{c^2}\cdot \frac{1}{\exp\left(\frac{h\nu}{kT}\right)-1},
+B_\nu(\nu,T)=\frac{2h\nu^3}{c^2}\cdot \frac{1}{\exp\left(\frac{h\nu}{kT}\right)-1} = \left[ \frac{\text{Вт}}{\text{м}^2 \cdot \text{Гц} \cdot \text{ср}}\right],
 \end{equation}
 где $\nu$~--- частота излучения, $T$~--- температура АЧТ, $h$~--- постоянная Планка, $k$~--- постоянная Больцмана, $c$~--- скорость света.
 
 Если записать закон излучения Планка (\ref{Planck's formula}) для длин волн, то
 \begin{equation}\label{Planck's formula2}
-B_\lambda(\lambda,T)=\frac{2hc^2}{\lambda^5} \cdot \frac{1}{\exp\left(\frac{hc}{\lambda kT}\right)-1}
+B_\lambda(\lambda,T)=\frac{2hc^2}{\lambda^5} \cdot \frac{1}{\exp\left(\frac{hc}{\lambda kT}\right)-1} = \left[ \frac{\text{Вт}}{\text{м}^3 \cdot \text{ср}}\right].
 \end{equation}
 \begin{wrapfigure}[15]{l}{.6\tw}
 \centering
@@ -32,7 +32,7 @@ B_\lambda(\lambda,T)=\frac{2hc^2}{\lambda^5} \cdot \frac{1}{\exp\left(\frac{hc}{
 	%\addplot+[black, smooth] table[x=l, y=t15] {data/planck.txt} node at (axis cs:1670, 5.5e+13) {\tiny{$15000$~K}};
   \end{axis}
  \end{tikzpicture}
-\caption{Кривые спектральной плотности мощности излучения АЧТ с разной температурой}\label{pic:wien-law}
+\caption{Кривые спектральной плотности мощности изотропного излучения АЧТ с разной температурой}\label{pic:wien-law}
 \end{wrapfigure}
 Стоит заметить, что при переходе в функции к длинам волн меняется не только частота на длину волны, но и выражение для интервала. 
 
