@@ -5,17 +5,19 @@
 \usepackage[russian]{babel}
 \usepackage[OT1]{fontenc}
 
-%%% Шрифты для математики
+%%% Математика
+% Шрифты для математики
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-
-%%% Астрономические символы
+% Операторы
+\DeclareMathOperator{\const}{const}
+% Астрономические символы
 \usepackage{wasysym}
 \usepackage{starfont}	% Значок Цереры
 
 %%% Поля и разметка страницы
-\usepackage[left=1.2cm, right=1.2cm, top=1.5cm, bottom=1.2 cm, headsep=4mm]{geometry}
+\usepackage[inner=0.9cm, outer=1.5cm, top=1.5cm, bottom=1.2 cm, headsep=4mm]{geometry}
 
 %%% Набор текста
 % Разрывы страниц в формулах
@@ -29,7 +31,7 @@
 \usepackage{subcaption}
 \usepackage{wrapfig}
 \graphicspath{{./img/}}
-
+% Графики
 \usepackage{pgfplots}
 \pgfplotsset{	width	=	14	cm,
 					x label style={
@@ -62,7 +64,6 @@
  						line width	=	.7	pt
  					}
 				}
-
 %Подписи
 \usepackage		[margin		= 10	pt,
 					font		= footnotesize, 
@@ -129,12 +130,10 @@
 \fancyhead[LE, RO]{\slshape \small \thepage}
 \fancyhead[CE]{\slshape \hyperref[toc]{Астрадь}}
 
-\DeclareMathOperator{\const}{const}
-
-\begin{document}
-\includepdf[pages=-]{sys/cover.pdf}
-\includepdf[pages=-]{sys/empty-page.pdf}
+%%% main
+\begin{document}\includepdf[pages=-]{sys/empty-page.pdf}
 \input{sys/authors.tex}
+\input{sys/cover.tex}
 \setcounter{tocdepth}{2}
 {
 	\small 
@@ -151,5 +150,6 @@
 \input{sections/objects.tex}
 \input{sections/math.tex}
 \input{sections/tables.tex}
-
+\input{sys/notes.tex}
+\input{sys/print-info.tex}
 \end{document}
