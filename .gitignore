@@ -3,6 +3,6 @@
 *.aux
 *.gz
 *.out
-astro-notebook.pdf
+# astro-notebook.pdf
 astro-notebook.tex
 .texpadtmp/
