@@ -1,23 +1,39 @@
 \documentclass[10pt, a5paper, twoside]{article}
 
 %%% Русский шрифт
-%\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
-%\usepackage[OT1]{fontenc}
+\usepackage[OT1]{fontenc}
 
 %%% Математика
 % Шрифты для математики
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\scalar}[2]{\left(\vec{#1} \cdot \vec{#2}\right)}
+\newcommand{\cross}[2]{\left[\vec{#1} \times \vec{#2}\right]}
+\newcommand{\triple}[3]{\left( \vec{#1}, \vec{#2}, \vec{#3} \right)}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\pr}{pr}
+
 % Операторы
 \DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\area}{Area}
 % Астрономические символы
 \usepackage{wasysym}
 \usepackage{starfont}	% Значок Цереры
+\usepackage{pgf}
 
 %%% Поля и разметка страницы
-\usepackage[inner=1.5cm, outer=0.9cm, top=1.5cm, bottom=1.2 cm, headsep=4mm]{geometry}
+%\usepackage[inner=1.5cm, outer=0.9cm, top=1.5cm, bottom=1.2 cm, headsep=4mm]{geometry}
+\usepackage[inner=2.0cm, outer=1.5cm, top=2cm, bottom=1.5 cm, headsep=4mm]{geometry}
 
 %%% Набор текста
 % Разрывы страниц в формулах
@@ -84,9 +100,16 @@
 					aboveskip 	= 4		pt, 
 					belowskip 	= 6	pt]	{subcaption}
 
-
 %%% Insert pdf pages
 \usepackage[final]{pdfpages}
+
+%%% Color highlight
+\usepackage{xcolor}
+
+%%% TiKZ
+\usepackage{tikz}
+%\usetikzlibrary{decorations.text}
+
 
 %%% Таблицы
 \usepackage{tabularx}
@@ -104,7 +127,24 @@
 \newcommand{\au}{\text{а.\,е.}}
 \newcommand{\tw}{\textwidth}
 \newcommand{\imp}[1]{{\itshape#1}}
-\renewcommand{\vec}[1]{\mathbf{#1}}
+
+
+\newcommand{\change}[1]{\textcolor{red}{#1}}
+
+\newcommand*{\SectorRadius}{1ex}
+\newcommand*{\SectorHalfAngle}{40}
+\newcommand*{\SectorLineWidth}{.5pt}
+
+\newcommand*{\sector}{%
+  \begin{pgfpicture}
+    \pgfpathmoveto{\pgforigin}%
+    \pgfpathlineto{\pgfpointpolar{90-(\SectorHalfAngle)}{\SectorRadius}}%
+    \pgfarc{90-(\SectorHalfAngle)}{90+\SectorHalfAngle}{\SectorRadius}%
+    \pgfpathclose
+    \pgfsetlinewidth{\SectorLineWidth}%
+    \pgfusepath{stroke}%
+  \end{pgfpicture}%
+}
 
 %%% Cчетчики
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
@@ -138,19 +178,20 @@
 \input{sys/cover}
 \setcounter{tocdepth}{2}
 {
-	\small 
-	\renewcommand{\baselinestretch}{ 0.95 } 
+%	\small 
+%	\renewcommand{\baselinestretch}{ 0.95 } 
 	\tableofcontents 
 	\label{toc}
 	\renewcommand {\baselinestretch}{ 1.02 }
 }
+\newpage
 \input{sys/cel.mech.tex}
 \input{sys/conic.sec.tex}
 \input{sys/astrophys.tex}
 \input{sys/optic.tex}
 \input{sys/spher.astro.tex}
 \input{sys/objects.tex}
-\input{sys/math.tex}
+\input{sys/maths.tex}
 \input{sys/tables.tex}
 \input{sys/notes.tex}
 \input{sys/print-info.tex}

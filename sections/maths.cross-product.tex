@@ -1,0 +1,54 @@
+\subsection{Векторное произведение}
+	
+	Тройку векторов будем называть правой, если для наблюдателя, находящегося в конце третьего вектора, кратчайший поворот от первого вектора ко второму осуществляется против часовой стрелки, иначе левой.
+	
+	Рассмотрим еще одну операцию над векторами~--- \term{векторное произведение} $\cross{a}{b}: \R^3 \times \R^3 \rightarrow \R^3$~--- антисимметричную и билинейную, задаваемую по правилу:
+	\begin{equation}
+		\cross{a}{b} = |\vec{a}||\vec{b}| \sin \widehat{\vec{a}\vec{b}} \cdot \vec{n},
+	\end{equation}
+	где $\vec{n}$~--- вектор нормали к плоскости, построенной на векторах $\vec{a}$ и $\vec{b}$, направление которой определяется таким образом, чтобы тройка векторов $\{\vec{a}, \vec{b}, \vec{n} \}$ была правой. Из определения понятно, что модуль векторного произведения равен площади параллелограмма, построенного на векторах $\vec{a}$~и~$\vec{b}$.
+	
+	Так как площадь параллелограмма, построенного на векторах $\vec{a}$~и~$\vec{b}$ равна удвоенной площади треугольнока, построенного на этих же векторах, то
+	\begin{equation}
+		|\cross{a}{b}| = |\cross{a}{(a - b)} | = |\cross{b}{(a-b)}|
+	\end{equation}
+	\begin{equation}
+		a b \sin C = a c \sin B = b c \sin A \quad \Rightarrow \quad \frac{\sin C}{c} = \frac{\sin B}{b} = \frac{\sin A}{a}. 
+	\end{equation}
+	Последнее двойное равенство называется теоремой синусов.
+	
+	Рассмотрим выражение для векторного произведения в координатной форме:
+	\begin{multline}
+		\cross{a}{b} = 
+		\cross{
+		\begin{pmatrix}
+			a_1\\
+			a_2\\
+			a_3
+		\end{pmatrix}}
+		{\begin{pmatrix}
+			b_1\\
+			b_2\\
+			b_3
+		\end{pmatrix}}
+		 = \\ =
+		[( a_1 \vec{e}_1 + a_2 \vec{e_2} + a_3 \vec{e_3}) \times ( b_1 \vec{e}_1 + b_2 \vec{e_2} + b_3 \vec{e_3})] = \\ 
+		= a_1 b_1 \vec{0} + a_1 b_2 \vec{e}_3 - a_1 b_3 \vec{e}_2 - a_2 b_1 \vec{e}_3 + a_2 b_2 \vec{0} + a_2 b_3 \vec{e}_1 + a_3 b_1 \vec{e}_2  - a_3 b_2 \vec{e}_1 + a_3 b_3 \vec{0} = \\ 
+		= (a_2 b_3 - a_3 b_2) \vec{e}_1 + (a_3 b_1 - a_1 b_3) \vec{e}_2 + (a_1 b_1 - a_2 b_1) \vec{e}_3 = \\ 
+		= \begin{vmatrix}
+			a_2 & a_3\\
+			b_2 & b_3
+		\end{vmatrix} \vec{e}_1 - 
+		\begin{vmatrix}
+			a_1 & a_3\\
+			b_1 & b_3
+		\end{vmatrix}\vec{e}_2 + 
+		\begin{vmatrix}
+			a_1 & a_2\\
+			b_1 & b_2
+		\end{vmatrix} \vec{e}_3 = \begin{vmatrix}
+			\vec{e}_1 & \vec{e}_2 & \vec{e}_3\\
+			a_1 & a_2 & a_3\\
+			b_1 & b_2 & b_3
+		\end{vmatrix}
+	\end{multline}
