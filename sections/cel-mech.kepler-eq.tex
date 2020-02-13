@@ -1,13 +1,13 @@
 \change{\subsection{Уравнение Кеплера}}
 
-\begin{wrapfigure}[15]{r}{0.48\tw}
+\begin{wrapfigure}[12]{r}{0.48\tw}
 	\centering
 %	\vspace{-0.3pc}
 	\begin{tikzpicture}[scale = 0.9]
 	\small
 	
-	\draw (0, 5) arc(90:0:5);
-	\draw[thick] (0, 4) arc(90:0:5 and 4);
+	\draw (5, 0) arc(0:55:5);
+	\draw (5, 0) arc(0:90:5 and 4);
 	\draw (0, 0) -- (5, 0);
 	
 	\draw (0, 0) -- (3.536, 3.536); %%% Угол E = 45 градусов
@@ -17,7 +17,7 @@
 	
 	\draw (0.5, 0) arc(0:45:0.5);
 	\draw[double] (1.2, 0) arc(0:23:1.2);
-	\draw[decoration={snake, segment length=1mm,
+	\draw[decoration={snake, segment length=1.1mm,
             amplitude=0.3mm}, decorate] (3.3, 0) arc(0:79.26:0.3);
 	\draw (3.536, 3.536) -- (3.536, 0);
 	
@@ -34,7 +34,7 @@
 	\draw (5, 0) node [anchor= north west] {$P$};
 	\draw (3.536, 0) node [anchor= north] {$H$};
 	\draw (4.603, 1.954) node [anchor=south west] {$D$};
-	\draw (0, 5) node [anchor=north west] {$c$};
+	\draw (2.95, 4) node [anchor=north] {$c$};
 	\draw (0, 4) node [anchor=north west] {$o$};
 	
 	\draw[fill=white] (3.536, 3.536) circle (0.03); 	 %%% A
@@ -64,19 +64,18 @@
 	\draw[line width=2pt, lightgray, line join = round] (5, 0) arc(0:45:5) -- (3, 0) -- cycle;
 	\draw[line width=2pt, lightgray, line join = round] (5, 0) arc(0:45:5 and 4) -- (3, 0) -- cycle;
 	
-	\draw (0, 5) arc(90:0:5);
-	\draw (0, 4) arc(90:0:5 and 4);
+	\draw [line cap = round](5, 0) arc(0:55:5);
+	\draw [line cap = round] (5, 0) arc(0:90:5 and 4);
 	\draw (0, 0) -- (5, 0);
 	
 	\draw (0, 0) -- (3.536, 3.536); %%% Угол E = 45 градусов
 	\draw (3, 0) -- (3.536, 2.828); %%% a * cos(45) * (b / a)
-	\draw[dashed] (3, 0) -- (3.536, 3.536); %%% a * cos(45) * (b / a)
+	\draw[dashes] (3, 0) -- (3.536, 3.536); %%% a * cos(45) * (b / a)
 	
 	
 	\draw (0.5, 0) arc(0:45:0.5);
 	\draw[double] (1.2, 0) arc(0:23:1.2);
-	\draw[decoration={snake, segment length=1mm,
-            amplitude=0.3mm}, decorate] (3.3, 0) arc(0:79.26:0.3);
+	\draw[decoration={snake, segment length=1.1mm, amplitude=0.3mm}, decorate] (3.3, 0) arc(0:79.26:0.3);
 	\draw (3.536, 3.536) -- (3.536, 0);
 	
 	\draw (0, 0) node [anchor=north east] {$C$};
@@ -92,7 +91,7 @@
 	\draw (5, 0) node [anchor= north west] {$P$};
 	\draw (3.536, 0) node [anchor= north] {$H$};
 	\draw (4.603, 1.954) node [anchor=south west] {$D$};
-	\draw (0, 5) node [anchor=north west] {$c$};
+	\draw (2.95, 4) node [anchor=north] {$c$};
 	\draw (0, 4) node [anchor=north west] {$o$};
 	
 	\draw[fill=white] (3.536, 3.536) circle (0.03); 	 %%% A
@@ -116,18 +115,19 @@
 	\draw[line width=2pt, lightgray, line join = round] (5, 0) arc(0:23:5) -- (0, 0) -- cycle;
 	\draw[line width=2pt, lightgray, line join = round] (5, 0) arc(0:45:5 and 4) -- (3, 0) -- cycle;
 	
-	\draw (0, 5) arc(90:0:5);
-	\draw (0, 4) arc(90:0:5 and 4);
+	\draw (5, 0) arc(0:55:5);
+	\draw (5, 0) arc(0:90:5 and 4);
 	\draw (0, 0) -- (5, 0);
 	
 	\draw (0, 0) -- (3.536, 3.536); %%% Угол E = 45 градусов
 	\draw (3, 0) -- (3.536, 2.828); %%% a * cos(45) * (b / a)
-	\draw[dashed] (3, 0) -- (3.536, 3.536); %%% a * cos(45) * (b / a)
+	\draw[dashes] (3, 0) -- (3.536, 3.536); %%% a * cos(45) * (b / a)
 	
 	
 	\draw (0.5, 0) arc(0:45:0.5);
-	\draw[double] (1.2, 0) arc(0:23:1.2);
-	\draw[decoration={snake, segment length=1mm,
+	\draw[] (1.18, 0) arc(0:23:1.18);
+	\draw[] (1.22, 0) arc(0:23:1.22);
+	\draw[decoration={snake, segment length=1.1mm,
             amplitude=0.3mm}, decorate] (3.3, 0) arc(0:79.26:0.3);
 	\draw (3.536, 3.536) -- (3.536, 0);
 	
@@ -143,8 +143,7 @@
 	
 	\draw (5, 0) node [anchor= north west] {$P$};
 	\draw (3.536, 0) node [anchor= north] {$H$};
-	\draw (4.603, 1.954) node [anchor=south west] {$D$};
-	\draw (0, 5) node [anchor=north west] {$c$};
+º	\draw (2.95, 4) node [anchor=north] {$c$};
 	\draw (0, 4) node [anchor=north west] {$o$};
 	
 	\draw[fill=white] (3.536, 3.536) circle (0.03); 	 %%% A

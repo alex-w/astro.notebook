@@ -4,10 +4,44 @@
 \begin{wrapfigure}[14]{l}{0.48\tw}
 	\centering
 	\vspace{-.5pc}
-	\includegraphics[width = .48\tw]{lagr-points}
+	\begin{tikzpicture}[scale = 0.7]
+	\small
+	\draw[dashes, line width = .7pt, line cap = circle] (0, 0) circle (3);
+	\draw (-3.5, 0) -- (4, 0);
+	\draw (0, 0) -- (1.5, 2.6);
+	\draw (0, 0) -- (1.5, -2.6);
+	\draw[fill=lightgray, line width = .7pt] (0, 0) circle (0.4);
+	\draw[fill=lightgray, line width = .7pt] (3, 0) circle (0.2);
+	
+	\draw (0.6, 0) arc(0:60:.6);
+	\draw (.7, 0) arc(0:-60:.7);
+	
+	
+	\draw[fill=white, line width = .3pt] (2.5, 0) circle (0.035); 	 %%% L1
+	\draw[fill=white, line width = .3pt] (3.5, 0) circle (0.03); 	 %%% L2
+	\draw[fill=white, line width = .3pt] (-3, 0) circle (0.035); 	 %%% L3
+	\draw[fill=white, line width = .3pt] (1.5, 2.6) circle (0.035); 	 %%% L4
+	\draw[fill=white, line width = .3pt] (1.5, -2.6) circle (0.035); 	 %%% L5
+	
+	\draw (0, -.4) node [anchor= north] {$M_1$};
+	\draw (3, -.2) node [anchor= north west] {$M_2$};
+	\draw (1.5, -2.6) node [anchor= north west] {$L_5$};
+	\draw (1.5, 2.6) node [anchor= south west] {$L_4$};
+	\draw (-3, 0) node [anchor= south east] {$L_3$};
+	\draw (3.5, 0) node [anchor= south] {$L_2$};
+	\draw (2.5, 0) node [anchor= south] {$L_1$};
+	
+	\draw (0.4, 0.2) node [anchor= south west] {$60^\circ$};
+	\draw (.5, -.2) node [anchor= north west] {$60^\circ$};
+	
+	
+	
+\end{tikzpicture}
 	\captionof{figure}{Точки Лагранжа}
 	\label{pic:larg-points-1}	
 \end{wrapfigure}
+%\includegraphics[width = .48\tw]{lagr-points}
+
 в которых третье тело с пренебрежимо 
 малой массой, не испытывающее воздействие никаких 
 других сил, кроме гравитационных со стороны двух 
@@ -51,7 +85,7 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 			\draw (4, 0) node [anchor= south] {$L_1$};
 			\draw (0, 0) node [anchor= south] {ц.м.};
 			%
-			\draw [dashed] (-1, 0) -- (5, 0);
+			\draw [dashes] (-1, 0) -- (5, 0);
 			%
 			\draw[fill=white] (-1, 0) circle (0.05); %%% 1
 			\draw[fill=white] (5, 0) circle (0.05); %%% 2
@@ -114,7 +148,7 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 			\draw (-3, 0) node [anchor= south] {$L_3$};
 			\draw (1, 0) node [anchor= south] {ц.м.};
 			%
-			\draw [dashed] (-3, 0) -- (3, 0);
+			\draw [dashes] (-3, 0) -- (3, 0);
 			%
 			\draw[fill=white] (0, 0) circle (0.05); %%% 1
 			\draw[fill=white] (3, 0) circle (0.05); %%% 2
@@ -164,7 +198,7 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 			\draw (0, 0) node [anchor= north] {ц.м.};
 			\draw (2, 5.2) node [anchor= south east] {$L_4$};
 	
-			\draw [dashed] (-1, 0) -- (5, 0);
+			\draw [dashes] (-1, 0) -- (5, 0);
 	
 			\draw (-.5, 0.87) node [anchor= south east] {$\vec{r}_1$};
 			\draw (3.5, 2.6) node [anchor= south west] {$\vec{r}_2$};
@@ -201,8 +235,8 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 	
 			\draw [-latex] (0,0) -- (2, 5.2);
 	
-			\draw [dashed] (-1, 0) -- (2, 5.2);
-			\draw [dashed] (5, 0) -- (2, 5.2);
+			\draw [dashes] (-1, 0) -- (2, 5.2);
+			\draw [dashes] (5, 0) -- (2, 5.2);
 	
 			\draw (-0.3, 0) node [anchor= south ] {$\vec{r}_1$};
 			\draw (2.5, 0) node [anchor= south ] {$\vec{r}_2$};
