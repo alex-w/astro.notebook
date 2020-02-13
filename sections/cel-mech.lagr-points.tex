@@ -4,10 +4,44 @@
 \begin{wrapfigure}[14]{l}{0.48\tw}
 	\centering
 	\vspace{-.5pc}
-	\includegraphics[width = .48\tw]{lagr-points}
+	\begin{tikzpicture}[scale = 0.7]
+	\small
+	\draw[dashes, line width = .7pt, line cap = circle] (0, 0) circle (3);
+	\draw (-3.5, 0) -- (4, 0);
+	\draw (0, 0) -- (1.5, 2.6);
+	\draw (0, 0) -- (1.5, -2.6);
+	\draw[fill=lightgray, line width = .7pt] (0, 0) circle (0.4);
+	\draw[fill=lightgray, line width = .7pt] (3, 0) circle (0.2);
+	
+	\draw (0.6, 0) arc(0:60:.6);
+	\draw (.7, 0) arc(0:-60:.7);
+	
+	
+	\draw[fill=white, line width = .3pt] (2.5, 0) circle (0.035); 	 %%% L1
+	\draw[fill=white, line width = .3pt] (3.5, 0) circle (0.03); 	 %%% L2
+	\draw[fill=white, line width = .3pt] (-3, 0) circle (0.035); 	 %%% L3
+	\draw[fill=white, line width = .3pt] (1.5, 2.6) circle (0.035); 	 %%% L4
+	\draw[fill=white, line width = .3pt] (1.5, -2.6) circle (0.035); 	 %%% L5
+	
+	\draw (0, -.4) node [anchor= north] {$M_1$};
+	\draw (3, -.2) node [anchor= north west] {$M_2$};
+	\draw (1.5, -2.6) node [anchor= north west] {$L_5$};
+	\draw (1.5, 2.6) node [anchor= south west] {$L_4$};
+	\draw (-3, 0) node [anchor= south east] {$L_3$};
+	\draw (3.5, 0) node [anchor= south] {$L_2$};
+	\draw (2.5, 0) node [anchor= south] {$L_1$};
+	
+	\draw (0.4, 0.2) node [anchor= south west] {$60^\circ$};
+	\draw (.5, -.2) node [anchor= north west] {$60^\circ$};
+	
+	
+	
+\end{tikzpicture}
 	\captionof{figure}{Точки Лагранжа}
 	\label{pic:larg-points-1}	
 \end{wrapfigure}
+%\includegraphics[width = .48\tw]{lagr-points}
+
 в которых третье тело с пренебрежимо 
 малой массой, не испытывающее воздействие никаких 
 других сил, кроме гравитационных со стороны двух 
@@ -51,7 +85,7 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 			\draw (4, 0) node [anchor= south] {$L_1$};
 			\draw (0, 0) node [anchor= south] {ц.м.};
 			%
-			\draw [dashed] (-1, 0) -- (5, 0);
+			\draw [dashes] (-1, 0) -- (5, 0);
 			%
 			\draw[fill=white] (-1, 0) circle (0.05); %%% 1
 			\draw[fill=white] (5, 0) circle (0.05); %%% 2
@@ -114,7 +148,7 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 			\draw (-3, 0) node [anchor= south] {$L_3$};
 			\draw (1, 0) node [anchor= south] {ц.м.};
 			%
-			\draw [dashed] (-3, 0) -- (3, 0);
+			\draw [dashes] (-3, 0) -- (3, 0);
 			%
 			\draw[fill=white] (0, 0) circle (0.05); %%% 1
 			\draw[fill=white] (3, 0) circle (0.05); %%% 2
@@ -148,7 +182,7 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
  \end{equation}
  }
  
- \change{Остается найти координаты точек Лагранжа $L_4$ и $L_5$. Рассмотрим Рис.\,\ref{pic:larg-points-2}. Векторы $\vec{r}_1$, $\vec{r}_2$ и $\vec{r}_3$~--- радиус-векторы соответсвенно тела с массой $M_1$, тела с массой $M_2$ и центра масс относительно точки $L_4$. В силу симметрии  все рассуждения будут верны и для точки $L_5$.Также на рисунке отмечены силы, действующие на тело, располагающееся в точке $L_4$: $\vec{F}_1$~--- сила гравитации от тела с массой $M_1$, $\vec{F}_2$~--- с массой $M_2$, сила инерции $\vec{F}_\text{ц.б.}$~--- центробежная~--- коллинеарна вектору $\vec{r}_3$.
+ \change{Остается найти координаты точек Лагранжа $L_4$ и $L_5$. Рассмотрим~Рис.\,\ref{pic:larg-points-2}. Векторы $\vec{r}_1$, $\vec{r}_2$ и $\vec{r}_3$~--- радиус-векторы соответсвенно тела с массой $M_1$, тела с массой $M_2$ и центра масс относительно точки $L_4$. В~силу симметрии  все рассуждения будут верны и для точки $L_5$.Также на рисунке отмечены силы, действующие на тело, располагающееся в точке $L_4$: $\vec{F}_1$~--- сила гравитации от тела с массой $M_1$, $\vec{F}_2$~--- с массой $M_2$, сила инерции $\vec{F}_\text{ц.б.}$~--- центробежная~--- коллинеарна вектору $\vec{r}_3$.
  }
  
  \begin{figure}[h!]
@@ -164,7 +198,7 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 			\draw (0, 0) node [anchor= north] {ц.м.};
 			\draw (2, 5.2) node [anchor= south east] {$L_4$};
 	
-			\draw [dashed] (-1, 0) -- (5, 0);
+			\draw [dashes] (-1, 0) -- (5, 0);
 	
 			\draw (-.5, 0.87) node [anchor= south east] {$\vec{r}_1$};
 			\draw (3.5, 2.6) node [anchor= south west] {$\vec{r}_2$};
@@ -201,8 +235,8 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 	
 			\draw [-latex] (0,0) -- (2, 5.2);
 	
-			\draw [dashed] (-1, 0) -- (2, 5.2);
-			\draw [dashed] (5, 0) -- (2, 5.2);
+			\draw [dashes] (-1, 0) -- (2, 5.2);
+			\draw [dashes] (5, 0) -- (2, 5.2);
 	
 			\draw (-0.3, 0) node [anchor= south ] {$\vec{r}_1$};
 			\draw (2.5, 0) node [anchor= south ] {$\vec{r}_2$};
@@ -285,8 +319,49 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 \end{equation}
  }
 
-\change{Рассмотрим также второй способ найти координаты точек $L_{4}$ и $L_5$:\\[0.5pc]
-\footnotesize{Рассмотрим проекции данных сил на ось, перпендикулярную $\vec{r}_3$. Зададим ее вектором $\vec{r}_3^\perp = (y, -x)$. Получим:
+\change{ \footnotesize{Разберем также второй способ найти координаты точек $L_{4}$ и $L_5$. Рассмотрим Рис.\,\ref{pic:larg-points-3}. Пусть положение тел с массами $M_1$ и $M_2$, а также точки $L_4$, относительно центра масс задается радиус-векторами $\vec{r}_1$, $\vec{r}_2$ и $\vec{r}_3$ соответственно. Выпишем координаты этих векторов, приняв расстояние между массивными телами за $R$:
+\begin{equation*}
+	\vec{r}_1 = \begin{pmatrix}
+		-R \cdot \dfrac{M_2}{M_1 + M_2}\\[.5pc]
+		0
+	\end{pmatrix} \equiv \begin{pmatrix}
+		-R \alpha\\
+		0
+	\end{pmatrix}; \quad
+	\vec{r}_2 = \begin{pmatrix}
+		R \cdot \dfrac{M_1}{M_1 + M_2}\\[.5pc]
+		0
+	\end{pmatrix} \equiv \begin{pmatrix}
+		R \beta\\
+		0
+	\end{pmatrix}; \quad
+	\vec{r}_3 = \begin{pmatrix}
+		x\\
+		y
+	\end{pmatrix}.
+\end{equation*}
+Координаты $(x, y)$ вектора $\vec{r}_3$  и предстоит найти. Суть данного способа заключается в проецировании сил, действующих на пробную массу, находящуюся в точке $L_4$ на радиальную относительно центра масс ось и тангенциальную. Направление радиальной оси задается вектором $\vec{r}_3$, а тангенциальной~---  вектором ей ортогональным с координатами, например, $(y, -x)$. Обозначим его $\vec{r}_3^\perp$. Силы, принимаемые в расчет равны
+\begin{gather*}
+	\vec{F}_1 = \dfrac{G M_1 m}{|\vec{r}_1 - \vec{r}_3 |^3} (\vec{r}_1 - \vec{r}_3) = \frac{G M_1 m}{\big[ (R \alpha + x)^2 + y^2 \big]^{3/2}}\begin{pmatrix}
+			-R\alpha - x\\
+			-y
+	\end{pmatrix} \equiv \frac{G M_1 m}{A}\begin{pmatrix}
+			-R\alpha - x\\
+			-y
+	\end{pmatrix} ,\\
+	\vec{F}_2 = \dfrac{G M_2 m}{|\vec{r}_2 - \vec{r}_3 |^3} (\vec{r}_2 - \vec{r}_3) = \frac{G M_2 m}{\big[ (R \beta - x)^2 + y^2 \big]^{3/2}}\begin{pmatrix}
+			R\beta - x\\
+			-y
+	\end{pmatrix} \equiv \frac{G M_2 m}{B}\begin{pmatrix}
+			R\beta - x\\
+			-y
+	\end{pmatrix},\\
+	\vec{F}_\text{ц.б} = m\omega^2 \vec{r}_3 = \frac{G (M_1 + M_2)}{|\vec{r}_1 - \vec{r}_2|^3} \vec{r}_3 = \frac{G(M_1 + M_2)}{R^3} \begin{pmatrix}
+			x\\
+			y
+	\end{pmatrix},
+\end{gather*}
+Запишем уравнение баланса этих сил в проекции на ось $\vec{r}_3^\perp$, используя скалярное произведение и его координатное представление:
 	\begin{gather*}
 		\frac{ \left( \vec{r_3^\perp},  \vec{F}_1 \right)}{\left| \vec{r}_3^\perp \right|} + \frac{ \left( \vec{r_3^\perp}, \vec{F}_2 \right)}{\left| \vec{r}_3^\perp \right|} = 0,\\
 %		\frac{ \left( \vec{r_3^\perp} \right)_x  F_1^x + \left( \vec{r_3^\perp} \right)_y F_1^y}{ \sqrt{\left( \vec{r_3^\perp} \right)_x^2 + \left( \vec{r_3^\perp} \right)_y^2}} + \frac{ \left( \vec{r_3^\perp} \right)_x F_2^x + \left( \vec{r_3^\perp} \right)_y  F_2^y}{ \sqrt{\left( \vec{r_3^\perp} \right)_x^2 + \left( \vec{r_3^\perp} \right)_y^2}} = 0,\\
@@ -296,16 +371,16 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 %		 	\frac{1}{\sqrt{x^2 + y^2}} \Bigg(&\dfrac{-y M_1 (R\alpha + x )}{\big[ (R \alpha + x)^2 + y^2 \big]^{3/2}} + \dfrac{x y M_1}{\big[ (R \alpha + x)^2 + y^2 \big]^{3/2}}  + \\
 %		 	& + \frac{y M_2(R\beta - x)}{\big[ (R \beta - x)^2 + y^2 \big]^{3/2}} + \frac{xy  M_2}{\big[ (R \beta - x)^2 + y^2 \big]^{3/2}} \Bigg)= 0,
 %		 \end{aligned}\\
-		 \dfrac{-y M_1 (R\alpha + x ) + x y M_1}{\underbrace{\big[ (R \alpha + x)^2 + y^2 \big]^{3/2}}_A} 	+ \frac{y M_2(R\beta - x) + xy  M_2}{\underbrace{\big[ (R \beta - x)^2 + y^2 \big]^{3/2}}_B}= 0,\\
+%		 \dfrac{-y M_1 (R\alpha + x ) + x y M_1}{\underbrace{\big[ (R \alpha + x)^2 + y^2 \big]^{3/2}}_A} 	+ \frac{y M_2(R\beta - x) + xy  M_2}{\underbrace{\big[ (R \beta - x)^2 + y^2 \big]^{3/2}}_B}= 0,\\
+	\dfrac{-y M_1 (R\alpha + x ) + x y M_1}{A} 	+ \frac{y M_2(R\beta - x) + xy  M_2}{B}= 0,\\
 %		 \dfrac{-y M_1 (R\alpha + x ) + x y M_1}{A} 	+ \frac{y M_2(R\beta - x) + xy  M_2}{B}= 0,\\
 		 yR \left( \frac{M_2 \beta}{B} - \frac{M_1 \alpha}{A}\right) + xy \left( - \frac{M_2}{B} + \frac{M_2}{B} - \frac{M_1}{A} + \frac{M_1}{A} \right) = 0,\\
 		 \frac{yRM_1M_2}{M_1 + M_2} \left\{ \frac{1}{\big[ (R \alpha + x)^2 + y^2 \big]^{3/2}} - \frac{1}{\big[ (R \beta - x)^2 + y^2 \big]^{3/2}} \right\} = 0,\\
 		 \frac{\big[ (R \beta - x)^2 + y^2 \big]^{3/2} - \big[ (R \alpha + x)^2 + y^2 \big]^{3/2}}{\big[ (R \alpha + x)^2 + y^2 \big]^{3/2}\big[ (R \beta - x)^2 + y^2 \big]^{3/2}} = 0,\\
 %		 \big[ (R \beta - x)^2 + y^2 \big]^{3/2} = \big[ (R \alpha + x)^2 + y^2 \big]^{3/2},\\
-		 R \beta - x = R \alpha + x,\\
-		 x = \frac{R}{2} \left( \beta - \alpha \right) = \frac{R}{2} \cdot \frac{M_1 - M_2}{M_1 + M_2}. 
+		 R \beta - x = R \alpha + x \quad \Rightarrow \quad x = \frac{R}{2} \left( \beta - \alpha \right) = \frac{R}{2} \cdot \frac{M_1 - M_2}{M_1 + M_2}. 
 		 \end{gather*}
-	Важно отметить, что при полученном значении $x$ выполняется равенство $A = B$, чем мы сейчас и воспользуемся. Найдем $y$, для этого запишем уравнения баланса сил на ось $\vec{r_3}$:
+	Важно отметить, что при полученном значении $x$ выполняется равенство $A = B$, чем мы сейчас и воспользуемся. Найдем возможные значения $y$, при заданном значении $x$, найденном выше. Для этого запишем уравнения баланса сил  $\vec{F}_1$, $\vec{F}_2$ и $\vec{F}_\text{ц.б}$ на ось $\vec{r_3}$:
 	\begin{gather*}
 		\frac{ \left( \vec{r_3},  \vec{F}_1 \right)}{\left| \vec{r}_3 \right|} + \frac{ \left( \vec{r_3}, \vec{F}_2 \right)}{\left| \vec{r}_3\right|} + \frac{\omega^2 \left(\vec{r}_3, \vec{r}_3\right)}{\left| \vec{r}_3\right|} = 0,\\
 		\frac{M_1 + M_2}{R^3} \cdot \left( x^2 + y^2 \right) + \frac{-x M_1 (R \alpha + x) - y^2 M_1}{A} + \frac{ x M_2 ( R \beta - x) - y^2 M_2}{B} = 0,\\
@@ -313,9 +388,9 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 %		\left( x^2 + y^2 \right) \left(  \frac{M_1 + M_2}{R^3} - \frac{M_1 + M_2}{B} \right) + \cancelto{0}{\frac{xR M_1 M_2}{M_1 + M_2} \left( \frac{1}{B} - \frac{1}{B} \right)} = 0,\\
 		\left( x^2 + y^2 \right)(M_1 + M_2) \left( \frac{1}{R^3} - \frac{1}{B} \right) = 0,\\
 %		B = R^3,\\
-		(x - R \beta)^2 + y^2 = R^2,\\
-%		y^2 = R^2 \left( 1 - \left(\frac{1}{2}\left(\beta - \alpha \right) - \beta \right)^2\right) = R^2 \left( 1 - \frac{1}{4}(\underbrace{\beta + \alpha}_{1})^2 \right) = \frac{3}{4}R^2,\\
-		y = \pm \frac{\sqrt{3}}{2} R.
+		(x - R \beta)^2 + y^2 = R^2 \quad \Rightarrow y = \pm \frac{\sqrt{3}}{2} R.
+%		y^2 = R^2 \left( 1 - \left(\frac{1}{2}\left(\beta - \alpha \right) - \beta \right)^2\right) = R^2 \left( 1 - \frac{1}{4}(\underbrace{\beta + \alpha}_{1})^2 \right) = \frac{3}{4}R^2,\\	
 	\end{gather*}
+	Полученные координаты совпадают с найдеными ранее. Относятся, соответственно, к точкам $L_4$ и $L_5$.
 }
 }
