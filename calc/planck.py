@@ -14,20 +14,20 @@ def vin(l):
 
 f = open("../data/planck.txt", "w")
 
-l_min = 10 # нм
+l_min = 20 # нм
 l_max = 2000 # нм
 
 T = [i * 100 for i in range(30, 300 + 1)]
 
-N = 500
+N = 50
 
 f.write("l\t")
 for t in T:
     f.write("t{}\t".format(t))
 f.write("tl\n")
 
-for i in range(N):
-    l = np.float64(l_min) + np.float64( (l_max - l_min) * i ) / np.float64(N)
+for i in np.linspace(0, np.log(N), num=N):
+    l = np.float64(l_min) + np.float64( (l_max - l_min) * (np.exp(i) - 1) ) / np.float64(N - 1)
     f.write("{}\t".format(np.format_float_scientific(l, precision=3)))
     for t in T:
         f.write("{}\t".format(np.format_float_scientific(B(l * 10**(-9), t), precision=3)))

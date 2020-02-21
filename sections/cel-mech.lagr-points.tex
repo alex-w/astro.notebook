@@ -4,8 +4,8 @@
 \begin{wrapfigure}[14]{l}{0.48\tw}
 	\centering
 	\vspace{-.5pc}
-	\begin{tikzpicture}[scale = 0.7]
-	\small
+	\begin{tikzpicture}[scale = 0.9]
+	\footnotesize
 	\draw[dashes, line width = .7pt, line cap = circle] (0, 0) circle (3);
 	\draw (-3.5, 0) -- (4, 0);
 	\draw (0, 0) -- (1.5, 2.6);
@@ -78,7 +78,7 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 	\centering
 	\vspace{-.5pc}
 	\begin{tikzpicture}[scale = 0.66]
-			\small
+			\footnotesize
 			%
 			\draw (5, 0) node [anchor= south] {$M_2$};
 			\draw (-1, 0) node [anchor= south] {$M_1$};
@@ -141,7 +141,7 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 	\centering
 	\vspace{-.5pc}
 	\begin{tikzpicture}[scale = 0.66]
-			\small
+			\footnotesize
 			%
 			\draw (3, 0) node [anchor= south] {$M_2$};
 			\draw (0, 0) node [anchor= south] {$M_1$};
@@ -188,7 +188,7 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
  \begin{figure}[h!]
 	\begin{subfigure}{0.47\tw}
 		\begin{tikzpicture}[scale = 0.66]
-			\small
+			\footnotesize
 			\draw [-latex] (2, 5.2) -- (5,0);
 			\draw [-latex] (2, 5.2) -- (-1,0);
 			\draw [-latex] (2, 5.2) -- (0, 0);
@@ -213,6 +213,11 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 			\draw [-latex, thick] (2, 5.2) -- (2.5, 6.5);
 			\draw (2.3, 5.7) node [anchor= west] {$\vec{F}_{\text{ц.б.}}$};
 	
+%			\foreach \Point in {(-1, 0), (5, 0), (2, 5.2), (0, 0)}{
+%    			\node at \Point {$\circ$};
+%			}
+			
+	
 			\draw[fill=white] (-1, 0) circle (0.05); %%% 1
 			\draw[fill=white] (5, 0) circle (0.05); %%% 2
 			\draw[fill=white] (2, 5.2) circle (0.05); %%% 3
@@ -224,7 +229,7 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 	\hfill
 	\begin{subfigure}{0.47\tw}
 		\begin{tikzpicture}[scale = 0.66]
-			\small
+			\footnotesize
 			\draw [-latex] (0,0) -- (5,0);
 			\draw [-latex] (0,0) -- (-1,0);
 	
