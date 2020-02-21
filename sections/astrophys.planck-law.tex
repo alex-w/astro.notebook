@@ -12,30 +12,33 @@ B_\nu(\nu,T)=\frac{2h\nu^3}{c^2}\cdot \frac{1}{\exp\left(\frac{h\nu}{kT}\right)-
 B_\lambda(\lambda,T)=\frac{2hc^2}{\lambda^5} \cdot \frac{1}{\exp\left(\frac{hc}{\lambda kT}\right)-1} = \left[ \frac{\text{Вт}}{\text{м}^3 \cdot \text{ср}}\right].
 \label{eq:plancks-law-lambda}
 \end{equation}
-\begin{wrapfigure}[15]{l}{.6\tw}
+\begin{figure}[h!]
 \centering
 \vspace{-.9pc}
  \begin{tikzpicture}
   \begin{axis}[
-  				width 	=	.6\tw, 
-				height	=	6cm, 
+  				width 	=	\tw, 
+				height	=	8cm, 
   				ymax	=	1e+14,
   				xmax	=	2000,
   				xmin	=	0,
   				ymin	=	0,
 				xlabel	=	{Длина волны $\lambda$,~нм}, 
-				ylabel 	= 	{$B_\lambda(\lambda, T)$,~$\text{Вт} \cdot \text{м}^{-3}$}
+				ylabel 	= 	{$B_\lambda(\lambda, T)$,~$\text{Вт} \cdot \text{м}^{-3}$},
+				restrict y to domain		=	0:1e+15
 ]
    \addplot+[dashed, thin, black] table[x=l, y=tl] {data/planck.txt};
-   \addplot+[black] table[x=l, y=t4] {data/planck.txt} node at (axis cs:870, 1.6e+13) {\tiny{$4500$~K}};
-   \addplot+[black] table[x=l, y=t5] {data/planck.txt}node at (axis cs:750, 4.2e+13) {\tiny{$5000$~K}};
-   \addplot+[black] table[x=l, y=t58] {data/planck.txt}node at (axis cs:670, 8.5e+13) {\tiny{$5800$~K}};
-   \addplot+[black] table[x=l, y=t7] {data/planck.txt}node at (axis cs:1350, 3.5e+13) {\tiny{$7000$~K}};
-	%\addplot+[black, smooth] table[x=l, y=t15] {data/planck.txt} node at (axis cs:1670, 5.5e+13) {\tiny{$15000$~K}};
+   \addplot[black] table[x=l, y=t3800] {data/planck.txt} node at (axis cs:870, 1.4e+13) {\scriptsize{$3800$~K}};
+   \addplot+[black, smooth, solid] table[x=l, y=t4500] {data/planck.txt} node at (axis cs:750, 2.7e+13) {\scriptsize{$4500$~K}};
+   \addplot+[black, smooth, solid] table[x=l, y=t5000] {data/planck.txt}node at (axis cs:710, 4.4e+13) {\scriptsize{$5000$~K}};
+   \addplot+[black, smooth, solid] table[x=l, y=t5800] {data/planck.txt}node at (axis cs:640, 8.7e+13) {\scriptsize{$5800$~K}};
+   \addplot+[black, smooth, solid] table[x=l, y=t7000] {data/planck.txt}node at (axis cs:1340, 3.3e+13) {\scriptsize{$7000$~K}};
+   \addplot+[black, smooth, solid] table[x=l, y=t10000] {data/planck.txt} node at (axis cs:1430, 5.5e+13) {\scriptsize{$10000$~K}};
+   \addplot+[black, smooth, solid] table[x=l, y=t20000] {data/planck.txt} node at (axis cs:1670, 8.0e+13) {\scriptsize{$20000$~K}};
   \end{axis}
  \end{tikzpicture}
 \caption{Кривые спектральной плотности мощности изотропного излучения АЧТ с разной температурой}\label{pic:wien-law}
-\end{wrapfigure}
+\end{figure}
 Стоит заметить, что при переходе в функции к длинам волн меняется не только частота на длину волны, но и выражение для интервала. 
 
 Формула Планка появилась, когда стало ясно, что формула Рэлея-Джинса удовлетворительно описывает излучение только в области больших длин волн, а~с~убыванием длин волн даёт сильные расхождения с реальными данными. Однако формулу Рэлея-Джинса используют и сейчас для описания кривой Планка на больших длинах волн. 
