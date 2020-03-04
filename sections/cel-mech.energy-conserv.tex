@@ -47,6 +47,36 @@
 v_h=\sqrt{\frac{GM}{r_0+h}}=\sqrt{\frac{g r_0^2}{r_0+h}}.
 \end{equation}
 
+\begin{wrapfigure}[10]{r}{.5\tw}
+	\centering
+	\vspace{-1pc}
+	\includegraphics[width = 0.45\tw]{orb-vel}
+	\caption{Движение по окружности \label{pic:orb-vel}}
+\end{wrapfigure}
+\change{Вывод:
+\\
+Рассмотрим 2 точки из траектории ($А$ и $В$) и скорости объекта в этих точках ($v_A$ и $v_B$) соответственно.
+\begin{equation}
+\vec{\Delta v} = \vec{v_B} - \vec{v_A}
+\end{equation}
+При устремлении промежутка времени между пунктами к 0 можно считать, что длина пути становится равна длине хорды $AB$.
+\begin{equation}
+\alpha = \frac{\Delta v}{v_A} = \frac{AB}{R}.
+\end{equation}
+Посчитаем модуль среднего ускорения:
+\begin{equation}
+\langle a \rangle = \frac{\Delta v}{\Delta t} = \frac{v \Delta l}{R \Delta t}.
+\end{equation}
+Перейдя к пределу, получим мгновенное ускорение
+\begin{equation}
+a = \lim_{\Delta t \rightarrow 0} \langle a \rangle = \lim_{\Delta t \rightarrow 0} \frac{v \Delta l}{R \Delta t} = \frac{v}{R} \lim_{\Delta t \rightarrow 0} \frac{\Delta l}{\Delta t} = \frac{v^2}{R}.
+\end{equation}
+Отсюда получаем значение для круговой скорости:
+\begin{equation}
+v = \sqrt{a R} = \sqrt{\frac{G M}{R}}.
+\end{equation}
+}
+
 \term{Параболическая} или \term{вторая космическая скорость} --- 
 минимальная скорость, необходимая для того, чтобы маломассивное тело преодолело гравитационное притяжение центрального тела, стартуя с расстояния $r$ от его центра масс, и покинуло замкнутую орбиту вокруг 
 последнего. Выражение для нее имеет следующий вид:\begin{equation}
