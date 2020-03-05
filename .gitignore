@@ -1,4 +1,5 @@
 *.log
+sections/*.log
 *.toc
 *.aux
 *.gz
