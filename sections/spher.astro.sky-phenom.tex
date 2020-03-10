@@ -1,41 +1,41 @@
 \subsection{Суточное вращение небесной сферы}
-Вследствие вращения Земли вокруг своей оси для наблюдателя на поверхности небесные объекты совершают суточное движение параллельно небесному экватору, плоскость которого совпадает с плоскостью экватора Земли. Очевидно, в ходе такого движения высота светил постоянно меняется и в некоторые моменты времени достигает своего максимального и минимального значения. 
+Вследствие вращения Земли вокруг своей оси для наблюдателя на поверхности небесные объекты совершают суточное движение параллельно небесному экватору, плоскость которого совпадает с плоскостью экватора Земли. Очевидно, в ходе такого движения высота светил постоянно меняется и в некоторые моменты времени достигает своего максимального и минимального значения.
 
 \term{Верхняя} и \term{нижняя кульминация}~--- моменты пересечения светилом небесного меридиана, причём при верхней кульминации светило имеет наибольшую высоту, а при нижней~--- наименьшую.
 
 Высота светила в верхней и нижней кульминации со склонением $|\delta| < |\varphi|$, соответственно:
 \begin{equation}
-h_{\text{в}}= 90^\circ - \varphi + \delta, \quad\quad
-h_{\text{н}}= - 90^\circ + \varphi  + \delta.
+	h_{\text{в}}= 90^\circ - \varphi + \delta, \quad\quad
+	h_{\text{н}}= - 90^\circ + \varphi  + \delta.
 \end{equation}
 
 Если же светило имеет склонение $|\delta| > |\varphi|$, то высота в верхней и нижней кульминации вычисляется так:
 \begin{equation}
-h_{\text{в}}= 90^\circ + \varphi - \delta, \quad\quad
-h_{\text{н}}= - 90^\circ -\varphi - \delta.
+	h_{\text{в}}= 90^\circ + \varphi - \delta, \quad\quad
+	h_{\text{н}}= - 90^\circ -\varphi - \delta.
 \end{equation}
 
 Из формул для высоты в нижней кульминации вытекает условие, определяющее, пересекает ли звезда горизонт:
 \begin{equation}
-\begin{cases}
-	h_\text{в}= +90^\circ - |\varphi + \delta| > 0^\circ,\\
-	h_\text{н} = - 90^\circ + |\varphi + \delta| < 0^\circ;	
-\end{cases}
-\quad \Longleftrightarrow \quad~~ |\delta|< 90^{\circ} - |\varphi|.
+	\begin{cases}
+		h_\text{в}= +90^\circ - |\varphi + \delta| > 0^\circ,\\
+		h_\text{н} = - 90^\circ + |\varphi + \delta| < 0^\circ;
+	\end{cases}
+	\quad \Longleftrightarrow \quad~~ |\delta|< 90^{\circ} - |\varphi|.
 \end{equation}
 
 Используя формулы сферической тригонометрии (см.\,\ref{sec:spher-trig}), можно выразить зависимость часового угла светила от его зенитного расстояния:
 \begin{equation}
-\cos t=\frac{\cos z-\sin\varphi\sin\delta}{\cos\varphi\cos\delta}. 
+	\cos t=\frac{\cos z-\sin\varphi\sin\delta}{\cos\varphi\cos\delta}.
 \end{equation}
 Отсюда следует, что для часового угла захода и восхода светила справедливо равенство:
 \begin{equation}
 	\cos t_{\uparrow\downarrow}=-\tg\varphi\cdot\tg\delta.
-\end{equation} 
+\end{equation}
 
 Аналогично, для вычисления азимута светила верна формула
 \begin{equation}
-\cos A=\frac{\cos\delta\cos t-\cos\varphi\cos z}{\sin\varphi\sin z}.
+	\cos A=\frac{\cos\delta\cos t-\cos\varphi\cos z}{\sin\varphi\sin z}.
 \end{equation}
 Следовательно, азимуты точек восхода и захода
 \begin{equation}
