@@ -1,8 +1,34 @@
 \subsection{Закон сохранения момента импульса}
-\change{
-\term{Момент импульса} ($\vec{L}$)~--- векторная величина, определяющая момент количества движение (импульса) относительно выбранной оси.}
+\term{Момент импульса} ($\vec{L}$)~--- псевдовекторная величина, определяющая момент количества движения (импульса). Согласно этому определению момент импульса $\vec{L}$ пробной массы зависит от её радиус-вектора и импульса следующий образом:
+\begin{equation}
+	\vec{L} = \cross{r}{p}.
+\end{equation}
 
-\begin{figure}[h!]
+Из геометрического смысла векторного произведения ясно, что $\vec{L}$ ортогонален векторам $\vec{r}$ и $\vec{p}$. Отсюда же $|\vec{L}| \equiv L$ равен площади параллелограмма, построенного на векторах $\vec{r}$ и $\vec p$. Иными словами $L = rp_\perp$, что в свою очередь можно записать как $ L = r p \sin \alpha$, где $\alpha$~--- угол поворота от $\vec{r}$ к $\vec p$, учитывая направление. Согласно свойству векторного произведения, направление $\vec L$ определяется правилом правой руки~--- тройка векторов $\vec r$, $\vec p$ и $\vec L$ должна быть правой.
+
+Для системы пробных масс\footnote{Здесь и далее в этом разделе под пробной массой имеется в виду точечная масса, чтобы не брать в рассмотрение момент импульса вращения тел.}, суммарный момент действия внешних сил на которую равен нулю, полный момент импульса сохраняется. Данное утверждение называется \term{Законом сохранения момента импульса}.
+
+Докажем его сначала в случае движения постоянной пробной массы $m$ в гравитационном поле неподвижного массивного тела с массой $M$. Рассмотрим для этого производную по времени момента импульса данной пробной массы:
+\begin{multline}
+	\frac{d\vec{L}}{dt} = \frac{d\cross{r}{p}}{dt} = \left[ \frac{d \vec{r}}{dt} \times \vec{p} \right] + \left[\vec{r} \times \frac{d\vec{p}}{dt} \right] = m \underbrace{\cross{v}{v}}_0 + \left[\vec{r} \times m \frac{d\vec{v}}{dt} \right] = \\
+	= m \cross{r}{a} = m \cross{r}{g(r)} = m \left[\vec{r} \times \frac{G M \vec{r}}{r^3} \right] =  \frac{G M m}{r^3} \left[\vec{r} \times \vec{r}\right] = 0.
+\end{multline}
+Равенство нулю производной момента импульса означается его постоянство, значит в данном случаем справедлив закон сохранения момента импульса.
+
+Обобщим теперь на случай произвольного конечного числа $n$ пробных масс с массами $m_1, \ldots, m_n$:
+\begin{multline*}
+	\frac{d\vec{L}}{dt} =  \sum\limits_{i=1}^n \frac{[d\vec{r}_i \times \vec{p}_i]}{dt} \overset{m_i=\const}{=} \sum\limits_{i=1}^n \left[\frac{d\vec{r}_i}{dt} \times m_i\vec{v}_i \right] + \sum\limits_{i=1}^n \left[\vec{r}_i \times m_i \frac{d\vec{v}_i}{dt} \right] = \\
+	= \sum\limits_{i=1}^n \underbrace{\left[\vec{v}_i \times m_i\vec{v}_i \right]}_{=\vec{0}} + \sum\limits_{i=1}^n \left[\vec{r}_i \times m_i \vec{a}_i \right] = \\
+	= \sum\limits_{i=1}^n \left[ \vec{r}_i \times m_i \sum\limits_{j=1}^n \frac{G m_j}{|\vec{r}_j - \vec{r}_i|^3} (\vec{r}_j - \vec{r}_i) \right] = \\
+	= \sum\limits_{i,j=1}^n \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} \big[\vec{r}_i \times (\vec{r}_j - \vec{r}_i) \big] = \sum\limits_{i,j=1}^n \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} [\vec{r}_i \times \vec{r}_j] \equiv \sum\limits_{i,j=1}^n \vec{x}_{ij}.
+\end{multline*}
+Можно заметить, что $\vec{x}_{ij} = -\vec{x}_{ji}$, так как
+\begin{equation*}
+	\vec{x}_{ij} \equiv \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} [\vec{r}_i \times \vec{r}_j] = - \frac{G m_j m_i}{|\vec{r}_i - \vec{r}_j|^3} [\vec{r}_j \times \vec{r}_i] \equiv \vec{x}_{ji}.
+\end{equation*}
+Отсюда сразу следует равенство нулю производной по времени полного момента импульса, что заканчивает доказательство его сохранения.
+
+\begin{figure}[t]
 	\begin{subfigure}[b]{0.47\tw}
 		\centering
 		\begin{tikzpicture}[scale=1.3]
@@ -50,7 +76,6 @@
 			
 			\draw [fill=white] (2.2, -.6) circle (.03);
 			
-			%	\draw (2.55, -.7) arc(-16:22:.38);
 			\draw (2.5, -.68) .. controls (2.65, -.6) and (2.65, -.5) .. (2.5, -.47);
 			
 			\draw (1.1, -.3) node[anchor=south] {$\vec{r}$};
@@ -60,65 +85,9 @@
 			\draw (2.6, -.55) node[anchor=west] {$\alpha$};
 			\draw (0, 1) node[anchor=east] {$\vec{L}$};
 			
-			%	\draw (-1.8, 0) -- (-1.8, -.2) -- (-2, -.2);
-			%
-			%	\draw (0, 0) node {$\odot$};
-			%
-			%	\draw [fill=white] (-2, 0) circle(0.03);
-			%
-			%	\draw (-1, 0) node[anchor=south west] {$\vec{r}$};
-			%	\draw (-2.95, -.9) node[anchor=south] {$\vec{p}$};
-			%	\draw (-2, -.75) node[anchor=west] {$\vec{p}_\perp$};
-			%	\draw (-2.25, -.17) node[anchor=east] {$\alpha$};
-			%	\draw (0, 0) node[anchor=south west] {$\vec{L}$};
-			
-			%	\foreach \x in {0, .1,...,5} {
-			%		\draw [line width=.1pt] (\x, -3) -- (\x, 3);
-			%	};
-			%
-			%	\foreach \y in {-3, -2.9,...,3} {
-			%		\draw [line width=.1pt] (0, \y) -- (5, \y);
-			%	};
-			
 		\end{tikzpicture}
 		\caption{}
 	\end{subfigure}
 	\caption{}
 \end{figure}
-
-\begin{equation}
-	\vec{L} = \cross{r}{p}.
-\end{equation}
-\change{
-Здесь $\cross{\,\cdot}{\cdot\,}$~--- векторное произведение, $\vec{r}$~--- радиус вектор материальной точки с импульсом $\vec{p}$. Иными словами в терминах материальной точки, это произведение длины её радиус-вектора на ортогональную составляющую импульса этой точки. В геометрической интерпретации величина момента импульса равна площади параллелограмма, построенного на радиус-векторе материальной точки и векторе её импульса. Причем направление момента импульса определяется правилом правой руки: сначала рука идёт по радиус-векторы, потом по вектору импульса, направление большого пальца определяет направление вектора момента импульса. С помощью векторного произведения можно записать так:
-\begin{equation}
-	\vec{L} = \cross{r}{p}.
-\end{equation}
-}
-\change{В скалярном виде момент импульса можно записать, как $L = r p \sin \alpha$, где $\alpha \equiv \widehat{\vec{r}\vec{p}}$~--- угол поворота от радиус вектора материальной точки к вектору ее импульса.
-}
-
-Полный момент импульса системы тел, суммарный момент $\vec{M}$ внешних сил, действующих на которую, равен нулю сохраняется. Данное утверждение носит название \term{закона сохранения момента импульса}, на математическом языке можно записать так:
-\begin{equation}
-	\vec{L} \equiv \sum\limits_{i=1}^{n} \left[ \vec{r}_i \times m_i \vec{v}_i \right] = \const.
-\end{equation}
-
-\change{Докажем сначала ЗСМИ в случае движения постоянной пробной массы в гравитационном поле массивного тела.
-\begin{multline}
-	\frac{d\vec{L}}{dt} = \frac{d\cross{r}{p}}{dt} = \left[ \frac{d \vec{r}}{dt} \times \vec{p} \right] + \left[\vec{r} \times \frac{d\vec{p}}{dt} \right] = m \underbrace{\cross{v}{v}}_0 + \left[\vec{r} \times m \frac{d\vec{v}}{dt} \right] = \\
-	= m \cross{r}{a} = m \cross{r}{g(r)} = m \left[\vec{r} \times \frac{G M \vec{r}}{r^3} \right] =  \frac{G M m}{r^3} \left[\vec{r} \times \vec{r}\right] = 0.
-\end{multline}
-Докажем это, доказав равенство нулю производной по времени:
-\begin{multline*}
-	\frac{d\vec{L}}{dt} =  \sum\limits_{i=1}^n \frac{[d\vec{r}_i \times \vec{p}_i]}{dt} \overset{m_i=\const}{=} \sum\limits_{i=1}^n \left[\frac{d\vec{r}_i}{dt} \times m_i\vec{v}_i \right] + \sum\limits_{i=1}^n \left[\vec{r}_i \times m_i \frac{d\vec{v}_i}{dt} \right] = \\
-	= \sum\limits_{i=1}^n \underbrace{\left[\vec{v}_i \times m_i\vec{v}_i \right]}_{=\vec{0}} + \sum\limits_{i=1}^n \left[\vec{r}_i \times m_i \vec{a}_i \right] = \\
-	= \sum\limits_{i=1}^n \left[ \vec{r}_i \times m_i \sum\limits_{j=1}^n \frac{G m_j}{|\vec{r}_j - \vec{r}_i|^3} (\vec{r}_j - \vec{r}_i) \right] = \\
-	= \sum\limits_{i,j=1}^n \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} \big[\vec{r}_i \times (\vec{r}_j - \vec{r}_i) \big] = \sum\limits_{i,j=1}^n \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} [\vec{r}_i \times \vec{r}_j] \equiv \sum\limits_{i,j=1}^n \vec{x}_{ij}.
-\end{multline*}
-Можно заметить, что $\vec{x}_{ij} = -\vec{x}_{ji}$, так как
-\begin{equation*}
-	\vec{x}_{ij} \equiv \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} [\vec{r}_i \times \vec{r}_j] = - \frac{G m_j m_i}{|\vec{r}_i - \vec{r}_j|^3} [\vec{r}_j \times \vec{r}_i] \equiv \vec{x}_{ji}.
-\end{equation*}
-Отсюда сразу следует равенство нулю производной по времени полного момента импульса, что заканчивает доказательство его сохранения.
-}
 
