@@ -1,16 +1,16 @@
 \subsection{Собственное движение звёзд}
-\term{Собственным движением} $(\mu)$ называется изменение координат звёзд на небесной сфере, вызванное относительным движением звёзд и Солнца, обычно измеряется в mas/год.
+\term{Собственным движением} $(\mu)$ называется изменение координат звёзд на небесной сфере, вызванное относительным движением звёзд и Солнца, обычно измеряется в mas/год. То есть собственное движение определяется, как
 \begin{equation}
 	\mu = \frac{V_\tau}{D},
 \end{equation}
-где $V_\tau$~--- тангенциальная относительная скорость звезды, $D$~--- расстояние до неё.
+где $V_\tau$~--- гелиоцентрическая (относительно Солнца) тангенциальная скорость звезды, $D$~--- расстояние до неё от Солнца.
 
-\change{Разделяют также собственное движение по склонению~--- $\mu_\delta$ и собственное движение по прямому восхождению~--- $\mu_\alpha$, которые определяются следующими выражениями:}
+\change{Разделяют собственное движение по склонению~--- $\mu_\delta$ и собственное движение по прямому восхождению~--- $\mu_\alpha$, для которых справедливы следующие выражения:}
 \begin{equation}
 	\mu_\delta = \frac{\delta(t_2) - \delta(t_1)}{t_2 - t_1}, \quad \quad \mu_\alpha = \frac{\alpha(t_2) - \alpha(t_1)}{t_2 - t_1}.
 \end{equation}
 \change{
-\begin{wrapfigure}{r}{.4\tw}
+\begin{wrapfigure}[15]{r}{.4\tw}
 	\begin{flushright}
 		\vspace{-1pc}
 		\begin{tikzpicture}
@@ -44,7 +44,7 @@
 		\end{tikzpicture}
 	\end{flushright}
 \end{wrapfigure}
-Как отсюда видно, $\mu_\alpha$ является угловой скоростью по малому кругу, а значит, зависит от $\delta$. Следовательно, полное собственное движение $\mu$ можно найти, как
+Отсюда видно, что $\mu_\alpha$ является угловой скоростью по малому кругу, а значит, зависит от $\delta$. Следовательно, полное собственное движение $\mu$ можно найти из такой формулы:
 \begin{equation}
 	\mu = \sqrt{\mu_\delta^2 + \mu_\alpha^2 \cos^2 \delta},
 \end{equation}
@@ -88,7 +88,7 @@
 			
 			\draw (1, 1) node [anchor=north west] {$R$};
 			\draw (-.45, 2.1) node [anchor=north east] {$R_0$};
-			\draw (.5, 2.95) node [anchor=south west] {$V \Delta t$};
+			\draw (.5, 2.95) node [anchor=south west] {$V_0 \Delta t$};
 			\draw (0, 0) node [anchor=north] {Солнце};
 			\draw (-1, 4) node [anchor=south east] {Звезда};
 			
@@ -125,6 +125,7 @@
 			
 			\draw (0, 5) node [anchor=south] {$P$};
 			\draw (0, 1.9) node [anchor=north] {$\xi$};
+			\draw (-1.75, 1.55) node [anchor=south west] {$\psi$};
 			\draw (0, -.4) node [anchor=south] {$\Delta \alpha$};
 			\draw (0, 4.8) node [anchor=north] {$\Delta \alpha$};
 			\draw (-1, 4) node [anchor=east] {$90^\circ - \delta$};
@@ -132,32 +133,32 @@
 			\draw (0, -.4) node [anchor=north] {Небесный экватор};
 		\end{tikzpicture}
 		\caption{}
-		%\label{pic:phase-angle-2}
+		\label{pic:phase-angle-2}
 	\end{subfigure}
 	\caption{}
 \end{figure}
 
-\change{Получим выражение для координат звезды, имеющей собственное движение $\mu = (\mu_\alpha, \mu_\delta)$, лучевую скорость $V_r$ и параллакс в начальный момент времени $\pi_0$. Найдем сначала тангенциальную скорость:
+\change{Получим выражение для координат звезды через промежуток времени $\Delta t$. Пусть в начальный момент времени звезды имеет собственное движение $\mu = (\mu_\alpha, \mu_\delta)$, лучевую скорость $V_r$, параллакс $\pi_0$ и координаты $(\alpha, \delta)$. Найдем сначала тангенциальную скорость:
 \begin{equation*}
-	V_\tau = R_0 \sqrt{ \mu_\delta^2 + \mu_\alpha^2 \cos^2 \delta} = \frac{\sqrt{ \mu_\delta^2 + \mu_\alpha^2 \cos^2 \delta}}{\pi_0}.
+	V_\tau =  \mu R_0 = R_0 \sqrt{ \mu_\delta^2 + \mu_\alpha^2 \cos^2 \delta} = \frac{\sqrt{ \mu_\delta^2 + \mu_\alpha^2 \cos^2 \delta}}{\pi_0}.
 \end{equation*}
-Определим теперь угол между лучем зрения и полной скоростью звезды:
+Определим угол между лучом зрения и полной скоростью звезды:
 \begin{equation*}
-	\gamma = \arctan \frac{V_\tau}{V_r}.
+	\tg \gamma = \frac{V_\tau}{V_r},
 \end{equation*}
-При этом полная скорость равна
+при этом полная скорость равна
 \begin{equation*}
 	V_0 = \sqrt{V_\tau^2 + V_r^2}.
 \end{equation*}
-Из теоремы косинусов можно найти расстояние для звезды через промежуток времени $\Delta t$:
+Рассмотрим Рис.\,\ref{pic:phase-angle-1}. Из теоремы косинусов можно найти расстояние от Солнца до звезды через промежуток времени $\Delta t$:
 \begin{equation*}
 	R = \sqrt{R_0^2 + (V_0 \Delta t)^2 - 2 R_0 V_0 \Delta t \cos \gamma}.
 \end{equation*}
-Тогда угловое перемещение звезды равно
+Далее из теоремы синусов получим угловое перемещения звезды:
 \begin{equation*}
 	\sin \xi = \frac{V_0 \Delta t \sin \alpha}{R}.
 \end{equation*}
-Через компоненты собственного движения нетрудно получить угол между направлением на полюс и вектором полного собственного движения в начальный момент:
+Через компоненты собственного движения нетрудно получить угол между направлением на полюс и вектором полного собственного движения в начальный момент (см.~Рис.\,\ref{pic:phase-angle-2}):
 \begin{equation*}
 	\tg \psi =  \frac{\mu_a \cos \delta}{\mu_\delta}.
 \end{equation*}
@@ -165,7 +166,7 @@
 \begin{equation*}
 	\sin (\delta - \Delta \delta) = \cos \xi \sin \delta + \sin \xi \cos \delta \cos \psi.
 \end{equation*}
-Далее из сферической теоремы синусов получаем выражение для изменения прямого восхождения за время $\Delta t$~---
+Остается из сферической теоремы синусов получить выражение для изменения прямого восхождения за время $\Delta t$:
 \begin{equation*}
 	\sin \Delta \alpha = \frac{\sin \psi \sin \xi}{\cos (\delta - \Delta \delta)}.
 \end{equation*}
