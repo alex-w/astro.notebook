@@ -53,10 +53,13 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{wrapfig}
+\usepackage[export]{adjustbox}
 \graphicspath{{./img/}}
 
 % Графики
 \usepackage{pgfplots}
+\usepgfplotslibrary{patchplots}
+%\usepackage{patchplots}
 \pgfplotsset{	width	=	14	cm,
 					x label style={
         					font = {\small\sffamily},
@@ -119,9 +122,15 @@
 
 %%% TiKZ
 \usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
 %\usetikzlibrary{decorations.text}
 
 \tikzset{every picture/.style={line cap=round}}
+
 
 \makeatletter
 

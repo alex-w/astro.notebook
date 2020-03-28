@@ -1,0 +1,3 @@
+tikz/astro-notebook-figure20.pdf: data/eiry-disk-x.txt
+tikz/astro-notebook-figure20.pdf: data/eiry-disk-y.txt
+tikz/astro-notebook-figure20.pdf: data/eiry-disk.txt
