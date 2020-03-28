@@ -1,0 +1,36 @@
+\subsection{Прямая}
+
+Рассмотрим необходимое условие, чтобы произвольная точка с радиус-вектором $\vec{r}$ лежала на прямой $l$, проходящей через точку $O$ с радиус вектором $\vec{r}_0$. Пусть $ \vec{a} = \begin{pmatrix} a_1 & \cdots & a_n\end{pmatrix}^{\T}$~--- направляющий вектор прямой $l$. То есть $l$ параллельна прямой, содержащей вектор $\vec{a}$. Формально данное условие можно записать так:
+\begin{equation}
+	\vec{r} = \vec{r}_0 + \lambda \vec{a},\quad \lambda \in \R.
+\end{equation}
+Конкретизируем в случае векторов в $\R^2$:
+\begin{gather*}
+	\vec{r} - \vec{r}_0 = \lambda \vec{a}, \quad \Longleftrightarrow \quad
+	\begin{cases}
+		x - x_0 = \lambda x_a,\\
+		y - y_0 = \lambda y_a.
+	\end{cases}
+\end{gather*}
+Решив данную систему уравнения, получим, что
+\begin{equation*}
+	\lambda = \frac{x - x_0}{x_a} = \frac{y - y_0}{y_a}.
+\end{equation*}
+преобразуем второе равенство:
+\begin{gather*}
+	\frac{1}{x_a} \cdot x + \left( - \frac{1}{y_a} \right) \cdot y + \left( \frac{y_0}{y_a} - \frac{x_0}{x_a} \right) = 0,\\
+	y_a x + (-x_a)y + (x_a y_0 - y_a x_0) = 0,
+\end{gather*}
+Сделав замену $y_a \equiv A$, $-x_a \equiv B$, $x_a y_0 - y_a x_0 \equiv C$, получим уравнение прямой на плоскости в декартовых координатах:
+\begin{equation}
+	Ax + By + C = 0.
+\end{equation}
+Заметим, что
+\begin{equation*}
+	\scalar{a}{n} \equiv \scalar{a}{
+	\begin{pmatrix}
+		A\\
+		B
+	\end{pmatrix}} = x_a y_a - y_a x_a = 0,
+\end{equation*}
+а значит, $\vec{n} \perp \vec{a}$, то есть вектор $\vec{n}$ есть вектор нормали к прямой в направляющим вектором $\vec{a}$, так как коэффициенты $A$ и $B$ не зависят от фиксированной точки $O$.
