@@ -31,7 +31,7 @@
 	dA = A_0 \cos (k x \sin \theta) \frac{dx}{b}.
 \end{equation*}
 
-Пусть $U \equiv k \sin \theta$, тогда суммарная амплитуда в направлении $\theta$ равна
+Пусть $u \equiv k \sin \theta$, тогда суммарная амплитуда в направлении $\theta$ равна
 \begin{multline*}
 	A(\theta) 
 	= \int dA 
@@ -57,14 +57,14 @@
 
 \begin{tikzpicture}
 			\begin{axis}[
-				height	=	4.125cm,
-				width	=	5.5cm,
-				xlabel	=	{$bu$, $\text{м}^2$},
+				height	=	6cm,
+				width	=	9cm,
+				xlabel	=	{$\frac{\lambda}{b}$, $\text{м}^2$},
 				ylabel	=	{$I/A_0^2$},
 				ylabel shift	= -1 cm,
 				]
 				
-				\addplot[smooth, domain=-10:10, samples=200] {(sin(deg(x))/x)^2};
+				\addplot[smooth, domain=-4:4, samples=200] {(sin(deg(x*pi))/(x*pi))^2};
 			\end{axis}
 		\end{tikzpicture}
 
