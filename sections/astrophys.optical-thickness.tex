@@ -2,30 +2,30 @@
 \begin{wrapfigure}[10]{c}{0.4\tw}
 	\centering
 	\begin{tikzpicture}
-	\footnotesize
-
-	\foreach \x in {-1, -.9, ..., 1.01} {
+		\footnotesize
+		
+		\foreach \x in {-1, -.9, ..., 1.01} {
 		\foreach \y in {-1.5, -1.4, ..., 1.51} {
-			\pgfmathsetmacro\radius{(rand+1)/60};
-			\fill [lightgray] (\x + rand*.03, \y + rand*.03)  circle(\radius);
+		\pgfmathsetmacro\radius{(rand+1)/60};
+		\fill [lightgray] (\x + rand*.03, \y + rand*.03)  circle(\radius);
 		};
-	};
-	
-	\draw [line width=1pt](-2, 0) -- (-1, 0);
-	\draw [line width=1pt, -latex](-2, 0) -- (-1.4, 0);
-	\draw [line width=1pt, lightgray](1, 0) -- (2, 0);
-	\draw [line width=1pt, lightgray, -latex](1, 0) -- (1.6, 0);
-	
-	\fill[left color=black, right color=lightgray] (-1, -.5pt) rectangle (1, .5pt);
-	
-	\draw (-1.5, .1) node[anchor=south] {$I_0$};
-	\draw (1.5, .1) node[anchor=south] {$I$};
-	
-	\draw [latex-latex] (-1.05, -1.7) -- (1.05, -1.7);
-	\draw (0, -1.7) node[anchor=north] {$L$};
-\end{tikzpicture}
-\caption{}
-\label{}
+		};
+		
+		\draw [line width=1pt](-2, 0) -- (-1, 0);
+		\draw [line width=1pt, -latex](-2, 0) -- (-1.4, 0);
+		\draw [line width=1pt, lightgray](1, 0) -- (2, 0);
+		\draw [line width=1pt, lightgray, -latex](1, 0) -- (1.6, 0);
+		
+		\fill[left color=black, right color=lightgray] (-1, -.5pt) rectangle (1, .5pt);
+		
+		\draw (-1.5, .1) node[anchor=south] {$I_0$};
+		\draw (1.5, .1) node[anchor=south] {$I$};
+		
+		\draw [latex-latex] (-1.05, -1.7) -- (1.05, -1.7);
+		\draw (0, -1.7) node[anchor=north] {$L$};
+	\end{tikzpicture}
+	\caption{}
+	\label{}
 \end{wrapfigure}
 Рассмотрим прохождение электромагнитного излучения с интенсивностью $I_0$ через слой толщины $L$ непрозрачных частиц со средней концентрацией $n$ и сечением поглощения $\sigma$. Ясно, что интенсивность выходящего из слоя пыли излучения будет меньше начальной. Выясним, по какому закону падает интенсивность излучения в таком случае.
 
@@ -41,7 +41,7 @@
 \begin{gather*}
 	-\int\limits_{I_0}^{I} \frac{dI}{I} = \int\limits_{0}^{L} n \sigma \, dx,\\
 	-\ln I + \ln I_0 = n\sigma L,\\[.5pc]
-%	e^{-\ln I_0} \cdot e^{\ln I} = e^{n \sigma L}, 
+	%	e^{-\ln I_0} \cdot e^{\ln I} = e^{n \sigma L},
 	I = I_0 e^{-n\sigma L}. \tag{\theequation}
 \end{gather*}
 
@@ -55,6 +55,4 @@
 \begin{equation}
 	I = I_0 e^{-\tau}.
 \end{equation}
-
-
 

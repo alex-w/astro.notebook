@@ -3,7 +3,7 @@
 Электромагнитное излучение берет свое название из принципа переноса энергии, который происходит в следствие колебаний электрического и магнитного полей. В случае одномерных гармонических колебаний уравнения Максвелла имеют такое решение:
 \begin{align*}
 	\vec E(x, t) &= \vec E_0 \cos (k x - \omega t + \varphi_0),\\
-	\vec H(x, t) &= \vec H_0 \cos (k x - \omega t + \varphi_0). 
+	\vec H(x, t) &= \vec H_0 \cos (k x - \omega t + \varphi_0).
 \end{align*}
 Здесь $\vec E(x, t)$ и $\vec H (x, t)$~---  векторы напряженности электрического и магнитного полей соответственно с точке пространства с координатой $x$ в момент времени $t$. $E_0$ и $H_0$~--- амплитуды волн, которые связывает соотношение $\sqrt{\varepsilon}E_0 = \sqrt{\mu} H_0$. Остановимся на рассмотрении случая распространения излучения только в вакууме, тогда в СГС $E_0 = H_0$, так как в отсутствие среды $\varepsilon = \mu = 1$. \imp{Круговая частота} колебаний $\omega$ связана с обычной частотой колебаний $\nu$ соотношением $2\pi \nu = \omega$. А коэффициент $k$~--- \imp{волновое число}, определяемое, как $k = 2 \pi / \lambda$.
 
@@ -33,11 +33,11 @@
 
 Пусть $u \equiv k \sin \theta$, тогда суммарная амплитуда в направлении $\theta$ равна
 \begin{multline*}
-	A(\theta) 
-	= \int dA 
+	A(\theta)
+	= \int dA
 	= \frac{A_0}{b} \int\limits_{-b/2}^{b/2} \cos ux\,dx =\\
-	= \frac{A_0}{b} \left. \frac{\sin ux}{u} \right|_{-b/2}^{b/2} 
-%	= \frac{A_0}{bu} \left( \sin \frac{ub}{2} - \sin \le- \frac{ub}{2} \right) = \\
+	= \frac{A_0}{b} \left. \frac{\sin ux}{u} \right|_{-b/2}^{b/2}
+	%	= \frac{A_0}{bu} \left( \sin \frac{ub}{2} - \sin \le- \frac{ub}{2} \right) = \\
 	= \frac{A_0}{bu} \cdot 2 \sin \frac{bu}{2} = A_0 \left[ \sin \left( \frac{bu}{2}\right) \middle/  \frac{bu}{2} \right] .
 \end{multline*}
 
@@ -56,19 +56,17 @@
 Значит первый минимум находится на $\theta = \lambda/b$.
 
 \begin{tikzpicture}
-			\begin{axis}[
-				height	=	6cm,
-				width	=	9cm,
-				xlabel	=	{$\frac{\lambda}{b}$, $\text{м}^2$},
-				ylabel	=	{$I/A_0^2$},
-				ylabel shift	= -1 cm,
-				]
-				
-				\addplot[smooth, domain=-4:4, samples=200] {(sin(deg(x*pi))/(x*pi))^2};
-			\end{axis}
-		\end{tikzpicture}
-
-
+	\begin{axis}[
+		height	=	6cm,
+		width	=	9cm,
+		xlabel	=	{$\frac{\lambda}{b}$, $\text{м}^2$},
+		ylabel	=	{$I/A_0^2$},
+		ylabel shift	= -1 cm,
+		]
+		
+		\addplot[smooth, domain=-4:4, samples=200] {(sin(deg(x*pi))/(x*pi))^2};
+	\end{axis}
+\end{tikzpicture}
 
 \begin{figure}[p]
 	\centering
