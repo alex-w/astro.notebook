@@ -5,6 +5,57 @@
 	\vec E(x, t) &= \vec E_0 \cos (k x - \omega t + \varphi_0),\\
 	\vec H(x, t) &= \vec H_0 \cos (k x - \omega t + \varphi_0).
 \end{align*}
+\begin{wrapfigure}{l}{0.45\tw}
+	\centering
+	\begin{tikzpicture}[x=(-15:1.2), y=(90:1.0), z=(-150:1.0),
+		line cap=round, line join=round,
+		axis/.style={black, thick,->},
+		vector/.style={>=stealth,->}, scale=0.5]
+		\footnotesize
+		\def\A{1.5}
+		\def\nNodes{3} % use even number
+		\def\nVectorsPerNode{8}
+		\def\N{\nNodes*40}
+		\def\xmax{\nNodes*pi/2*1.01}
+		\pgfmathsetmacro\nVectors{(\nVectorsPerNode+1)*\nNodes}
+		
+		\def\vE{\mathbf{E}}
+		\def\vB{\mathbf{B}}
+		\def\vk{\mathbf{\hat{k}}}
+		
+		% main axes
+		\draw[axis] (0,0,0) -- ++(\xmax*1.1,0,0) node[right] {$x$};
+		\draw[axis] (0,-\A*1.4,0) -- (0,\A*1.4,0) node[right] {$y$};
+		\draw[axis] (0,0,-\A*1.4) -- (0,0,\A*1.4) node[above left] {$z$};
+		
+		% small axes
+		\def\xOffset{{(\nNodes-2)*pi/2}}
+		\def\yOffset{\A*1.2}
+		\def\zOffset{\A*1.2}
+		\draw[axis] (\xOffset,\yOffset,-\zOffset) -- ++(\A*0.6,0,0) node[right] {$\vk$};
+		\draw[axis] (\xOffset,\yOffset,-\zOffset) -- ++(0,\A*0.6,0) node[right] {$\vE$};
+		\draw[axis] (\xOffset,\yOffset,-\zOffset) -- ++(0,0,\A*0.6) node[above left] {$\vB$};
+		
+		% waves
+		\draw[very thick,variable=\t,domain=0:\nNodes*pi/2*1.01,samples=\N]
+		plot (\t,{\A*sin(\t*360/pi)},0);
+		\draw[very thick,variable=\t,domain=0:\nNodes*pi/2*1.01,samples=\N]
+		plot (\t,0,{\A*sin(\t*360/pi)});
+		
+		% draw vectors
+		\foreach \k [evaluate={\t=\k*pi/2/(\nVectorsPerNode+1);
+		\angle=\k*90/(\nVectorsPerNode+1);
+		\c=(mod(\angle,90)!=0);}]
+		in {1,...,\nVectors}{
+		\if\c1
+		\draw[vector] (\t,0,0) -- ++(0,{\A*sin(2*\angle)},0);
+		\draw[vector] (\t,0,0) -- ++(0,0,{\A*sin(2*\angle)});
+		\fi
+		}
+		
+	\end{tikzpicture}
+	\caption{}
+\end{wrapfigure}
 Здесь $\vec E(x, t)$ и $\vec H (x, t)$~---  векторы напряженности электрического и магнитного полей соответственно с точке пространства с координатой $x$ в момент времени $t$. $E_0$ и $H_0$~--- амплитуды волн, которые связывает соотношение $\sqrt{\varepsilon}E_0 = \sqrt{\mu} H_0$. Остановимся на рассмотрении случая распространения излучения только в вакууме, тогда в СГС $E_0 = H_0$, так как в отсутствие среды $\varepsilon = \mu = 1$. \imp{Круговая частота} колебаний $\omega$ связана с обычной частотой колебаний $\nu$ соотношением $2\pi \nu = \omega$. А коэффициент $k$~--- \imp{волновое число}, определяемое, как $k = 2 \pi / \lambda$.
 
 Такие волны, когда фаза волны в фиксированный момент времени зависит лишь от одной координаты, называют \imp{плоскими}. Остановимся на рассмотрении только таких волн.
