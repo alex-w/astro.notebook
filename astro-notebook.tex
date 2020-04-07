@@ -15,6 +15,7 @@
 \usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage{upgreek}
+\usepackage{xfrac}
 
 % Математические команды
 \renewcommand{\vec}[1]{\mathbf{#1}}
@@ -127,6 +128,7 @@
 
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
+\usetikzlibrary{calc, fadings, decorations.markings, shapes, snakes}
 %\usetikzlibrary{decorations.text}
 
 \tikzset{every picture/.style={line cap=round}}
@@ -220,8 +222,8 @@
 	\input{sys/cover}
 	\setcounter{tocdepth}{2}
 	{
-%		\small 
-%		\renewcommand{\baselinestretch}{ 0.95 } 
+		\small 
+		\renewcommand{\baselinestretch}{ 0.95 } 
 		\tableofcontents 
 		\label{toc}
 		\renewcommand {\baselinestretch}{ 1.02 }
