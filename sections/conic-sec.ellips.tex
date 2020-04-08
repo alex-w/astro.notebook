@@ -9,7 +9,120 @@
 \imp{Большая ось} эллипса~--- прямая, проходящая через фокусы эллипса; \imp{малая ось}~--- прямая ей перпендикулярная и проходящая через центр эллипса.
 
 \begin{wrapfigure}[10]{r}{0.5\tw}
-	\includegraphics[width = .5\tw]{Ellips}
+	\vspace{-1pc}
+	\centering
+	\begin{tikzpicture}[ipe stylesheet, scale=0.8]
+		\draw[shift={(-65.623, 0.044)}, xscale=0.6567, yscale=0.6949]
+		(0, 0)
+		-- (0.105, -111.963);
+		\draw[shift={(-65.623, 0.044)}, xscale=0.6567, yscale=0.6949, ipe pen heavier]
+		(0, 0)
+		-- (199.948, 49.784);
+		\draw[shift={(-65.623, 0.044)}, xscale=0.6567, yscale=0.6949, ipe pen heavier]
+		(0, 0)
+		-- (100, -80);
+		\draw[ipe pen fat]
+		(0.0497, 0.0443) ellipse[x radius=84.0612, y radius=55.5917];
+		\draw[shift={(-84.012, 0.044)}, xscale=0.6567, yscale=0.6949, ipe pen heavier]
+		(0, 0)
+		-- (256, 0);
+		\draw[shift={(0.05, 55.636)}, xscale=0.6567, yscale=0.6949, ipe pen heavier]
+		(0, 0)
+		-- (0, -160);
+		\pic[ipe mark small, fill=white]
+		at (-65.6232, 0.0443) {ipe fdisk};
+		\draw[shift={(65.723, 0.044)}, xscale=0.6567, yscale=0.6949, ipe pen heavier]
+		(0, 0)
+		-- (0.012, 49.938);
+		\draw[shift={(0.05, 55.636)}, xscale=0.6567, yscale=0.6949]
+		(0, 0)
+		-- (-144, 0);
+		\draw[shift={(0.05, -55.547)}, xscale=0.6567, yscale=0.6949]
+		(0, 0)
+		-- (-144, 0);
+		\draw[shift={(-84.012, 0.044)}, xscale=0.6567, yscale=0.6949]
+		(0, 0)
+		-- (-16, 0);
+		\draw[shift={(84.111, 0.044)}, xscale=0.6567, yscale=0.6949]
+		(0, 0)
+		-- (16, 0);
+		\draw[shift={(65.733, 34.723)}, xscale=0.6567, yscale=0.6949]
+		(0, 0)
+		-- (43.975, 0.069);
+		\draw[shift={(89.365, 0.044)}, xscale=0.6567, yscale=0.6949, {ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
+		(0, 0)
+		-- (0.028, 49.882);
+		\node[ipe node]
+		at (90.524, 16.168) {$p$};
+		\draw[shift={(-89.265, 55.636)}, xscale=0.6567, yscale=0.6949, {ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
+		(0, 0)
+		-- (0, -80);
+		\draw[shift={(-89.265, 0.044)}, xscale=0.6567, yscale=0.6949, {ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
+		(0, 0)
+		-- (0, -80);
+		\draw[shift={(-84.012, 0.044)}, xscale=0.6567, yscale=0.6949]
+		(0, 0)
+		-- (0, -104);
+		\draw[shift={(0.05, -55.547)}, xscale=0.6567, yscale=0.6949]
+		(0, 0)
+		-- (0, -16);
+		\draw[shift={(84.252, 0.195)}, xscale=0.6567, yscale=0.6949]
+		(0, 0)
+		-- (0, -112);
+		\node[ipe node]
+		at (66.165, -9.39) {\bf F$_\mathbf{2}$};
+		\draw[shift={(-84.012, -66.531)}, xscale=0.6567, yscale=0.6949, {ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
+		(0, 0)
+		-- (28, 0);
+		\draw[shift={(-65.545, -61.052)}, xscale=0.6567, yscale=0.6949, {ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
+		(0, 0)
+		-- (99.881, -0.078);
+		\draw[shift={(0.05, -61.107)}, xscale=0.6567, yscale=0.6949, {ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
+		(0, 0)
+		-- (128, 0);
+		\draw[shift={(-65.501, -72.162)}, xscale=0.6567, yscale=0.6949, {ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
+		(0, 0)
+		-- (227.814, -0.09);
+		\node[ipe node]
+		at (-94.935, 25.494) {$b$};
+		\node[ipe node]
+		at (-94.808, -30.216) {$b$};
+		\node[ipe node]
+		at (-77.03, -72.327) {$q$};
+		\node[ipe node]
+		at (-33.24, -67.42) {$c$};
+		\node[ipe node]
+		at (40.523, -67.405) {$a$};
+		\node[ipe node]
+		at (5.465, -80.93) {$Q$};
+		\draw[shift={(0.05, -55.547)}, xscale=0.6567, yscale=0.6949, ipe pen heavier]
+		(0, 0)
+		-- (100, 80);
+		\node[ipe node]
+		at (-29.49, -28.163) {$a$};
+		\node[ipe node]
+		at (26.538, -27.093) {$a$};
+		\node[ipe node]
+		at (-30.549, 19.559) {$2a-p$};
+		\pic[ipe mark small, fill=white]
+		at (0.0497, 0.0443) {ipe fdisk};
+		\node[ipe node]
+		at (-10.329, -9.706) {\bf O};
+		\pic[ipe mark small, fill=white]
+		at (65.7225, 0.0443) {ipe fdisk};
+		\node[ipe node]
+		at (-78.578, -8.924) {\bf F$_\mathbf{1}$};
+		\pic[ipe mark small, fill=white]
+		at (65.7527, 34.68) {ipe fdisk};
+		\pic[ipe mark small, fill=white]
+		at (-84.0076, 0.0853) {ipe fdisk};
+		\pic[ipe mark small, fill=white]
+		at (0.0044, -55.5391) {ipe fdisk};
+		\pic[ipe mark small, fill=white]
+		at (84.1418, 0.0783) {ipe fdisk};
+		\pic[ipe mark small, fill=white]
+		at (0.0208, 55.6916) {ipe fdisk};
+	\end{tikzpicture}
 	\captionof{figure}{Эллипс}
 	\label{pic:ellipse}
 \end{wrapfigure}
