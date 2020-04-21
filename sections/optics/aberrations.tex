@@ -11,7 +11,7 @@
 			width	=	6cm,
 			xlabel	=	{$\lambda$, мкм},
 			ylabel	=	{$n(\lambda)$},
-			ylabel shift	= -1 cm,
+%			ylabel shift	= -1 cm,
 			xmin = 0.3,
 			xmax = 2.5,
 			ymin = 1.48,
@@ -116,7 +116,7 @@
 			width	=	6cm,
 			xlabel	=	{$\lambda$, мкм},
 			ylabel	=	{$x(\lambda)$},
-			ylabel shift	= -1 cm,
+%			ylabel shift	= -1 cm,
 			xmin = 0.3,
 			xmax = 2.5,
 			ymin = 1.8,
@@ -149,7 +149,7 @@
 			width	=	6.5cm,
 			xlabel	=	{$\delta$},
 			ylabel	=	{$x(\delta)/R$},
-			ylabel shift	= -1.1 cm,
+%			ylabel shift	= -1.1 cm,
 			extra x ticks ={0.667},
 			extra x tick labels={$\frac{1}{n}$},
 			xmin=-.05,
@@ -247,7 +247,7 @@
 			width	=	6.5cm,
 			xlabel	=	{$d/R$},
 			ylabel	=	{$x(d)/R$},
-			ylabel shift	= -1.1 cm,
+%			ylabel shift	= -1.1 cm,
 			extra x ticks ={sqrt(2)/2},
 			extra x tick labels={$\frac{\sqrt{2}}{2}$},
 			xmin=-.05,
@@ -277,20 +277,27 @@
 \end{wrapfigure}
 Отсюда получается, что фокус сферического зеркала находится ровно между центром кривизны зеркала и центром этого зеркала. Однако в силу сферической аберрации возникает ошибка фокусировки порядка $d/R$, которая размывает изображение. Причём при $d > R\sqrt{2}/2$ лучи не <<разворачиваются>>, следовательно, не вносят вклада в изображение, так как приходят на приемник с другой стороны.
 
-Для компенсации сферической аберрации используют различные линзы-корректоры, однако они помогают лишь частично избавиться от неё. \change{Поэтому в современных рефлекторах используются параболические зеркала, не подверженные сферическим аберрациям.}
+Для компенсации сферической аберрации используют различные линзы-коррек\-торы, однако они помогают лишь частично избавиться от неё. \change{Поэтому в современных рефлекторах используются параболические зеркала, не подверженные сферическим аберрациям.}
 
 %Напоследок нужно отметить, что сферические аберрации
 
 \paragraph{Астигматизм} Ещё один вид аберраций оптических систем состоящий в разности радиусов кривизны оптических элементов в двух перпендикулярных направлениях. Такое возможно, например, в случае большой массы линзы или зеркала. Когда данный оптический элемент долгое время находится в вертикальном положении (оптическая ось горизонтальна), он деформируется: вдоль горизонтали радиус кривизны сохраняется, а по вертикали из-за сжатия уменьшается.
 
-\imp{Астигматизм} проявляется в том, что пучок лучей, исходящих из какой-либо точки, после прохождения через оптическую систему собирается не в одной точке, а на двух взаимно перпендикулярных отрезках, расположенных на некотором расстоянии друг от друга. Изображения промежуточных сечений имеют форму эллипсов.
+\begin{wrapfigure}[7]{r}{0.4\tw}
+	\centering
+	\vspace{-1pc}
+	\includegraphics[width=0.4\tw]{img/astigmatism.pdf}
+	\caption{}
+	\label{pic:astigmatism}
+\end{wrapfigure}
+Астигматизм проявляется в том, что пучок лучей, исходящих из какой-либо точки, после прохождения через оптическую систему собирается не в одной точке, а на двух взаимно перпендикулярных отрезках, расположенных на некотором расстоянии друг от друга. Изображения промежуточных сечений имеют форму эллипсов.
 
 \paragraph{Кома}
 
 \begin{wrapfigure}[13]{l}{0.4\tw}
 	\centering
 	\vspace{-1pc}
-	\includegraphics[width=0.4\tw]{img/optics-aberrations-coma.jpg}
+	\includegraphics[width=0.4\tw]{optical-aberrations-coma.jpg}
 	\caption{Изображение <<хвоста>> Большой Медведицы, полученное с помощью широкоугольного объектива, страдающего ярко выраженной комой.}
 	\label{pic:optics-aberrations-coma}
 \end{wrapfigure}
@@ -471,10 +478,10 @@
 		
 	\end{tikzpicture}
 	\caption{}
-	\label{pic:optics-aberrations-coma1}
+	\label{pic:optical-aberrations-coma1}
 \end{figure}
 
-Найдем положение фокуса светового пучка, идущего под углом $\alpha$ к оптической оси. Для этого рассмотрим два луча из него, вместе с оптической осью лежащих в одной плоскости, таких, что точки преломления их передней (плоской) поверхностью линзы $A_1$ и $A_2$ лежат на расстоянии $d$ от оптической оси линзы (см.~Рис.\,\ref{pic:optics-aberrations-coma1}).
+Найдем положение фокуса светового пучка, идущего под углом $\alpha$ к оптической оси. Для этого рассмотрим два луча из него, вместе с оптической осью лежащих в одной плоскости, таких, что точки преломления их передней (плоской) поверхностью линзы $A_1$ и $A_2$ лежат на расстоянии $d$ от оптической оси линзы (см.~Рис.\,\ref{pic:optical-aberrations-coma1}).
 
 Пусть толщина линзы~--- расстояние вдоль оптической оси от вершины выпуклой поверхности, до центра плоской поверхности $O$, равно $h$. А радиус кривизны выпуклой поверхности равен $R$. Тогда расстояние $l$ от центра кривизны задней (выпуклой) поверхности линзы до точек $A_1$ и $A_2$ можно найти из теоремы Пифагора для треугольника $\triangle COA_{1,2}$:
 \begin{equation*}
@@ -529,7 +536,7 @@
 
 Продемонстрируем полученные зависимости (см.~Рис.\,\ref{pic:coma}), при следующих параметрах: $R = 1$, $h = 0.3$, $\alpha = 50^\circ$, $n=1.5$.
 
-\begin{figure}
+\begin{figure}[h]
 	\begin{subfigure}{0.49\tw}
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -537,11 +544,11 @@
 				width	=	6cm,
 				xlabel	=	{$d$},
 				ylabel	=	{},
-				ylabel shift	= -1.1 cm,
+				ylabel shift	= 2mm,
 				%			extra x ticks ={sqrt(2)/2},
 				%			extra x tick labels={$\frac{\sqrt{2}}{2}$},
 				xmin=0,
-				xmax=0.5,
+				xmax=0.4,
 				ymin=.6,
 				ymax=2,
 				legend cell align=left,
@@ -549,7 +556,7 @@
 				draw=none,
 				fill=none,
 				font=\scriptsize,
-				at={(axis cs:.5, 2)}, anchor=north east,
+				at={(axis cs:.4, 2)}, anchor=north east,
 %				row sep=.5pc,
 				},
 				]
@@ -573,7 +580,7 @@
 				width	=	6cm,
 				xlabel	=	{$x$},
 				ylabel	=	{$y$},
-				ylabel shift	= -1.1 cm,
+%				ylabel shift	= 2mm,
 				%			extra x ticks ={sqrt(2)/2},
 				%			extra x tick labels={$\frac{\sqrt{2}}{2}$},
 				xmin=1.2,
@@ -589,4 +596,149 @@
 	\caption{}
 	\label{pic:coma}
 \end{figure}
+
+Понятно, что смещение положение фокуса вдоль оси $x$ обусловлено \imp{сферической аберрацией}, однако смещение вдоль ось $y$ есть проявление \imp{аберрации кома}.
+
+\paragraph{Дисторсия и кривизна фокальной поверхности}
+Для тонкой линзы выполняется правило, что лучи, проходящие через оптический центр не преломляются. А световые пучки, идущие под различными углами фокусируются на фокальной плоскости, перпендикулярной оптической оси. Отсюда следует, что параллельные пучки, идущие под углом $\alpha$ к оптической оси и проходящие через оптический центр тонкой линзы, фокусируются на расстоянии $F \tg \alpha$ от оптической оси. 
+
+\begin{figure}[h]
+\begin{subfigure}{0.49\tw}
+		\begin{tikzpicture}
+			\begin{axis}[
+				height	=	5cm,
+				width	=	6cm,
+				xlabel	=	{$x$},
+				ylabel	=	{$y$},
+%				ylabel shift	= 3mm,
+				%			extra x ticks ={sqrt(2)/2},
+				%			extra x tick labels={$\frac{\sqrt{2}}{2}$},
+				xmin=1.25,
+				xmax=3.25,
+				ymin=-.2,
+				ymax=1.2,
+				]
+				\addplot[only marks, mark = o, mark options={scale=0.2, black}] table[x=x, y=y] {data/distorsion-xy.txt};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{}
+		\label{pic:pitzval}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\tw}
+		\begin{tikzpicture}
+			\begin{axis}[
+				height	=	5cm,
+				width	=	6cm,
+				xlabel	=	{$\alpha$},
+				ylabel	=	{$y(\alpha)$},
+%				ylabel shift	= 1mm,
+				xmin=0,
+				xmax=90,
+				ymin=0,
+				ymax=10,
+				legend cell align=left,
+				legend style={
+				draw=none,
+				fill=none,
+				font=\scriptsize,
+				at={(axis cs:5, 9)}, anchor=north west,
+				},
+				]
+				\addplot[smooth, gray] table[x=alpha, y=tan] {data/distorsion-y.txt};
+				\addplot[smooth] table[x=alpha, y=y] {data/distorsion-y.txt};
+				\legend{
+				$2R\tg \alpha$,
+				$y(\alpha)$
+				}
+			\end{axis}
+		\end{tikzpicture}
+		\caption{}
+		\label{pic:distorsion-y}
+	\end{subfigure}
+	\caption{}
+	
+\end{figure}
+
+Легко догадаться, что для толстой линзы это не выполняется. На рисунке Рис.\,\ref{pic:pitzval} показаны координаты точек фокусировки бесконечно узких пучков, падающих под углом $\alpha \in [0^\circ, 90^\circ]$ к оптической оси на центр передней поверхности рассмотренной выше плосковыпуклой линзы: ($R = 1$, $h = 0.3$, $n=1.5$, шаг составляет $1^\circ$). Отсюда ясно, что фокальная <<плоскость>> является таковой только в очень узком диапазоне направлений вокруг оптической оси. В остальной области фокальная поверхность является выпуклой в сторону от линзы.
+
+  А на рисунке Рис.\,\ref{pic:distorsion-y} показана зависимость $y$-координаты точки фокуса от угла падения на линзу в сравнение с функцией $F \tg \alpha = 2R \tg \alpha$. Нелинейность данной зависимости от $F \tg \alpha$ проявляется в неравномерности увеличения изображения по полю зрения: чем дальше от центра, тем меньше увеличение. Такой эффект называется \term{дисторсией}, в данном случае~--- \imp{бочкообразной}, от схожести с видом деревянных бочек. Также возможна ситуация, когда $y(\alpha)$ растет быстрее $F \tg \alpha$, тогда дисторсия имеет противоположный знак и называется \imp{подушкообразной} (достаточно вспомнить, как выглядит плотно набитая подушка).
+  
+  \begin{figure}[h]
+  \centering
+\begin{subfigure}{0.31\tw}
+	\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				height	=	4cm,
+				width	=	4cm,
+%				xlabel	=	{$x$},
+%				ylabel	=	{$y$},
+%				ylabel shift	= 3mm,
+				%			extra x ticks ={sqrt(2)/2},
+				%			extra x tick labels={$\frac{\sqrt{2}}{2}$},
+				xmin=-1.25,
+				xmax=1.25,
+				ymin=-1.25,
+				ymax=1.25,
+				hide axis
+				]
+				\addplot[only marks, mark = o, mark options={scale=0.2, black}] table[x=x, y=y] {data/distorsion-types.txt};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Без дисторсии}
+%		\label{pic:pitzval}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.31\tw}
+	\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				height	=	4cm,
+				width	=	4cm,
+%				xlabel	=	{$x$},
+%				ylabel	=	{$y$},
+%				ylabel shift	= 3mm,
+				%			extra x ticks ={sqrt(2)/2},
+				%			extra x tick labels={$\frac{\sqrt{2}}{2}$},
+				xmin=-1.25,
+				xmax=1.25,
+				ymin=-1.25,
+				ymax=1.25,
+				hide axis
+				]
+				\addplot[only marks, mark = o, mark options={scale=0.2, black}] table[x=x_barrel, y=y_barrel] {data/distorsion-types.txt};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Дисторсия <<бочка>>}
+%		\label{pic:pitzval}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.31\tw}
+	\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				height	=	4cm,
+				width	=	4cm,
+%				xlabel	=	{$x$},
+%				ylabel	=	{$y$},
+%				ylabel shift	= 3mm,
+				%			extra x ticks ={sqrt(2)/2},
+				%			extra x tick labels={$\frac{\sqrt{2}}{2}$},
+				xmin=-1.25,
+				xmax=1.25,
+				ymin=-1.25,
+				ymax=1.25,
+				hide axis
+				]
+				\addplot[only marks, mark = o, mark options={scale=0.2, black}] table[x=x_pillow, y=y_pillow] {data/distorsion-types.txt};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Дисторсия <<подушка>>}
+%		\label{pic:pitzval}
+	\end{subfigure}
+	\caption{Виды дисторсии}
+	
+\end{figure}
+
 
