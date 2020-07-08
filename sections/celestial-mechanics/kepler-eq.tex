@@ -153,12 +153,12 @@
 			\draw (3.736, 0) -- (3.736, 0.2) -- (3.536, 0.2);
 			
 		\end{tikzpicture}
-		\caption{Секторы $\sector DCP$ и $\sector AFP$}
+		\caption{Секторы $\sector DCP$ и $\sector BFP$}
 	\end{subfigure}
 	\caption{}
 \end{figure}
 
-Найдем связь площадей секторов $\sector AFP$ и $\sector BFP$. Нетрудно заметить, что первый переходит во второй под действием $\xi$. Из свойств аффинного получаем, что
+Найдем связь площадей секторов $\sector AFP$ и $\sector BFP$. Нетрудно заметить, что первый переходит во второй под действием $\xi$. Из свойств аффинного преобразования получаем:
 \begin{equation*}
 	\frac{\area \sector BFP}{\area \sector AFP} = \frac{b}{a}.
 \end{equation*}
@@ -168,7 +168,7 @@
 \begin{equation*}
 	\frac{\area \sector BFP}{\area \sector DCP} = \frac{b}{a}.
 \end{equation*}
-Следовательно, $\area \sector DCP = \area \sector BFP$.
+Следовательно, $\area \sector DCP = \area \sector AFP$.
 
 Как для площади центрального сектора, для $\area \sector DCP$ верно
 \begin{equation*}
@@ -179,29 +179,30 @@
 	\area \sector ACP = \frac{a^2}{2} E.
 \end{equation*}
 С другой стороны $\sector ACP = \sector AFP + \triangle ACF$, а, значит,
-\begin{equation*}
+\begin{equation}
 	\area \sector ACP = \area\sector AFP + \area\triangle ACF.
-	\label{eq:kepler-law-1}
-\end{equation*}
+	\label{eq:kepler-eq-acp}
+\end{equation}
 Найдем площадь треугольника $\triangle ACF$:
 \begin{equation*}
 	\area \triangle ACF = \frac{1}{2} |CF| \cdot |AC| \sin E = \frac{1}{2} a e \cdot a \sin E =  \frac{a^2 e\sin E}{2}
 \end{equation*}
-Тогда из равенства $\area \sector DCP = \area \sector AFP$ и \eqref{eq:kepler-law-1} получаем:
+Тогда из равенства $\area \sector DCP = \area \sector AFP$ и \eqref{eq:kepler-eq-acp} получаем:
 \begin{gather*}
 	\frac{a^2}{2} E = \frac{a^2 e\sin E}{2} + \frac{a^2}{2} M;\\[0.5pc]
 	M = E ( 1 - e \sin E).
 \end{gather*}
-Последнее равенство называется \term{уравнением Кеплера}, которое связывает среднюю и эксцентрическую аномалии.
-Найдем теперь зависимость эксцентрической аномалии $E$ от истинной, чтобы связать все три аномалии. Вспомним, что $B \in o$, следовательно, она удовлетворяет уравнению эллипса в декартовых координатах, значит
-\begin{equation*}
+Последнее равенство называется \term{уравнением Кеплера}, оно связывает среднюю и эксцентрическую аномалии.
+Найдем теперь зависимость эксцентрической аномалии $E$ от истинной, чтобы связать все три аномалии. Вспомним, что точно $B$ принадлежит эллипсу $o$, следовательно, она удовлетворяет уравнению эллипса в декартовых координатах, значит
+\begin{equation}
 	\frac{|CH|^2}{a^2} + \frac{|BH|^2}{b^2} = 1.
-\end{equation*}
-Далее, $|CH| = |AC| \cos E = a \cos E$, как прилежащий к углу $\angle E$ катет в прямоугольном треугольнике $\triangle AHC$. Отсюда выразим $|BH|$:
+	\label{eq:kepler-eq-dec-eq}
+\end{equation}
+Далее, $|CH| = |AC| \cos E = a \cos E$, как прилежащий к углу $\angle E$ катет в прямоугольном треугольнике $\triangle AHC$. Выразим теперь $|BH|$ из \eqref{eq:kepler-eq-dec-eq}:
 \begin{equation*}
-	|BH| = b\sqrt{1 - \frac{|CH|^2}{a^2}} = b \sqrt{1 - \frac{a^2 \cos^2 E}{a^2}} = a \sqrt{1 - e^2} \sin E .
+	|BH| = b\sqrt{1 - \frac{|CH|^2}{a^2}} = a \sqrt{1 - e^2} \sqrt{1 - \frac{a^2 \cos^2 E}{a^2}} = a \sqrt{1 - e^2} \sin E .
 \end{equation*}
-Найдем теперь $|FH|$:
+Найдем $|FH|$:
 \begin{equation*}
 	|FH| = |CH| - |CF| = a \cos E - a e = a (\cos E - e).
 \end{equation*}
@@ -219,5 +220,5 @@
 \begin{equation*}
 	1 - e \cos E  = \frac{1 - e^2}{ 1 + e \cos \nu}.
 \end{equation*}
-Полученное выражение завершает систему уравнений для $\nu$, $E$ и $M$.
+Полученное равенство завершает систему уравнений для $\nu$, $E$ и $M$.
 
