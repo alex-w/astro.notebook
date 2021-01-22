@@ -3,25 +3,78 @@
 \begin{equation}
 	F(x) = \int f(x)dx,\quad F^\prime(x)=f(x).
 \end{equation}
-\term{Определенный интеграл} характеризуется верхним и нижним пределом интегрирования. Значение определенного интеграла численно равно площади под графиком функции на данном промежутке.
+
+\begin{wrapfigure}{r}{0.46\tw}
+	\centering
+	\vspace{-1.1pc}
+	\centering
+	\begin{tikzpicture}[scale=1.1, yscale=0.7]
+		\footnotesize
+		\clip(-0.5, -1.05) rectangle (3.6, 2.1);
+		
+%		\foreach \x in {-5, -4.9,...,5} {
+%			\draw [line width=.1pt] (\x, -5) -- (\x, 5);
+%		};
+%		
+%		\foreach \x in {-5, -4,..., 5} {
+%			\draw [line width=.4pt] (\x , -5) -- (\x , 5);
+%		};
+%		
+%		\foreach \y in {-5, -4,..., 5} {
+%			\draw [line width=.4pt] (-5, \y) -- (5, \y);
+%		};
+%		
+%		\foreach \y in {-5, -4.9,..., 5} {
+%			\draw [line width=.1pt] (-5, \y) -- (5, \y);
+%		};
+		
+
+		\fill [lightgray] (0.4, 0) -- (0.4, 1.7) .. controls (0.9, 1.65) and (1.1, 0.85) .. (1.55, 0) -- cycle;	
+		\fill [lightgray] (1.55, 0) .. controls (1.9, -0.9) and (2.3, -1.2) .. (2.5, -0.8) -- (2.5, 0) -- cycle;	
+		\draw [thick] (-0.3, 0.5) .. controls (1, 5) and (2, -5) .. (3, 1);	
+		
+		\draw[semithick, -latex] (-0.5, 0) -- (3.5, 0); 		
+		\draw[semithick, -latex] (0, -0.5) -- (0, 2); 
+		
+		\draw [dashes] (0.4, 0) -- (0.4, 1.7);
+		\draw [dashes] (2.5, 0) -- (2.5, -0.8);
+
+		\draw (0.9, 0.5) node{$S_+$};
+		\draw (2.15, -0.45) node{$S_-$};
+		\draw (3.5, 0) node[anchor=south]{$x$};
+		\draw (0, 2) node[anchor=west]{$y$};
+		\draw (0.4, 0) node[anchor=north]{$a$};
+		\draw (2.5, 0) node[anchor=south]{$b$};
+		\draw (2.95, 0.8) node[anchor=west]{$f(x)$};
+
+		\draw [fill=white] (0.4, 1.7) circle(0.03);
+		\draw [fill=white] (0.4, 0) circle(0.03);
+		\draw [fill=white] (2.5, 0) circle(0.03);
+		\draw [fill=white] (2.5, -0.8) circle(0.03);
+		
+	\end{tikzpicture}
+	\caption{}
+	\label{pic:math-int}
+\end{wrapfigure}
+\term{Определенный интеграл} характеризуется верхним и нижним пределом интегрирования. Значение определенного интеграла численно равно площади под графиком функции на данном промежутке и вычисляется по формуле \imp{Ньютона--Лейбница}:
 \begin{equation}
 	\int\limits^b_a f(x)\,dx = F(x) \biggr|^b_a = F(b) - F(a)
 \end{equation}
 Правила интегрирования:
 \begin{align*}
-	\int c f(x) \,dx &= c \int f(x) \,dx;  &&&&&\int f(ax + b) \,dx &= \dfrac{1}{a}F(ax + b) + C;\\
-	\int f \,dg &= fg - \int g \,df; &&&&& \int \bigl[f(x) + g(x)\bigr] \,dx &= \int f(x) \,dx + \int g(x) \,dx;
+	&\int c f(x) \,dx = c \int f(x) \,dx;\quad &&  \int f(ax + b) \,dx = \dfrac{1}{a}F(ax + b) + C;\\
+	&\int f \,dg = fg - \int g \,df; && \int \bigl[f(x) + g(x)\bigr] \,dx = \int f(x) \,dx + \int g(x) \,dx;
 \end{align*}
 Таблица интегралов:
 \begin{align*}
-	\int  x^a \,dx &= \dfrac{x^{a+1}}{a+1} + C,\quad a \neq -1;\quad &
-	\int \dfrac{dx}{\sqrt{a^2 - x^2}} &= \arcsin\dfrac{x}{a} + C;\\
-	\int \frac{dx}{x} &= \ln x + C; &
-	\int \dfrac{dx}{-\sqrt{a^2 - x^2}} &= \arccos\dfrac{x}{a} + C;\\
-	\int a^x \,dx &= \dfrac{a^x}{\ln a} + C; &
-	\int \dfrac{dx}{x^2 + a^2} &= \dfrac{1}{a} \arctg \dfrac{x}{a} + C; \\
-	\int \cos x \,dx &= \sin x + C; &
-	\int \dfrac{dx}{x^2 - a^2} &= \dfrac{1}{2a} \ln \dfrac{|x - a|}{|x + a|} + C;\\
-	\int \sin x \,dx &= -\cos x + C; &
-	\int \dfrac{dx}{\sqrt{x^2 + a}} &= \ln \left| x + \sqrt{x^2 + a} \right| + C.
+	&\int  x^a \,dx = \dfrac{x^{a+1}}{a+1} + C,\quad a \neq -1; \quad
+	&&\int \dfrac{dx}{\sqrt{a^2 - x^2}} = \arcsin\dfrac{x}{a} + C;\\
+	&\int \frac{dx}{x} = \ln x + C;
+	&&\int \dfrac{dx}{-\sqrt{a^2 - x^2}} = \arccos\dfrac{x}{a} + C;\\
+	&\int a^x \,dx = \dfrac{a^x}{\ln a} + C;
+	&&\int \dfrac{dx}{x^2 + a^2} = \dfrac{1}{a} \arctg \dfrac{x}{a} + C; \\
+	&\int \cos x \,dx = \sin x + C;
+	&&\int \dfrac{dx}{x^2 - a^2} = \dfrac{1}{2a} \ln \dfrac{|x - a|}{|x + a|} + C;\\
+	&\int \sin x \,dx = -\cos x + C;
+	&&\int \dfrac{dx}{\sqrt{x^2 + a}} = \ln \left| x + \sqrt{x^2 + a} \right| + C.
 \end{align*}
