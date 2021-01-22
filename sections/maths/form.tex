@@ -6,6 +6,45 @@
 	(1 + x)^\alpha &\approx 1 + \alpha x & e^x &\approx 1 + x \\
 	\sin (\theta + x) &\approx \sin \theta + x \cos \theta & \cos(\theta + x) &\approx \cos \theta - x \sin \theta
 \end{align*}
+
+\begin{wrapfigure}{r}{0.5\tw}
+	\centering
+	\vspace{-.9pc}
+	\begin{tikzpicture}
+		\begin{axis}[
+			width	=	.5\tw,
+			height	=	4.5cm,
+			xlabel	=	{$x$},
+			ylabel	=	{$y$},
+%			extra x ticks	=	{1.571},
+%			ytick = {-20, -10, 0, 10, 20},
+			ymax	=	1,
+			ymin	=	0,
+			xmax	=	1.571,
+			xmin	=	0,
+%			xtick	=	{0, 4, 8, 12, 16, 20, 24},
+%			x dir = reverse
+			legend cell align=left,
+				legend style={
+				row sep = 1mm,
+				draw=none,
+				fill=none,
+				font=\scriptsize,
+				at={(axis cs:1.5, 0.1)}, anchor=south east,
+				},
+			]
+			\addplot [domain=0:2, samples=100] {sin(deg(x))};
+			\addplot [domain=0:2, samples=100, dashed] {x};
+			\addplot [domain=0:2, samples=100, dotted] {x - (x^3)/6};
+			\legend{
+				$\sin(x)$,
+				$x$,
+				$x - x^3\!/6$
+			}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{}
+\end{wrapfigure}
 Также существует равенство для нескольких малых переменных:
 \begin{equation*}
 	(1 + a)^\alpha (1 + b)^\beta \ldots \approx 1 + \alpha a + \beta b + \ldots
