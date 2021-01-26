@@ -165,6 +165,38 @@
 	\therefore p = a (1 - e^2) = \frac{b^2}{a} = b \sqrt{1 - e^2}.
 \end{gather}
 
+
+\begin{wrapfigure}{r}{0.45\tw}
+	\centering
+	\begin{tikzpicture}[scale=1]
+		\footnotesize
+		
+		\coordinate (O) at (0, 0);
+		\coordinate (xy) at (1, 1.237);
+		\coordinate (F1) at (1.4, 0);
+		\coordinate (F2) at (-1.4, 0);
+		
+		\draw [semithick] (O) ellipse(2 and 1.428);
+		
+		\draw  (-2, 0) -- (2, 0);
+		
+		\draw (F1) -- (xy) -- (F2);
+		
+		\draw ([shift=(0:0.2)] F1) arc(0:108:0.2);
+		
+		\draw (F1) node [anchor=north] {$F_1$};
+		\draw (F2) node [anchor=north] {$F_2$};
+		\draw (1.47, 0.12) node [anchor=south west] {$\nu$};
+		\draw (O) node[anchor=north] {$2c$};
+		\draw (1.22, 0.6) node[anchor=west] {$r$};
+		\draw (-0.1, 0.72) node[anchor=east] {$2a-r$};
+		
+		\draw (F1) [fill=white] circle(.03);
+		\draw (F2) [fill=white] circle(.03);
+		\draw (xy) [fill=white] circle(.025);
+	\end{tikzpicture}
+	\caption{}
+\end{wrapfigure}
 Получим теперь выражение для расстояния от произвольной точки эллипса с \term{истинной аномалией}~$\nu$~--- угол
 {\slshape перицентр -- фокус -- заданная точка},
 отсчитываемый в сторону движения по эллипсу. Для этого необходимо рассмотреть треугольник {\slshape перицентр -- фокус -- заданная точка} и записать для него теорему косинусов:
@@ -188,12 +220,55 @@
 	(1 - e^2) x^2 + y^2 = a^2 (1 - e^2)^2 - 2ae (1 - e^2) x,\\
 	x^2 + \frac{y^2}{1 - e^2} = a^2 (1 - e^2) - 2aex.
 \end{gather*}
-Сдвинем систему отсчета влево так, чтобы центр эллипса оказался в начале координат, тогда новая координата по оси $x$ определяется, как $\xi = x + ae$, иначе $x = \xi - ae$. Подставим полученное выражение в преобразованное уравнение:
+\begin{wrapfigure}{r}{0.45\tw}
+	\centering
+	\vspace{-2pc}
+	\begin{tikzpicture}[scale=1]
+		\footnotesize
+		
+		\clip (-2.3, -0.5) rectangle (3, 2.5);
+		
+		\coordinate (O) at (0, 0);
+		\coordinate (xy) at (1, 1.237);
+		\coordinate (F1) at (1.4, 0);
+		\coordinate (F2) at (-1.4, 0);
+		
+		\draw [semithick] (O) ellipse(2 and 1.428);
+		
+		\draw [-latex] (0, -1.7) -- (0, 2);
+		\draw [-latex] (1.4, -1.7) -- (1.4, 2);
+		\draw [-latex] (-2.3, 0) -- (2.5, 0);
+		
+%		\draw [-latex, thick] (xy) -- (F1);
+%		\draw [-latex, thick] (xy) -- (F2) ;
+%		\draw [-latex, thick] (xy) -- (2, 0.825);
+%		\draw [dashes] (-1, 2.062) -- (2.5, 0.618);
+		
+%		\draw ([shift=(-72:0.3)] xy) arc(-72:-22.4:0.3);
+%		\draw ([shift=(157.6:0.3)] xy) arc(157.6:207.3:0.3);
+
+		\draw (F1) node [anchor=north west] {$F_1$};
+		\draw (F2) node [anchor=north] {$F_2$};
+%		\draw (1.2, 0.6) node [anchor=west] {$\vec r_1$};
+%		\draw (-0.2, 0.63) node [anchor=south] {$\vec r_2$};
+%		\draw (1.505, 1) node [anchor=south] {$\vec t$};
+
+		\draw (2.5, 0) node [anchor=north] {$x, \xi$};
+		\draw (1.4, 2) node [anchor=west] {$y$};
+		\draw (0, 2) node [anchor=west] {$\eta$};
+		
+		\draw (F1) [fill=white] circle(.03);
+		\draw (F2) [fill=white] circle(.03);
+%		\draw (xy) [fill=white] circle(.025);
+	\end{tikzpicture}
+	\caption{}
+\end{wrapfigure}
+Сдвинем систему отсчета влево так, чтобы центр эллипса оказался в начале координат, тогда новая координата по оси $x$ определяется, как $\xi = x + ae$, иначе $x = \xi - ae$, а $y = \eta$. Подставим полученное выражение в преобразованное уравнение:
 \begin{gather*}
-	\xi^2 + a^2 e^2 - 2ae\xi + \frac{y^2}{1 - e^2} = a^2 (1 - e^2) - 2 ae\xi + 2 a^2 e^2,\\
-	\xi^2 + a^2 e^2  + \frac{y^2}{1 - e^2} = a^2 - a^2 e^2 + 2 a^2 e^2,\\
-	\frac{\xi^2}{a^2} + \frac{y^2}{a^2 (1 - e^2)} = 1,\\
-	\frac{\xi^2}{a^2} + \frac{y^2}{b^2} = 1. \tag{\theequation} \label{eq:ell-eq-dec}
+	\xi^2 + a^2 e^2 - 2ae\xi + \frac{\eta^2}{1 - e^2} = a^2 (1 - e^2) - 2 ae\xi + 2 a^2 e^2,\\
+	\xi^2 + a^2 e^2  + \frac{\eta^2}{1 - e^2} = a^2 - a^2 e^2 + 2 a^2 e^2,\\
+	\frac{\xi^2}{a^2} + \frac{\eta^2}{a^2 (1 - e^2)} = 1,\\
+	\frac{\xi^2}{a^2} + \frac{\eta^2}{b^2} = 1. \tag{\theequation} \label{eq:ell-eq-dec}
 \end{gather*}
 Данное уравнение называется \term{уравнением эллипса в декартовых координатах}.
 
@@ -237,10 +312,8 @@
 
 \begin{wrapfigure}{r}{0.45\tw}
 	\centering
-	\vspace{-.5pc}
 	\begin{tikzpicture}[scale=1]
-%		\footnotesize
-%		\clip (-.4, -1) rectangle + (4, 3.5);
+		\footnotesize
 		
 		\coordinate (O) at (0, 0);
 		\coordinate (xy) at (1, 1.237);
@@ -256,25 +329,26 @@
 		\draw [-latex, thick] (xy) -- (F2) ;
 		\draw [-latex, thick] (xy) -- (2, 0.825);
 		\draw [dashes] (-1, 2.062) -- (2.5, 0.618);
-%		
-%		\draw (1.2, 1.11) node [anchor=south east] {$(x, y)$};
+		
+		\draw ([shift=(-72:0.3)] xy) arc(-72:-22.4:0.3);
+		\draw ([shift=(157.6:0.3)] xy) arc(157.6:207.3:0.3);
+
 		\draw (F1) node [anchor=north] {$F_1$};
 		\draw (F2) node [anchor=north] {$F_2$};
-%		\draw (.65, .55) node [anchor=west] {$\vec r$};
-%		\draw (1.5, 1.11) node [anchor=north] {$\vec x$};
-%		\draw (1.5, 1.39) node [anchor=south] {$\vec t$};
-%		
+		\draw (1.2, 0.6) node [anchor=west] {$\vec r_1$};
+		\draw (-0.2, 0.63) node [anchor=south] {$\vec r_2$};
+		\draw (1.505, 1) node [anchor=south] {$\vec t$};
+
 		\draw (2.5, 0) node [anchor=north] {$x$};
 		\draw (0, 2) node [anchor=west] {$y$};
-%		
+		
 		\draw (F1) [fill=white] circle(.03);
 		\draw (F2) [fill=white] circle(.03);
 		\draw (xy) [fill=white] circle(.025);
 	\end{tikzpicture}
-	
 	\caption{}
 \end{wrapfigure}
-Кроме этого, эллипс обладает важным \imp{оптическим свойством}, которое можно сформулировать так: свет от источника в одном из фокусов, отражается эллипсом так, что отражённые лучи пересекаются во втором фокусе или, что тоже самое, касательная к эллипсу в заданной точке образует с фокальными радиусами в данной точке равные острые углы. Для его доказательства необходимо показать равенство углов между касательной в точке к эллипсу и направлениями на фокусы. Для этого получим сначала уравнение касательной к эллипсу в произвольной точке $(x_0, y_0$, принадлежащей ему. Как было показано выше, эллипс можно представить объединением графиков двух функций~\eqref{eq:ell-y0}. Найдем теперь производные от этих функций по $x_0$:
+Кроме этого, эллипс обладает важным \imp{оптическим свойством}, которое можно сформулировать так: свет от источника в одном из фокусов, отражается эллипсом так, что отражённые лучи пересекаются во втором фокусе или, что тоже самое, касательная к эллипсу в заданной точке образует с фокальными радиусами в данной точке равные острые углы. Для его доказательства необходимо показать равенство углов между касательной в точке к эллипсу и направлениями на фокусы. Для этого получим сначала уравнение касательной к эллипсу в произвольной точке $(x_0, y_0)$, принадлежащей ему. Как было показано выше, эллипс можно представить объединением графиков двух функций~\eqref{eq:ell-y0}. Найдем теперь производные от этих функций по $x_0$:
 \begin{equation*}
 	(y_0)'_{x_0} = \pm \sqrt{1 - e^2} \cdot \frac{-x_0}{\sqrt{a^2 - x_0^2}}.
 \end{equation*}
