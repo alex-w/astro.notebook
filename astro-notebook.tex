@@ -211,7 +211,7 @@
 
 
 %%% Новые команды
-\newcommand{\term}[1]{{\sffamily\bfseries#1}}
+\newcommand{\term}[1]{\,\!{\sffamily\bfseries#1}}
 \newcommand{\moon}{\!\!\rightmoon}
 \newcommand{\au}{\text{а.\,е.}}
 \newcommand{\tw}{\textwidth}
@@ -266,9 +266,9 @@
 %%% main
 \begin{document}
 %\includepdf[pages=-]{sys/empty-page.pdf}
-	\input{sys/title}
-	\input{sys/authors}
 	\input{sys/cover}
+%	\input{sys/title}
+	\input{sys/authors}
 	\setcounter{tocdepth}{2}
 	{
 		\small 

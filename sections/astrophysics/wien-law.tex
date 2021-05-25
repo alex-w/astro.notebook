@@ -6,12 +6,12 @@
 Закон следует из определения максимума функции Планка \eqref{sec:planck-law}.
 Проведем исследование: найдем максимум. Для этого зафиксируем температуру черного тела и введем обозначения: $\alpha \equiv 2 h c^2$ и $\beta \equiv h c / k T$. Тогда задача сводится к поиску экстремума функции
 \begin{equation*}
-	B(\lambda) = \frac{\alpha \lambda^{-5}}{\exp \left(\beta \lambda^{-1} \right) - 1}
+	B(\lambda) = \frac{\alpha \lambda^{-5}}{\exp \left(\beta \lambda^{-1} \right) - 1}.
 \end{equation*}
-Продифференцируем $B(\lambda)$:
+Для её решения продифференцируем $B(\lambda)$:
 \begin{align*}
 	B'(\lambda) &= \frac{-5 \alpha \lambda^{-6}}{\exp \left(\beta \lambda^{-1} \right) - 1} + \frac{-\alpha \lambda^{-5}}{\big(\exp \left(\beta \lambda^{-1} \right) - 1\big)^2} \cdot \exp \left( \beta \lambda^{-1} \right) \cdot \left(-\beta \lambda^{-2}\right) = \\
-	&= \frac{\alpha \lambda^{-7}}{\big(\exp \left(\beta \lambda^{-1} \right) - 1\big)^2} \left[ -5\lambda \left( \exp \frac{\beta}{\lambda} - 1 \right) + \beta \exp \frac{\beta}{\lambda} \right]
+	&= \frac{\alpha \lambda^{-7}}{\big(\exp \left(\beta \lambda^{-1} \right) - 1\big)^2} \left[ -5\lambda \left( \exp \frac{\beta}{\lambda} - 1 \right) + \beta \exp \frac{\beta}{\lambda} \right].
 \end{align*}
 Остается приравнять выражения в квадратных скобках к нулю, и найти корни получившегося уравнения.
 \begin{gather*}
@@ -19,7 +19,7 @@
 	\frac{\beta}{\lambda} \exp \frac{\beta}{\lambda} = 5 \left( \exp \frac{\beta}{\lambda} - 1 \right),\quad\text{пусть}~x = \frac{\beta}{\lambda};\\
 	\frac{x e^x}{e^x - 1} = 5.
 \end{gather*}
-К сожалению решение полученного уравнения не выражается в элементарных функциях. Численные методы дают ответ: $x = 4.9651...$ Возвращаясь к исходным переменным, имеем:
+К сожалению решение полученного уравнения не выражается в элементарных функциях. Численные методы дают ответ: $x = 4.9651\ldots$ Возвращаясь к исходным переменным, приходим к
 \begin{equation*}
 	\frac{h c}{k T \lambda} = x \approx 4.9651.
 \end{equation*}
