@@ -69,17 +69,17 @@
 \end{aligned}\right.
 \end{align*}
 Подставим выражения для $\lambda$ и $\mu$ в третье уравнение:
-\begin{gather*}
-z - z_0 = \dfrac{x - x_0 - \mu x_b}{x_a} \cdot z_a + \mu z_b = (x - x_0) \cdot \dfrac{z_a}{x_a} + \mu \left( z_b - \dfrac{x_b z_a}{x_a} \right),\\
-z - z_0 = (x - x_0) \cdot \dfrac{z_a}{x_a} + \dfrac{x_a y - x_a y_0 - (x - x_0) \cdot y_a}{x_a y_b - x_b y_a} \cdot \left( z_b - \dfrac{x_b z_a}{x_a} \right),
-\end{gather*}
+\begin{multline*}
+    z - z_0 = \dfrac{x - x_0 - \mu x_b}{x_a} \cdot z_a + \mu z_b = (x - x_0) \cdot \dfrac{z_a}{x_a} + \mu \left( z_b - \dfrac{x_b z_a}{x_a} \right) = \\
+    = (x - x_0) \cdot \dfrac{z_a}{x_a} + \dfrac{x_a y - x_a y_0 - (x - x_0) \cdot y_a}{x_a y_b - x_b y_a} \cdot \left( z_b - \dfrac{x_b z_a}{x_a} \right)
+\end{multline*}
 Приведя подобные слагаемые с $x$, $y$ и $z$, получим:
 \begin{multline*}
 z = x \cdot \underbrace{\left( \dfrac{z_a}{x_a} - \dfrac{y_a}{x_a y_b - x_b y_a} \left( z_b - \dfrac{x_b z_a}{x_a} \right) \right)}_A +\\
 + y \cdot \underbrace{\dfrac{x_a}{x_a y_b - x_b y_a} \cdot \left( z_b - \dfrac{x_b z_a}{x_a} \right)}_B +\\
 + \underbrace{z_0 - \dfrac{x_0 z_a}{x_a} - \dfrac{x_a y_0 - x_0 y_a}{x_a y_b - x_b y_a} \cdot \left( z_b - \dfrac{x_b z_a}{x_a} \right)}_D.
 \end{multline*}
-Сделаем такую замену:
+Сделаем замену:
 \begin{align*}
 &
 \begin{aligned}
