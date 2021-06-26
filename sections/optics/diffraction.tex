@@ -52,7 +52,6 @@
 		\draw[vector] (\t,0,0) -- ++(0,0,{\A*sin(2*\angle)});
 		\fi
 		}
-		
 	\end{tikzpicture}
 	\caption{}
 \end{wrapfigure}
@@ -157,6 +156,7 @@
 				smooth
 				]
 				table[x=x, y=y, z=I] {data/eiry-disk-y.txt};
+				
 				
 				\addplot3[surf] table[x=x, y=y, z=I] {data/eiry-disk.txt};
 			\end{axis}

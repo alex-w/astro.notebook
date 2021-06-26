@@ -31,6 +31,7 @@
 \newcommand{\R}{\mathbb{R}}
 \renewcommand{\L}{\mathcal{L}}
 \newcommand{\scalar}[2]{\left(\vec{#1} \cdot \vec{#2}\right)}
+\newcommand{\scalarNoVec}[2]{\left(#1 \cdot #2 \right)}
 \newcommand{\cross}[2]{\left[\vec{#1} \times \vec{#2}\right]}
 \newcommand{\triple}[3]{\left( \vec{#1}, \vec{#2}, \vec{#3} \right)}
 \DeclareMathOperator{\T}{T}
@@ -44,6 +45,9 @@
 % Астрономические символы
 \usepackage{wasysym}
 \usepackage{starfont}	% Значок Цереры
+
+% Настройки для математики
+\setcounter{MaxMatrixCols}{20}
 
 
 %%% Поля и разметка страницы
@@ -143,8 +147,9 @@
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
 \usetikzlibrary{calc, fadings, decorations.markings, shapes, snakes}
-\usetikzlibrary{ipe}
 
+% !!! Убрать, когда перепишутся рисунки, от него зависимые !!!
+\usetikzlibrary{ipe}
 \tikzstyle{ipe stylesheet} = [
   ipe import,
   even odd rule,
@@ -188,7 +193,6 @@
 %\usetikzlibrary{decorations.text}
 
 \tikzset{every picture/.style={line cap=round}}
-
 
 \makeatletter
 
@@ -270,7 +274,7 @@
 \fancyhead[CE]{\slshape \hyperref[toc]{Астрадь}}
 
 
-\usepackage{ellipse}
+\usepackage{url}
 
 %%% main
 \begin{document}
@@ -297,5 +301,7 @@
 	\input{sys/prac-astro.tex}
 	\input{sys/tables.tex}
 	\input{sys/notes.tex}
+	\bibliographystyle{ieeetr}
+	\bibliography{lit}
 	\input{sys/print-info.tex}
 \end{document}
