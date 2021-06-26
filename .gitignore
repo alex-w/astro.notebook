@@ -7,5 +7,5 @@ sections/*.log
 astro-notebook.pdf
 astro-notebook.tex
 .texpadtmp/
-tikz/
+tikz/*
 !tikz/placaaholder
