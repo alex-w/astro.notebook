@@ -1,5 +1,12 @@
 \documentclass[10pt, a5paper, twoside]{article}
 
+%%% Дата
+\newcommand{\pages}{143}
+\newcommand{\publish}{3}
+\newcommand{\signed}{22.12.2020}
+\renewcommand{\year}{2021}
+\newcommand{\isbn}{ISBN 978-5-9909877-2-2}
+
 %%% Русский шрифт
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
@@ -24,11 +31,12 @@
 \newcommand{\R}{\mathbb{R}}
 \renewcommand{\L}{\mathcal{L}}
 \newcommand{\scalar}[2]{\left(\vec{#1} \cdot \vec{#2}\right)}
+\newcommand{\scalarNoVec}[2]{\left(#1 \cdot #2 \right)}
 \newcommand{\cross}[2]{\left[\vec{#1} \times \vec{#2}\right]}
 \newcommand{\triple}[3]{\left( \vec{#1}, \vec{#2}, \vec{#3} \right)}
 \DeclareMathOperator{\T}{T}
 \DeclareMathOperator{\pr}{pr}
-\AtBeginDocument{\renewcommand{\d}{\,d}}
+\newcommand{\LL}{\mathcal{L}}
 
 % Операторы
 \DeclareMathOperator{\const}{const}
@@ -36,7 +44,10 @@
 
 % Астрономические символы
 \usepackage{wasysym}
-\usepackage{starfont}	% Значок Цереры
+\usepackage{starfont} % Значок Цереры
+
+% Настройки для математики
+\setcounter{MaxMatrixCols}{20}
 
 
 %%% Поля и разметка страницы
@@ -47,7 +58,7 @@
 %%% Набор текста
 
 % Разрывы страниц в формулах
-\allowdisplaybreaks	
+\allowdisplaybreaks
 
 % Последняя строка абзаца
 \widowpenalty10000
@@ -55,14 +66,13 @@
 
 %%% Иллюстрации
 \usepackage{graphicx}
-\usepackage{subcaption}
 \usepackage{wrapfig}
 \usepackage[export]{adjustbox}
 \graphicspath{{./img/}}
 
 % Графики
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.3}
+\pgfplotsset{compat = 1.3}
 \usepgfplotslibrary{patchplots}
 %\usepackage{patchplots}
 \pgfplotsset{	width	=	14	cm,
@@ -136,8 +146,9 @@
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
 \usetikzlibrary{calc, fadings, decorations.markings, shapes, snakes}
-\usetikzlibrary{ipe}
 
+% todo: Убрать, когда перепишутся рисунки, от него зависимые
+\usetikzlibrary{ipe}
 \tikzstyle{ipe stylesheet} = [
   ipe import,
   even odd rule,
@@ -182,12 +193,11 @@
 
 \tikzset{every picture/.style={line cap=round}}
 
-
 \makeatletter
 
 \tikzset{
-%    dot diameter/.store in=\dot@diameter,
-%    dot diameter=3pt,
+% dot diameter/.store in=\dot@diameter,
+% dot diameter=3pt,
     dot spacing/.store in=\dot@spacing,
     dot spacing = 4pt,
     dashes/.style={
@@ -224,32 +234,32 @@
 \newcommand*{\SectorLineWidth}{.5pt}
 
 \newcommand*{\sector}{%
-  \begin{pgfpicture}
-    \pgfpathmoveto{\pgforigin}%
-    \pgfpathlineto{\pgfpointpolar{90-(\SectorHalfAngle)}{\SectorRadius}}%
-    \pgfarc{90-(\SectorHalfAngle)}{90+\SectorHalfAngle}{\SectorRadius}%
-    \pgfpathclose
-    \pgfsetlinewidth{\SectorLineWidth}%
-    \pgfusepath{stroke}%
-  \end{pgfpicture}%
+    \begin{pgfpicture}
+        \pgfpathmoveto{\pgforigin}%
+        \pgfpathlineto{\pgfpointpolar{90-(\SectorHalfAngle)}{\SectorRadius}}%
+        \pgfarc{90-(\SectorHalfAngle)}{90+\SectorHalfAngle}{\SectorRadius}%
+        \pgfpathclose
+        \pgfsetlinewidth{\SectorLineWidth}%
+        \pgfusepath{stroke}%
+    \end{pgfpicture}%
 }
 
 
 %%% Cчетчики
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \numberwithin{equation}{section}
-	
-	
+
+
 %%% Размеры
-\setlength    {\parskip}        { 4pt }
-%\setlength    {\parindent}      { 0pt }
+\setlength {\parskip} { 4pt }
+%\setlength {\parindent} { 0pt }
 \renewcommand {\baselinestretch}{ 1.02 }
 
 
 %%% Гиперссылки
 \usepackage{hyperref}
 \hypersetup	{
-    colorlinks=false,    
+    colorlinks=false,
     linktoc=all
 }
 
@@ -263,17 +273,19 @@
 \fancyhead[CE]{\slshape \hyperref[toc]{Астрадь}}
 
 
+\usepackage{url}
+
 %%% main
 \begin{document}
 %\includepdf[pages=-]{sys/empty-page.pdf}
-	\input{sys/cover}
+    \input{sys/cover}
 %	\input{sys/title}
 	\input{sys/authors}
 	\setcounter{tocdepth}{2}
 	{
-		\small 
-		\renewcommand{\baselinestretch}{ 0.95 } 
-		\tableofcontents 
+		\small
+		\renewcommand{\baselinestretch}{ 0.95 }
+		\tableofcontents
 		\label{toc}
 		\renewcommand {\baselinestretch}{ 1.02 }
 	}
@@ -281,6 +293,7 @@
 	\input{sys/cel.mech.tex}
 	\input{sys/conic.sec.tex}
 	\input{sys/astrophys.tex}
+	\input{sys/cosmology.tex}
 	\input{sys/optic.tex}
 	\input{sys/spher.astro.tex}
 	\input{sys/objects.tex}
@@ -288,5 +301,7 @@
 	\input{sys/prac-astro.tex}
 	\input{sys/tables.tex}
 	\input{sys/notes.tex}
+	\bibliographystyle{ieeetr}
+	\bibliography{lit}
 	\input{sys/print-info.tex}
 \end{document}

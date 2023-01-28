@@ -1,0 +1,150 @@
+\subsection{Теорема о вириале}
+Рассмотрим скалярную функцию механической системы, состоящей из $N$ материальных точек:
+\begin{equation}
+    V = \sum_{k=1}^N \scalarNoVec{\vec F_k}{\vec r_k},
+    \label{eq:virial-def}
+\end{equation}
+где $\vec r_k$~--- её радиус-вектор $k$-ой материальной точки, а $\vec F_k$~-- равнодействующая сила, действующая на неё. Функция $V$ называется \term{вириалом} системы.
+
+\paragraph{Теорема о вириале} Для стабильной системы материальных точек с установившимся движением~--- положения точек и их скорости ограничены, удвоенная усредненная по времени полная кинетическая энергия равна усредненному по времени вириалу с обратным знаком:
+\begin{equation}
+    2 \langle T \rangle_\tau = - \langle V \rangle_\tau.
+\end{equation}
+
+Приступим к доказательству, 
+%пусть $I$~--- момент инерции системы, тогда
+%\begin{equation*}
+%    I = \sum_{i = 1}^N m_i \vec r_i^2.
+%\end{equation*}
+%Пусть $T$~--- кинетическая энергия системы, $U$~--- потенциальная, а $\vec F_i$~--- равнодействующая силНайдём первые две производные момента инерции по времени в предположении постоянства масс:
+%\begin{equation*}
+%    \dot{I} = 2 \sum_{i = 1}^N m_i \scalarNoVec{\vec{r}_i}{\vec{\dot{r}}_i},
+%\end{equation*}
+%\begin{multline*}
+%    \ddot{I} 
+%    = 2 \sum_{i = 1}^N m_i \vec{\dot{r}}_i^2 + 2 \sum_{i = 1}^N m_i \scalarNoVec{\vec{r_i}}{\vec{\ddot{r}}_i} 
+%    = 2 \sum_{i = 1}^N m_i \vec{v}_i^2 + 2 \sum_{i = 1}^N \scalarNoVec{\vec{r_i}}{\vec{F}_i}    
+%\end{multline*}
+для удобства введем функцию $Q$:
+\begin{equation*}
+    Q = \sum_{k=1}^N \scalarNoVec{\vec p_k}{\vec r_k},
+\end{equation*}
+где $\vec p_k$~--- импульс $k$-ой частицы. Продифференцируем $Q$ по времени:
+\begin{equation*}
+    \dot Q
+    = \sum_{k=1}^N \scalarNoVec{\dot{\vec p_k}}{\vec r_k} 
+    + \sum_{k=1}^N \scalarNoVec{\vec p_k}{\dot{\vec r_k}} 
+    = \sum_{k=1}^N \scalarNoVec{\vec F_k}{\vec r_k} 
+    + \sum_{k=1}^N m_k \scalarNoVec{\dot{\vec r_k}}{\dot{\vec r_k}}
+\end{equation*}
+Нетрудно заметить, что первое слагаемое в правой части есть вириал, а второе~--- удвоенная кинетическая энергия, следовательно
+\begin{equation}
+    \dot{Q} = 2T + V.
+    \label{eq:virial-2tv}
+\end{equation}
+Усредним $\dot{Q}$ по времени:
+\begin{equation}
+    \langle \dot{Q} \rangle_\tau 
+    = \frac{1}{\tau} \int\limits_0^\tau \dot{Q} \,d t 
+    = \frac{1}{\tau} \int\limits_0^\tau 
+    = \frac{Q(\tau) - Q(0)}{\tau}.
+\label{eq:virial-avg-g}
+\end{equation} 
+важно отметить, начало отсчёта времени здесь произвольно.
+
+Функция $Q$ линейно зависит от импульсов и координат точек. Напомним, система стабильна и движения в ней установившиеся. Это означает, что существуют некоторые $\overline Q$, $\underline Q$ и  момент времени $\tau_0$, такие что $\forall \tau > \tau_0:~\underline Q < Q(\tau) < \overline Q$.
+
+Пусть момент начала отсчета времени $\tau = 0$ лежит после $\tau_0$. Тогда очевидно, что $Q(0) > \underline Q$, а $Q(\tau) < \overline Q$, следовательно, $Q(\tau) - Q(0) < \overline Q - \underline Q$, а значит, $|Q(\tau) - Q(0)| < |\overline Q - \underline Q|$, так как $\underline Q < \overline Q$. 
+
+Устремим в \eqref{eq:virial-avg-g} $\tau$ к бесконечности, тогда величина $\langle \dot{Q} \rangle_\tau  \to 0$, так как $\overline Q - \underline Q = \const$, следовательно,
+\begin{equation}
+    2\langle T \rangle_\tau = - \langle V \rangle_{\tau}.
+    \label{eq:virial-t-v}
+\end{equation}
+
+Сам по себе вириал в физике встречается не часто. Выше была показана связь вириала с кинетической энергией, найдём теперь связь вириала с ещё одной универсальной величиной~---  потенциальной энергией $U$.\,\cite{virial-theorem}
+
+Равнодействующая сила $\vec F_k$, действующая на $k$-ую точку является суммой сил $\vec F_{ki}$, действующих на $k$-ую точку со стороны всех остальных:
+\begin{equation*}
+    \vec F_k = \sum_{i \not= k} \vec F_{ki}.
+\end{equation*}
+Подставим полученное выражение в определение вириала \eqref{eq:virial-def}:
+\begin{equation*}
+    V = \sum_{k = 1}^N \scalarNoVec{\vec F_k}{\vec r_k}
+%    = \sum_{i=1}^N \sum_{k=1}^N \textbf{F}_{ki} \cdot \textbf{r}_{i} 
+    = \sum_{k = 1}^N \sum_{i < k} \scalarNoVec{\vec F_{ki}}{\vec r_k}
+%    + \sum_{i=1}^N \sum_{k=i} \textbf{F}_{ki} \cdot \textbf{r}_{i} 
+    + \sum_{k = 1}^N \sum_{i > k} \scalarNoVec{\vec F_{ki}}{\vec r_k}.
+\end{equation*}
+Воспользуемся III законом Ньютона: $\vec F_{ki} = - \vec F_{ik}$,
+\begin{equation*}
+    V = \sum_{k = 1}^N \sum_{i < k} \scalarNoVec{\vec F_{ki}}{\vec r_k}
+    - \sum_{k = 1}^N \sum_{i > k} \scalarNoVec{\vec F_{ik}}{\vec r_k}
+\end{equation*}
+Рассмотрим подробнее второе слагаемое: суммирование ведется по всем $k$ от 1 до $N$ и $i > k$. Это значит, что $i = N$ попадет во все слагаемые первой суммы, $i = N - 1$~--- во все без одного и т.\,д. Следовательно, суммирование можно вести сначала по $i$ от 1 до $N$, а затем по $k < i$. Используем полученный факт, а также поменяем обозначения $k \leftrightarrow i$:
+\begin{equation}
+    V = \sum_{k = 1}^N \sum_{i < k} \scalarNoVec{\vec F_{ki}}{\vec r_k}
+    - \sum_{k = 1}^N \sum_{i < k} \scalarNoVec{\vec F_{ki}}{\vec r_i}
+    = \sum_{k = 1}^N \sum_{i < k} \big( \vec F_{ki} \cdot (\vec r_k - \vec r_i) \big).
+    \label{eq:virial-v}
+\end{equation}
+
+До этого момента не уточнялась природа и вид сил, действующих между частицами. Пусть силы потенциальны, а потенциальная энергия взаимодействия~$U$ зависит от расстояния степенным образом, $U = \gamma r^m$, тогда сила взаимодействия 
+\begin{equation*}
+    \vec F = -\nabla U = - U'_r \frac{\vec{r}}{r} = -mr^{m - 1} \frac{\vec{r}}{r} = -m r^{m - 2} \vec r.
+\end{equation*}
+Введем обозначение $\vec r_{ik} \equiv \vec r_k - \vec r_i$ и подставим полученное выражение для силы в~\eqref{eq:virial-v}:
+\begin{multline}
+    V 
+    = \sum_{k = 1}^N \sum_{i < k} \scalarNoVec{\vec F_{ki}}{\vec r_{ik}}
+    = \sum_{k = 1}^N \sum_{i < k} -m r_{ik}^{m - 2} \scalarNoVec{\vec r_{ik}}{\vec r_{ik}} = \\
+    = \sum_{k = 1}^N \sum_{i < k} -m r_{ik}^{m}
+    = -m \sum_{k = 1}^N \sum_{i < k} U_{ik} = -mU,
+    \label{eq:virial-v-u}
+\end{multline}
+где $U_{ik}$~--- потенциальная энергия пары точек $i$ и $k$. Последнее равенство верно, так как в суммировании каждая пара учитывает ровно один раз, а полная потенциальная энергия системы является суммой потенциальных энергий всех пар.
+
+Используя~\eqref{eq:virial-v-u}, перепишем~\eqref{eq:virial-t-v}: 
+\begin{equation*}
+    2 \langle T \rangle_\tau = m \langle U \rangle_\tau,
+\end{equation*} 
+для гравитационных сил $m = -1$, отсюда получается важное на практике соотношение, 
+
+\begin{equation}
+    \boxed{2\langle T \rangle_\tau = -\langle U \rangle_\tau\!}\,.
+\end{equation}
+
+%Пусть все рассматриваемые силы взаимодействия потенциальны. Сила~--- это градиент потенциальной энергии $U$, взятый с обратным знаком. Потенциальная энергия $U$ сферически симметрична, так как зависит только от расстояния между точками, следовательно,
+%\begin{equation*}
+%    \vec F_{ki} 
+%    = -\nabla U_i
+%    = - \frac{\partial U_i}{\partial \vec r_{ki}}
+%    = -\frac{dU_i}{dr} \frac{\vec{r}_{ki}}{r_{ki}} 
+%    = -\frac{dU_i}{dr} \frac{\vec r_k - \vec r_i}{r_{ki}}.
+%    \label{eq:virial-f-ki}
+%\end{equation*}
+%Осталось подставить полученное выражение для $\vec F_{ki}$ в формулу для вириала:
+%\begin{equation*}
+%\label{V(U)}
+%    V 
+%    = \sum_{k = 1}^N \sum_{i < k} \scalarNoVec{\vec F_{ki}}{(\vec r_k - \vec r_i)} 
+%    = - \sum_{k = 1}^N \sum_{i < k} \frac{dU_i}{dr} \frac{(\vec r_k - \vec r_i)^2}{r_{ki}} 
+%    = - \sum_{k = 1}^N \sum_{i < k} \frac{dU_i}{dr} r_{ki}.
+%\end{equation*}a
+%\paragraph*{Силы, что зависят от расстояния степенным образом}
+%Давайте рассмотрим частный случай потенциальной энергии, когда $U(r) \sim r^n$.
+%
+%В таком случае подставляя $U(r)=\gamma r^n$ в \eqref{V(U)} 
+%\begin{equation}
+%-V = \sum_{i=1}^N \sum_{k<i} \frac{dU}{dr} r_{ki} = \sum_{i=1}^N \sum_{k<i} n\gamma r_{ki}^{n-1} r_{ki} = \sum_{i=1}^N \sum_{k<i} n\gamma r_{ki}^n.
+%\end{equation}
+%Заметим, что $\gamma r_{ki}^n = U(r_{ki})$, и тогда используя принцип суперпозиции
+%\begin{equation}
+%-V = \sum_{i=1}^N \sum_{k<i} nU(r_{ki})=nU.
+%\end{equation}
+%Теперь вспомним формулу \eqref{eq:virial-t-v} и получим прекрасную формулу
+%\begin{equation}
+%\label{nice}
+%2\langle T \rangle_{\tau} = n\langle U \rangle_{\tau},
+%\end{equation}
+%но не стоит забывать, что, строго говоря, применима она лишь тогда, когда можно считать что $\langle \dot{Q} \rangle = 0$!
