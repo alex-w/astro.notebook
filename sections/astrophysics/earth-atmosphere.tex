@@ -7,12 +7,12 @@
 
 Средняя температура воздуха у поверхности $T_0 \approx 12^\circ\text{C} = 285~\text{K}$. Молярная масса воздуха, средневзвешенное молярных масс его компонент, $\mu_0 = 29~\text{г}/\text{моль}$. 
 
-\paragraph{Изотермическая атмосфера} Падение давления воздуха с увеличением высоты можно описать математически~\cite{barometric-formula-isotermal}. Для этого рассмотрим тонкий слой воздуха толщиной $dh$, выделим в нём фрагмент с площадью $dS$. Пусть масса воздуха в этом фрагменте равна $dm$.  Представим, что воздух в выделенном фрагменте окружен невесомой тонкой оболочкой~--- не перемешивается с окружающим воздухом и находится в равновесии. Которое достигается благодаря равенству нулю равдействующей трёх сил: силы давления воздуха снизу $F_\uparrow = p\d S$, силы давления воздуха сверху $F_\downarrow = -(p + dp)\d S$ и силы тяжести $F_g = -g\d m$, действующей на выделенный слой. Здесь $dp < 0$, так как с высотой давления, очевидно, уменьшается, потому что все меньший столб воздуха оказывает давление на рассматриваемый слой. Итак,
+\paragraph{Изотермическая атмосфера} Падение давления воздуха с увеличением высоты можно описать математически~\cite{barometric-formula-isotermal}. Для этого рассмотрим тонкий слой воздуха толщиной $dh$, выделим в нём фрагмент с площадью $dS$. Пусть масса воздуха в этом фрагменте равна $dm$.  Представим, что воздух в выделенном фрагменте окружен невесомой тонкой оболочкой~--- не перемешивается с окружающим воздухом и находится в равновесии. Которое достигается благодаря равенству нулю равдействующей трёх сил: силы давления воздуха снизу $F_\uparrow = p\,d S$, силы давления воздуха сверху $F_\downarrow = -(p + dp)\,d S$ и силы тяжести $F_g = -g\,d m$, действующей на выделенный слой. Здесь $dp < 0$, так как с высотой давления, очевидно, уменьшается, потому что все меньший столб воздуха оказывает давление на рассматриваемый слой. Итак,
 \begin{gather}
 	F_\uparrow + F_\downarrow + F_g = 0,\nonumber\\
-	p \d S - (p + dp) \d S - g \d m = 0,\nonumber\\
-	- dp\d S = g \rho \d V = g \rho \d h \d S,\nonumber\\
-	dp = - g \rho \d h. \label{eq:isotherm-atm-dp}
+	p \,d S - (p + dp) \,d S - g \,d m = 0,\nonumber\\
+	- dp\,d S = g \rho \,d V = g \rho \,d h \,d S,\nonumber\\
+	dp = - g \rho \,d h. \label{eq:isotherm-atm-dp}
 \end{gather}
 
 Из уравнения состояния идеального газа \eqref{eq:mkt-p}, считая воздух таковым, выразим плотность воздуха $\rho$:
@@ -21,7 +21,7 @@
 \end{equation*}
 Подставив полученное выражение в~\eqref{eq:isotherm-atm-dp}, получим,
 \begin{equation}
-	dp = - \frac{\mu g}{RT} p \d h.
+	dp = - \frac{\mu g}{RT} p \,d h.
 	\label{eq:earth-atm-dp}
 \end{equation}
 
@@ -43,29 +43,29 @@
 
 Приступим к выводу барометрической формулы для адиабатической атмосферы. Начнем с выражений для работы газа и изменения его потенциальной энергии:
 \begin{gather*}
-	\delta A = p \d V,\\
-	dU = C_V \nu \d T.
+	\delta A = p \,d V,\\
+	dU = C_V \nu \,d T.
 \end{gather*}
 Запишем первое начало термодинамики для тонкого слоя воздуха:
 \begin{gather}
-	dQ = 0 = dU + \delta A = p \d V + C_V \nu \d T,\notag\\
+	dQ = 0 = dU + \delta A = p \,d V + C_V \nu \,d T,\notag\\
 	dT = - \frac{p}{C_V \nu} dV.
 	\label{eq:earth-atm-dt}
 \end{gather}
 Выразим объем из уравнения состояния идеального газа \eqref{eq:mkt-idial-gas} и перейдем к дифференциалам:
 \begin{equation}
-	dV = d \left(\frac{\nu R T}{p} \right) = \frac{\nu R}{p} \d T - \frac{\nu R T}{p^2} \d p.
+	dV = d \left(\frac{\nu R T}{p} \right) = \frac{\nu R}{p} \,d T - \frac{\nu R T}{p^2} \,d p.
 	\label{eq:earth-atm-dv}
 \end{equation}
 Подставив \eqref{eq:earth-atm-dv} в уравнение \eqref{eq:earth-atm-dt}, получим
 \begin{gather*}
-	dT = - \frac{p}{C_V \nu} \left( \frac{\nu R}{p} \d T - \frac{\nu R T}{p^2} \d p \right),\\
+	dT = - \frac{p}{C_V \nu} \left( \frac{\nu R}{p} \,d T - \frac{\nu R T}{p^2} \,d p \right),\\
 %	\left( 1 + \frac{R}{C_V} \right)\frac{dT}{T} = \frac{R}{C_V} \frac{dp}{p},\\
 	\therefore \frac{dT}{T} = \frac{R}{C_V + R} \frac{dp}{p} = \frac{R}{C_p} \frac{dp}{p}.
 \end{gather*}
 Воспользуемся выражением~\eqref{eq:earth-atm-dp} для $dp$:
 \begin{gather}
-	\frac{d T}{T} = -\frac{\mu g}{C_P T} \d h,\\
+	\frac{d T}{T} = -\frac{\mu g}{C_P T} \,d h,\\
 	\frac{dT}{dh} =  -\frac{\mu g}{C_P} \equiv \Gamma.\label{eq:ad-therm-grad}
 \end{gather}
 
@@ -79,7 +79,7 @@
 	p(H) = p_0 \left(1 + \frac{\Gamma H}{T_0} \right)^{ - \mu g /R\Gamma} =  p_0 \left(1 + \frac{\Gamma H}{T_0} \right)^{ - C_p/R}.
 \end{gather*}
 
-Отсюда получаем, что высота характерная высота адиабатической атмосферы
+Отсюда получаем, что характерная высота адиабатической атмосферы
 \begin{equation*}
 	H_{dQ=0} = \left(\exp \left[ \frac{R}{C_p} \right] - 1 \right) \cdot  \frac{T_0}{\Gamma} = 9.6~\text{км}.
 \end{equation*}
@@ -91,7 +91,7 @@
 		height	=	6cm,
 		width	=	8cm,
 		xlabel	=	{$H$, км},
-		ylabel	=	{$p(H)$, км},
+		ylabel	=	{$p(H)/p_0$},
 %		ylabel shift	= -1 cm,
 		ymax=1,
 		ymin=0,

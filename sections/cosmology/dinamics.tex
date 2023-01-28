@@ -1,0 +1,240 @@
+
+\subsection{Динамика}
+В этом разделе будут приведены \imp{иллюстрации} выводов некоторых основных уравнений в динамике эволюции плоской, однородной и изотропной Вселенной, заполненной материей, излучением (включая релятивистские нейтрино и т. п.) и тёмной энергией.
+\subsubsection{Вселенная, заполненная материей.}
+Выделим небольшую сферу радиусом $R(t) = R_0 a(t) \ll D_{\text{H}_0}$, массой $M$ и средней плотностью $\rho = M / \frac{4}{3} \pi R^3 $. В силу изотропности Вселенной пространство вокруг выбранной нами области гравитационно на неё не действует. Запишем выражение для ускорения свободного падения на границе этой сферы. По закону Всемирного тяготения
+\begin{equation}
+g = \ddot{R} = -\frac{GM}{R^2} = -\frac{4 \pi G \rho R^3}{3 R^2} = -\frac{4 \pi}{3} G \rho R.
+\label{dmov}
+\end{equation}
+Таким образом мы получили \term{уравнение движения} для нашей Вселенной. 
+%Для удобства использования перепишем его в другой форме:
+%\begin{equation}
+%r_0 \ddot{a} = -\frac{4 \pi G \rho_0 r_{0}^{3}}{3r_{0}^{2} a^2} = -\frac{4 \pi G \rho_0 r_{0}}{3 a^2}.
+%\end{equation}
+%Разделив уравнение на $r_0$, получаем:
+%\begin{equation}
+%\ddot{a} = -\frac{4 \pi G \rho_0}{3} a^{-2},
+%\label{mov}
+%\end{equation}
+%где $\rho_0$~--- плотность Вселенной на данный момент. Один раз проинтегрируем (\ref{mov}). 
+%$$
+%\ddot{a} = \frac{d}{dt} \dot{a} = \frac{d \dot{a}}{da} \frac{da}{dt} = \frac{d \dot{a}}{da} \dot{a}
+%$$
+%Подставим эту замену в (\ref{mov}):
+%\begin{equation}
+%\dot{a} \frac{d \dot{a}}{da} = -\frac{4 \pi G \rho_0}{3} a^{-2}
+%\end{equation}
+%%В итоге:
+%После интегррования получаем
+%%$$
+%%\int \dot{a} d \dot{a} = -\frac{4 \pi G \rho_0}{3} \int a^{-2} da
+%%$$
+%%$$
+%%\frac{1}{2} \dot{a}^2 = -\frac{4 \pi G \rho_0}{3} \frac{a^{-1}}{-1} + C
+%%$$
+%\begin{equation}
+%\frac{1}{2} \dot{a}^2 - \frac{4 \pi G \rho_0}{3} a^{-1} = C
+%\end{equation}
+%Это выражение по своему виду является законом сохранения энергии. Определим теперь ыид константы $C$. 
+Проинетгрируем его один раз.
+\begin{equation}
+\ddot{R} = \frac{d}{dt} \dot{R} = \frac{d \dot{R}}{dR} \frac{dR}{dt} = \frac{d \dot{R}}{dR} \dot{R}
+\label{change}
+\end{equation}
+Подставим эту замену в (\ref{dmov}):
+\begin{equation}
+\dot{R} \frac{d \dot{R}}{dR} = -\frac{GM}{R^2}
+\end{equation}
+%В итоге:
+После интегрирования получаем
+%$$
+%\int \dot{a} d \dot{a} = -\frac{4 \pi G \rho_0}{3} \int a^{-2} da
+%$$
+%$$
+%\frac{1}{2} \dot{a}^2 = -\frac{4 \pi G \rho_0}{3} \frac{a^{-1}}{-1} + C
+%$$
+\begin{equation}
+\frac{1}{2} \dot{R}^2 - \frac{GM}{R} = C
+\label{menerg}
+\end{equation}
+Это выражение по своему виду является законом сохранения энергии. Определим теперь вид константы $C$. Будем считать известными значения $H_0, R_0$ и $\rho_0$ в данный момент времени $t_0$. По \imp{закону Хаббла} $(dR / dt)_{t = t_0} = R_0H_0$. Также $M = \frac{4}{3} \pi R_{0}^{3} \rho_0$. Подставим эти выражения в (\ref{menerg}):
+\begin{multline}
+C = \frac{1}{2} \left(\frac{dR}{dt}\right)_{t = t_0} - \frac{4 \pi G \rho_0 R_{0}^{3}}{R_0}  =\\ 
+= \frac{1}{2} R_{0}^{2} H_{0}^{2} - \frac{4 \pi G}{3} \rho_0 R_{0}^{2} = \frac{1}{2} R_{0}^{2}H_{0}^{2} \left( 1 - \frac{8 \pi G \rho_0}{3 H_{0}^{2}} \right)
+\end{multline}
+Соотношение $3H^2 / 8 \pi G = \rho_c$ называется \term{критической плотностью} Вселенной. Перепишем выражение для константы в более простом виде:
+\begin{equation}
+C = \frac{R_{0}^{2} H_{0}^{2}}{2} \left(1 - \frac{\rho_0}{\rho_{c,0}} \right).
+\label{const}
+\end{equation}
+Тогда уравнение (\ref{menerg}) принимает следующий вид:
+\begin{equation}
+\dot{R}^2 = \frac{8 \pi G R_{0}^{3} \rho_0}{3R} + R_{0}^{2} H_{0}^{2} \left(1 - \frac{\rho_0}{\rho_{c,0}} \right).
+\label{menerg1}
+\end{equation}
+
+Наиболее популярным и простым является сценарий развития Вселенной, при котором её плотность равна критической. В этом случае $C \equiv 0$ и уравнение (\ref{menerg1}) принимает вид
+\begin{equation}
+\frac{dR}{dt} = \sqrt{\frac{8 \pi G R_{0}^{3} \rho_0}{3R}} = H_0 \sqrt{\frac{8 \pi G R_{0}^{3} \rho_0}{3 H_{0}^{2} R}} = H_0 \sqrt{\frac{R_{0}^{3} \rho_0}{R \rho_{c,0}}} = H_0 \sqrt{\frac{R_{0}^{3}}{R}} \, .
+\end{equation}
+Решая его, получаем
+\begin{equation}
+\left(\frac{R}{R_0}\right)^{3/2} = a^{3/2} = \frac{3}{2} H_0 t; \quad t_0 = \frac{2}{3 H_0},
+\end{equation}
+Где $t$~--- возраст Вселенной на \imp{масштабном факторе} $a,$ а $t_0$~--- возраст Вселенной сейчас.
+
+\imp{Постоянная Хаббла} в этом случае эволюционирует по следующему закону:
+\begin{equation}
+H(t) = \frac{\dot{R}}{R} = H_0 \sqrt{\frac{R_{0}^{3}}{R}} \cdot \frac{1}{R} = H_0 \left(\frac{R_{0}}{R}\right)^{3/2} = \frac{2}{3t},
+\end{equation}
+а плотность вещества, равная критической:
+\begin{equation}
+\rho(t) = \rho_c = \frac{3 H^2}{8 \pi G} = \frac{1}{6 \pi G t^2}.
+\end{equation}
+%\frac{3}{8 \pi G} \frac{4}{9 t^2} =
+%Запишем \imp{закон сохранения энергии} в расчёте на единицу массы для этой сферы (равенство нулю достигается в выбранной нами модели):
+%\begin{equation}
+%\frac{\dot{r}^2}{2} - \frac{GM}{r} = E = 0
+%\end{equation}
+%Так как $r = r_0 a(t)$, а $M = \frac{4}{3} \pi r^3 \rho$, (2.1) принимает следующий вид:
+%\begin{equation}
+%\frac{\dot{a}^2}{2} - \frac{4 \pi}{3} G a^2 \rho = 0
+%\end{equation}
+%Умножим обе части (2.2) на $2 \slash a^2$ и выразим плотность:
+%\begin{equation}
+%\rho = \rho_c = \frac{3}{8 \pi G} \left(\frac{\dot{a}}{a}\right)^2 = \frac{3 H^2}{8 \pi G}
+%\end{equation}
+%Полученное нами выражение
+
+\subsubsection{Учёт давления. Тёмная энергия.}
+Пусть теперь помимо холодной материи в нашей Вселенной есть излучение и релятивистские частицы плотностью энергии $\varepsilon_r$. Будем рассматривать их как фотонный газ. Выполняется следующее уравнение:
+\begin{equation}
+\varepsilon = \rho c^2,
+\label{albert}
+\end{equation}
+Где $\rho$~--- плотность, выраженная в $kg/m^3$ (плотность массы), а $c$~--- скорость света. Если излучение находится в термодинамическом равновесии, то $\varepsilon_r = $. Давление фотонного газа задается формулой:
+$$
+P = \frac{\varepsilon_r}{3} = \frac{\rho_r c^2}{3}
+$$
+Добавим плотность излучения к плотности вещества в (\ref{dmov}) и получим \imp{уравнение движения} для Вселенной с излучением:
+\begin{equation}
+\ddot{R} = -\frac{4 \pi}{3} G R \left( \rho + \frac{3P}{c^2} \right).
+\label{rmov}
+\end{equation}
+Оно совпадает с \imp{уравнением движения} из ОТО. Здесь стоит оговориться, что излучение в силу \eqref{rmov} вносит вклад как в плотность массы, так и в давление, а \imp{холодная} материя давления не оказывает. Добавим теперь в нашу Вселенную тёмную энергию.
+
+\term{Космологическая постоянная} $\Lambda$, отвечающая за тёмную энергию, была введена А.\,Эйнштейном в уравнения ОТО для получения статичной Вселенной при их решении. Однако после решения уравнений А.\,Фридманом оказалось, что с \imp{космологической постоянной} возможны как статические, так и нестатические решения.
+
+Из уравнений ОТО следует, что плотность \imp{тёмной энергии} постоянна:
+\begin{equation}
+\varepsilon_{\Lambda} = \frac{c^4 \Lambda}{8 \pi G},
+\end{equation}
+а давление
+\begin{equation}
+P_{\Lambda} = -\varepsilon_{\Lambda} = -\frac{c^4 \Lambda}{8 \pi G}.
+\end{equation}
+Теперь окончательно в \eqref{rmov} имеем:
+$$
+\rho = \rho_m + \rho_r + \rho_{\Lambda}; \quad P = P_r + P_{\Lambda} = \frac{\varepsilon_r}{3} - \varepsilon_{\Lambda}
+$$
+Преобразуем скобку в \eqref{rmov}:
+$$
+\rho + \frac{3P}{c^2} = \rho_m + \rho_r + \rho_{\Lambda} + \frac{\varepsilon_r}{c^2} - 3\frac{\varepsilon_{\Lambda}}{c^2} = \rho_m + 2\rho_r - 2\rho_{\Lambda}
+$$
+После подстановки в \imp{уравнение движения} получаем:
+\begin{multline}
+\ddot{R} = -\frac{4 \pi}{3} G R (\rho_m + 2\rho_r - 2\rho_{\Lambda}) = \\
+= -\frac{4 \pi}{3} G R \left(\rho_m + 2\rho_r - \frac{c^2 \Lambda}{4 \pi G}\right) =
+\\ = -\frac{4 \pi}{3} G R \left(\rho_m + 2\rho_r\right) + \frac{\Lambda c^2}{3} R.
+\label{imov}
+\end{multline}
+Данный вид \imp{уравнения движения} наиболее удобен для интегрирования. Обычно под $\rho$ и $P$ подразумевают вклады только материи и излучения в плотность и давленние соответственно. Учитывая, что $R(t) = a(t) R_0$, перепишем \eqref{imov} в наиболее известном виде:
+\begin{equation}
+\frac{\ddot{a}}{a} = -\frac{4 \pi G}{3} \left( \rho + \frac{3P}{c^2} \right) + \frac{\Lambda c^2}{3}.
+\label{mov}
+\end{equation}
+
+Для интегрирования уравнения \eqref{imov} нам необходимо знать, как плотности материи и излучения эволюционируют с изменением \imp{масштабного фактора}, или размера выделенной области.
+
+Сначала рассмотрим эволюцию плотности материи. Так как масса $M$, заключённая внутри области радиса $R$ всегда остаётся внутри него, плотность этой области будет падать как куб радиуса:
+\begin{equation}
+\rho_{m} = \frac{3M}{4 \pi} R^{-3} = \frac{3M}{4 \pi R_{0}^{3}} a^{-3} = a^{-3} \rho_{m,0}
+\label{mden}
+\end{equation}
+Плотность излучения эволюционирует по следующему закону:
+\begin{equation}
+\rho_r = a^{-4} \rho_{r,0}.
+\label{rden}
+\end{equation}
+Вид (\ref{rden}) можно объяснить эффектом Доплера, который испытывают фотоны, догоняя удаляющегося наблюдателя. Пространственная концентрация фотонов в выделенной области будет падать, как и плотность материи, обратно пропорционально объёму области. Также из-за эффекта Доплера (см. \ref{dopler}), энергия каждого фотона будет уменьшаться обратно пропорционально \imp{масштабному фактору}: $\epsilon = hc/\lambda \sim a^{-1}$. Совокупность этих эффектов даёт нам \eqref{rden}.
+
+Получить это выражение более формально можно, рассматривая излучение как идеальный газ, расширяющийся адиабатически. Запишем его работу:
+\begin{equation}
+dA_r = d\varepsilon_r V = -P dV = -\frac{\varepsilon_r}{3} dV.
+\label{work}
+\end{equation}
+Раскроем $d\varepsilon_r V$ как приращение произведения двух функций:
+$$
+d\varepsilon_r V = \varepsilon_r dV + Vd\varepsilon_r,
+$$
+подставим в \eqref{work}:
+%$$
+%udV + Vdu = -\frac{u}{3} dV
+%$$
+$$
+Vd\varepsilon_r = -\frac{\varepsilon_r}{3} - \varepsilon _r dV = -\frac{4}{3} \varepsilon_r dV
+$$
+$$
+-\frac{3}{4} \frac{d\varepsilon_r}{\varepsilon_r} = \frac{dV}{V}
+$$
+После интегрирования получаем:
+$$
+\ln \left(\frac{\varepsilon_r}{\varepsilon_{r,0}}\right)^{-3/4} = \ln \frac{V}{V_0}
+$$
+\begin{equation}
+\varepsilon_r = \varepsilon_r \left( \frac{V}{V_0} \right)^{-4/3} = \varepsilon_{r,0} \left( \frac{R}{R_0} \right)^{-4} = a^{-4} \varepsilon_{r,0}
+\end{equation}
+Заменяя плотность энергии на плотность массы с помощью \eqref{albert}, получаем \eqref{rden}.
+
+Итак, подставим \eqref{mden} и \eqref{rden} в \imp{уравнение движения}:
+\begin{multline}
+\ddot{a} = -\frac{4 \pi}{3} G a \left(a^{-3} \rho_{m,0} + 2 a^{-4} \rho_r\right) + \frac{\Lambda c^2}{3} a = \\
+= -\frac{4\pi G}{3} a^{-2} \rho_{m,0} -\frac{8\pi G}{3} a^{-3} \rho_{r,0} + \frac{\Lambda c^2}{3} a.
+\end{multline}
+Проинтегрируем это уравнение с помощью замены $\ddot{a} = \dot{a} \displaystyle \frac{d\dot{a}}{da}$ (см. \ref{change}):
+\begin{equation}
+\frac{1}{2} \dot{a}^2 = \frac{4\pi G}{3} a^{-1} \rho_{m,0} + \frac{1}{2}\frac{8\pi G}{3} a^{-2} \rho_{r,0} + \frac{1}{2} \frac{\Lambda c^2}{3} a^2 + C_1
+\end{equation}
+Разделим на $a^2$ и умножим на $2$:
+\begin{equation}
+\left(\frac{\dot{a}}{a}\right)^2 = \frac{8\pi G}{3} a^{-3} \rho_{m,0} + \frac{8\pi G}{3} a^{-4} \rho_{r,0} + \frac{\Lambda c^2}{3} + \frac{C_2}{a^2}.
+\label{energy}
+\end{equation}
+Из ОТО известно, что константа $C_2$ равна $-k c^2$, где $k$ может принимать значения $-1, 0$ и $1$ и называется кривизной пространства (при $k = 0$ пространство евклидово). Далее везде будем считать $k \equiv 0$. Вынесем $8 \pi G / 3$ за скобки:
+\begin{equation}
+\left(\frac{\dot{a}}{a}\right)^2 = \frac{8\pi G \rho}{3} + \frac{\Lambda c^2}{3} - \frac{k c^2}{a^2}.
+\end{equation}
+Это равенство называется \term{уравнением энергии}. Приведём здесь ещё одну форму этого уравнения, тоже достаточно известную. 
+
+Преопразуем $\Lambda c^2 / 3$ (т. н. $\Lambda$-член) в \eqref{energy}:
+$$
+\frac{\Lambda c^2}{3} = \frac{8 \pi G}{3} \frac{\Lambda c^2}{8 \pi G} = \frac{8 \pi G}{3} \rho_{\Lambda}.
+$$
+В левой части \imp{уравнения энергии} стоит не что иное как \imp{параметр Хаббла}! Разделим обе части уравнения на $H_{0}^{2}$:
+\begin{equation}
+\left(\frac{H}{H_0}\right)^2 = \frac{8\pi G}{3H_{0}^{2}} a^{-3} \rho_{m,0} + \frac{8\pi G}{3H_{0}^{2}} a^{-4} \rho_{r,0} + \frac{8 \pi G}{3H_{0}^{2}} \rho_{\Lambda}
+\end{equation}
+Вспомним, что отношение $3H_{0}^{2} / 8 \pi G$~--- критическая плотность Вселенной сейчас. Также введём обозначения удельной плотности: $\Omega_{i} = \displaystyle \frac{\rho_i}{\rho_c}.$ Перепишем \imp{уравнение энергии}.
+\begin{equation}
+\left(\frac{H}{H_0}\right)^2 = a^{-3} \Omega_{m,0} + a^{-4} \Omega_{r,0} + \Omega_{\Lambda,0}.
+\end{equation}
+Впоследствие мы часто будем исползовать отношение $H / H_0,$ поэтому введём для него специальное обозначение:
+\begin{equation}
+\frac{H}{H_0} = E(a) = \sqrt{a^{-3} \Omega_{m,0} + a^{-4} \Omega_{r,0} + \Omega_{\Lambda,0}\,}.
+\label{energa}
+\end{equation}
+Иногда \imp{уравнение энергии} удобнее записывать, выражая \imp{масштабный фактор} через \imp{красное смещение}. Так как $a = (1+z)^{-1},$ 
+\begin{equation}
+E(z) = \sqrt{\Omega_{m,0}(1+z)^{3} + \Omega_{r,0}(1+z)^{4} + \Omega_{\Lambda,0}\,}.
+\end{equation}

@@ -30,13 +30,9 @@
 
 Запись спектрального класса представляет собой латинскую букву, арабское число и римское число, например, спектральный класс Солнца~--- G2V. арабское число показывает к какой именно части спектрального класса относится звезда: к более синей (число меньше) или к красной (число больше). Так,~G10V~--- это тоже самое, что K0V. Спектральный класс (показатель цвета) и абсолютная звёздная величина задают положение звезды на \imp{Диаграмме Герцшпрунга-Рассела}.
 
-\begin{figure}[h!]
-	\centering
-	\vspace{-1pc}
-	\includegraphics[width=10cm]{gr}
-	\caption{Диаграмма Герцшпрунга--Рассела}
-	\label{pic:d-cep}
-\end{figure}
+
+%	\includegraphics[width=10cm]{gr}
+	
 \term{Диаграмма Герцшпрунга-Рассела} показывает зависимость светимости или абсолютной звёздной величины от спектрального класса, показателя цвета $(B-V)$ или эффективной температуры фотосферы звезды.
 
 Была предложена примерно в 1910 году независимо Эйнаром Герцшпрунгом и Генри Расселом. Диаграмма используется для классификации звёзд и соответствует современным представлениям о звёздной эволюции.
@@ -44,43 +40,48 @@
 Около $90 \%$ звёзд находятся на главной последовательности. Их светимость обусловлена термоядерными реакциями превращения водорода в гелий. Выделяется также несколько ветвей проэволюционировавших звёзд-гигантов, в которых происходит горение гелия и более тяжёлых элементов. В левой нижней части диаграммы находятся полностью проэволюционировавшие белые карлики.
 
 Мнемонические правила для запоминания спектральных классов: <<\textbf{O}h \textbf{B}e \textbf{A} \textbf{F}ine \textbf{G}irl, \textbf{K}iss \textbf{M}e \textbf{R}ight \textbf{N}ow \textbf{S}weetheart.>> и <<\textbf{В}ообразите: \textbf{О}дин \textbf{Б}ритый \textbf{А}нгличанин \textbf{Ф}иники \textbf{Ж}евал \textbf{К}ак \textbf{М}орковь --- \textbf{Р}азве \textbf{Н}е \textbf{С}мешно?>>
-
-%	\begin{tikzpicture}
-% 		\begin{axis}[
-% 						height	=	12cm,
-% 						width	=	10cm,
-% 						ymax	=	15.,
-% 						ymin	=	-10.,
-% 						y dir	=	reverse,
-% 						xmax	=	2.,
-% 						xmin	=	-.5,
-% 						axis x line* = bottom,
-% 						axis y line* = right,
-% 						xlabel=$B-V$,
-% 						y label style = {at={(axis description cs: 1.2, 0.5)}, rotate=180},
-% 						ylabel	=	{Абсолютная звёздная величина $M$, $~^m$}
-% 					]
-%%			\addplot+[only marks, mark = o, mark options={scale=0.2, black}] table[x=f, y=m]{data/light-curve-D-Cep.txt};
-% 		\end{axis}
-% 		\begin{semilogyaxis}[
-% 						height	=	12cm,
-% 						width	=	10cm,
-% 						ymax	=	8.312e5,
-% 						ymin	=	8.312e-5,
-% 						xmax	=	2.,
-% 						xmin	=	-.5,
-% 						minor x tick num = 0,
-% 						minor y tick num = 01,
-% 						xtick = {-0.264, 0, 0.3, 0.58, 0.791, 1.57},
-% 						xticklabels = {B0, A0, F0, G0, K0, M0},
-% 						axis x line* = top,
-% 						axis y line* = left,
-% 						xlabel	=	{Спектральный класс},
-% 						x label style = {at={(axis description cs: 0.5, 1.11)}, rotate=0},
-% 						ylabel	=	{Светимость $L$, $L_\odot$},
-% 						ymajorgrids	 =	false,
-% 						xmajorgrids	 =	false
-%    				]
-%		\end{semilogyaxis}
-% 	\end{tikzpicture}
+\begin{figure}[h!]
+	\centering
+	\vspace{-1pc}
+	\begin{tikzpicture}
+ 		\begin{axis}[
+ 						height	=	10cm,
+ 						width	=	10cm,
+ 						ymax	=	14.,
+ 						ymin	=	-6.,
+ 						y dir	=	reverse,
+ 						xmax	=	2.,
+ 						xmin	=	-.5,
+ 						axis x line* = bottom,
+ 						axis y line* = right,
+ 						xlabel  =   $B-V$,
+ 						y label style = {at={(axis description cs: 1.07, 0.5)}, rotate=180},
+ 						ylabel	=	{Абсолютная звёздная величина $M$, $\!~^m$}
+ 					]
+			\addplot+[only marks, mark = o, mark options={scale=0.15, darkgray}] table[x=BV, y=M]{data/gr-plot.txt};
+ 		\end{axis}
+ 		\begin{semilogyaxis}[
+ 						height	=	10cm,
+ 						width	=	10cm,
+ 						ymax	=	2.088e4,
+ 						ymin	=	2.088e-4,
+ 						xmax	=	2.,
+ 						xmin	=	-.5,
+ 						minor x tick num = 0,
+ 						minor y tick num = 01,
+ 						xtick = {-0.264, 0, 0.3, 0.58, 0.791, 1.57},
+ 						xticklabels = {B0, A0, F0, G0, K0, M0},
+ 						axis x line* = top,
+ 						axis y line* = left,
+ 						xlabel	=	{Спектральный класс},
+ 						x label style = {at={(axis description cs: 0.5, 1.03)}, rotate=0},
+ 						ylabel	=	{Светимость $L$, $L_\odot$},
+ 						ymajorgrids	 =	false,
+ 						xmajorgrids	 =	false
+    				]
+		\end{semilogyaxis}
+ 	\end{tikzpicture}
+ 	\caption{Диаграмма Герцшпрунга--Рассела}
+	\label{}
+\end{figure}
 Помимо основных спектральных классов звёзд существуют дополнительные: W~--- звёзды Вольфа-Райе, очень тяжёлые яркие звёзды с температурой порядка $70000$~К и интенсивными эмиссиоными линиями спектра; L~--- звёзды или коричневые карлики с температурой 1500\,--\,2000~К и соединениями металлов в атмосфере; T~--- метановые коричневые карлики с температурой $700 - 1500$~К; Y~---  очень холодные (метано-аммиачные) коричневые карлики с температурой ниже $700$~К; C~--- углеродные звёзды, гиганты с повышенным содержанием углерода. Ранее относились к классам R и N.
