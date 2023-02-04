@@ -59,7 +59,7 @@
 		\draw (A1) .. controls (-1.17, .1) and (-1.25, -.9) .. (D2);
 		
 		\draw [dashes] (D1) -- (D2);
-		\draw [dashes] (B1)  -- (B2);
+		\draw [dashes] (B1) -- (B2);
 		\draw [dashes] (D1) -- (3, 0);
 		
 		\draw (A1) -- (A2);
@@ -67,14 +67,15 @@
 		\draw (D1) -- (S);
 		\draw (A2) -- (S);
 		
-		\draw (S) node[star, star points=5, star point ratio=2.25, fill=black, draw, scale=0.2] {};
-		\draw (A1) [fill=white] circle (.03);
-		\draw (A2) [fill=white] circle (.03);
-		\draw (B1) [fill=white] circle (.03);
-		\draw (B2) [fill=white] circle (.03);
-		\draw (O) [fill=white] circle (.03);
-		\draw (D1) [fill=white] circle (.03);
-		\draw (D2) [fill=white] circle (.03);
+		\pointStar (S);
+		
+		\point (A1);
+		\point (A2);
+		\point (B1);
+		\point (B2);
+		\point (O);
+		\point (D1);
+		\point (D2);
 		
 		\draw (-2.75, 1.82) node[anchor=north west] {$\pi_\beta$};
 		\draw (-1.85, 1.15) node[anchor=north] {$\pi_\alpha$};

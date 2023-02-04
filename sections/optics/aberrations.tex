@@ -160,20 +160,21 @@
 			ymax=2.25,
 			legend cell align=left,
 			legend style={
-			draw=none,
-			fill=none,
-			font=\scriptsize,
-			at={(axis cs:0, 0.1)}, anchor=south west,
-			row sep=.5pc,
+			     draw=none,
+			     fill=none,
+			     font=\scriptsize,
+			     at={(axis cs:0, 0.1)}, 
+			     anchor=south west,
+			     row sep=.5pc,
 			},
-			]
+		]
 			\addplot[smooth, gray] table[x=d, y=simple] {data/shere-aberrations-lens.txt};
 			\addplot[smooth] table[x=d, y=x] {data/shere-aberrations-lens.txt};
 			\addplot[dashes] coordinates { (0.667, -10) (0.667, 10)};
 			\legend{
-			$\left. \dfrac{x(\delta)}{R} \right|_{\delta \ll 1}$,
-			$\dfrac{x(\delta)}{R}$,
-			$\delta = \left.\dfrac{1}{n}\right|_{n=3/2}$,
+			     $\left. \dfrac{x(\delta)}{R} \right|_{\delta \ll 1}$,
+			     $\dfrac{x(\delta)}{R}$,
+			     $\delta = \left.\dfrac{1}{n}\right|_{n=3/2}$,
 			}
 		\end{axis}
 	\end{tikzpicture}

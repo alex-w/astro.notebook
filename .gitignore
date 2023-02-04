@@ -8,3 +8,5 @@ astro-notebook.pdf
 astro-notebook.tex
 .texpadtmp/
 tikz/
+.idea/**
+out/**

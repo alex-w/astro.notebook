@@ -4,7 +4,7 @@
 \newcommand{\pages}{143}
 \newcommand{\publish}{3}
 \newcommand{\signed}{22.12.2020}
-\renewcommand{\year}{2021}
+\renewcommand{\year}{2023}
 \newcommand{\isbn}{ISBN 978-5-9909877-2-2}
 
 %%% Русский шрифт
@@ -141,11 +141,12 @@
 %%% TiKZ
 \usepackage{tikz}
 \usepackage{tkz-euclide}
-\usetkzobj{all}
 
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
 \usetikzlibrary{calc, fadings, decorations.markings, shapes, snakes}
+
+\input{sys/tikz-commands}
 
 % todo: Убрать, когда перепишутся рисунки, от него зависимые
 \usetikzlibrary{ipe}
@@ -293,15 +294,16 @@
 	\input{sys/cel.mech.tex}
 	\input{sys/conic.sec.tex}
 	\input{sys/astrophys.tex}
-	\input{sys/cosmology.tex}
-	\input{sys/optic.tex}
-	\input{sys/spher.astro.tex}
-	\input{sys/objects.tex}
-	\input{sys/maths.tex}
-	\input{sys/prac-astro.tex}
-	\input{sys/tables.tex}
-	\input{sys/notes.tex}
-	\bibliographystyle{ieeetr}
-	\bibliography{lit}
-	\input{sys/print-info.tex}
+%	\input{sys/cosmology.tex}
+%	\input{sys/optic.tex}
+%	\input{sys/spher.astro.tex}
+%	\input{sys/objects.tex}
+%	\input{sys/maths.tex}
+%	\input{sys/prac-astro.tex}
+%	\input{sys/tables.tex}
+%	\input{sys/notes.tex}
+%	\bibliographystyle{ieeetr}
+%	\bibliography{lit}
+%	\input{sys/print-info.tex}
+
 \end{document}
