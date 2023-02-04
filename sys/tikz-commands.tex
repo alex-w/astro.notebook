@@ -1,0 +1,31 @@
+\def\centerarc[#1](#2)(#3:#4:#5)% [draw options] (center) (initial angle:final angle:radius)
+  { \draw [#1] ($(#2)+({#5*cos(#3)},{#5*sin(#3)})$) arc (#3:#4:#5); }
+  
+
+\def\point(#1){% (center)
+    \draw (#1) [fill=white] circle (.03);%
+}
+
+
+\def\pointStar(#1){% (center)
+    \draw (#1) node[star, star points=5, star point ratio=2.25, fill=black, scale=0.2] {};%
+}
+
+
+\def\earth(#1){% (center)
+    \tkzDefShiftPoint[#1](0,-0.08){B}%
+	\tkzDefShiftPoint[#1](0,0.08){U}%
+	\tkzDefShiftPoint[#1](0.08,0){R}%
+	\tkzDefShiftPoint[#1](-0.08,0){L}%
+	\tkzDrawCircle[color=black, fill=white, line width=.4pt](#1, L)%
+	\tkzDrawSegment(L,R)%
+	\tkzDrawSegment(U,B)%
+}
+
+
+\def\sun(#1){% (center)
+    \tkzDefShiftPoint[#1](0,0.08){O}%
+    \tkzDefShiftPoint[#1](0,0.015){I}%
+    \tkzDrawCircle[color=black, fill=white, line width=.4pt](#1, O)%
+    \tkzDrawCircle[color=black, fill=black](#1, I)%
+}

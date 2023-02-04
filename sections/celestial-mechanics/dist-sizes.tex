@@ -20,7 +20,33 @@
 \begin{figure}[h!]
 	\centering
 	\vspace{-1pc}
-	\includegraphics[width = 0.7\tw]{parallax.pdf}
+	\begin{tikzpicture}
+	    \tkzSetUpLabel[font=\footnotesize]
+	    \tkzSetUpPoint[fill=white, size=2]
+	    \tkzSetUpLine[line width=.4pt]
+	    \tkzSetUpArc[line width=.4pt]
+	    
+	    \tkzDefPoint(0,0){Sun}
+	    \tkzDefPoint(5,0){Star}
+	    \tkzDefPoint(0,1){E}
+%	    
+	    \tkzLabelPoint[above](E){Земля}
+	    \tkzLabelPoint[below](Sun){Солнце}
+	    \tkzLabelPoint[below](Star){Звезда}
+	    
+	    \tkzDrawCircle[dashed, black, line width=.5pt](Sun,E)
+	    \tkzDrawPolygon[thick](Sun,Star,E)
+	    \tkzMarkRightAngle[size=0.2](Star,Sun,E)
+	    \tkzMarkAngle(E,Star,Sun)
+	    \tkzLabelAngle[font=\footnotesize, pos=1.3](E,Star,Sun){$\pi$}   
+	    
+	    \earth(E)
+	    \sun(Sun)
+	    \pointStar(Star)
+	    
+	    \tkzLabelSegment[below](Sun,Star){$r$}
+	    \tkzLabelSegment[left=-2pt](Sun,E){$a_\oplus$}
+	\end{tikzpicture}
 	\caption{Схема годичного параллакса}
 \end{figure}
 
@@ -47,14 +73,61 @@
 \vspace{-1.5pc}
 \begin{figure}[h!]
 	\begin{minipage}[b]{0.5\tw}
-		\begin{flushleft}
-			\includegraphics[width = 0.93\tw]{angle-size}
-			\captionof{figure}{Угловой размер}
-		\end{flushleft}
+	   \centering
+        \begin{tikzpicture}
+            \tkzSetUpLine[line width=.4pt]
+            \tkzSetUpLabel[font=\footnotesize]
+            \tkzSetUpPoint[fill=white, size=2]
+        
+            \tkzDefPoint(0,0){C}
+            \tkzDefPoint(4,0){O}
+            \tkzDefPointBy[homothety=center C ratio .3](O) \tkzGetPoint{U}
+            
+            \tkzDrawCircle[color=black, fill=gray!40, thick](C,U)
+            \tkzDefLine[tangent from = O](C,U) \tkzGetPoints{I1}{I2}
+            \tkzDrawSegments(C,I1 C,I2 C,O)
+            \tkzDrawSegments[thick](O,I2 O,I1)
+            \tkzMarkRightAngles[size=0.2](O,I1,C C,I2,O)
+            \tkzMarkAngle(I2,O,C)
+            \tkzMarkAngle[size=1.1](C,O,I1)
+            
+            \tkzLabelSegment[left](C,I1){$R$}
+            \tkzLabelSegment[left](C,I2){$R$}
+            \tkzLabelSegment[above](C,O){$r$}
+            \tkzLabelAngle[pos=1.4](I2,O,C){$\sfrac{\rho}{2}$}
+            \tkzLabelAngle[pos=1.4](C,O,I1){$\sfrac{\rho}{2}$}
+            
+            \tkzDrawPoints(C, O, I1, I2)
+        \end{tikzpicture}
+		\captionof{figure}{Угловой размер}
 	\end{minipage}
+	\hfill
 	\begin{minipage}[b]{0.5\tw}
 		\centering
-		\includegraphics[width = \tw]{parallax-horiz}
+		\begin{tikzpicture}
+            \tkzSetUpLine[line width=.4pt]
+            \tkzSetUpLabel[font=\footnotesize]
+            \tkzSetUpPoint[fill=white, size=2]
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(4,0){S}
+            \tkzDefPointBy[homothety=center O ratio .3](S) \tkzGetPoint{X}
+            \tkzDefPointBy[rotation=center O angle -90](X) \tkzGetPoint{C}
+            
+            \tkzDrawCircle[color=black, fill=gray!40, thick](C,O)
+
+            \tkzDrawSegments[thick](O,S C,S)
+            \tkzDrawSegments(C,O)
+            \tkzMarkRightAngles[size=0.2](C,O,S)
+            \tkzMarkAngle[size=.8](O,S,C)
+
+            
+            \tkzLabelSegment[below](C,S){$r$}
+            \tkzLabelSegment[left=-2pt](C,O){$R_\oplus$}
+            \tkzLabelAngle[pos=1.1, font=\footnotesize](O,S,C){$p$}
+            
+            \tkzDrawPoints(C, O, S)
+        \end{tikzpicture}
 		\captionof{figure}{Горизонтальный параллакс}
 	\end{minipage}
 \end{figure}

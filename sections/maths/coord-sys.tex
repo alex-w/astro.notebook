@@ -16,8 +16,8 @@
 		\draw[semithick, -latex] (O) -- (E3);
 		\draw[thick, -latex] (O) -- (M);
 		
-		\draw [fill=white] (O) circle(0.03);
-		\draw [fill=white] (M) circle(0.03);
+		\point (O);
+		\point (M);
 		
 		\draw (1, 0) node[anchor=north]{$\vec{e}_1$};
 		\draw (0.66, 0.33) node[anchor=north]{$\vec{e}_2$};
@@ -48,8 +48,8 @@
 		\draw[semithick, -latex] (O) -- (E3);
 %		\draw[thick, -latex] (O) -- (M);
 		
-		\draw [fill=white] (O) circle(0.03);
-%		\draw [fill=white] (M) circle(0.03);
+		\point (O);
+%		\point (M);
 		
 		\draw (-0.5, -0.25) node[anchor=south]{$\vec{e}_1$};
 		\draw (0.75, 0) node[anchor=south]{$\vec{e}_2$};
@@ -89,12 +89,12 @@
 		\draw[thick, -latex] (O) -- (M);
 		\draw[-latex] (0.65, 0) arc(0:45:0.65);
 		
-		\draw (O) circle(0.5);
-		\draw (O) circle(1);
-		\draw (O) circle(1.5);
+		\foreach \r in {0.5, 1, 1.5} {
+			\draw (O) circle(\r);
+		};
 		
-		\draw [fill=white] (O) circle(0.03);
-		\draw [fill=white] (M) circle(0.03);
+		\point (O);
+		\point (M);
 		
 		\draw (1.2, 0) node[anchor=north]{$\vec{r}_0$};
 %		\draw (0.66, 0.33) node[anchor=north]{$\vec{e}_2$};
@@ -128,22 +128,6 @@
 %	\vspace{-1pc}
 	\begin{tikzpicture}[scale=1]
 		\clip(-1.3, -1.1) rectangle (2.5, 2.5);
-%	
-%		\foreach \x in {-5, -4.9,...,5} {
-%			\draw [line width=.1pt] (\x, -5) -- (\x, 5);
-%		};
-%		
-%		\foreach \x in {-5, -4,..., 5} {
-%			\draw [line width=.4pt] (\x , -5) -- (\x , 5);
-%		};
-%		
-%		\foreach \y in {-5, -4,..., 5} {
-%			\draw [line width=.4pt] (-5, \y) -- (5, \y);
-%		};
-%		
-%		\foreach \y in {-5, -4.9,..., 5} {
-%			\draw [line width=.1pt] (-5, \y) -- (5, \y);
-%		};
 	
 		\footnotesize
 		\coordinate (O) at (0, 0);
@@ -168,10 +152,9 @@
 		
 		\draw [-latex](-0.2, -0.2) arc(-99.4:-75.76:1.22);
 
-		\draw [fill=white] (O) circle(0.03);
-		\draw [fill=white] (M) circle(0.03);
-		\draw [fill=white] (M') circle(0.03);
-		\draw [fill=white] (M'') circle(0.03);
+        \foreach \p in {O, M, M', M''} {
+            \point (\p);
+        };
 		
 		\draw (0.5, 0.65) node[anchor=south east]{$\vec{r}$};		
 		\draw (0.05, -0.15) node[anchor=north]{$\varphi$};
@@ -256,10 +239,11 @@
 %		\draw (O) ellipse(0.6 and 0.21);
 %		\draw (-1, 0) circle(1.3);
 		
-		\draw [fill=white] (O) circle(0.03);
-		\draw [fill=white] (M) circle(0.03);
-		\draw [fill=white] (M') circle(0.03);
-		\draw [fill=white] (M'') circle(0.03);
+		
+		\foreach \p in {O, M, M', M''} {
+            \point (\p);
+        };
+	
 		
 		\draw (0.5, 0.6) node[anchor=south east]{$\vec{r}$};		
 %		\draw (1.05, -0.25) node[anchor=west]{$x$};
