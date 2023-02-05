@@ -5,5 +5,8 @@
 
 
 ## Перед сборкой проекта
-* Cоздать папку `/tikz/`
+* Cоздать папку `/tikz/resource/`
 * Проверить наличие $\LaTeX$ пакета `pscyr`
+
+### Если сборка падает на Out Of Memory
+* В файлe `/sections/objects/spectr-types.tex:61` (61 строчке) заменить импорт `gr-plot.txt` на `gr-plot-short.txt`

@@ -143,7 +143,7 @@
 \usepackage{tkz-euclide}
 
 \usetikzlibrary{external}
-\tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
+\tikzexternalize[prefix=tikz/resource/,optimize command away=\includepdf]
 \usetikzlibrary{calc, fadings, decorations.markings, shapes, snakes}
 
 \input{sys/tikz-commands}
@@ -294,16 +294,17 @@
 	\input{sys/cel.mech.tex}
 	\input{sys/conic.sec.tex}
 	\input{sys/astrophys.tex}
-%	\input{sys/cosmology.tex}
-%	\input{sys/optic.tex}
-%	\input{sys/spher.astro.tex}
-%	\input{sys/objects.tex}
-%	\input{sys/maths.tex}
-%	\input{sys/prac-astro.tex}
-%	\input{sys/tables.tex}
-%	\input{sys/notes.tex}
-%	\bibliographystyle{ieeetr}
-%	\bibliography{lit}
-%	\input{sys/print-info.tex}
+	\input{sys/cosmology.tex}
+	\input{sys/optic.tex}
+	\input{sys/spher.astro.tex}
+	\input{sys/objects.tex}
+	\input{sys/maths.tex}
+	\input{sys/prac-astro.tex}
+	\input{sys/tables.tex}
+	\input{sys/notes.tex}
+	
+	\bibliographystyle{ieeetr}
+	\bibliography{lit}
+	\input{sys/print-info.tex}
 
 \end{document}

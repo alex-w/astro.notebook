@@ -93,8 +93,9 @@
 		\begin{tikzpicture}
 		    \footnotesize
 		    \begin{scope}[yscale=0.6]
-		      \tkzDefPoint(0,0){O};
+		      \tkzDefPoint(0,0){O};  
 		      \tkzDefPoint(2,0){F};
+		      \tkzDefPointBy[symmetry=center O](F) \tkzGetPoint{F'}
 		      \tkzDefPoint(-20:2.5){A_1};
 		      \tkzDefPoint(40:2.5){B_1};
 		      \tkzDefPoint(120:2.5){A_2};
@@ -131,14 +132,9 @@
 		      \node at (barycentric cs:F=0.4,A_2=1,B_2=1) {$S$};
 		      \node at (barycentric cs:F=0.4,A_3=1,B_3=1) {$S$};
 		    \end{scope}
-		     
-%		    \elliparc{0}{0}{3}{1.8}{30}{120}
-%
-		    \draw [fill=white] (F) ellipse (0.1);
-		    \filldraw [black] (F) circle (0.01);
-		    \draw [fill=white] ($(O)-(F)$) circle (0.03);
-%		    
-		    \node at ($(O) - (F)$)[anchor=north]{$F$};
+		    \sun(F)
+		    \point(F')
+		    \tkzLabelPoint[below, font=\footnotesize](F'){$F$}
 		\end{tikzpicture}
 		\caption {Второй закон Кеплера}
 	\end{minipage}
