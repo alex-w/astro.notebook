@@ -1,14 +1,13 @@
-\def\drawRainbowDispersion(#1){% (count)
-    \tkzInit[xmin=-0.4, ymin=-1.5, xmax=2.1, ymax=1.1]
+\newcommand{\drawRainbowDispersion}[2][1]{
+    \tkzInit[xmin=-0.4, ymin=-1.5*#1, xmax=2.1, ymax=1.1*#1]
     \tkzClip
     
     \tkzDefPoint(0,0){R}
     \tkzDefPoint(1,0){C}
     
     \foreach \n in {1.332,1.334,...,1.345} {
-        \tkzSetUpLine[gray]
 
-        \pgfmathparse{sqrt((1 + #1)^2 -\n^2)/sqrt(2 * #1 + #1 * #1)}
+        \pgfmathparse{sqrt((1 + #2)^2 -\n^2)/sqrt(2 * #2 + #2 * #2)}
         \pgfmathsetmacro\x{\pgfmathresult}
 
     
@@ -18,7 +17,7 @@
         \tkzInterLC(B,A)(C,R) 
         \tkzGetPoints{R1}{x}
         
-        \tkzDrawSegment(A,R1)
+        \tkzDrawSegment[gray](A,R1)
         
         \tkzFindAngle(A,R1,C) 
         \tkzGetAngle{abc}
@@ -32,14 +31,14 @@
         \tkzDefPointBy[homothety=center R1 ratio 1](R1)
         \tkzGetPoint{R2}
         
-        \foreach \i in {0,1,...,#1} {
+        \foreach \i in {0,1,...,#2} {
             \tkzDefPointBy[rotation=center R1 angle -\BETA](C) 
             \tkzGetPoint{R1'}
             
             \tkzInterLC(R1,R1')(C,R) 
             \tkzGetPoints{x}{R2}
             
-            \tkzDrawSegment(R1,R2)
+            \tkzDrawSegment[gray](R1,R2)
             
             \tkzDefPointBy[homothety=center R1 ratio 1](R2) 
             \tkzGetPoint{R1}
@@ -54,7 +53,7 @@
         \tkzDefPointBy[homothety=center R1 ratio 1](L') 
         \tkzGetPoint{L}
         
-        \tkzDrawSegment(R1,L)
+        \tkzDrawSegment[gray](R1,L)
     }
         
     \tkzDefPoint(-0.5,0){A0}

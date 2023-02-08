@@ -1,0 +1,124 @@
+\subsubsection{Радуга}
+\label{sec:rainbow}
+
+\input{sections/astrophysics/optical-atmosphere-effects/tikz/rainbow-formation-tikz}
+\input{sections/astrophysics/optical-atmosphere-effects/tikz/rainbow-dispersion-tikz}
+
+Радуга~--- событие проявления преломления (рефракции) и отражения солнечного света, в каплях воды, распыленных в воздуха. Наблюдается в виде ярких разноцветных колец, перпендикулярных прямой \textsl{Солце -- наблюдатель}, с центром на ней. 
+
+Стоит обратить внимание на возможность обобщения данной формулировки. Излучение может быть монохромным, тогда радуга будет также монохромна. Для появления радуги необязательно наличие воздуха. Данного эффекта можно достичь, распыляя воду в космосе~--- без атмосферы и гравитации. Также радуга может наблюдаться во взвеси стеклянных шариков или капель любой другой прозрачной для рассматриваемого излучения жидкости.
+
+Рассмотрим детальнее, как формируются радужные кольца. Для упрощения расчетов солнечный свет можно считать параллельным фронтом с выделенным направлением, а капли воды с достаточной точностью сферическими. 
+
+\begin{wrapfigure}[13]{r}{0.47\tw}
+    \vspace{-1.5pc}
+    \input{sections/astrophysics/optical-atmosphere-effects/tikz/rainbow-schema-tikz}
+    \caption{Схера следования луча в капле при $k=2$}
+\end{wrapfigure}
+Представим такую каплю и отметим выделенное направление падения света пунктиром (см.~Рис.\,\ref{pic:rainbow}). Рассмотрим луч, падающий на каплю на расстоянии $\rho \in [0,1]$ радиусов капли от её оси. В таком случае угол падения луча на поверхность капли $\alpha = \arcsin \rho$. Пусть $n$~--- коэффициент преломления воды, тогда по закону Снеллиуса угол преломления 
+\begin{equation*}
+    \beta = \arcsin \frac{\sin{\alpha}}{n} = \arcsin \frac{\rho}{n}.
+\end{equation*}
+Так как $\beta$~--- угол между радиусом и преломленным лучем, то преломленный луч вновь пересечется с поверхностью капли на угловом расстоянии $180^\circ - 2\beta$ в сторону движения луча. 
+
+В точке пересечения преломленного луча с поверхностью капли часть света преломится и выйдет наружу, а остальная часть отразится от внутренней поверхности под углом $\beta$ согласно закону отражения. И~на угловом расстоянии $180^\circ - 2\beta$ вновь частично преломится и покинет каплю, а частично отразится и продолжит свой путь внутри капли.
+
+Определим \imp{порядок} радуги $k$ как число отражений луча от внутренней поверхности капли. Тогда при формировании радуги $k$-ого порядка луч света, проходящий на расстоянии $\rho$ радиусов капли от её оси с точностью до целого числа полных оборотов поворачивается на угол 
+\begin{multline*}
+    \omega 
+        = 2(\alpha - \beta) + k (\pi - 2\beta) 
+        = 2\alpha - 2\beta(k + 1) + \pi (k \!\!\!\! \mod 2) = \\
+        = 2\arcsin \rho - 2(k + 1) \arcsin \frac{\rho}{n} + \pi (k \!\!\!\!  \mod 2). 
+\end{multline*}
+
+Радуга выделяется на фоне за счет своей яркости, которая достигается из-за увеличение плотности потока излучения, выходящего из капли после $k$ отражения, в конкретном направлении. Что соответствует равенству нулю производной $\partial\omega/\partial\rho$. Определим значение~$\rho$, при котором это происходит, чтобы найти угловой радиус радуги $k$-ого порядка.
+\begin{gather*}
+    \frac{\partial \omega}{\partial \rho} = \frac{2}{\sqrt{1 - \rho^2}} - \frac{k + 1}{\sqrt{n^2 - \rho^2}} = 0,\quad \rho \in [0,1];\\
+%    \sqrt{n^2 - \rho^2} - (k + 1) \sqrt{1 - \rho^2} = 0,\quad \rho \in [0,1);\\
+%    n^2 - \rho^2 = (k+1)^2(1 - \rho^2), \quad \rho \in [0,1) ;\\
+    \rho = \sqrt{\frac{(k+1)^2 - n^2}{(k+1)^2 - 1}},\quad \rho \in [0, 1).
+\end{gather*}
+
+Коэффициент преломления воды в оптическом диапазоне зависит от длины волны практически линейно, принимая значения от $n_\text{к} = 1.331$ для красного света ($\lambda = 700$~нм) до $n_\text{ф} = 1.344$ для фиолетового ($\lambda = 400$~нм). Таким образом внешний край \imp{первичной} радуги имеет радиус~$42.4^\circ$ и красный цвет, а внутренний~---~$40.5^\circ$ и фиолетовый цвет,  \lookPicRef{pic:rainbow-disp-1}.
+\imp{Вторичная} радуга имеет размер от~$50.4^\circ$ для красного до~$53.7^\circ$ для фиолетового, \lookPicRef{pic:rainbow-disp-2}. Важно отметить, из-за дополнительного отражения цвета вторичной радуги идут в обратном порядке относительно первичной. 
+
+\begin{figure}[t]
+    \begin{subfigure}{0.3\tw}
+        \centering
+        \begin{tikzpicture}[scale=1.3]
+            \begin{scope}[yscale=-1]
+                \drawRainbow[-1]{1}
+            \end{scope}
+        \end{tikzpicture}
+        \captionof{figure}{$k=1$}
+        \label{pic:rainbow-1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\tw}
+        \centering
+        \begin{tikzpicture}[scale=1.3]
+        
+            \drawRainbow{2}
+        \end{tikzpicture}
+        \captionof{figure}{$k=2$}
+        \label{pic:rainbow-2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\tw}   
+        \centering
+        \begin{tikzpicture}[scale=1.3]
+        
+            \drawRainbow{3}
+        \end{tikzpicture}
+        \captionof{figure}{$k=3$}
+        \label{pic:rainbow-3}
+    \end{subfigure}
+    \caption{Схема хода лучей при формировании радуги $k$-ого порядка}
+    \label{pic:rainbow}
+\end{figure}
+\begin{figure}[h!]
+    \begin{subfigure}{0.3\tw}
+        \centering
+        \begin{tikzpicture}[scale=1.3]
+            \begin{scope}[yscale=-1]
+                \drawRainbowDispersion[-1]{1}
+            \end{scope}
+            \tkzDefPoint(1.2,-1.15){Label}
+            \tkzLabelPoint[below](Label){\tiny$42.2^\circ$}
+            \tkzLabelPoint[left=4pt](Label){\tiny$40.5^\circ$}
+        \end{tikzpicture}
+        \captionof{figure}{$k=1$}
+        \label{pic:rainbow-disp-1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\tw}
+        \centering
+        \begin{tikzpicture}[scale=1.3]
+        
+            \drawRainbowDispersion{2}
+            \tkzDefPoint(-0.2,-0.3){Label}
+            \tkzLabelPoint[below](Label){\tiny$53.7^\circ$}
+            \tkzLabelPoint[left=3pt](Label){\tiny$50.6^\circ$}
+        \end{tikzpicture}
+        \captionof{figure}{$k=2$}
+        \label{pic:rainbow-disp-2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\tw}
+        \centering
+        \begin{tikzpicture}[scale=1.3]
+        
+            \drawRainbowDispersion{3}
+            \tkzDefPoint(1.1,-1.3){Label}
+            \tkzLabelPoint[right=2pt](Label){\tiny${37.7^\circ}$}
+            \tkzLabelPoint[left=2pt](Label){\tiny${42.3^\circ}$}
+        \end{tikzpicture}
+        \captionof{figure}{$k=3$}
+        \label{pic:rainbow-disp-3}
+    \end{subfigure}
+    \caption{Схема дисперсии лучей при формировании радуги $k$-ого порядка}
+\end{figure}
+
+Обе радуги, несложно заключить, расположены напротив Солнца и их радиус отсчитывается от противосолнечной точки. Отсюда следует важное замечание, чем ниже Солнце расположено над горизонтом, тем выше радуги первого и второго порядков. Напротив, \imp{третичная} радуга расположена со стороны Солнца на расстоянии от~$37.7^\circ$ для фиолетового до~$42.3^\circ$ для красного цветов, \lookPicRef{pic:rainbow-disp-3}.
+
+В заключение необходимо объяснить применимость геометрической оптики в изложенных выше рассуждениях. Чаще всего радуга наблюдается до или после дождя, капли которого существенно больше капель тумана или облаков и достигают нескольких миллиметров в диаметре. Это больше характерной длины волны видимого глазом излучения на три--четыре порядка, что позволяет не учитывать волновые свойства света. В силу последних капли существенно меньшего размера могут вообще не сформировать радугу. 
