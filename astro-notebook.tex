@@ -1,7 +1,6 @@
 \documentclass[10pt, a5paper, twoside]{article}
 
 %%% Дата
-\newcommand{\pages}{143}
 \newcommand{\publish}{3}
 \newcommand{\signed}{22.12.2020}
 \renewcommand{\year}{2023}
@@ -146,6 +145,11 @@
 \tikzexternalize[prefix=tikz/resource/,optimize command away=\includepdf]
 \usetikzlibrary{calc, fadings, decorations.markings, shapes, snakes}
 
+\tkzSetUpLine[line width=0.4pt]
+\tkzSetUpPoint[fill=white, size=2]
+\tkzSetUpLabel[font=\scriptsize]
+
+
 \input{sys/tikz-commands}
 
 % todo: Убрать, когда перепишутся рисунки, от него зависимые
@@ -233,6 +237,10 @@
 \newcommand*{\SectorRadius}{1ex}
 \newcommand*{\SectorHalfAngle}{40}
 \newcommand*{\SectorLineWidth}{.5pt}
+
+
+\newcommand{\picRef}[1]{Рис.\,\ref{#1}}
+\newcommand{\lookPicRef}[1]{см.~\picRef{#1}}
 
 \newcommand*{\sector}{%
     \begin{pgfpicture}
