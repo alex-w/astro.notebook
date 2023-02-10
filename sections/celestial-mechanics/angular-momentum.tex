@@ -1,5 +1,5 @@
 \subsection{Закон сохранения момента импульса}
-\term{Момент импульса} ($\vec{L}$)~--- псевдовекторная величина, определяющая момент количества движения (импульса). Согласно этому определению момент импульса $\vec{L}$ пробной массы зависит от её радиус-вектора и импульса следующий образом:
+\term{Момент импульса} ($\vec{L}$)~--- \imp{псевдовекторная} величина, определяющая момент количества движения (импульса). Согласно этому определению момент импульса $\vec{L}$ пробной массы зависит от её радиус-вектора и импульса следующий образом:
 \begin{equation}
 	\vec{L} = \cross{r}{p}.
 \end{equation}
@@ -8,25 +8,25 @@
 
 Для системы пробных масс\footnote{Здесь и далее в этом разделе под пробной массой имеется в виду точечная масса, чтобы не брать в рассмотрение момент импульса вращения тел.}, суммарный момент действия внешних сил на которую равен нулю, полный момент импульса сохраняется. Данное утверждение называется \term{законом сохранения момента импульса}.
 
-Докажем его сначала в случае движения постоянной пробной массы $m$ в гравитационном поле неподвижного массивного тела с массой $M$. Рассмотрим для этого производную по времени момента импульса данной пробной массы:
+Докажем его сначала в случае движения постоянной пробной массы~$m$ в гравитационном поле неподвижного массивного тела с массой~$M$. Рассмотрим для этого производную по времени момента импульса данной пробной массы:
 \begin{multline}
-	\frac{d\vec{L}}{dt} = \frac{d\cross{r}{p}}{dt} = \left[ \frac{d \vec{r}}{dt} \times \vec{p} \right] + \left[\vec{r} \times \frac{d\vec{p}}{dt} \right] = m \underbrace{\cross{v}{v}}_0 + \left[\vec{r} \times m \frac{d\vec{v}}{dt} \right] = \\
-	= m \cross{r}{a} = m \cross{r}{g(r)} = m \left[\vec{r} \times \frac{G M \vec{r}}{r^3} \right] =  \frac{G M m}{r^3} \left[\vec{r} \times \vec{r}\right] = 0.
+	\frac{d\vec{L}}{dt} = \frac{d\cross{r}{p}}{dt} = \left[ \frac{d \vec{r}}{dt} \times \vec{p} \right] + \left[\vec{r} \times \frac{d\vec{p}}{dt} \right] = m \underbrace{\cross{v}{v}}_{\vec{0}} + \left[\vec{r} \times m \frac{d\vec{v}}{dt} \right] = \\
+	= m \cross{r}{a} = m \cross{r}{g(r)} =  -\frac{G M m}{r^3} \underbrace{ \left[\vec{r} \times \vec{r}\right]}_{\vec{0}} = 0.
 \end{multline}
-Равенство нулю производной момента импульса означается его постоянство, значит в данном случаем справедлив закон сохранения момента импульса.
+Равенство нулю производной момента импульса доказывает его постоянство в рассматриваемом случае.
 
-Обобщим теперь на случай произвольного конечного числа $n$ пробных масс с массами $m_1, \ldots, m_n$:
+Обобщим теперь на случай произвольного конечного числа $n$ пробных масс $m_1, \ldots, m_n$:
 \begin{multline*}
-	\frac{d\vec{L}}{dt} =  \sum\limits_{i=1}^n \frac{[d\vec{r}_i \times \vec{p}_i]}{dt} \overset{m_i=\const}{=} \sum\limits_{i=1}^n \left[\frac{d\vec{r}_i}{dt} \times m_i\vec{v}_i \right] + \sum\limits_{i=1}^n \left[\vec{r}_i \times m_i \frac{d\vec{v}_i}{dt} \right] = \\
-	= \sum\limits_{i=1}^n \underbrace{\left[\vec{v}_i \times m_i\vec{v}_i \right]}_{=\vec{0}} + \sum\limits_{i=1}^n \left[\vec{r}_i \times m_i \vec{a}_i \right] = \\
+	\frac{d\vec{L}}{dt} =  \sum\limits_{i=1}^n \frac{d[\vec{r}_i \times \vec{p}_i]}{dt} \overset{m_i=\const}{=} \sum\limits_{i=1}^n \left[\frac{d\vec{r}_i}{dt} \times m_i\vec{v}_i \right] + \sum\limits_{i=1}^n \left[\vec{r}_i \times m_i \frac{d\vec{v}_i}{dt} \right] = \\
+	= \sum\limits_{i=1}^n \underbrace{\left[\vec{v}_i \times m_i\vec{v}_i \right]}_{\vec{0}} + \sum\limits_{i=1}^n \left[\vec{r}_i \times m_i \vec{a}_i \right] = \\
 	= \sum\limits_{i=1}^n \left[ \vec{r}_i \times m_i \sum\limits_{j=1}^n \frac{G m_j}{|\vec{r}_j - \vec{r}_i|^3} (\vec{r}_j - \vec{r}_i) \right] = \\
 	= \sum\limits_{i,j=1}^n \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} \big[\vec{r}_i \times (\vec{r}_j - \vec{r}_i) \big] = \sum\limits_{i,j=1}^n \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} [\vec{r}_i \times \vec{r}_j] \equiv \sum\limits_{i,j=1}^n \vec{x}_{ij}.
 \end{multline*}
 Можно заметить, что $\vec{x}_{ij} = -\vec{x}_{ji}$, так как
 \begin{equation*}
-	\vec{x}_{ij} \equiv \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} [\vec{r}_i \times \vec{r}_j] = - \frac{G m_j m_i}{|\vec{r}_i - \vec{r}_j|^3} [\vec{r}_j \times \vec{r}_i] \equiv \vec{x}_{ji}.
+	\vec{x}_{ij} \equiv \frac{G m_i m_j}{|\vec{r}_j - \vec{r}_i|^3} [\vec{r}_i \times \vec{r}_j] = - \frac{G m_j m_i}{|\vec{r}_i - \vec{r}_j|^3} [\vec{r}_j \times \vec{r}_i] \equiv -\vec{x}_{ji}.
 \end{equation*}
-Отсюда сразу следует равенство нулю производной по времени полного момента импульса, что заканчивает доказательство его сохранения.
+Отсюда сразу следует равенство нулю производной по времени полного момента импульса, что завершает доказательство его сохранения.
 
 \begin{figure}[t]
 	\begin{subfigure}[b]{0.47\tw}

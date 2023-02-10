@@ -78,3 +78,14 @@
 	\sin z\sin A=\cos\delta\sin t\\
 	\sin z\cos A=-\cos\varphi\sin\delta+\sin\varphi\cos\delta\cos t
 \end{gather}
+
+Напоследок, используя сферическую теорему косинусов, получим \term{уравнение большого круга}. Пусть на сфере заданы сферические координаты $(\lambda, \varphi)$, где $\lambda$~--- угол проекции вектора на плоскость $Oxy$ с осью $Ox$, см.~Раздел\;\ref{sec:coord-systems}, а $\varphi$~--- угол между вектором в плоскостью $Oxy$. Найдем уравнение большого круга с наклонением $i$, восходящий узел которого находится в точке $(\lambda_0, 0)$. 
+
+Для этого рассмотрим произвольную точку $(\lambda, \phi)$ на этом большом круге и один из его полюсов $(\lambda - 90^\circ, 90^\circ - i)$. По определению большого круга каждая его точка отстоит от полюса на $90^\circ$. Запишем сферическую теорему косинусов для треугольника полюс системы координат -- полюс большого круга -- произвольная точка на большом круге:
+\begin{gather}
+    \cos 90^\circ = \cos i \cos (90 - \varphi) + \sin i \sin (90 - \varphi) \cos (\lambda - (\lambda_0 - 90^\circ)),\nonumber \\
+    0 = \cos i \sin \varphi - \sin i \cos \varphi \sin (\lambda - \lambda_0),\nonumber\\
+    \boxed{\frac{\tg \varphi}{\tg i} = \sin (\lambda - \lambda_0),}
+    \label{eq:great-circle-eq}
+\end{gather}
+полученное уравнение является \imp{уравнением большого круга}.
