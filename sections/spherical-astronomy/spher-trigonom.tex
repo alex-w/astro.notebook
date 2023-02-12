@@ -23,7 +23,7 @@
 \end{equation}
 где $A + B + C - \pi$~--- \imp{сферический избыток}.
 
-Рассмотрим сферический треугольник $ABC$, радиус векторы вершин соответственно $\vec{a}$, $\vec{b}$ и $\vec{c}$. причем из определения сферы $|\vec{a}| = |\vec{b}| = |\vec{c}| = r$. Пусть против вершин $A$, $B$ и $C$ лежат стороны с угловой мерой $a$, $b$ и $c$ соответсвенно. Повернем сферические координаты и нормируем так, чтобы $\vec{a} = (0, 0, 1)$, $\vec{b} = (\sin c, 0, \cos c)$, тогда $ \vec{c} = (\sin b \cos A, \sin b \sin A, \cos b)$.
+Рассмотрим сферический треугольник $ABC$, радиус векторы вершин соответственно $\vec{a}$, $\vec{b}$ и $\vec{c}$.Причем из определения сферы $|\vec{a}| = |\vec{b}| = |\vec{c}| = r$. Пусть против вершин $A$, $B$ и $C$ лежат стороны с угловой мерой $a$, $b$ и $c$ соответсвенно. Повернем сферические координаты и нормируем так, чтобы $\vec{a} = (0, 0, 1)$, $\vec{b} = (\sin c, 0, \cos c)$, тогда $ \vec{c} = (\sin b \cos A, \sin b \sin A, \cos b)$.
 
 Теперь запишем выражение для $\scalar{b}{c}$:
 \begin{equation}
@@ -61,7 +61,7 @@
 	\frac{\sin A}{\sin a} = \frac{\sin B}{\sin b} = \frac{\sin C}{\sin c}.
 \end{equation}
 
-Напоследок получим \term{формулу пяти элементов}. Для этого запишем теорему косинусов в выразим в ней один из косинусов, применяя ее же:
+Далее получим \term{формулу пяти элементов}. Для этого запишем теорему косинусов в выразим в ней один из косинусов, применяя ее же:
 \begin{gather}
 	\cos a = \sin c \sin b \cos A + \cos c \cos b,\nonumber\\
 	\cos a = \sin c \sin b \cos A + \left( \sin a \sin b \cos C + \cos a \cos b \right)\cos b,\nonumber\\
@@ -79,13 +79,89 @@
 	\sin z\cos A=-\cos\varphi\sin\delta+\sin\varphi\cos\delta\cos t
 \end{gather}
 
+\begin{wrapfigure}[12]{r}{0.45\tw}
+    \centering
+    \vspace{-1.5pc}
+    \tdplotsetmaincoords{70}{155}
+    \begin{tikzpicture}[tdplot_main_coords]
+        \footnotesize
+        
+        \def\r{2}
+        \def\i{25}
+        \def\lo{70}
+        \def\l{100}
+        \def\f{atan(sin(\l - \lo) * tan(\i))}
+
+        \def\x{asin(sin(\f) / sin(\i))}
+        \def\q{atan(sin(\x) * tan(\i))}
+        \def\y{asin(sin(\q) / sin(\i))}
+        \def\w{asin(sin(\x) / sin(\y))}
+            
+    
+        \draw[tdplot_screen_coords,thin,black!30] (0,0,0) circle (\r);
+        \foreach \a in {-60,-30,...,60}{
+            \tdplotCsDrawLatCircle[thin,black!30]{\r}{\a}
+            }
+        \foreach \a in {0,30,...,150}{
+            \tdplotCsDrawLonCircle[thin,black!30]{\r}{\a}
+        }
+      
+        \tdplotCsDrawLatCircle[thick,tdplotCsFill/.style={opacity=0.00}]{\r}{0}
+      
+        \tdplotCsDrawGreatCircle[thick,tdplotCsFill/.style={opacity=0.0}]{\r}{\lo-90}{\i}
+      
+        \tdplotsetrotatedcoords{\y - 90 + \lo}{180 - \w}{\q};
+        \draw[tdplot_rotated_coords, line width=1pt] (0,\r,0) arc (90:180:\r);
+        \draw[tdplot_rotated_coords, anchor=north west] (0,\r,0) node {$G$};
+
+        \tdplotsetrotatedcoords{\l - 90}{90}{\f};
+        \draw[tdplot_rotated_coords, line width=1pt] (0,\r,0) arc (90:{180 -\f}:\r);
+
+        \tdplotsetrotatedcoords{-180+\lo}{90}{90 - \i};
+        \draw[tdplot_rotated_coords, line width=1pt] (0,\r,0) arc (90:{90+\i}:\r);
+
+        \coordinate (P) at ({\r*cos(\lo - 90)*sin(\i)}, {\r*sin(\lo - 90)*sin(\i)},{\r*cos(\i)});
+        \coordinate (P') at ({-\r*cos(\lo - 90)*sin(\i)}, {-\r*sin(\lo - 90)*sin(\i)},{-\r*cos(\i)});
+        \draw[semithick, gray, dash dot, line cap=round] (P) -- (P');
+        
+        \def\x{asin(0.5/\r)}
+        \tdplotsetrotatedcoords{-90+\lo+\x}{0}{0};
+        \draw[tdplot_rotated_coords] (0,\r,0) arc (0:\i:5mm);
+
+        \def\x{asin(0.2/\r)}
+        \tdplotsetrotatedcoords{0}{-90 + \x}{-90 - \q};
+        \draw[tdplot_rotated_coords] (0,\r,0) arc (200:315:2mm);
+
+        \tdplotCsDrawPoint{\r}{\l}{90 - \f}
+        \tdplotCsDrawPoint{\r}{\lo}{90}
+        \tdplotCsLabelPoint{\r}{\lo}{90}{$(\lambda_0,0)$}{anchor=north west}
+        \tdplotCsDrawPoint{\r}{\lo-90}{\i}
+        \tdplotCsLabelPoint{\r}{\lo-90}{\i}{$P'$}{anchor=south east}
+        \tdplotCsLabelPoint{\r}{0}{0}{}{label={[below]250:$\Delta \lambda$}}
+      
+        \tdplotCsDrawPoint{\r}{0}{0}
+        \tdplotCsLabelPoint{\r}{0}{0}{$P$}{anchor=south west}
+        
+        \tdplotCsLabelPoint{\r}{\lo-90}{\i/2}{$i$}{anchor=south}
+        \tdplotCsLabelPoint{\r}{\l}{(90 - \f)/2 - 5}{$90^\circ - \varphi$}{anchor=west}
+        \tdplotCsLabelPoint{\r}{\l - (\l - \lo + 90) /3 + 5}{(90 - \f + \i)/2 - 10}{$90^\circ$}{}
+        \tdplotCsLabelPoint{\r}{\lo + 15}{85}{$i$}{anchor=west}
+      
+        \tdplotCsDrawPoint{\r}{0}{90}{}
+        \tdplotCsLabelPoint{\r}{0}{90}{$(0,0)$}{anchor= south west, label distance=0.5}
+      
+        \tdplotCsDrawPoint{0}{0}{0}
+    \end{tikzpicture}
+    \caption{Произвольная точка $(\lambda, \varphi)$ на большом круге с полюсом $P'$}
+    \label{pic:grand-circle}
+\end{wrapfigure}
 Напоследок, используя сферическую теорему косинусов, получим \term{уравнение большого круга}. Пусть на сфере заданы сферические координаты $(\lambda, \varphi)$, где $\lambda$~--- угол проекции вектора на плоскость $Oxy$ с осью $Ox$, см.~Раздел\;\ref{sec:coord-systems}, а $\varphi$~--- угол между вектором в плоскостью $Oxy$. Найдем уравнение большого круга с наклонением $i$, восходящий узел которого находится в точке $(\lambda_0, 0)$. 
 
-Для этого рассмотрим произвольную точку $(\lambda, \phi)$ на этом большом круге и один из его полюсов $(\lambda - 90^\circ, 90^\circ - i)$. По определению большого круга каждая его точка отстоит от полюса на $90^\circ$. Запишем сферическую теорему косинусов для треугольника полюс системы координат -- полюс большого круга -- произвольная точка на большом круге:
+Для этого рассмотрим произвольную точку $G = (\lambda, \varphi)$ на этом большом круге и один из его полюсов $P' = (\lambda_0 - 90^\circ,\,90^\circ - i)$. По определению большого круга каждая его точка отстоит от полюса на $90^\circ$. Обозначим разность первых координат $P'$ и $G$~--- $\lambda - (\lambda_0 - 90^\circ)$, за $\Delta \lambda$ и запишем сферическую теорему косинусов для $\triangle PP'G$, где $P$~--- полюс заданной системы координат:
 \begin{gather}
-    \cos 90^\circ = \cos i \cos (90 - \varphi) + \sin i \sin (90 - \varphi) \cos (\lambda - (\lambda_0 - 90^\circ)),\nonumber \\
+    \cos 90^\circ = \cos i \cos (90^\circ - \varphi) + \sin i \sin (90^\circ - \varphi) \cos \Delta \lambda,\nonumber \\
     0 = \cos i \sin \varphi - \sin i \cos \varphi \sin (\lambda - \lambda_0),\nonumber\\
-    \boxed{\frac{\tg \varphi}{\tg i} = \sin (\lambda - \lambda_0),}
+    \frac{\tg \varphi}{\tg i} = \sin (\lambda - \lambda_0),
     \label{eq:great-circle-eq}
 \end{gather}
 полученное уравнение является \imp{уравнением большого круга}.

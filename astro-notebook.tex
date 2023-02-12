@@ -141,6 +141,8 @@
 %%% TiKZ
 \usepackage{tikz}
 \usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usepackage{style/tikz-3dplot-circleofsphere}
 
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikz/resource/,optimize command away=\includepdf]
@@ -227,7 +229,8 @@
 
 
 %%% Новые команды
-\newcommand{\term}[1]{\,\!{\sffamily\bfseries#1}}
+\newcommand{\term}[2][]{\,\!{\sffamily\bfseries#2}%
+        \ifthenelse{\isempty{#1}}{}{\index{#1}}}
 \newcommand{\moon}{\!\!\rightmoon}
 \newcommand{\au}{\text{а.\,е.}}
 \newcommand{\tw}{\textwidth}
@@ -285,6 +288,12 @@
 
 \usepackage{url}
 
+\usepackage{makeidx}
+\makeindex
+
+\usepackage{ifmtarg}
+\usepackage{textcase}
+
 %%% main
 \begin{document}
 %\includepdf[pages=-]{sys/empty-page.pdf}
@@ -294,25 +303,35 @@
 	\setcounter{tocdepth}{2}
 	{
 		\small
-		\renewcommand{\baselinestretch}{ 0.95 }
+		\renewcommand{\baselinestretch}{ 0.9 }
 		\tableofcontents
 		\label{toc}
 		\renewcommand {\baselinestretch}{ 1.02 }
 	}
 	\newpage
-	\input{sys/cel.mech.tex}
-	\input{sys/conic.sec.tex}
-	\input{sys/astrophys.tex}
+	\input{sys/geometrical-astronomy.tex}
+	\input{sys/celestial-mechanics.tex}
+	\input{sys/conic-sections.tex}
+	\input{sys/astrophysics.tex}
 	\input{sys/cosmology.tex}
-	\input{sys/optic.tex}
-	\input{sys/spher.astro.tex}
+	\input{sys/optics.tex}
+	\input{sys/spherical-astronomy.tex}
 	\input{sys/objects.tex}
 	\input{sys/maths.tex}
-	\input{sys/prac-astro.tex}
+	\input{sys/practical-astronomy.tex}
 	\input{sys/tables.tex}
 	\input{sys/notes.tex}
 	
+%	{
+%		\small
+%		\renewcommand{\baselinestretch}{ 0.9 }
+%		\printindex
+%		\label{index}
+%		\renewcommand {\baselinestretch}{ 1.02 }
+%	}
+	
 	\bibliographystyle{ieeetr}
+	
 	\bibliography{lit}
 	\input{sys/print-info.tex}
 
