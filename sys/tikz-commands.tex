@@ -14,18 +14,18 @@
 
 \def\earth(#1){% (center)
     \tkzDefShiftPoint[#1](0,-0.08){B}%
-	\tkzDefShiftPoint[#1](0,0.08){U}%
+    \tkzDefShiftPoint[#1](0,0.08){U}%
 	\tkzDefShiftPoint[#1](0.08,0){R}%
 	\tkzDefShiftPoint[#1](-0.08,0){L}%
-	\tkzDrawCircle[color=black, fill=white, line width=.4pt](#1, L)%
-	\tkzDrawSegment(L,R)%
-	\tkzDrawSegment(U,B)%
+    \tkzDrawCircle[color=black, fill=white, line width=.5pt](#1, L)%
+	\tkzDrawSegment[line width=.5pt](L,R)%
+	\tkzDrawSegment[line width=.5pt](U,B)%
 }
 
 
 \def\sun(#1){% (center)
     \tkzDefShiftPoint[#1](0,0.08){O}%
     \tkzDefShiftPoint[#1](0,0.015){I}%
-    \tkzDrawCircle[color=black, fill=white, line width=.4pt](#1, O)%
+    \tkzDrawCircle[color=black, fill=white, line width=.5pt](#1, O)%
     \tkzDrawCircle[color=black, fill=black](#1, I)%
 }

@@ -148,10 +148,6 @@
 \tikzexternalize[prefix=tikz/resource/,optimize command away=\includepdf]
 \usetikzlibrary{calc, fadings, decorations.markings, shapes, snakes}
 
-\tkzSetUpLine[line width=0.4pt]
-\tkzSetUpPoint[fill=white, size=2]
-\tkzSetUpLabel[font=\scriptsize]
-
 
 \input{sys/tikz-commands}
 
@@ -296,6 +292,11 @@
 
 %%% main
 \begin{document}
+    \tkzSetUpLine[line width=0.4pt]
+    \tkzSetUpArc[line width=0.4pt]
+    \tkzSetUpPoint[fill=white, size=2]
+    \tkzSetUpLabel[font=\scriptsize]
+
 %\includepdf[pages=-]{sys/empty-page.pdf}
     \input{sys/cover}
 %	\input{sys/title}
