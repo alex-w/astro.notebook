@@ -17,7 +17,8 @@
 	\pi = \frac{a_\oplus}{r}.
 	\label{eq:parallax}
 \end{equation}
-\begin{figure}[h!]
+
+\begin{wrapfigure}[10]{r}{0.45\tw}
 	\centering
 	\vspace{-2pc}
 	\begin{tikzpicture}
@@ -27,7 +28,7 @@
 %	    \tkzSetUpArc[line width=.4pt]
 %	    
 	    \tkzDefPoint(0,0){Sun}
-	    \tkzDefPoint(5,0){Star}
+	    \tkzDefPoint(3,0){Star}
 	    \tkzDefPoint(0,1){E}
 %	    
 	    \tkzLabelPoint[above](E){Земля}
@@ -48,8 +49,7 @@
 	    \tkzLabelSegment[left=-2pt](Sun,E){$a_\oplus$}
 	\end{tikzpicture}
 	\caption{Схема годичного параллакса}
-\end{figure}
-
+\end{wrapfigure}
 Расстояние $r$, с которого большая полуось орбиты Земли $a_\oplus$ видна под углом $\pi = 1''$ называется \term[парсек]{1 парсеком}. Так как
 \begin{equation}
 	1~\text{рад} = \frac{180^\circ}{\pi} \simeq  3 438' \simeq 206265''
@@ -81,21 +81,32 @@
         
             \tkzDefPoint(0,0){C}
             \tkzDefPoint(4,0){O}
-            \tkzDefPointBy[homothety=center C ratio .3](O) \tkzGetPoint{U}
+            \tkzDefPointBy[homothety=center C ratio .25](O) \tkzGetPoint{U}
             
             \tkzDrawCircle[color=black, fill=gray!40, thick](C,U)
             \tkzDefLine[tangent from = O](C,U) \tkzGetPoints{I1}{I2}
             \tkzDrawSegments(C,I1 C,I2 C,O)
             \tkzDrawSegments[thick](O,I2 O,I1)
             \tkzMarkRightAngles[size=0.2](O,I1,C C,I2,O)
-            \tkzMarkAngle(I2,O,C)
+            \tkzMarkAngle[size=1.2](I2,O,C)
             \tkzMarkAngle[size=1.1](C,O,I1)
             
             \tkzLabelSegment[left](C,I1){$R$}
             \tkzLabelSegment[left](C,I2){$R$}
             \tkzLabelSegment[above](C,O){$r$}
-            \tkzLabelAngle[pos=1.4](I2,O,C){$\sfrac{\rho}{2}$}
-            \tkzLabelAngle[pos=1.4](C,O,I1){$\sfrac{\rho}{2}$}
+            
+            \DeclareCollectionInstance{angular-size-xfrac}{xfrac}{mathdefault}{math}{
+                denominator-bot-sep = -1pt,
+                slash-symbol = \scalebox{0.9}{/},
+                numerator-bot-sep = 3pt,
+                scaling= true,
+                slash-right-mkern= -2 mu,
+                slash-left-mkern= -1.5 mu
+            }
+            \UseCollection{xfrac}{angular-size-xfrac}
+            
+            \tkzLabelAngle[pos=1.5](I2,O,C){$\sfrac{\rho}{2}$}
+            \tkzLabelAngle[pos=1.5](C,O,I1){$\sfrac{\rho}{2}$}
             
             \tkzDrawPoints(C, O, I1, I2)
         \end{tikzpicture}
@@ -111,7 +122,7 @@
         
             \tkzDefPoint(0,0){O}
             \tkzDefPoint(4,0){S}
-            \tkzDefPointBy[homothety=center O ratio .3](S) \tkzGetPoint{X}
+            \tkzDefPointBy[homothety=center O ratio .25](S) \tkzGetPoint{X}
             \tkzDefPointBy[rotation=center O angle -90](X) \tkzGetPoint{C}
             
             \tkzDrawCircle[color=black, fill=gray!40, thick](C,O)
@@ -119,12 +130,12 @@
             \tkzDrawSegments[thick](O,S C,S)
             \tkzDrawSegments(C,O)
             \tkzMarkRightAngles[size=0.2](C,O,S)
-            \tkzMarkAngle[size=.8](O,S,C)
+            \tkzMarkAngle(O,S,C)
 
             
             \tkzLabelSegment[below](C,S){$r$}
             \tkzLabelSegment[left=-2pt](C,O){$R_\oplus$}
-            \tkzLabelAngle[pos=1.1, font=\footnotesize](O,S,C){$p$}
+            \tkzLabelAngle[pos=1.3, font=\footnotesize](O,S,C){$p$}
             
             \tkzDrawPoints(C, O, S)
         \end{tikzpicture}
