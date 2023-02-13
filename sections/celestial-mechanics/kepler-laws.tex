@@ -85,28 +85,85 @@
 \begin{figure}[h!]
 	\begin{minipage}[b]{0.5\textwidth}
 		\centering
-		\includegraphics[width = 0.84\textwidth]{first-kepler}
+		\begin{tikzpicture}
+		    \footnotesize
+		    
+		    \def\padding{0.3}
+		    \def\r{2.5}
+		    \def\bByA{0.7}
+		    
+		    \tkzInit[
+		          xmin={-\r - \padding},
+		          xmax={\r + \padding}, 
+		          ymax={\r*\bByA + \padding},
+		          ymin={-\r*\bByA - \padding}     
+		    ]
+		    \tkzClip
+		    \begin{scope}[yscale=\bByA]
+		    
+		      \def\c{\r * sqrt(1 - \bByA^2)}
+		      \tkzDefPoint(0,0){O};  
+		      \tkzDefPoint(\c,0){F};
+		      \tkzDefPointBy[symmetry=center O](F) \tkzGetPoint{F'}
+		      \tkzDefPoint(\r,0){Q}
+		      \draw[thick] (O) circle (\r cm);
+		      
+		      \def\planetAngle{120}
+		      \tkzDefPointBy[rotation=center O angle \planetAngle](Q) \tkzGetPoint{P}
+		      \tkzDrawPoint(P)
+		      
+		      \def\arrowShiftAngle{15}
+		      \tkzDefPointBy[rotation=center O angle \arrowShiftAngle](P) \tkzGetPoint{A'}
+		      
+		      \def\arrowCoef{1.15}
+		      \def\arrowAngularSize{15}
+		      \tkzDefPointBy[homothety=center O ratio \arrowCoef](A') \tkzGetPoint{A}
+		      \draw[-latex] (A) arc({\planetAngle + \arrowShiftAngle}:{\planetAngle + \arrowShiftAngle + \arrowAngularSize}:{\r * \arrowCoef});
+		      
+
+		    \end{scope}
+		    \sun(F)
+		    \tkzLabelPoint[below](F){Солнце}
+		    \tkzLabelPoint[above left](P){Планета}
+		    \tkzDrawPoint(F')
+		    \tkzLabelPoint[below](F'){$F$}
+		\end{tikzpicture}
+%		\includegraphics[width = 0.84\textwidth]{first-kepler}
 		\caption{Первый закон Кеплера}
 	\end{minipage}
 	\begin{minipage}[b]{0.5\textwidth}
 		\centering
 		\begin{tikzpicture}
-		    \footnotesize
-		    \begin{scope}[yscale=0.6]
+            
+            \def\padding{0.3}
+		    \def\r{2.5}
+		    \def\bByA{0.7}
+		    
+		    \tkzInit[
+		          xmin={-\r - \padding},
+		          xmax={\r + \padding}, 
+		          ymax={\r*\bByA + \padding},
+		          ymin={-\r*\bByA - \padding}     
+		    ]
+		    \tkzClip
+		    
+		    \begin{scope}[yscale=\bByA]
+		    
+		      \def\c{\r * sqrt(1 - \bByA^2)}
 		      \tkzDefPoint(0,0){O};  
-		      \tkzDefPoint(2,0){F};
+		      \tkzDefPoint(\c,0){F};
 		      \tkzDefPointBy[symmetry=center O](F) \tkzGetPoint{F'}
-		      \tkzDefPoint(-20:2.5){A_1};
-		      \tkzDefPoint(40:2.5){B_1};
-		      \tkzDefPoint(120:2.5){A_2};
-		      \tkzDefPoint(140:2.5){B_2};
-		      \tkzDefPoint(-120:2.5){A_3};
-		      \tkzDefPoint(-90:2.5){B_3};
+		      \tkzDefPoint(-20:\r){A_1};
+		      \tkzDefPoint(40:\r){B_1};
+		      \tkzDefPoint(120:\r){A_2};
+		      \tkzDefPoint(140:\r){B_2};
+		      \tkzDefPoint(-120:\r){A_3};
+		      \tkzDefPoint(-90:\r){B_3};
 
-		      \draw (O) circle (2.5 cm);
-		      \draw [fill=lightgray] (F) -- (A_1) arc(-20:40:2.5) -- cycle;
-		      \draw [fill=lightgray] (F) -- (A_2) arc(120:140:2.5) -- cycle;
-		      \draw [fill=lightgray] (F) -- (A_3) arc(-120:-90:2.5) -- cycle;
+		      \draw[thick] (O) circle (\r cm);
+		      \draw [fill=lightgray, line width=.4pt] (F) -- (A_1) arc(-20:40:2.5) -- cycle;
+		      \draw [fill=lightgray, line width=.4pt] (F) -- (A_2) arc(120:140:2.5) -- cycle;
+		      \draw [fill=lightgray, line width=.4pt] (F) -- (A_3) arc(-120:-90:2.5) -- cycle;
 		    
 		      \tkzDefPointBy[homothety=center O ratio 1.04](A_1) \tkzGetPoint{A_1'}
 		      \tkzDefPointBy[homothety=center O ratio 1.05](A_2) \tkzGetPoint{A_2'}
@@ -123,18 +180,22 @@
 		      \draw [latex-latex] (A_1') arc(-20:40:2.6);
 		      \draw [latex-latex] (A_2') arc(120:140:2.625);
 		      \draw [latex-latex] (A_3') arc(-120:-90:2.625);
-		    
-		      \draw (M_1') node{$t$};
-		      \draw (M_2') node{$t$};
-		      \draw (M_3') node{$t$};
-
-		      \node at (barycentric cs:F=-0.5,A_1=1,B_1=1) {$S$};
-		      \node at (barycentric cs:F=0.4,A_2=1,B_2=1) {$S$};
-		      \node at (barycentric cs:F=0.4,A_3=1,B_3=1) {$S$};
+		      
+		      \tkzLabelPoint(M_1'){$t$}
+		      \tkzLabelPoint(M_2'){$t$}
+		      \tkzLabelPoint(M_3'){$t$}
+		      
+		      
+		      \tkzDefBarycentricPoint(F=-0.2,A_1=1,B_1=1) \tkzGetPoint{S_1}
+		      \tkzLabelPoint(S_1){$S$}
+		      \tkzDefBarycentricPoint(F=0.4,A_2=1,B_2=1) \tkzGetPoint{S_2}
+		      \tkzLabelPoint(S_2){$S$}
+		      \tkzDefBarycentricPoint(F=0.4,A_3=1,B_3=1) \tkzGetPoint{S_3}
+		      \tkzLabelPoint(S_3){$S$}
 		    \end{scope}
 		    \sun(F)
-		    \point(F')
-		    \tkzLabelPoint[below, font=\footnotesize](F'){$F$}
+		    \tkzDrawPoint(F')
+		    \tkzLabelPoint[below](F'){$F$}
 		\end{tikzpicture}
 		\caption {Второй закон Кеплера}
 	\end{minipage}
