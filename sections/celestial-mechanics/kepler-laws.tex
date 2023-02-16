@@ -120,13 +120,13 @@
 		      \tkzDefPointBy[homothety=center O ratio \arrowCoef](A') \tkzGetPoint{A}
 		      \draw[-latex] (A) arc({\planetAngle + \arrowShiftAngle}:{\planetAngle + \arrowShiftAngle + \arrowAngularSize}:{\r * \arrowCoef});
 		      
-
+                \tkzDrawPoint(F')
+		    \tkzLabelPoint[below](F'){$F$}
 		    \end{scope}
 		    \sun(F)
 		    \tkzLabelPoint[below](F){Солнце}
 		    \tkzLabelPoint[above left](P){Планета}
-		    \tkzDrawPoint(F')
-		    \tkzLabelPoint[below](F'){$F$}
+		    
 		\end{tikzpicture}
 %		\includegraphics[width = 0.84\textwidth]{first-kepler}
 		\caption{Первый закон Кеплера}
@@ -160,7 +160,7 @@
 		      \tkzDefPoint(-120:\r){A_3};
 		      \tkzDefPoint(-90:\r){B_3};
 
-		      \draw[thick] (O) circle (\r cm);
+		      
 		      \draw [fill=lightgray, line width=.4pt] (F) -- (A_1) arc(-20:40:2.5) -- cycle;
 		      \draw [fill=lightgray, line width=.4pt] (F) -- (A_2) arc(120:140:2.5) -- cycle;
 		      \draw [fill=lightgray, line width=.4pt] (F) -- (A_3) arc(-120:-90:2.5) -- cycle;
@@ -192,10 +192,15 @@
 		      \tkzLabelPoint(S_2){$S$}
 		      \tkzDefBarycentricPoint(F=0.4,A_3=1,B_3=1) \tkzGetPoint{S_3}
 		      \tkzLabelPoint(S_3){$S$}
+		      
+		      \draw[thick] (O) circle (\r cm);
+		      
+		      \tkzDrawPoint(F')
+		    \tkzLabelPoint[below](F'){$F$}
+		      
 		    \end{scope}
 		    \sun(F)
-		    \tkzDrawPoint(F')
-		    \tkzLabelPoint[below](F'){$F$}
+		    
 		\end{tikzpicture}
 		\caption {Второй закон Кеплера}
 	\end{minipage}

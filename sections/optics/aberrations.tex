@@ -308,178 +308,159 @@
 
 \begin{figure}[h]
 	\centering
-	\begin{tikzpicture}[ipe stylesheet, scale=1.1]
-		%  \useasboundingbox (200, 500) rectangle (550, 750);
-		\fill [lightgray] (336, 704) -- (336, 576) -- (384, 576) arc[start angle=-26.5651, end angle=26.5651, radius=143.1084] -- (336, 704);
-		\draw[ipe pen fat]
-		(384, 576)
-		arc[start angle=-26.5651, end angle=26.5651, radius=143.1084];
-		\draw[ipe pen fat]
-		(336, 704)
-		-- (336, 576);
-		
-		\draw[ipe pen heavier, ipe dash dash dotted]
-		(224, 640)
-		-- (500, 640);
-		\draw[ipe dash dashed]
-		(224, 688)
-		-- (380, 688);
-		\draw[ipe dash dashed]
-		(304, 592)
-		-- (368, 592);
-		\draw[ipe dash dashed]
-		(256, 640)
-		-- (410.7052, 705.7731);
-		\draw[ipe dash dashed]
-		(256, 640)
-		-- (415.3607, 594.5412);
-		\draw[ipe pen heavier]
-		(252, 664)
-		-- (336, 688)
-		-- (388, 696)
-		-- (464, 650)
-		-- (393, 601)
-		-- (336, 592)
-		-- (280, 576);
-		\filldraw[fill=white]
-		(435, 640) [double, line cap = butt]
-		arc[start angle=180, end angle=215, radius=15];
-		\node[ipe node]
-		at (251.993, 630.085) {$C$};
-		\draw
-		(356, 700)
-		-- (256, 640)
-		-- (356, 580);
-		\draw
-		(350, 690)
-		arc[start angle=9.2524, end angle=42, radius=9.7017];
-		\draw
-		(380, 688) [decoration={zigzag, segment length=1.1mm, amplitude=0.3mm}, decorate]
-		arc[start angle=0, end angle=8.9, radius=45];
-		\draw
-		(316, 687.9682)
-		arc[start angle=-180, end angle=-164.0101, radius=20];
-		\draw
-		(350, 690) [decoration={snake, segment length=1mm, amplitude=0.3mm}, decorate]
-		arc[start angle=-171.1895, end angle=-157.2715, radius=38];
-		\draw
-		(397.3793, 690)
-		arc[start angle=-20, end angle=20, radius=15];
-		\draw
-		(272.7114, 640.2703) [double,  line cap=butt]
-		arc[start angle=0.9936, end angle=23.3266, radius=16.5778];
-		\draw
-		(280.6909, 632.9696)
-		arc[start angle=-15.3798, end angle=0.7105, radius=25.6239];
-		\node[ipe node]
-		at (364.414, 642.015) {$h$};
-		\node[ipe node]
-		at (326.338, 662.276) {$R$};
-		\node[ipe node]
-		at (326.556, 621.048) {$R$};
-		\draw[{ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
-		(240, 688)
-		-- (240, 640);
-		\node[ipe node]
-		at (233.078, 660.549) {$d$};
-		\node[ipe node]
-		at (364.414, 642.015) {$h$};
-		\node[ipe node]
-		at (294.96, 666.059) {$l$};
-		\node[ipe node]
-		at (276.734, 643.661) {$\eta_1$};
-		\node[ipe node]
-		at (284.917, 634.094) {$\eta_2$};
-		\node[ipe node]
-		at (307, 683.074) {$\alpha$};
-		\node[ipe node]
-		at (383, 688) {\small $\beta$};
-		\node[ipe node]
-		at (342, 683) {\small $\gamma_1$};
-		\node[ipe node]
-		at (402, 693) {$\delta_1$};
-		\draw
-		(464, 650)
-		-- (500, 620);
-		\node[ipe node]
-		at (425, 633) {$\omega_2$};
-		\node[ipe node]
-		at (457, 656) {$(x, y)$};
-		\node[ipe node]
-		at (408, 602) {$\delta_2$};
-		\node[ipe node]
-		at (366.698, 589.106) {$\beta$};
-		\node[ipe node]
-		at (363.462, 601.476) {$\gamma_2$};
-		\node[ipe node]
-		at (306.222, 586.462) {$\alpha$};
-		\draw
-		(316, 591.9788)
-		arc[start angle=180, end angle=194.6129, radius=20];
-		\draw
-		(327.0296, 597.2938)
-		arc[start angle=148.7026, end angle=178.4025, radius=10.533];
-		\node[ipe node]
-		at (314.996, 595.309) {$\xi$};
-		\node[ipe node]
-		at (355, 695) {\small $\xi - \beta$};
-		\node[ipe node]
-		at (325, 692.319) {$A_1$};
-		\node[ipe node]
-		at (388, 703) {$B_1$};
-		\node[ipe node]
-		at (324, 582) {$A_2$};
-		\node[ipe node]
-		at (393, 591) {$B_2$};
-		\node[ipe node]
-		at (338, 643) {$O$};
-		\draw
-		(362.1296, 591.989)
-		arc[start angle=0.3563, end angle=9.2262, radius=26.1304];
-		\draw
-		(374.9012, 606.1184)
-		arc[start angle=163.6381, end angle=187.6335, radius=19.4597];
-		\draw
-		(404.9644, 597.6586)
-		arc[start angle=-15.516, end angle=38, radius=11.8867];
-		%  \draw
-		%    (580.705, 634.3486)
-		%     arc[start angle=-17.9201, end angle=0.7153, radius=17.6622];
-		%  \node[ipe node]
-		%     at (583.258, 634.438) {$\omega_1$};
-		
-		%    		\foreach \x in {200, 210,...,500} {
-		%				\draw [line width=.1pt] (\x, 500) -- (\x, 800);
-		%				};
-		%
-		%				\foreach \x in {200, 300,...,500} {
-		%				\draw [line width=.4pt] (\x , 500) -- (\x, 800);
-		%				};
-		%
-		%				\foreach \y in {500, 510,...,800} {
-		%				\draw [line width=.1pt] (200, \y) -- (500, \y);
-		%				};
-		%
-		%				\foreach \y in {500, 600,...,800} {
-		%				\draw [line width=.4pt] (200, \y) -- (500, \y);
-		%				};
-		
-		\pic[ipe mark small, fill=white]
-		at (256, 640) {ipe fdisk};
-		\pic[ipe mark small, fill=white]
-		at (336, 688) {ipe fdisk};
-		\pic[ipe mark small, fill=white]
-		at (388, 696) {ipe fdisk};
-		\pic[ipe mark small, fill=white]
-		at (336, 592) {ipe fdisk};
-		\pic[ipe mark small, fill=white]
-		at (464, 650) {ipe fdisk};
-		\pic[ipe mark small, fill=white]
-		at (393.5264, 600.6558) {ipe fdisk};
-		\pic[ipe mark small, fill=white]
-		at (336, 640) {ipe fdisk};
-		
-	\end{tikzpicture}
+	\begin{tikzpicture}
+    
+    
+    
+            
+        \tkzInit[
+            xmax=5,
+            xmin=-2.7,
+            ymin=-2.5,
+            ymax=2.5
+        ]
+        \tkzClip
+            
+        \def\width{1.5}
+        \def\alph{23.5}
+        \def\n{2}
+        \def\bet{asin(sin(\alph) / \n)}
+        \def\h{2}
+        \def\r{4.5}
+        \def\d{2}
+        
+        
+        
+        \def\earthR{0.25}
+        \def\moonR{0.7}
+        \def\sunR{1}
+        
+        \tkzDefPoint(0,0){O}
+        \tkzDefPoint(-\d,0){C}
+    
+        
+        \tkzDefShiftPoint[O](0,\width){A}
+        \tkzDefShiftPoint[O](0,-\width){B}
+        \tkzDefShiftPoint[C](\r,0){R}
+        
+        
+        
+        \tkzDefPointBy[rotation = center A angle -90 + \alph](O)
+        \tkzGetPoint{A'}
+        \tkzDefPointBy[rotation = center A angle 90 + \bet](O)
+        \tkzGetPoint{a'}
+        \tkzInterLC(A,a')(C,R) \tkzGetFirstPoint{A''}
+        \tkzGetVectxy(C,A''){Va}
+        \def\a{atan(\Vay/\Vax)}
+        \def\aa{asin(\n * sin(\a - \bet))}
+        \tkzDefPointBy[rotation = center A'' angle \bet - \a + 180 -\aa](A)
+        \tkzGetPoint{A'''}
+        
+
+        \tkzDefPointBy[rotation = center B angle 90 + \alph](O) 
+        \tkzGetPoint{B'}
+        \tkzDefPointBy[rotation = center B angle -90 + \bet](O) 
+        \tkzGetPoint{b}
+        \tkzInterLC(B,b)(C,R) \tkzGetSecondPoint{B''}
+        \tkzGetVectxy(C,B''){Vb}
+        \def\b{atan(-\Vby/\Vbx)}
+        \def\bb{asin(\n * sin(\b + \bet))}
+        \tkzDefPointBy[rotation = center B'' angle -\bet - \b + 180 + \bb](B)
+        \tkzGetPoint{B'''}
+        
+        
+%        
+        \tkzInterLL(A'',A''')(B'',B''') \tkzGetPoint{I}
+        \tkzDefPointBy[homothety=center A'' ratio 1.7](I) \tkzGetPoint{I'}
+        \tkzDefPointBy[homothety=center C ratio 3](O) \tkzGetPoint{C'}
+        \tkzInterLL(C,C')(B'',B''') \tkzGetPoint{W}
+        \tkzDefPointBy[homothety=center C ratio 1.5](A) \tkzGetPoint{AC}
+        \tkzDefPointBy[homothety=center C ratio 1.3](B) \tkzGetPoint{BC}
+        \tkzDefPointBy[homothety=center C ratio 1.3](A'') \tkzGetPoint{AC''}
+        \tkzDefPointBy[homothety=center C ratio 1.3](B'') \tkzGetPoint{BC''}        
+    
+        \def\margin{2}
+        \tkzDefShiftPoint[A](0, \margin){A2}
+        \tkzDefShiftPoint[B](0, -\margin){B2}
+        
+        \tkzDrawSector[R, fill=gray!50, draw=none](C,\r)(-90,90)
+        \tkzDrawArc[R, thick](C,\r)(-90,90)
+        \tkzDrawSector[R, fill=white, draw=none](O,\r)(90,-90)
+        \tkzDrawLine[dash dot](C,C')
+        \tkzDrawSegments[thick](A2,B2 A',A B',B B,B'' A,A'' A'',I B'',I)
+        
+        \def\normalLength{1.9}
+        \tkzDefShiftPoint[A](-1.5*\normalLength , 0){A1}
+        \tkzDefShiftPoint[A](\normalLength, 0){A2}
+        \tkzDefShiftPoint[B](-\normalLength, 0){B1}
+        \tkzDefShiftPoint[B](\normalLength, 0){B2}
+        
+        
+        \tkzDrawSegments(C,AC C,BC)
+        \tkzDrawSegments[dashed](C,BC'' C,AC'' A1,A2 B1,B2)
+        \tkzDrawPoints(A, B, C, O)
+        
+        \tkzSetUpArc[line width=.2pt]
+        \tkzMarkAngle[line width = .3pt, size=0](C,O,A) % костыль для расстояния между дугами
+        
+        \tkzMarkAngle[size=0.8, arc=ll, mark=o, mksize=2pt](A1,A,A')
+        \tkzLabelAngle[font=\scriptsize, pos=1.05](A1,A,A'){$\alpha$}
+        
+        \tkzMarkAngle[size=0.8, arc=ll, mark=o, mksize=2pt](B1,B,B')
+        \tkzLabelAngle[font=\scriptsize, pos=1.05](B1,B,B'){$\alpha$}
+        
+        \tkzMarkAngle[size=0.6, arc=ll, mark=x, mksize=2.5pt](C,B,B1)
+        \tkzLabelAngle[font=\scriptsize, pos=0.8](C,B,B1){$\xi$}
+        
+        \tkzMarkAngle[size=1.7](A2,A,A'')
+        \tkzLabelAngle[font=\scriptsize, pos=1.9](A2,A,A''){$\beta$}
+        
+        \tkzMarkAngle[size=1.5](B2,B,B'')
+        \tkzLabelAngle[font=\scriptsize, pos=1.7](B2,B,B''){$\beta$}
+        
+        \tkzMarkAngle[size=0.6, arc=lll, mark=o, mksize=2pt](I,A'',AC'')
+        \tkzLabelAngle[font=\scriptsize, pos=0.9](I,A'',AC''){$\delta_1$}
+        
+        \tkzMarkAngle[size=0.7, arc=lll, mark=s,  mksize=2.5pt](BC'',B'',I)
+        \tkzLabelAngle[font=\scriptsize, pos=1](BC'',B'',I){$\delta_2$}
+        
+        \tkzMarkAngle[size=0.5, arc=lll, mark=||, mksize=2pt](C,W,B'')
+        \tkzLabelAngle[font=\scriptsize, pos=0.8](C,W,B''){$\omega_2$}
+        
+        \tkzMarkAngle[size=0.7, arc=lll](A'',A,AC)
+        \tkzLabelAngle[font=\scriptsize, pos=1.2](A'',A,AC){\adjustbox{raise=-3ex}{$\xi - \beta$}}
+        
+        \tkzMarkAngle[size=0.6, arc=ll, mark=x, mksize=2.5pt](C,B'',B)
+        \tkzLabelAngle[font=\scriptsize, pos=0.9](C,B'',B){$\gamma_2$}
+        
+        \tkzMarkAngle[size=1.6, arc=ll](A,A'',C)
+        \tkzLabelAngle[font=\scriptsize, pos=1.8](A,A'',C){$\gamma_1$}
+        
+        
+        \tkzMarkAngle[size=0.7, arc=lll, mark=x, mksize=3pt](O,C,A'')
+        \tkzLabelAngle[font=\scriptsize](O,C,A''){$\eta_1$}
+        
+        \tkzMarkAngle[size=0.8, arc=lll, mark=|, mksize=3pt](B'',C,O)
+        \tkzLabelAngle[font=\scriptsize, pos=1.2](B'',C,O){$\eta_2$}
+        
+        \tkzDrawPoints(B'', A'', I)
+        
+        \tkzLabelPoint[above](B){\adjustbox{right=8mm}{$A_2$}}
+        \tkzLabelPoint[below](B''){\adjustbox{right=7mm}{$B_2$}}
+        \tkzLabelPoint[above](A){\adjustbox{left=8mm}{$A_1$}}
+        \tkzLabelPoint[above](A''){\adjustbox{right=6.5mm}{$B_1$}}
+        \tkzLabelPoint[below](C){$C$}
+        \tkzLabelPoint[above right](O){$O$}
+        \tkzLabelPoint[above](I){\adjustbox{right=10mm}{$(x,y)$}}
+        
+        \tkzLabelSegments[above](O,R){$h$}
+        
+        \tkzDefShiftPoint[C](-0.5, 0){C'}
+        \tkzDefShiftPoint[A](-\d -0.5,0){A'}
+        \tkzDrawSegment[latex-latex](C',A')
+        \tkzLabelSegment[right](C',A'){$d$}
+        
+    \end{tikzpicture}
 	\caption{}
 	\label{pic:optical-aberrations-coma1}
 \end{figure}
