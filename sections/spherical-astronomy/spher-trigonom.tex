@@ -1,25 +1,25 @@
 \subsection{Сферическая тригонометрия}
 \label{sec:spher-trig}
 \begin{wrapfigure}[10]{r}{.3\tw}
-	\centering
-	\vspace{-1pc}
-	\includegraphics[width=0.3\textwidth]{spher-trigonom}
-	\caption{Сферический треугольник}
+    \centering
+    \vspace{-1pc}
+    \includegraphics[width=0.3\textwidth]{spher-trigonom}
+    \caption{Сферический треугольник}
 \end{wrapfigure}
 Для решения некоторых задач астрономии, связанных с видимыми положениями небесных тел, требуются знания о сферической тригонометрии. \imp{Сферический треугольник}~--- фигура на поверхности сферы, состоящая из трёх точек и трёх дуг больших кругов, соединяющих эти точки. Пусть $A$, $B$ и $C$~--- углы сферического треугольника, а $a$, $b$ и $c$~--- его стороны.
 
 Сферические треугольники обладают следующими свойствами:
 \begin{enumerate}
-	\item Два сферических треугольника равны, если они подобны.
-	\item Каждая сторона меньше суммы двух других сторон и больше их разности.
-	\item Сумма всех сторон $a+b+c$ всегда меньше $2\pi$.
-	\item Сумма углов сферического треугольника $\pi < A + B + C < 3\pi$.
-	\item Разность суммы двух углов и третьего угла меньше $\pi$
+    \item Два сферических треугольника равны, если они подобны.
+    \item Каждая сторона меньше суммы двух других сторон и больше их разности.
+    \item Сумма всех сторон $a+b+c$ всегда меньше $2\pi$.
+    \item Сумма углов сферического треугольника $\pi < A + B + C < 3\pi$.
+    \item Разность суммы двух углов и третьего угла меньше $\pi$
 \end{enumerate}
 
 Площадь сферического треугольника определяется по формуле:
 \begin{equation}
-	S = R^2( A + B + C - \pi),
+    S = R^2( A + B + C - \pi),
 \end{equation}
 где $A + B + C - \pi$~--- \imp{сферический избыток}.
 
@@ -27,65 +27,65 @@
 
 Теперь запишем выражение для $\scalar{b}{c}$:
 \begin{equation}
-	\scalar{b}{c} = \cos a = \sin c \sin b \cos A + \cos c \cos b.
-	\label{eq:spher-astro-cos-1}
+    \scalar{b}{c} = \cos a = \sin c \sin b \cos A + \cos c \cos b.
+    \label{eq:spher-astro-cos-1}
 \end{equation}
 Аналогично,
 \begin{gather}
-	\scalar{a}{c} = \cos b = \sin a \sin c \cos B +  \cos a \cos c,\\
-	\scalar{a}{b} = \cos c = \sin a \sin b \cos C + \cos a \cos b.
-	\label{eq:spher-astro-cos-1-1}
+    \scalar{a}{c} = \cos b = \sin a \sin c \cos B +  \cos a \cos c,\\
+    \scalar{a}{b} = \cos c = \sin a \sin b \cos C + \cos a \cos b.
+    \label{eq:spher-astro-cos-1-1}
 \end{gather}
 Выразим отсюда $\cos A$:
 \begin{equation}
-	\cos A = \frac{\cos a - \cos c \cos b}{\sin c \sin b}.
-	\label{eq:spher-astro-cos-2}
+    \cos A = \frac{\cos a - \cos c \cos b}{\sin c \sin b}.
+    \label{eq:spher-astro-cos-2}
 \end{equation}
 Формулы \eqref{eq:spher-astro-cos-1}\,--\,\eqref{eq:spher-astro-cos-2} называются \term{сферической теоремой косинусов} \imp{для стороны} \eqref{eq:spher-astro-cos-1}\,--\,\eqref{eq:spher-astro-cos-1-1} и, соответственно \imp{для угла} \eqref{eq:spher-astro-cos-2}.
 
 Из основного тригонометрического тождества имеем:
 \begin{multline*}
-	\sin^2 A = 1 - \cos^2 A = 1 - \left[ \frac{\cos a - \cos c \cos b}{\sin c \sin b} \right]^2 = \\
-	= \frac{\sin^2 c \sin^2 b - \cos^2 a + 2\cos a \cos c \cos b - \cos^2 c \cos^2 b}{\sin^2 c \sin^2 b}=\\
-	= \frac{(1 - \cos^2 c)(1 -  \cos^2 b) - \cos^2 a + 2\cos a \cos c \cos b - \cos^2 c \cos^2 b}{\sin^2 c \sin^2 b}=\\
-	= \frac{1 - \cos^2 c - \cos^2 b + \cos^2 c \cos^2 b -\cos^2 a}{\sin^2 c \sin^2 b} + \\
-	+ \frac{2\cos a \cos c \cos b - \cos^2 c \cos^2 b}{\sin^2 c \sin^2 b} = \\
-	= \frac{1 - \cos^2 c - \cos^2 b - \cos^2 a + 2\cos a \cos c \cos b}{\sin^2 c \sin^2 b}.
+    \sin^2 A = 1 - \cos^2 A = 1 - \left[ \frac{\cos a - \cos c \cos b}{\sin c \sin b} \right]^2 = \\
+    = \frac{\sin^2 c \sin^2 b - \cos^2 a + 2\cos a \cos c \cos b - \cos^2 c \cos^2 b}{\sin^2 c \sin^2 b}=\\
+    = \frac{(1 - \cos^2 c)(1 -  \cos^2 b) - \cos^2 a + 2\cos a \cos c \cos b - \cos^2 c \cos^2 b}{\sin^2 c \sin^2 b}=\\
+    = \frac{1 - \cos^2 c - \cos^2 b + \cos^2 c \cos^2 b -\cos^2 a}{\sin^2 c \sin^2 b} + \\
+    + \frac{2\cos a \cos c \cos b - \cos^2 c \cos^2 b}{\sin^2 c \sin^2 b} = \\
+    = \frac{1 - \cos^2 c - \cos^2 b - \cos^2 a + 2\cos a \cos c \cos b}{\sin^2 c \sin^2 b}.
 \end{multline*}
 Извлекая квадратный корень из левой и правой части и деля их на $\sin a$ имеем
 \begin{equation*}
-	\frac{\sin{A}}{\sin a} = \frac{\sqrt{1 - \cos^2 c - \cos^2 b - \cos^2 a + 2\cos a \cos c \cos b}}{\sin a \sin b \sin c}.
+    \frac{\sin{A}}{\sin a} = \frac{\sqrt{1 - \cos^2 c - \cos^2 b - \cos^2 a + 2\cos a \cos c \cos b}}{\sin a \sin b \sin c}.
 \end{equation*}
 Заметим, что правая часть равенства циклична по переменным $a$, $b$ и $c$, следовательно, \term{сферическая теорема синусов} имеет вид
 \begin{equation}
-	\frac{\sin A}{\sin a} = \frac{\sin B}{\sin b} = \frac{\sin C}{\sin c}.
+    \frac{\sin A}{\sin a} = \frac{\sin B}{\sin b} = \frac{\sin C}{\sin c}.
 \end{equation}
 
 Далее получим \term{формулу пяти элементов}. Для этого запишем теорему косинусов в выразим в ней один из косинусов, применяя ее же:
 \begin{gather}
-	\cos a = \sin c \sin b \cos A + \cos c \cos b,\nonumber\\
-	\cos a = \sin c \sin b \cos A + \left( \sin a \sin b \cos C + \cos a \cos b \right)\cos b,\nonumber\\
-	\cos a - \cos a \cos^2 b = \sin c \sin b \cos A + \sin a \sin b \cos b \cos C,\nonumber\\
-	\cos a \sin^2 b = \sin c \sin b \cos A + \sin a \sin b \cos b \cos C,\nonumber\\
-	\cos a \sin b = \sin a \cos b \cos C + \sin c \cos A.
+    \cos a = \sin c \sin b \cos A + \cos c \cos b,\nonumber\\
+    \cos a = \sin c \sin b \cos A + \left( \sin a \sin b \cos C + \cos a \cos b \right)\cos b,\nonumber\\
+    \cos a - \cos a \cos^2 b = \sin c \sin b \cos A + \sin a \sin b \cos b \cos C,\nonumber\\
+    \cos a \sin^2 b = \sin c \sin b \cos A + \sin a \sin b \cos b \cos C,\nonumber\\
+    \cos a \sin b = \sin a \cos b \cos C + \sin c \cos A.
 \end{gather}
 
-\term{Параллактический треугольник}~--- треугольник на небесной  сфере, образованный пересечением небесного меридиана, вертикального круга и часового круга светила. \imp{Вертикальный круг}~--- большой круг небесной сферы, проходящий через надир, зенит и светило. \imp{Часовой круг}~--- большой круг небесной сферы, проходящий через полюса мира и наблюдаемое светило.
+\term{Параллактический треугольник}~--- треугольник на небесной сфере, образованный пересечением небесного меридиана, вертикального круга и часового круга светила. \imp{Вертикальный круг}~--- большой круг небесной сферы, проходящий через надир, зенит и светило. \imp{Часовой круг}~--- большой круг небесной сферы, проходящий через полюса мира и наблюдаемое светило.
 
 Применяя теоремы синусов и косинусов к параллактическому треугольнику, нетрудно получить следующие соотношения:
 \begin{gather}
-	\cos z=\sin\varphi\sin\delta+\cos\varphi\cos\delta\cos t\\
-	\sin z\sin A=\cos\delta\sin t\\
-	\sin z\cos A=-\cos\varphi\sin\delta+\sin\varphi\cos\delta\cos t
+    \cos z=\sin\varphi\sin\delta+\cos\varphi\cos\delta\cos t\\
+    \sin z\sin A=\cos\delta\sin t\\
+    \sin z\cos A=-\cos\varphi\sin\delta+\sin\varphi\cos\delta\cos t
 \end{gather}
 
-\begin{wrapfigure}[12]{r}{0.45\tw}
+\begin{wrapfigure}[11]{r}{0.42\tw}
     \centering
     \vspace{-1.5pc}
     \tdplotsetmaincoords{70}{155}
     \begin{tikzpicture}[tdplot_main_coords]
         \footnotesize
-        
+
         \def\r{2}
         \def\i{25}
         \def\lo{70}
@@ -96,23 +96,23 @@
         \def\q{atan(sin(\x) * tan(\i))}
         \def\y{asin(sin(\q) / sin(\i))}
         \def\w{asin(sin(\x) / sin(\y))}
-            
-    
+
+
         \draw[tdplot_screen_coords,thin,black!30] (0,0,0) circle (\r);
         \foreach \a in {-60,-30,...,60}{
             \tdplotCsDrawLatCircle[thin,black!30]{\r}{\a}
-            }
+        }
         \foreach \a in {0,30,...,150}{
             \tdplotCsDrawLonCircle[thin,black!30]{\r}{\a}
         }
-      
+
         \tdplotCsDrawLatCircle[thick,tdplotCsFill/.style={opacity=0.00}]{\r}{0}
-      
+
         \tdplotCsDrawGreatCircle[thick,tdplotCsFill/.style={opacity=0.0}]{\r}{\lo-90}{\i}
-      
+
         \tdplotsetrotatedcoords{\y - 90 + \lo}{180 - \w}{\q};
         \draw[tdplot_rotated_coords, line width=1pt] (0,\r,0) arc (90:180:\r);
-        \draw[tdplot_rotated_coords, anchor=north west] (0,\r,0) node {$G$};
+        \draw[tdplot_rotated_coords, anchor=north] (0,\r,0) node {\adjustbox{right=4mm,raise=-1mm}{$G$}};
 
         \tdplotsetrotatedcoords{\l - 90}{90}{\f};
         \draw[tdplot_rotated_coords, line width=1pt] (0,\r,0) arc (90:{180 -\f}:\r);
@@ -123,7 +123,7 @@
         \coordinate (P) at ({\r*cos(\lo - 90)*sin(\i)}, {\r*sin(\lo - 90)*sin(\i)},{\r*cos(\i)});
         \coordinate (P') at ({-\r*cos(\lo - 90)*sin(\i)}, {-\r*sin(\lo - 90)*sin(\i)},{-\r*cos(\i)});
         \draw[semithick, gray, dash dot, line cap=round] (P) -- (P');
-        
+
         \def\x{asin(0.5/\r)}
         \tdplotsetrotatedcoords{-90+\lo+\x}{0}{0};
         \draw[tdplot_rotated_coords] (0,\r,0) arc (0:\i:5mm);
@@ -133,29 +133,31 @@
         \draw[tdplot_rotated_coords] (0,\r,0) arc (200:315:2mm);
 
         \tdplotCsDrawPoint{\r}{\l}{90 - \f}
+
         \tdplotCsDrawPoint{\r}{\lo}{90}
-        \tdplotCsLabelPoint{\r}{\lo}{90}{$(\lambda_0,0)$}{anchor=north west}
+        \tdplotCsLabelPoint{\r}{\lo}{90}{\adjustbox{left=4mm}{$(\lambda_0,0)$}}{anchor=north}
+
         \tdplotCsDrawPoint{\r}{\lo-90}{\i}
-        \tdplotCsLabelPoint{\r}{\lo-90}{\i}{$P'$}{anchor=south east}
+        \tdplotCsLabelPoint{\r}{\lo-90}{\i}{\adjustbox{left=5mm}{$P'$}}{anchor=south}
+
         \tdplotCsLabelPoint{\r}{0}{0}{}{label={[below]250:$\Delta \lambda$}}
-      
+
         \tdplotCsDrawPoint{\r}{0}{0}
-        \tdplotCsLabelPoint{\r}{0}{0}{$P$}{anchor=south west}
-        
+        \tdplotCsLabelPoint{\r}{0}{0}{$P$}{anchor=south}
+
         \tdplotCsLabelPoint{\r}{\lo-90}{\i/2}{$i$}{anchor=south}
         \tdplotCsLabelPoint{\r}{\l}{(90 - \f)/2 - 5}{$90^\circ - \varphi$}{anchor=west}
         \tdplotCsLabelPoint{\r}{\l - (\l - \lo + 90) /3 + 5}{(90 - \f + \i)/2 - 10}{$90^\circ$}{}
-        \tdplotCsLabelPoint{\r}{\lo + 15}{85}{$i$}{anchor=west}
-      
+
         \tdplotCsDrawPoint{\r}{0}{90}{}
-        \tdplotCsLabelPoint{\r}{0}{90}{$(0,0)$}{anchor= south west, label distance=0.5}
-      
+        \tdplotCsLabelPoint{\r}{0}{90}{\adjustbox{left=2.5mm}{$(0,0)$}}{anchor= south}
+
         \tdplotCsDrawPoint{0}{0}{0}
     \end{tikzpicture}
     \caption{Произвольная точка $(\lambda, \varphi)$ на большом круге с полюсом $P'$}
     \label{pic:grand-circle}
 \end{wrapfigure}
-Напоследок, используя сферическую теорему косинусов, получим \term{уравнение большого круга}. Пусть на сфере заданы сферические координаты $(\lambda, \varphi)$, где $\lambda$~--- угол проекции вектора на плоскость $Oxy$ с осью $Ox$, см.~Раздел\;\ref{sec:coord-systems}, а $\varphi$~--- угол между вектором в плоскостью $Oxy$. Найдем уравнение большого круга с наклонением $i$, восходящий узел которого находится в точке $(\lambda_0, 0)$. 
+Напоследок, используя сферическую теорему косинусов, получим \term{уравнение большого круга}. Пусть на сфере заданы сферические координаты $(\lambda, \varphi)$, где $\lambda$~--- угол проекции вектора на плоскость $Oxy$ с осью $Ox$, см.~Раздел\;\ref{sec:coord-systems}, а $\varphi$~--- угол между вектором в плоскостью $Oxy$. Найдем уравнение большого круга с наклонением $i$, восходящий узел которого находится в точке $(\lambda_0, 0)$.
 
 Для этого рассмотрим произвольную точку $G = (\lambda, \varphi)$ на этом большом круге и один из его полюсов $P' = (\lambda_0 - 90^\circ,\,90^\circ - i)$. По определению большого круга каждая его точка отстоит от полюса на $90^\circ$. Обозначим разность первых координат $P'$ и $G$~--- $\lambda - (\lambda_0 - 90^\circ)$, за $\Delta \lambda$ и запишем сферическую теорему косинусов для $\triangle PP'G$, где $P$~--- полюс заданной системы координат:
 \begin{gather}

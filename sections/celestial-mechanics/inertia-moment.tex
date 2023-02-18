@@ -1,0 +1,26 @@
+\subsection{Момент инерции}
+\label{sec:inertia-moment}
+
+\term{Момент инерции}~--- скалярная\footnote{в общем случае тензорная} величина, определяющая меру инертности тела во вращательном движении, подобна массе в поступательном. Момент инерции характеризует распределение массы в теле и определяется по формуле
+\begin{equation}
+    I = \int\limits_{V} r^2 \,d m,
+\end{equation}
+где интегрирование ведется по всему объему тела, а $r$~--- расстояние до оси, относительно которой вычисляется момент инерции.
+
+Так, например, момент инерции однородного шара относительно оси, проходящей через его центр
+\begin{multline*}
+    I_\text{ш} = \int\limits_0^R \int\limits_{-\sqrt{R^2 - r^2}}^{\sqrt{R^2 - r^2}} \int\limits_0^{2\pi} r^3 \rho \,dr \,dh \,d\varphi 
+    = 2\pi \rho \int_0^R \int\limits_{-\sqrt{R^2 - r^2}}^{\sqrt{R^2 - r^2}} r^3 \,dr \,dh = \\
+    = 4\pi \rho \int\limits_0^R r^3 \sqrt{R^2 - r^2} \,dr
+    \overset{x = R^2 - r^2}{=} -2\pi \rho \int\limits_{R^2}^0 (R^2 - x) \sqrt{x} \, dx = \\
+    = - 2\pi \rho R^2 \cdot \left. \frac{2}{3}  x^\frac{3}{2} \right|_{R^2}^0 + 2\pi \rho \cdot \left. \frac{2}{5} x^\frac{5}{2} \right|_{R^2}^0
+    = \frac{8}{15} \pi R^5 \rho = \frac{2}{5} m R^2.
+\end{multline*}
+
+Пусть $\boldsymbol{\omega}$~--- вектор угловой скорости вращения тела вокруг выделенной оси, тогда секториальная скорость точек тела, расположенных на расстоянии $r$ от оси, $\vec{s} = \omega r^2$. Следовательно, момент импульса вращения 
+\begin{equation*}
+    \vec{L}_\text{вр} = \int\limits_{V} \boldsymbol{\omega} r^2 \,d m = I\boldsymbol{\omega}.
+\end{equation*}
+
+Получаем простую аналогию между поступательным и вращательным движением:
+$m \longmapsto I$, $\vec v \longmapsto \boldsymbol\omega$, $\vec{p} \longmapsto \vec{L}$, $\vec F \longmapsto \vec M$, где $\vec{M}$~--- момент силы, определяемый как $\vec{M} = \cross{r}{F}$.

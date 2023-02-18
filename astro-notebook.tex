@@ -146,7 +146,15 @@
 
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikz/resource/,optimize command away=\includepdf]
-\usetikzlibrary{calc, fadings, decorations.markings, shapes, snakes}
+\usetikzlibrary{
+    calc, 
+    calligraphy, 
+    decorations.markings,
+    decorations.pathreplacing,
+    fadings,
+    shapes, 
+    snakes
+}
 
 \input{sys/tikz-commands}
 
@@ -251,7 +259,7 @@
     \tkzSetUpLine[line width=0.4pt]
     \tkzSetUpArc[line width=0.4pt]
     \tkzSetUpPoint[fill=white, size=2]
-    \tkzSetUpLabel[font=\scriptsize]
+    \tkzSetUpLabel[font=\footnotesize]
 
 %\includepdf[pages=-]{sys/empty-page.pdf}
     \input{sys/cover}
