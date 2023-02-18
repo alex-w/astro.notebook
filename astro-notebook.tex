@@ -146,60 +146,22 @@
 
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikz/resource/,optimize command away=\includepdf]
-\usetikzlibrary{calc, fadings, decorations.markings, shapes, snakes}
-
+\usetikzlibrary{
+    calc, 
+    calligraphy, 
+    decorations.markings,
+    decorations.pathreplacing,
+    fadings,
+    shapes, 
+    snakes
+}
 
 \input{sys/tikz-commands}
-
-% todo: Убрать, когда перепишутся рисунки, от него зависимые
-\usetikzlibrary{ipe}
-\tikzstyle{ipe stylesheet} = [
-  ipe import,
-  even odd rule,
-  line join=round,
-  line cap=round,
-  ipe pen normal/.style={line width=0.4},
-  ipe pen heavier/.style={line width=0.8},
-  ipe pen fat/.style={line width=1.2},
-  ipe pen ultrafat/.style={line width=2},
-  ipe pen normal,
-  ipe mark normal/.style={ipe mark scale=3},
-  ipe mark large/.style={ipe mark scale=5},
-  ipe mark small/.style={ipe mark scale=2},
-  ipe mark tiny/.style={ipe mark scale=1.1},
-  ipe mark normal,
-  /pgf/arrow keys/.cd,
-  ipe arrow normal/.style={scale=7},
-  ipe arrow large/.style={scale=10},
-  ipe arrow small/.style={scale=5},
-  ipe arrow tiny/.style={scale=3},
-  ipe arrow normal,
-  /tikz/.cd,
-  ipe arrows, % update arrows
-  <->/.tip = ipe normal,
-  ipe dash normal/.style={dash pattern=},
-  ipe dash dashed/.style={dash pattern=on 4pt off 4pt},
-  ipe dash dotted/.style={dash pattern=on 5pt off 2pt on .5pt off 2pt},
-  ipe dash dash dotted/.style={dash pattern=on 4bp off 2bp on 1bp off 2bp},
-  ipe dash dash dot dotted/.style={dash pattern=on 4bp off 2bp on 1bp off 2bp on 1bp off 2bp},
-  ipe dash normal,
-  ipe node/.append style={font=\normalsize},
-  ipe stretch normal/.style={ipe node stretch=1},
-  ipe stretch normal,
-  ipe opacity 10/.style={opacity=0.1},
-  ipe opacity 30/.style={opacity=0.3},
-  ipe opacity 50/.style={opacity=0.5},
-  ipe opacity 75/.style={opacity=0.75},
-  ipe opacity opaque/.style={opacity=1},
-  ipe opacity opaque,
-]
-%\usetikzlibrary{decorations.text}
-
-\tikzset{every picture/.style={line cap=round}}
 
 \makeatletter
 
 \tikzset{
+    every picture/.style={line cap=round},
 % dot diameter/.store in=\dot@diameter,
 % dot diameter=3pt,
     dot spacing/.store in=\dot@spacing,
@@ -210,6 +172,7 @@
         dash pattern=on 4pt off \dot@spacing
     }
 }
+
 \makeatother
 
 %%% Таблицы
@@ -289,13 +252,14 @@
 
 \usepackage{ifmtarg}
 \usepackage{textcase}
+\usepackage{adjustbox}
 
 %%% main
 \begin{document}
     \tkzSetUpLine[line width=0.4pt]
     \tkzSetUpArc[line width=0.4pt]
     \tkzSetUpPoint[fill=white, size=2]
-    \tkzSetUpLabel[font=\scriptsize]
+    \tkzSetUpLabel[font=\footnotesize]
 
 %\includepdf[pages=-]{sys/empty-page.pdf}
     \input{sys/cover}

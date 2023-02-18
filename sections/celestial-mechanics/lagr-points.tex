@@ -1,42 +1,47 @@
 \subsection{Точки Лагранжа}
-\term{Точки Лагранжа}~--- точки во вращающейся системе из двух массивных
-\begin{wrapfigure}[14]{l}{0.54\tw}
+
+\begin{wrapfigure}[12]{r}{0.5\tw}
 	\centering
-	\vspace{-.5pc}
-	\begin{tikzpicture}[scale = 0.9]
-		\footnotesize
-		\draw[dashes, line width = .7pt, line cap = circle] (0, 0) circle (3);
-		\draw (-3.5, 0) -- (4, 0);
-		\draw (0, 0) -- (1.5, 2.6);
-		\draw (0, 0) -- (1.5, -2.6);
-		\draw[fill=lightgray, line width = .7pt] (0, 0) circle (0.4);
-		\draw[fill=lightgray, line width = .7pt] (3, 0) circle (0.2);
+	\vspace{-.7pc}
+	\begin{tikzpicture}		
+		\def\r{2}
+		\def\mm{0.25}
+		\tkzDefPoint(0,0){M1}
+		\tkzDefPoint(\r,0){M2}
 		
-		\draw (0.6, 0) arc(0:60:.6);
-		\draw (.7, 0) arc(0:-60:.7);
+		\tkzDefPointBy[homothety=center M1 ratio 1 - \mm ](M2) \tkzGetPoint{L1}
+		\tkzDefPointBy[homothety=center M1 ratio 1 + \mm](M2) \tkzGetPoint{L2}
+		\tkzDefPointBy[homothety=center M1 ratio -1](M2) \tkzGetPoint{L3}
+		\tkzDefPointBy[rotation=center M1 angle 60](M2) \tkzGetPoint{L4}
+		\tkzDefPointBy[rotation=center M1 angle -60](M2) \tkzGetPoint{L5}
 		
-		\draw[fill=white, line width = .3pt] (2.5, 0) circle (0.035); 	 %%% L1
-		\draw[fill=white, line width = .3pt] (3.5, 0) circle (0.03); 	 %%% L2
-		\draw[fill=white, line width = .3pt] (-3, 0) circle (0.035); 	 %%% L3
-		\draw[fill=white, line width = .3pt] (1.5, 2.6) circle (0.035); 	 %%% L4
-		\draw[fill=white, line width = .3pt] (1.5, -2.6) circle (0.035); 	 %%% L5
+		\tkzDrawCircle[semithick, dashed, black](M1,M2)
 		
-		\draw (0, -.4) node [anchor= north] {$M_1$};
-		\draw (3, -.2) node [anchor= north west] {$M_2$};
-		\draw (1.5, -2.6) node [anchor= north west] {$L_5$};
-		\draw (1.5, 2.6) node [anchor= south west] {$L_4$};
-		\draw (-3, 0) node [anchor= south east] {$L_3$};
-		\draw (3.5, 0) node [anchor= south] {$L_2$};
-		\draw (2.5, 0) node [anchor= south] {$L_1$};
+		\tkzDrawSegments(M1,L4 M1,L5)
+		\tkzDrawLine(L3,M2)
 		
-		\draw (0.4, 0.2) node [anchor= south west] {$60^\circ$};
-		\draw (.5, -.2) node [anchor= north west] {$60^\circ$};
+		\tkzMarkAngle[size=0.5](M2,M1,L4)
+		\tkzLabelAngle[pos=0.8](M2,M1,L4){\footnotesize$60^\circ$}
+		\tkzMarkAngle[size=0.4](L5,M1,M2)
+		\tkzLabelAngle[pos=0.7](L5,M1,M2){\footnotesize$60^\circ$}
 		
+		\tkzLabelPoint[above](L1){$L_1$}
+		\tkzLabelPoint[above](L2){$L_2$}
+		\tkzLabelPoint[above left](L3){$L_3$}
+		\tkzLabelPoint[above right](L4){$L_4$}
+		\tkzLabelPoint[below right](L5){$L_5$}
+		
+		\tkzLabelPoint[below](M1){\adjustbox{left=7mm, raise=-5mm}{$M_1$}}
+		\tkzLabelPoint[below](M2){\adjustbox{right=9mm, raise=-3mm}{$M_2$}}
+		
+		\tkzDrawPoints(L1,L2,L3,L4,L5)
+		\tkzDrawPoint[size=12, fill=gray!50](M1)
+		\tkzDrawPoint[size=7, fill=gray!50](M2)
 	\end{tikzpicture}
 	\captionof{figure}{Точки Лагранжа}
 	\label{pic:larg-points-1}
 \end{wrapfigure}
-тел, в которых третье тело с пренебрежимо малой массой, не испытывающее воздействие никаких других сил, кроме гравитационных со стороны двух первых тел, может оставаться неподвижным относительно этих тел. В данных точках гравитационные силы, действующие на малое тело, уравновешиваются силами инерции.
+\term{Точки Лагранжа}~--- точки во вращающейся системе из двух массивных тел, в которых третье тело с пренебрежимо малой массой, не испытывающее воздействие никаких других сил, кроме гравитационных со стороны двух первых тел, может оставаться неподвижным относительно этих тел. В данных точках гравитационные силы, действующие на малое тело, уравновешиваются силами инерции.
 
 Точки $L_1$, $L_2$ и $L_3$ лежат на одной прямой,
 соединяющей два массивных тела (см.~Рис.\,\ref{pic:larg-points-1}).
@@ -61,7 +66,7 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 %r\approx R\sqrt[3]{\frac{M_2}{3M_1}}.
 %\end{equation}
 
-\begin{wrapfigure}[5]{r}{0.45\tw}
+\begin{wrapfigure}[4]{r}{0.45\tw}
 	\centering
 	\vspace{-.5pc}
 	\begin{tikzpicture}[scale = 0.66]
@@ -121,9 +126,9 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 \end{equation}
 
 
-\begin{wrapfigure}[5]{r}{0.45\tw}
+\begin{wrapfigure}[4]{r}{0.4\tw}
 	\centering
-	\vspace{-.5pc}
+	\vspace{-1pc}
 	\begin{tikzpicture}[scale = 0.66]
 		\footnotesize
 		%

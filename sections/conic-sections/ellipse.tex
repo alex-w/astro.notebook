@@ -9,120 +9,59 @@
 \imp{Большая ось} эллипса~--- прямая, проходящая через фокусы эллипса; \imp{малая ось}~--- прямая ей перпендикулярная и проходящая через центр эллипса.
 
 \begin{wrapfigure}[10]{r}{0.5\tw}
-	\vspace{-1pc}
+    \vspace{-1pc}
 	\centering
-	\begin{tikzpicture}[ipe stylesheet, scale=0.8]
-		\draw[shift={(-65.623, 0.044)}, xscale=0.6567, yscale=0.6949]
-		(0, 0)
-		-- (0.105, -111.963);
-		\draw[shift={(-65.623, 0.044)}, xscale=0.6567, yscale=0.6949, ipe pen heavier]
-		(0, 0)
-		-- (199.948, 49.784);
-		\draw[shift={(-65.623, 0.044)}, xscale=0.6567, yscale=0.6949, ipe pen heavier]
-		(0, 0)
-		-- (100, -80);
-		\draw[ipe pen fat]
-		(0.0497, 0.0443) ellipse[x radius=84.0612, y radius=55.5917];
-		\draw[shift={(-84.012, 0.044)}, xscale=0.6567, yscale=0.6949, ipe pen heavier]
-		(0, 0)
-		-- (256, 0);
-		\draw[shift={(0.05, 55.636)}, xscale=0.6567, yscale=0.6949, ipe pen heavier]
-		(0, 0)
-		-- (0, -160);
-		\pic[ipe mark small, fill=white]
-		at (-65.6232, 0.0443) {ipe fdisk};
-		\draw[shift={(65.723, 0.044)}, xscale=0.6567, yscale=0.6949, ipe pen heavier]
-		(0, 0)
-		-- (0.012, 49.938);
-		\draw[shift={(0.05, 55.636)}, xscale=0.6567, yscale=0.6949]
-		(0, 0)
-		-- (-144, 0);
-		\draw[shift={(0.05, -55.547)}, xscale=0.6567, yscale=0.6949]
-		(0, 0)
-		-- (-144, 0);
-		\draw[shift={(-84.012, 0.044)}, xscale=0.6567, yscale=0.6949]
-		(0, 0)
-		-- (-16, 0);
-		\draw[shift={(84.111, 0.044)}, xscale=0.6567, yscale=0.6949]
-		(0, 0)
-		-- (16, 0);
-		\draw[shift={(65.733, 34.723)}, xscale=0.6567, yscale=0.6949]
-		(0, 0)
-		-- (43.975, 0.069);
-		\draw[shift={(89.365, 0.044)}, xscale=0.6567, yscale=0.6949, {ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
-		(0, 0)
-		-- (0.028, 49.882);
-		\node[ipe node]
-		at (90.524, 16.168) {$p$};
-		\draw[shift={(-89.265, 55.636)}, xscale=0.6567, yscale=0.6949, {ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
-		(0, 0)
-		-- (0, -80);
-		\draw[shift={(-89.265, 0.044)}, xscale=0.6567, yscale=0.6949, {ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
-		(0, 0)
-		-- (0, -80);
-		\draw[shift={(-84.012, 0.044)}, xscale=0.6567, yscale=0.6949]
-		(0, 0)
-		-- (0, -104);
-		\draw[shift={(0.05, -55.547)}, xscale=0.6567, yscale=0.6949]
-		(0, 0)
-		-- (0, -16);
-		\draw[shift={(84.252, 0.195)}, xscale=0.6567, yscale=0.6949]
-		(0, 0)
-		-- (0, -112);
-		\node[ipe node]
-		at (66.165, -9.39) {\bf F$_\mathbf{2}$};
-		\draw[shift={(-84.012, -66.531)}, xscale=0.6567, yscale=0.6949, {ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
-		(0, 0)
-		-- (28, 0);
-		\draw[shift={(-65.545, -61.052)}, xscale=0.6567, yscale=0.6949, {ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
-		(0, 0)
-		-- (99.881, -0.078);
-		\draw[shift={(0.05, -61.107)}, xscale=0.6567, yscale=0.6949, {ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
-		(0, 0)
-		-- (128, 0);
-		\draw[shift={(-65.501, -72.162)}, xscale=0.6567, yscale=0.6949, {ipe fptarc[ipe arrow small]}-{ipe fptarc[ipe arrow small]}]
-		(0, 0)
-		-- (227.814, -0.09);
-		\node[ipe node]
-		at (-94.935, 25.494) {$b$};
-		\node[ipe node]
-		at (-94.808, -30.216) {$b$};
-		\node[ipe node]
-		at (-77.03, -72.327) {$q$};
-		\node[ipe node]
-		at (-33.24, -67.42) {$c$};
-		\node[ipe node]
-		at (40.523, -67.405) {$a$};
-		\node[ipe node]
-		at (5.465, -80.93) {$Q$};
-		\draw[shift={(0.05, -55.547)}, xscale=0.6567, yscale=0.6949, ipe pen heavier]
-		(0, 0)
-		-- (100, 80);
-		\node[ipe node]
-		at (-29.49, -28.163) {$a$};
-		\node[ipe node]
-		at (26.538, -27.093) {$a$};
-		\node[ipe node]
-		at (-30.549, 19.559) {$2a-p$};
-		\pic[ipe mark small, fill=white]
-		at (0.0497, 0.0443) {ipe fdisk};
-		\node[ipe node]
-		at (-10.329, -9.706) {\bf O};
-		\pic[ipe mark small, fill=white]
-		at (65.7225, 0.0443) {ipe fdisk};
-		\node[ipe node]
-		at (-78.578, -8.924) {\bf F$_\mathbf{1}$};
-		\pic[ipe mark small, fill=white]
-		at (65.7527, 34.68) {ipe fdisk};
-		\pic[ipe mark small, fill=white]
-		at (-84.0076, 0.0853) {ipe fdisk};
-		\pic[ipe mark small, fill=white]
-		at (0.0044, -55.5391) {ipe fdisk};
-		\pic[ipe mark small, fill=white]
-		at (84.1418, 0.0783) {ipe fdisk};
-		\pic[ipe mark small, fill=white]
-		at (0.0208, 55.6916) {ipe fdisk};
-	\end{tikzpicture}
+	 \begin{tikzpicture}
+       \def\a{2}
+	   \def\e{0.7} 
+	   
+	   \tkzDefPoint(\a,0){X0}
+	   \foreach \nu in {0,0.05,...,6.4} {
+	       \def\x{\a * cos(\nu)}
+	       \def\y{\a * sin(\nu) * sqrt(1 - \e * \e)}
+	       \tkzDefPoint(\x,\y){X1}
+	       \tkzDrawSegment[thick](X0,X1)
+	       \tkzDefShiftPoint[X1](0,0){X0}
+	   }
+	   
+	   \tkzDefPoint(0,0){O}
+	   \tkzDefPoint({-\a*\e},0){F1}
+	   
+	   \tkzDefPointBy[homothety=center O ratio -1](F1) \tkzGetPoint{F2}
+	   
+	   \tkzDefPointBy[homothety=center O ratio 1/\e](F1) \tkzGetPoint{Q1}
+	   \tkzDefPointBy[homothety=center O ratio 1/\e](F2) \tkzGetPoint{Q2}
+	   
+	   \tkzDefPointWith[orthogonal,K={-1/\e+\e}](F2,O) \tkzGetPoint{P}
+	   
+	   \tkzDefPointWith[orthogonal,K={sqrt(1-\e*\e)}](O,Q1) \tkzGetPoint{B1}
+	   \tkzDefPointWith[orthogonal,K={sqrt(1-\e*\e)}](O,Q2) \tkzGetPoint{B2}
+	   
+	   \tkzDrawSegments[thick](Q1,Q2 F1,P P,F2 B1,B2 F1,B1 B1,F2)
+	   
+	   \tkzLabelPoint[below left](F1){$\mathbf{F_1}$}
+	   \tkzLabelPoint[below right](F2){$\mathbf{F_2}$}
+	   \tkzLabelPoint[below left](O){$\mathbf{O}$}
+	   
+	   \tkzLabelSegment[above](F1,P){$2a-p$}
+	   \tkzLabelSegment[above](F1,B1){$a$}
+	   \tkzLabelSegment[above](F2,B1){$a$}
+	   
+	   \def\k{1.05}
+	   
+	   \tkzDrawSegment[dim={$p$,{-(1-\e)/(1 - \e*\e)*\k*\k*\k},right=1mm, midway}](F2,P)
+	   
+	    \tkzDrawSegment[dim={$b$,{1/sqrt(1 - \e*\e)*\k},left=1mm, midway}](O,B2)
+	    \tkzDrawSegment[dim={$b$,{-1/sqrt(1 - \e*\e)*\k},left=1mm, midway}](O,B1)
+
+	   \tkzDrawSegment[dim={$a$,{-sqrt(1 - \e*\e)*\k},below=1mm, midway}](O,Q2)
+	   \tkzDrawSegment[dim={$c$,{sqrt(1 - \e*\e)*\k / \e},below=1mm, midway}](O,F1)
+	   \tkzDrawSegment[dim={$Q$,{-sqrt(1-\e*\e)*\k*\k*\k*\k / (1+\e)},below=1mm, midway}](F1,Q2)
+	   \tkzDrawSegment[dim={$q$,{sqrt(1-\e*\e)*\k*\k*\k*\k / (1-\e)},below=1mm, midway}](F1,Q1)
+	   
+	   \tkzDrawPoints(O,F1,F2,Q1,Q2,B1,B2,P)     
+        
+    \end{tikzpicture}
 	\captionof{figure}{Эллипс}
 	\label{pic:ellipse}
 \end{wrapfigure}
