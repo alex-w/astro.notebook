@@ -1,0 +1,232 @@
+\subsection{Построение графиков}
+\label{sec:plotting}
+
+\begin{flushright}
+    \small
+    \itshape В основу этого раздела вошли:\\ стандарты из ГОСТ 2.319-81, ГОСТ 3.1128-93 ЕСТД\\ и метод. пособие <<Культура построения графиков>>, Замятин~М.\,Ю.
+\end{flushright}
+
+\begin{figure}[h]
+    \hfill
+    \begin{subfigure}{0.46\tw}
+        \centering
+        \begin{tikzpicture}[scale=0.75]
+            \drawGrid{-1}{-1}{6}{5}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(0,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](O,X O,Y)
+        
+            \drawXTicks{0}{5}{1}
+            \drawYTicks{0}{4}{1}
+        
+            \foreach \x in {0,1,...,5} {
+                \tkzDefPoint(\x,0){X_}
+                \tkzLabelPoint[below=2pt](X_){\x}
+            }
+        
+            \foreach \y in {1,2,...,4} {
+                \tkzDefPoint(0,\y){Y_}
+                \tkzLabelPoint[left=2pt](Y_){\y}
+            }
+        
+            \tkzLabelPoint[right=2pt](Y){$v$, м/с}
+            \tkzLabelPoint[above=2pt](X){$t$, с}
+        \end{tikzpicture}
+        \caption{Обе величины принимают только положительные значения}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.46\tw}
+        \centering
+        \begin{tikzpicture}[scale=0.75]
+            \drawGrid{-1}{-3}{6}{3}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(0,2.5){Y}
+            \tkzDefPoint(0,-2.5){Y'}
+            \tkzDrawSegments[line width=1, -latex](O,X Y',Y)
+        
+            \drawXTicks{0}{5}{1}
+            \drawYTicks{-2}{2}{1}
+        
+            \foreach \x in {1,2,...,5} {
+                \tkzDefPoint(\x,0){X_}
+                \tkzLabelPoint[below=2pt](X_){\x}
+            }
+        
+            \foreach \y in {-2,-1,...,2} {
+                \tkzDefPoint(0,\y){Y_}
+                \tkzLabelPoint[left=2pt](Y_){$\y$}
+            }
+        
+            \tkzLabelPoint[right=2pt](Y){$\Delta m$, \!$~^m$}
+            \tkzLabelPoint[above=2pt](X){$t$, с}
+        \end{tikzpicture}
+        \caption{Зависимая величина принимает в том числе отрицательные значения}
+    \end{subfigure}
+    \hfill \!\!\!~
+    
+    \hfill
+    \begin{subfigure}{0.46\tw}
+        \centering
+        \begin{tikzpicture}[scale=0.75]
+            \drawGrid{-3.5}{-3}{3.5}{3}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(3,0){X}
+            \tkzDefPoint(-3,0){X'}
+            \tkzDefPoint(0,2.5){Y}
+            \tkzDefPoint(0,-2.5){Y'}
+            \tkzDrawSegments[line width=1, -latex](X',X Y',Y)
+        
+            \drawXTicks{-2}{2}{1}
+            \drawYTicks{-2}{2}{1}
+        
+            \foreach \x in {-2,-1,1,2} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfmathsetmacro\tickLabel{int(\x * 10)}
+                \tkzLabelPoint[below=2pt](X_){$\tickLabel$}
+            }
+        
+            \foreach \y in {-2,-1,1,2} {
+                \tkzDefPoint(0,\y){Y_}
+                \pgfMathsetmacro\tickLabel{int(\y * 5)}
+                \tkzLabelPoint[left=2pt](Y_){$\tickLabel$}
+            }
+        
+            \tkzLabelPoint[below left=2pt](O){0}
+        
+            \tkzLabelPoint[right=2pt](Y){$v$, м/с}
+            \tkzLabelPoint[above=2pt](X){$\alpha$, \!$~^\circ$}
+        \end{tikzpicture}
+        \caption{Обе величины принимают и положительные и отрицательные значения}    
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.46\tw}
+        \centering
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-1}{-1}{6}{5}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(0,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](O,X O,Y)
+        
+            \drawXTicks{0}{5}{0.5}
+            \drawYTicks{0}{4}{1}
+        
+            \foreach \x in {0,1,...,5} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{\x * 0.2)}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+        
+            \foreach \y in {1,2,...,4} {
+                \tkzDefPoint(0,\y){Y_}
+                \pgfMathsetmacro\tickLabel{0.1 * (\y + 6)}
+                \tkzLabelPoint[left=2pt](Y_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+        
+            \tkzLabelPoint[right=2pt](Y){$I/I_0$}
+            \tkzLabelPoint[above=2pt](X){$\phi$}
+        \end{tikzpicture}
+        \caption{Смещено пересечение осей для лучшей детализации}    
+    \end{subfigure}
+    \hfill \!\!\!~
+    \caption{Примеры {\bfseries хорошего} расположения координатных осей}
+\end{figure}
+
+\begin{figure}
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \centering
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-1}{-2}{6}{4}
+        
+            \tkzDefPoint(-0.5,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(-0.5,3.5){Y}
+            \tkzDefPoint(-0.5,-1.5){Y'}
+            \tkzDrawSegments[line width=1, -latex](O,X Y',Y)
+        
+            \drawXTicks{0}{5}{0.5}
+            \drawYTicks[-0.5]{-1}{3}{1}
+        
+            \foreach \x in {0,1,...,5} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{\x * 0.2)}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+        
+            \foreach \y in {2,3} {
+                \tkzDefPoint(-.5,\y){Y_}
+                \pgfMathsetmacro\tickLabel{0.1 * (\y - 1) }
+                \tkzLabelPoint[left,inner sep=0](Y_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+        
+            \foreach \y in {-1,0} {
+                \tkzDefPoint(-.5,\y){Y_}
+                \pgfMathsetmacro\tickLabel{0.1 * (\y - 1) }
+                \tkzLabelPoint[left](Y_){\rotatebox{90}{\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}}
+            }
+        
+            \tkzDefPoint(-.5,1){Y_}
+            \tkzLabelPoint[left, inner sep=0](Y_){0.0}
+        
+            \tkzLabelPoint[right=2pt](Y){$I/I_0$}
+            \tkzLabelPoint[above=2pt](X){$\phi$}
+        \end{tikzpicture}
+        \caption{Недостаточно места для оцифровки вертикальной оси.  Необоснованное расположение пересечения осей. Неразумно много пустого места под горизонтальной осью.}    
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \centering
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-6}{-1}{1}{5}
+        
+            \tkzDefPoint(0.5,0){O}
+            \tkzDefPoint(-5.5,0){X}
+            \tkzDefPoint(0.5,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](O,X O,Y)
+        
+            \drawXTicks{0.5}{-4.5}{-1}
+            \drawYTicks[0.5]{0}{4}{0.7}
+        
+            \foreach \x in {0.5,-0.5,...,-4.5} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{-(\x - 0.5)}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+        
+            \foreach \y in {1,2,...,5} {
+                \tkzDefPoint(.5,0.7*\y){Y_}
+                \tkzLabelPoint[left=3pt](Y_){\y}
+            }
+                
+            \tkzLabelPoint[left=2pt](Y){$v$, м/с}
+            \tkzLabelPoint[above=2pt](X){$t$, c}
+        \end{tikzpicture}
+        \caption{Основные линии миллиметровки не соответствуют основной градуировке вертикальной оси. Оцифровка вертикальной оси выполнены внутри области построения графика. Горизонтальная ось имеет нестандартное направление.}
+    \end{subfigure}
+    \hfill \!\!\!~
+    
+    \caption{Примеры {\bfseries плохого} расположения координатных осей}
+\end{figure}
+
+
+
+    
+    
+    	
+    
+    
+    
+    
