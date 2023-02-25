@@ -1,0 +1,84 @@
+%%% TiKZ
+\RequirePackage{tikz}
+\RequirePackage{tkz-euclide}
+\RequirePackage{fp}
+
+\usetikzlibrary{calc, fadings, decorations.markings, shapes, snakes, fpu, fixedpointarithmetic}
+
+\newcommand{\drawGrid}[4]{
+    \def\xmin{#1}
+    \pgfmathsetmacro\xminPlusMajorStep{\xmin+1}
+    \pgfmathsetmacro\xminPlusSemiStep{\xmin+0.5}
+    \pgfmathsetmacro\xminPlusMinorStep{\xmin+0.1}
+    \def\xmax{#3}
+    
+    \def\ymin{#2}
+    \pgfmathsetmacro\yminPlusMajorStep{\ymin+1}
+    \pgfmathsetmacro\yminPlusSemiStep{\ymin+0.5}
+    \pgfmathsetmacro\yminPlusMinorStep{\ymin+0.1}
+    \def\ymax{#4}
+    
+    \foreach \x in {\xmin,\xminPlusMinorStep,...,\xmax} {
+        \tkzDefPoint(\x,\ymin){A_}
+        \tkzDefPoint(\x,\ymax){B_}
+        \tkzDrawSegment[line width=0.2pt, gray!70](A_,B_)
+    }
+    
+    \foreach \x in {\xmin, \xminPlusSemiStep,...,\xmax} {
+        \tkzDefPoint(\x,\ymin){A_}
+        \tkzDefPoint(\x,\ymax){B_}
+        \tkzDrawSegment[line width=0.3pt, gray!70](A_,B_)
+    }
+    
+    \foreach \x in {\xmin, \xminPlusMajorStep,...,\xmax} {
+        \tkzDefPoint(\x,\ymin){A_}
+        \tkzDefPoint(\x,\ymax){B_}
+        \tkzDrawSegment[line width=0.5pt, gray!70](A_,B_)
+    }
+    
+    \foreach \y in {\ymin,\yminPlusMinorStep,...,\ymax} {
+        \tkzDefPoint(\xmin,\y){A_}
+        \tkzDefPoint(\xmax,\y){B_}
+        \tkzDrawSegment[line width=0.2pt, gray!70](A_,B_)
+    }
+    
+    \foreach \y in {\ymin, \yminPlusSemiStep,...,\ymax} {
+        \tkzDefPoint(\xmin,\y){A_}
+        \tkzDefPoint(\xmax,\y){B_}
+        \tkzDrawSegment[line width=0.35pt, gray!70](A_,B_)
+    }
+    
+    \foreach \y in {\ymin, \yminPlusMajorStep,...,\ymax} {
+        \tkzDefPoint(\xmin,\y){A_}
+        \tkzDefPoint(\xmax,\y){B_}
+        \tkzDrawSegment[line width=0.5pt, gray!70](A_,B_)
+    }
+}
+
+\newcommand{\drawXTicks}[4][0]{
+    \pgfmathsetmacro\xminPlusStep{#2 + #4}
+    \foreach \x in {#2,\xminPlusStep,...,#3} {
+        \tkzDefPoint(\x,#1){X_}
+        \drawTick{X_}
+    }
+}
+
+\newcommand{\drawYTicks}[4][0]{
+    \pgfmathsetmacro\yminPlusStep{#2 + #4}
+    \foreach \y in {#2,\yminPlusStep,...,#3} {
+        \tkzDefPoint(#1,\y){Y_}
+        \drawTick{Y_}
+    }
+}
+
+\newcommand{\drawTick}[1]{
+    \tkzDefShiftPoint[#1](0,0.1){X1}
+    \tkzDefShiftPoint[#1](0,-0.1){X2}
+    \tkzDefShiftPoint[#1](0.1,0){X3}
+    \tkzDefShiftPoint[#1](-0.1,0){X4}
+    \tkzDrawSegments[line width=1pt](X1,X2 X3,X4)
+}
+
+\newcommand*{\pgfMathsetmacro}[2]{\pgfmathparse{#2}\let#1\pgfmathresult}
+
+\tikzset{every picture/.style={line cap=round}}

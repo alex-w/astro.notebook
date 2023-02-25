@@ -11,3 +11,4 @@ tikz/**
 !tikz/src
 .idea/**
 out/**
+**/.ipynb_checkpoints/**

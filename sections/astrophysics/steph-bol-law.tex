@@ -1,5 +1,5 @@
 \subsection{Закон Стефана-Больцмана}
-\term{Закон Стефана~--- Больцмана} определяет зависимость плотности мощности излучения абсолютно чёрного тела (АЧТ) $u$ от его температуры $T$:
+\term{Закон Стефана~--- Больцмана} определяет зависимость плотности мощности излучения абсолютно чёрного тела (АЧТ) $u$ от его температуры~$T$:
 \begin{equation}
 	u = a T^4,
 \end{equation}
@@ -13,8 +13,11 @@
 
 Важно отметить, что \imp{закон Стефана-Больцмана}~--- прямое следствие формулы Планка (\ref{eq:plancks-law-nu} -- \ref{eq:plancks-law-lambda}), так как, исходя из физического смысла формулы Планка, справедливы равенства
 \begin{multline}
-	\sigma T^4 = \int\limits^\infty_0 B(\lambda, T) \,d \lambda \int\limits_0^{\pi/2} \sin \varphi \,d \varphi \int\limits_0^{2\pi} \cos \varphi \,d \theta = \pi \int\limits^\infty_0 B(\lambda, T) \,d \lambda =\\
-	= \int\limits^\infty_0 B(\nu, T) \,d \nu \int\limits_0^{\pi/2} \sin \varphi \,d varphi \int\limits_0^{2\pi} \cos \varphi \,d theta = \pi \int\limits^\infty_0 B(\nu, T) \,d \nu.
+	\sigma T^4 
+	= \int\limits^\infty_0 B(\lambda, T) \,d \lambda \int\limits_0^{\pi/2} \sin \varphi \,d \varphi \int\limits_0^{2\pi} \cos \varphi \,d \theta 
+	= \pi \int\limits^\infty_0 B(\lambda, T) \,d \lambda =\\
+	= \int\limits^\infty_0 B(\nu, T) \,d \nu \int\limits_0^{\pi/2} \sin \varphi \,d \varphi \int\limits_0^{2\pi} \cos \varphi \,d \theta 
+	= \pi \int\limits^\infty_0 B(\nu, T) \,d \nu.
 \end{multline}
 
 Здесь интегрирование ведется в сферических координатах $(\varphi, \theta)$ по телесному углу $d\Omega = d\varphi \cos \varphi d\theta$. А $\sin \varphi$ во втором интеграле отвечает за проекцию единичной площадки на направление излучения. Вычислим данный интеграл, чтобы получить значение постоянной Стефана-Больцмана:
