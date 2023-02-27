@@ -6,6 +6,30 @@
     \itshape В основу этого раздела вошли:\\ стандарты из ГОСТ 2.319-81, ГОСТ 3.1128-93 ЕСТД\\ и метод. пособие <<Культура построения графиков>>, Замятин~М.\,Ю.
 \end{flushright}
 
+\term{График}~--- это визуальное представление данных, которое позволяет наглядно отобразить связь между двумя или более переменными. Наиболее наглядны графики связи двух переменных, так как удобно изображаются на плоскости. Рассмотрим подробнее нормы и принятые правила построения таких графиков.
+
+Наиболее распространены графики в прямоугольных координатах, где одна ось~--- горизонтальная, и возрастание откладываемой величины происходит слева на право; а вторая~--- вертикальная, и возрастание происходит снизу вверх. 
+
+Реже применяются графики в полярных координатах, так как в этом случае \imp{независимая переменная} обязательно является угловой мерой. В этом случае возрастание независимой переменной происходит против часовой стрелки, а ось отсчета \imp{наблюдаемой величины} располагается горизонтально, направлена вправо и соответствует началу отсчета угловой меры.
+
+Одна из переменных является \term{независимой}, её значения определяются условиям эксперимента и возможностями инструментов. Например, моменты времени измерения яркости объекта для построения его кривой блеска, длина волны излучения для построения кривой пропуская фильтра или спектра наблюдаемого объекта. Независимая переменная всегда откладывается по горизонтальной оси.
+
+Другая переменная называется \term{зависимой} или \term{наблюдаемой}. Для примеров выше это плотность потока излучения во всех трёх случаях. Наблюдаемая переменная всегда откладывается по вертикальной оси, чтобы график отражал поведения зависимости наблюдаемой величины от независимой.
+
+При построении графиков важно помнить, что прежде всего график должен быть удобным: значения~--- легко считываться, характер зависимости~--- очевиден, характерные точки~--- видны. Для достижения описанных свойств достаточно придерживаться простых правил:
+\begin{enumerate}
+    \item Построение графика начинается с таблицы, куда заносятся значения независимой величины и соответствующие им измеренные значения наблюдаемой. В заголовке таблица обязательно должны быть указаны названия величин и единицы измерения. 
+    \item Далее определяется удобный для построения масштаб. Для этого нужно определить максимальный размер графика, исходя из размеров бумаги и правил, описанных ниже. А из таблицы~--- диапазон значений величин.
+    \item Исходя из выбранного масштаба и значений, указанных в таблице, на бумаге наносятся, градуируются и оцифровываются оси. Для удобства исправления возможных ошибок чертить оси и выполнять оцифровку лучше ручкой, лучше черного цвета, чтобы при работе ластиком не повредить оси.
+    \item После осей на график наносятся точки, уже описанные в таблице. Для большей точности отмечать точки лучше крестами ($\times$, при нанесении двух зависимостей на одном графике допустимо использовать~$+$), так точку будет хорошо видно, при этом сохранится точность её положения. Рекомендуется использовать кресты размером~2~мм на 2~мм.
+    \item В конце, при необходимости, наносится кривая измеряемой зависимости. Здесь важно использовать имеющиеся знания о зависимости: если это прямая~--- сглаживающая кривая должна быть прямой, если экспонента~--- экспонентой и т.\,д. Кривую лучше наносить карандашом, чтобы иметь возможность перерисовать в случае ошибки, не отрывая руки, для большей эстетичности графика.
+\end{enumerate}
+
+Далее будут приведены общепринятые нормы и правила оформления графиков.
+\begin{itemize}
+    \item График лучше ориентировать горизонтально.
+    \item Для упрощения оцифровки и большего удобства оси необходимо располагать не ближе 1~см от края бумаги.
+    \item Удобно использовать график, где оси пересекаются в точке $(0,0)$. Для лучшей детализации допускается смещать точку пересечения по обеим осям. Однако не стоит забывать, что точка $(0,0)$ является ключевой для некоторых зависимостей. См.~\picRef{pic:good-axis-location} и \picRef{pic:bad-axis-location}.
 \begin{figure}[h]
     \hfill
     \begin{subfigure}{0.46\tw}
@@ -128,7 +152,7 @@
             \foreach \y in {1,2,...,4} {
                 \tkzDefPoint(0,\y){Y_}
                 \pgfMathsetmacro\tickLabel{0.1 * (\y + 6)}
-                \tkzLabelPoint[left=2pt](Y_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+                \tkzLabelPoint[left=2pt](Y_){\pgfmathprintnumber[fixed, precision=1, zerofill]{\tickLabel}}
             }
         
             \tkzLabelPoint[right=2pt](Y){$I/I_0$}
@@ -138,9 +162,9 @@
     \end{subfigure}
     \hfill \!\!\!~
     \caption{Примеры {\bfseries хорошего} расположения координатных осей}
+    \label{pic:good-axis-location}
 \end{figure}
-
-\begin{figure}
+\begin{figure}[h]
     \hfill
     \begin{subfigure}[t]{0.46\tw}
         \centering
@@ -164,20 +188,17 @@
                 \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
             }
         
-            \foreach \y in {2,3} {
+            \foreach \y in {1,2,3} {
                 \tkzDefPoint(-.5,\y){Y_}
                 \pgfMathsetmacro\tickLabel{0.1 * (\y - 1) }
-                \tkzLabelPoint[left,inner sep=0](Y_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+                \tkzLabelPoint[left,inner sep=0](Y_){\pgfmathprintnumber[fixed, precision=1,zerofill]{\tickLabel}}
             }
         
             \foreach \y in {-1,0} {
                 \tkzDefPoint(-.5,\y){Y_}
                 \pgfMathsetmacro\tickLabel{0.1 * (\y - 1) }
-                \tkzLabelPoint[left](Y_){\rotatebox{90}{\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}}
+                \tkzLabelPoint[left](Y_){\rotatebox{90}{\pgfmathprintnumber[fixed,precision=1,zerofill]{\tickLabel}}}
             }
-        
-            \tkzDefPoint(-.5,1){Y_}
-            \tkzLabelPoint[left, inner sep=0](Y_){0.0}
         
             \tkzLabelPoint[right=2pt](Y){$I/I_0$}
             \tkzLabelPoint[above=2pt](X){$\phi$}
@@ -219,7 +240,755 @@
     \hfill \!\!\!~
     
     \caption{Примеры {\bfseries плохого} расположения координатных осей}
+    \label{pic:bad-axis-location}
 \end{figure}
+    
+    \item[$\circ$] Оси обязательно должны быть подписаны. Достаточно указания переменной или формулы и, через запятую, единицы измерения, возможно, с общим множителем. Подписи выполняются горизонтально.
+    \item[$\circ$] Для качественных графиках допустимо не указывать масштаб, единицы измерения указывать только у характерных значений. См.~\picRef{pic:good-axis-caption} и \picRef{pic:bad-axis-caption}
+    \begin{figure}[h!]
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \centering
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-1}{-1}{6}{5}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(0,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](O,X O,Y)
+        
+            \drawXTicks{0}{5}{1}
+            \drawYTicks{0}{4}{1}
+        
+            \foreach \x in {0,1,...,5} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{\x)}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+        
+            \foreach \y in {1,2,...,4} {
+                \tkzDefPoint(0,\y){Y_}
+                \pgfMathsetmacro\tickLabel{0.1 * (\y + 6)}
+                \tkzLabelPoint[left=2pt](Y_){\pgfmathprintnumber[fixed,precision=1,zerofill]{\tickLabel}}
+            }
+        
+            \tkzLabelPoint[right=2pt](Y){$I/I_0$}
+            \tkzLabelPoint[above=2pt](X){\adjustbox{right=16pt}{$t$, $\cdot 10^3$\,c}}
+        \end{tikzpicture}
+        \caption{В качестве значения используется формула.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \centering
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-1}{-1}{6}{5}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(0,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](O,X O,Y)
+            
+            \tkzDefPoint(2,1){P1}
+            \tkzGetVectxy(O,P1){p}
+            \tkzDefPoint(\px,0){X1}
+            \drawTick{X1}
+            \tkzDefPoint(0,\py){Y1}
+            \drawTick{Y1}
+            
+            \tkzDefPoint(4,4){P2}
+            \tkzGetVectxy(O,P2){p}
+            \tkzDefPoint(\px,0){X2}
+            \drawTick{X2}
+            \tkzDefPoint(0,\py){Y2}
+            \drawTick{Y2}
+            
+            \tkzLabelPoint[below=2pt](X1){$t$}
+            \tkzLabelPoint[below=2pt](X2){$2t$}
+
+            \tkzLabelPoint[left=2pt](Y1){$v$}
+            \tkzLabelPoint[left=2pt](Y2){$4v$}
+                        
+            \tkzDrawSegments[line width=1.25pt](O,P1 P1,P2)
+            
+            \tkzDrawSegments[dashed, line width=0.6pt](Y1,P1 Y2,P2 X1,P1 X2,P2)
+        
+            \tkzLabelPoint[right=2pt](Y){$v$}
+            \tkzLabelPoint[above=2pt](X){$t$}
+        \end{tikzpicture}
+        \caption{Качественный график с указанием характерных значений по обоим осям.}
+    \end{subfigure}
+    \hfill\!\!\!~
+    \caption{Примеры {\bfseries хороших} подписей координатных осей}
+    \label{pic:good-axis-caption}
+\end{figure}
+
+\begin{figure}[h]
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \centering
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-2}{-1}{5}{5}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(4.5,0){X}
+            \tkzDefPoint(0,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](O,X O,Y)
+        
+            \drawXTicks{0}{4}{1}
+            \drawYTicks{0}{4}{1}
+        
+            \foreach \x in {0,1,...,4} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{\x)}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel} с}
+            }
+        
+            \foreach \y in {1,2,...,4} {
+                \tkzDefPoint(0,\y){Y_}
+                \pgfMathsetmacro\tickLabel{0.0001 * (\y - 5)}
+                \tkzLabelPoint[left=2pt](Y_){\pgfmathprintnumber[fixed, precision=5]{\tickLabel}}
+            }
+        
+            \tkzLabelPoint[above=2pt](X){$t$}
+        \end{tikzpicture}
+        \caption{По горизонтальной оси не вынесены единицы измерения. Не подписана вертикальная ось. Не вынесен общий множитель значений по вертикальной оси.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \centering
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-1}{-1}{6}{5}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(0,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](O,X O,Y)
+            
+            \tkzDefPoint(1,1){P1}
+            \tkzGetVectxy(O,P1){p}
+            \tkzDefPoint(\px,0){X1}
+            \drawTick{X1}
+            \tkzDefPoint(0,\py){Y1}
+            
+            \tkzDefPoint(4,3){P2}
+            \tkzGetVectxy(O,P2){p}
+            \tkzDefPoint(\px,0){X2}
+            \drawTick{X2}
+            \tkzDefPoint(0,\py){Y2}
+            
+            \tkzLabelPoint[below](X1){$10$}
+            \tkzLabelPoint[below](X2){$20$}
+                        
+            \tkzDrawSegments[line width=1.25pt](O,P1 P1,P2)
+            
+            \tkzDrawSegments[dashed, line width=0.6pt](X1,P1 X2,P2)
+        
+            \tkzLabelPoint[right=2pt](Y){$v$, м/с}
+            \tkzLabelPoint[above=2pt](X){$t$}
+        \end{tikzpicture}
+        \caption{Указаны единицы изменения у неоцифрованной вертикальной оси. Нет единиц измерения у оцифрванной горизонтальной оси. Несоблюдение пропорциональности в расположении характерных точек.}
+    \end{subfigure}
+    \hfill\!\!\!~
+    \caption{Примеры {\bfseries плохих} подписей координатных осей}
+    \label{pic:bad-axis-caption}
+\end{figure}
+
+    \item[$\circ$] Выбор масштаба необходимо осуществлять таким образом, чтобы график занимал не менее 70\% процентов области построения, \lookPicRef{pic:plot-scale}.
+    \begin{figure}[h!]
+    \centering
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-1}{-3}{6}{3}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(0,2.5){Y}
+            \tkzDefPoint(0,-2.5){Y'}
+            \tkzDrawSegments[line width=1, -latex](O,X Y',Y)
+        
+            \drawXTicks{0}{5}{1}
+            \drawYTicks{-2}{2}{1}
+        
+            \foreach \x in {1,2,...,5} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{\x)}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+        
+            \foreach \y in {-2,-1,...,2} {
+                \tkzDefPoint(0,\y){Y_}
+                \pgfMathsetmacro\tickLabel{0.1 * \y}
+                \tkzLabelPoint[left](Y_){\pgfmathprintnumber[fixed,precision=1,zerofill]{\tickLabel}}
+            }
+            
+            \def\x_{0}
+            \def\y_{2*cos(1.2*\x_)*exp(-0.25*\x_)}
+            \tkzDefPoint(\x_,\y_){B1}
+            \tkzDefPoint(\x_,\y_){p_}
+            \foreach \x in {0.1,0.2,...,5.2} {
+                \def\y{2*cos(1.2*\x)*exp(-0.25*\x)}
+                \tkzDefPoint(\x,\y){p}
+                \tkzDrawSegment[line width=1.25pt](p_,p)
+                \tkzDefPoint(\x,\y){p_}
+            }
+            
+            \tkzDefPoint(5.2,-1.1){B3}
+            \tkzDefRectangle(B1,B3) \tkzGetPoints{B2}{B4}
+            \tkzDrawPolygon[dashed](B1,B2,B3,B4)
+            
+        
+            \tkzLabelPoint[right=2pt](Y){$x$, см}
+            \tkzLabelPoint[above](X){$t$, с}
+        \end{tikzpicture}
+        \caption{Хороший график. Занимает около 70\% площади.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-1}{-3}{6}{3}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(0,2.5){Y}
+            \tkzDefPoint(0,-2.5){Y'}
+            \tkzDrawSegments[line width=1, -latex](O,X Y',Y)
+        
+            \drawXTicks{0}{5}{1}
+            \drawYTicks{-2}{2}{1}
+        
+            \foreach \x in {1,2,...,5} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{\x - 3}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+        
+            \foreach \y in {-2,-1,...,2} {
+                \tkzDefPoint(0,\y){Y_}
+                \pgfMathsetmacro\tickLabel{0.1 * (3*\y - 4)}
+                \tkzLabelPoint[left](Y_){\pgfmathprintnumber[fixed,precision=1,zerofill]{\tickLabel}}
+            }
+            
+            \def\x_{3}
+            \def\y_{1.5+0.5*cos(3*(\x_ - 3))*exp(-0.25*(\x_ - 3))}
+            \tkzDefPoint(\x_,\y_){B1}
+            \tkzDefPoint(\x_,\y_){p_}
+            \foreach \x in {3.1,3.2,...,5.9} {
+                \def\y{1.5+0.5*cos(3*(\x-3))*exp(-0.25*(\x-3))}
+                \tkzDefPoint(\x,\y){p}
+                \tkzDrawSegment[line width=1.25pt](p_,p)
+                \tkzDefPoint(\x,\y){p_}
+            }
+            
+            \tkzDefPoint(5.9,1.1){B3}
+            \tkzDefRectangle(B1,B3) \tkzGetPoints{B2}{B4}
+            \tkzDrawPolygon[dashed](B1,B2,B3,B4)
+            
+        
+            \tkzLabelPoint[right=2pt](Y){$x$, см}
+            \tkzLabelPoint[above](X){$t$, с}
+        \end{tikzpicture}
+        \caption{График занимает существенно меньше 70\% области построения, выходит за пределы области построение~--- вылезает за край горизонтальной оси.}   
+    \end{subfigure}
+    \hfill\!\!\!~
+    \caption{Пример {\bfseries хорошего} и {\bfseries плохого} расположения графика за счет выбора масштаба осей и точки их пересечения.}
+    \label{pic:plot-scale}
+\end{figure}
+
+    \item[$\circ$] Штрихи (основные и дополнительные, оцифрованные и нет) наносятся {\bfseries только} через равные промежутки. Исключением являются нелинейные шкалы, например, логарифмическая.
+    \item[$\circ$] Оцифровка осей производится равномерно, не чаще 2--3~см, всегда горизонтально. Если значения содержат много нулей, общий множитель выносится в подпись оси.
+    \item[$\circ$] Если оси пересекаются в точке $(0,0)$, ноль подписывается только у одной шкалы.
+    
+\begin{figure}
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-1}{-1}{6}{5}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(0,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](O,X O,Y)
+        
+            \drawXTicks{0}{5}{0.5}
+        
+            \foreach \x in {0,0.5,...,2.5,4.0,4.5,...,5} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{\x * 10}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+        
+            \foreach \y in {2.0,4.0} {
+                \tkzDefPoint(0,\y){Y_}
+                \pgfMathsetmacro\tickLabel{\y}
+                \tkzLabelPoint[left](Y_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+            
+            \def\x_{0.3}
+            \def\y_{1.5+2*cos(3*(\x_ - 0.3))*exp(-0.25*(\x_ - 0.3))}
+            \tkzDefPoint(\x_,\y_){p_}
+            \foreach \x in {0.4,0.5,...,4.8} {
+                \def\y{1.5+2*cos(1.2*(\x - 0.3))*exp(-0.25*(\x - 0.3))}
+                \tkzDefPoint(\x,\y){p}
+                \tkzDrawSegment[line width=1.25pt](p_,p)
+                \tkzDefPoint(\x,\y){p_}
+            }
+            
+            
+        
+            \tkzLabelPoint[right=2pt](Y){$x$, м}
+            \tkzLabelPoint[above](X){$t$, с}
+        \end{tikzpicture}
+        \caption{Слишком частая и неравномерная оцифровка горизонтальной оси. Слишком редкая оцифровка вертикальной оси. На вертикальной оси отсутствуют штрихи.}    
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-1}{-1}{6}{5}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(0,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](O,X O,Y)
+        
+            \drawXTicks{0}{5}{1}
+        
+            \foreach \x in {0,1} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{\x * 10}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+        
+            \foreach \y in {0.0,0.5,1.5,2.0,4.0} {
+                \tkzDefPoint(0,\y){Y_}
+                \drawTick{Y_}
+                \pgfMathsetmacro\tickLabel{\y}
+                \tkzLabelPoint[left](Y_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+            
+            \def\x_{0.3}
+            \def\y_{2.5-2*cos(3*(\x_ - 0.3))*exp(-0.25*(\x_ - 0.3))}
+            \tkzDefPoint(\x_,\y_){p_}
+            \foreach \x in {0.4,0.5,...,4.8} {
+                \def\y{2.5-2*cos(1.2*(\x - 0.3))*exp(-0.25*(\x - 0.3))}
+                \tkzDefPoint(\x,\y){p}
+                \tkzDrawSegment[line width=1.25pt](p_,p)
+                \tkzDefPoint(\x,\y){p_}
+            }
+        
+            \tkzLabelPoint[right=2pt](Y){$x$, м}
+            \tkzLabelPoint[above](X){$t$, с}
+        \end{tikzpicture}
+        \caption{Отсутствует оцифровка горизонтальной оси. Повторение нуля. Неравные деления по вертикальной оси.}
+    \end{subfigure}
+    \hfill\!\!\!~
+    \caption{Примеры {\bfseries плохой} оцифровки и разметки осей}
+\end{figure}
+    
+    \item[$\circ$] При оцифровке осей следует использовать только десятичные числа из следующий <<разрешенных>> рядов:
+    \begin{align*}
+        \ldots,-1,&0,1,2,3,4,5,\ldots;\\
+        \ldots,-2,&0,2,4,6,8,10,\ldots;\\
+        \ldots,-5,&0,5,10,15,20,\ldots
+    \end{align*}
+    или рядов, полученных умножением <<разрешенных>> на $10^n$. Допустимы исключения для значений временных и угловых величин. Числа необходимо округлять с одинаковой точностью.
+    
+\begin{figure}
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \centering
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-3}{-1}{4}{5}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(3.5,0){X}
+            \tkzDefPoint(-2.5,0){X'}
+            \tkzDefPoint(0,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](X',X O,Y)
+        
+            \drawXTicks{-2}{3}{1}
+            \drawYTicks{0}{4}{1}
+        
+            \foreach \x in {-2,-1,...,3} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{\x}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+        
+            \foreach \y in {1,2,...,4} {
+                \tkzDefPoint(0,\y){Y_}
+                \pgfMathsetmacro\tickLabel{1.27 + 0.01*\y}
+                \tkzLabelPoint[left](Y_){\pgfmathprintnumber[fixed,precision=2,zerofill]{\tickLabel}}
+            }
+            
+            \def\x_{-2}
+            \def\y_{0.5 + 3 * exp(-(\x_-1.5)^2)}
+            \tkzDefPoint(\x_,\y_){p_}
+            \foreach \x in {-1.95,-1.9,...,3} {
+                \def\y{0.5 + 3 * exp(-(\x-1.5)^2)}
+                \tkzDefPoint(\x,\y){p}
+                \tkzDrawSegment[line width=1.25pt](p_,p)
+                \tkzDefPoint(\x,\y){p_}
+            }
+
+
+            \tkzLabelPoint[right=2pt](Y){$\rho$, \%}
+            \tkzLabelPoint[above](X){\adjustbox{right=16pt}{$t$, $10^{-3}$\,м}}
+        \end{tikzpicture}
+        \caption{Разрешенные ряды. Общий множитель оцифровки горизонтальной оси вынесен в подпись оси. Числа оцифровки вертикальной оси привереды с одинаковой точностью.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \centering
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-1}{-1}{6}{5}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(0,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](O,X O,Y)
+        
+            \drawXTicks{0}{5}{1}
+        
+            \foreach \x in {0,1,...,5} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{\x*7.5 / 10}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+        
+            \tkzDefPoint(0,{3/7*(7/3)}){Y_}
+            \drawTick{Y_}
+            \tkzLabelPoint[left](Y_){$\frac{3}{7}$}
+            
+            \tkzDefPoint(0,{36/43*(7/3)}){Y_}
+            \drawTick{Y_}
+            \tkzLabelPoint[left](Y_){$\frac{36}{43}$}
+            
+            \tkzDefPoint(0,{0.4*3.14159*(7/3)}){Y_}
+            \drawTick{Y_}
+            \tkzLabelPoint[left](Y_){$0.4\pi$}
+            
+            \tkzDefPoint(0,{sqrt(3)*(7/3)}){Y_}
+            \drawTick{Y_}
+            \tkzLabelPoint[left](Y_){$\sqrt{3}$}
+            
+            \def\x_{0}
+            \def\y_{3.4 + 1.3*sin(5*\x_)*cos(\x_)-0.3*(\x_-2)^2}
+            \tkzDefPoint(\x_,\y_){p_}
+            \foreach \x in {0.05,0.1,...,5} {
+                \def\y{3.4 + 1.3*sin(5*\x)*cos(\x)-0.3*(\x-2)^2}
+                \tkzDefPoint(\x,\y){p}
+                \tkzDrawSegment[line width=1.25pt](p_,p)
+                \tkzDefPoint(\x,\y){p_}
+            }
+
+
+            \tkzLabelPoint[right=1pt](Y){$\alpha$}
+            \tkzLabelPoint[above](X){$t$, с}
+        \end{tikzpicture} 
+        \caption{Запрещенные ряды. Числа оцифровки горизонтальной оси указаны с разной точностью. По вертикальной оси штрихи и оцифровка сделаны через разные промежутки.}  
+    \end{subfigure}
+    \hfill\!\!\!~
+    \caption{}
+\end{figure}    
+    
+    \item При построении экспериментальных зависимостей точки, указанные в таблице, должны быть видны, даже после проведения линии графика. Для большей точности лучше использовать символ $\times$ или $+$.
+    
+    \item Линии, отражающие теоретические зависимости, напротив, должны поглощать точки, отчего не важно, по каким именно точкам строить такие зависимости.
+    
+    \item Значения наблюдаемых и измеряемых величин неизбежно содержат в себе некоторую погрешность, поэтому линия графика экспериментальной зависимости не обязана проходить через них. 
+
+    \item Однако при указании усов погрешностей, кране желательно располагать линию таким образом, чтобы она пересекала максимальное число доверительных областей.
+    
+    \item Она должна быть максимально гладкой, не иметь изломов, лишних перегибов, в зависимости от типа зависимости, может быть прямой. Быть аккуратной и яркой, при этой достаточно тонкой и однородной.
+    
+    
+    
+\end{itemize}
+
+
+
+
+
+
+
+
+    
+
+
+
+\begin{figure}
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \centering
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-1}{-1}{6}{5}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(0,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](O,X O,Y)
+        
+            \drawXTicks{0}{5}{1}
+            \drawYTicks{0}{4}{1}
+        
+            \foreach \x in {0,1,...,5} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{\x / 10}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=1, zerofill]{\tickLabel}}
+            }
+            
+            \foreach \y in {1,2,...,4} {
+                \tkzDefPoint(0,\y){Y_}
+                \pgfMathsetmacro\tickLabel{\y}
+                \tkzLabelPoint[left=2pt](Y_){\pgfmathprintnumber[fixed, precision=1]{\tickLabel}}
+            }
+                    
+            \def\x_{0}
+            \def\y_{0}
+            \tkzDefPoint(\x_,\y_){p_}
+            \foreach \x in {0.05,0.1,...,5} {
+                \def\y{1.5*sqrt(\x)}
+                \tkzDefPoint(\x,\y){p}
+                \tkzDrawSegment[line width=1.25pt](p_,p)
+                \tkzDefPoint(\x,\y){p_}
+            }
+            
+    
+            \tkzDefPoint(1,4){X1}
+            \tkzDefPoint(4.5,0.5){X2}
+            \tkzDrawSegment[dashed, line width=1.25pt](X1,X2)
+            
+            \foreach \x in {1,1.5,...,4.5} {   
+                \pgfmathsetmacro\rand{2*rnd - 1}
+                \def\xx{\x + 0.1*\rand}
+                \pgfmathsetmacro\rand{2*rnd - 1}
+                \def\yy{-\xx + 5 +  0.3*\rand}
+                \tkzDefPoint(\xx,\yy){p}
+                \drawTick{p}
+            }
+            
+            \foreach \x in {0.5,1,...,5} {
+                \pgfmathsetmacro\rand{2*rnd - 1}
+                \def\xx{\x + 0.1*\rand}
+                \pgfmathsetmacro\rand{2*rnd - 1}
+                \def\y{1.5*sqrt(\xx) + 0.2*\rand}
+                \tkzDefPoint(\xx,\y){p}
+                \drawTimes{p}
+            }
+
+
+            \tkzLabelPoint[right=1pt](Y){$v$, км/с}
+            \tkzLabelPoint[above](X){$\frac{M}{M_0}$}
+        \end{tikzpicture}
+        \caption{Две экспериментальные зависимости.}         
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \centering
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-3}{-1}{4}{5}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(3.5,0){X}
+            \tkzDefPoint(-2.5,0){X'}
+            \tkzDefPoint(0,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](X',X O,Y)
+        
+            \drawXTicks{-2}{3}{1}
+            \drawYTicks{0}{4}{1}
+        
+            \foreach \x in {-2,-1,...,3} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{\x}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=2]{\tickLabel}}
+            }
+        
+            \foreach \y in {1,2,...,4} {
+                \tkzDefPoint(0,\y){Y_}
+                \pgfMathsetmacro\tickLabel{1.27 + 0.01*\y}
+                \tkzLabelPoint[left](Y_){\pgfmathprintnumber[fixed,precision=2,zerofill]{\tickLabel}}
+            }
+            
+            \def\x_{-2}
+            \def\y_{0.5 + 3 * exp(-(\x_-1.5)^2)}
+            \tkzDefPoint(\x_,\y_){p_}
+            \foreach \x in {-1.95,-1.9,...,3} {
+                \def\y{0.5 + 3 * exp(-(\x-1.5)^2)}
+                \tkzDefPoint(\x,\y){p}
+                \tkzDrawSegment[line width=1.25pt](p_,p)
+                \tkzDefPoint(\x,\y){p_}
+            }
+            
+            \foreach \x in {-1.7,-1.2,...,3} {
+                \pgfmathsetmacro\rand{2*rnd - 1}
+                \def\xx{\x + 0.2*\rand}
+                \pgfmathsetmacro\rand{2*rnd - 1}
+                \def\y{0.5 + 3 * exp(-(\xx-1.5)^2) + 0.3*\rand}
+
+                \tkzDefPoint(\xx,\y){x}
+                \tkzDrawPoint[circle, fill=black](x)
+                \drawTick[0.5pt][0.3][0.5]{x}
+            }
+            
+            \tkzLabelPoint[right=2pt](Y){$\rho$, \%}
+            \tkzLabelPoint[above](X){\adjustbox{right=16pt}{$t$, $10^{-3}$\,м}}
+        \end{tikzpicture}
+        \caption{Экспериментальная зависимость с усами погрешностей.}    
+    \end{subfigure}
+    \hfill\!\!\!~
+    \caption{Примеры {\bfseries хороших} графиков экспериментальных зависимостей}
+\end{figure}
+
+\begin{figure}[h]
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \centering 
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-1}{-1}{6}{5}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(0,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](O,X O,Y)
+        
+            \drawXTicks{0}{5}{1}
+            \drawYTicks{0}{4}{1}
+        
+            \foreach \x in {0,1,...,5} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{\x / 10}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=1, zerofill]{\tickLabel}}
+            }
+            
+            \foreach \y in {1,2,...,4} {
+                \tkzDefPoint(0,\y){Y_}
+                \pgfMathsetmacro\tickLabel{\y}
+                \tkzLabelPoint[left=2pt](Y_){\pgfmathprintnumber[fixed, precision=1]{\tickLabel}}
+            }
+            
+            \foreach \x in {0.5,1,...,5} {
+                \pgfmathsetmacro\rand{2*rnd - 1}
+                \def\xx{\x + 0.1*\rand}
+                \pgfmathsetmacro\rand{2*rnd - 1}
+                \def\y{1.5*sqrt(\xx) + 0.3*\rand}
+                \tkzDefPoint(\xx,\y){p}
+                \drawTimes{p}
+            }
+                    
+            \def\x_{0}
+            \def\y_{0}
+            \tkzDefPoint(\x_,\y_){p_}
+            \foreach \x in {0.02,0.04,...,0.3,0.35,0.4,...,5} {
+                \def\y{1.5*sqrt(\x)+0.07*sin(2*\x)}
+                \tkzDefPoint(\x,\y){p}
+                \tkzDrawSegment[line width=5pt, black!50, opacity=0.4](p_,p)
+                \tkzDefPoint(\x,\y){p_}
+            }
+        
+
+            \tkzLabelPoint[right=1pt](Y){$v$, км/с}
+            \tkzLabelPoint[above](X){$\frac{M}{M_0}$}
+        \end{tikzpicture} 
+        \caption{Негладкая, неаккуратная, толстая, неяркая линия, поглащающая экспериментальные точки.}   
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.46\tw}
+        \begin{tikzpicture}[scale=0.75]
+            \tikzset{fixed point arithmetic}
+         
+            \drawGrid{-1}{-1}{6}{5}
+        
+            \tkzDefPoint(0,0){O}
+            \tkzDefPoint(5.5,0){X}
+            \tkzDefPoint(0,4.5){Y}
+            \tkzDrawSegments[line width=1, -latex](O,X O,Y)
+        
+            \drawXTicks{0}{5}{1}
+            \drawYTicks{0}{4}{1}
+        
+            \foreach \x in {0,1,...,5} {
+                \tkzDefPoint(\x,0){X_}
+                \pgfMathsetmacro\tickLabel{\x / 10}
+                \tkzLabelPoint[below=2pt](X_){\pgfmathprintnumber[fixed, precision=1, zerofill]{\tickLabel}}
+            }
+            
+            \foreach \y in {1,2,...,4} {
+                \tkzDefPoint(0,\y){Y_}
+                \pgfMathsetmacro\tickLabel{\y}
+                \tkzLabelPoint[left=2pt](Y_){\pgfmathprintnumber[fixed, precision=1]{\tickLabel}}
+            }
+                    
+            \def\x_{1.2}
+            \def\y_{0.2}
+            \tkzDefPoint(\x_,\y_){p_}
+            \foreach \x in {1.25,1.3,...,5} {
+                \def\y{-1 + \x + exp(-10*(\x-3)^2)}
+                \tkzDefPoint(\x,\y){p}
+                \tkzDrawSegment[line width=1.25pt](p_,p)
+                \tkzDefPoint(\x,\y){p_}
+            }
+            
+            \foreach \x in {1.5,2,...,4.5} {   
+                \pgfmathsetmacro\rand{2*rnd - 1}
+                \def\xx{\x + 0.2*\rand}
+                \pgfmathsetmacro\rand{2*rnd - 1}
+                \def\yy{-1 + \xx + exp(-10*(\xx-3)^2) + 0.1*\rand}
+                \tkzDefPoint(\xx,\yy){p}
+                \drawTick{p}
+            }
+            
+            \pgfmathsetmacro\xx{0.5}
+            \pgfmathsetmacro\yy{(\xx)^(-2) + ln(\xx)}
+            \tkzDefPoint(\xx,\yy){p_}
+            \tkzDrawPoint[circle, size=1, fill=black](p_)
+            \foreach \x in {0.7,1,1.4,2.5,3,...,5} {
+                \pgfmathsetmacro\rand{2*rnd - 1}
+                \pgfmathsetmacro\xx{\x + 0.1*\rand}
+                \pgfmathsetmacro\rand{2*rnd - 1}
+                \pgfmathsetmacro\y{(\xx)^(-2) + ln(\xx) + 0.1*\rand}
+                \tkzDefPoint(\xx,\y){p}
+                \tkzDrawPoint[circle, size=1, fill=black](p)
+                \tkzDrawSegment[line width=1pt, dotted](p_,p)
+                \tkzDefPoint(\xx,\y){p_}
+            }
+
+            \tkzLabelPoint[right=1pt](Y){$v$, км/с}
+            \tkzLabelPoint[above](X){$\frac{M}{M_0}$}
+        \end{tikzpicture}
+        \caption{Сплошная линия имеет ярко выраженный изгиб под одну точку, скорее всего это выброс, и его нужно проигнорировать. Пунктирная линия~--- ломаная, кроме этого за ней не видно экспериментальные точки.}
+    \end{subfigure}
+    \hfill\!\!\!~
+    \caption{Примеры {\bfseries плохих} графиков экспериментальных зависимостей}
+\end{figure}
+
+
 
 
 
