@@ -186,6 +186,7 @@
 %%% Нумерованные списки
 \usepackage{enumitem}
 \setlist[enumerate]{itemsep=1pt, label={\arabic*.}, leftmargin=1pc}
+\setlist[itemize]{itemsep=1pt, label={$\circ$}, leftmargin=1pc}
 
 
 %%% Новые команды
@@ -286,7 +287,6 @@
 	\input{sys/maths.tex}
 	\input{sys/practical-astronomy.tex}
 	\input{sys/tables.tex}
-	\input{sys/notes.tex}
 	
 %	{
 %		\small
@@ -296,9 +296,9 @@
 %		\renewcommand {\baselinestretch}{ 1.02 }
 %	}
 	
+	\newpage
 	\bibliographystyle{ieeetr}
-	
 	{\footnotesize \bibliography{lit}}
-	\input{sys/print-info.tex}
-
+	
+	\input{sys/notes.tex}
 \end{document}

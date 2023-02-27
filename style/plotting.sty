@@ -2,6 +2,7 @@
 \RequirePackage{tikz}
 \RequirePackage{tkz-euclide}
 \RequirePackage{fp}
+\RequirePackage{xparse}
 
 \usetikzlibrary{calc, fadings, decorations.markings, shapes, snakes, fpu, fixedpointarithmetic}
 
@@ -71,12 +72,22 @@
     }
 }
 
-\newcommand{\drawTick}[1]{
-    \tkzDefShiftPoint[#1](0,0.1){X1}
-    \tkzDefShiftPoint[#1](0,-0.1){X2}
-    \tkzDefShiftPoint[#1](0.1,0){X3}
-    \tkzDefShiftPoint[#1](-0.1,0){X4}
-    \tkzDrawSegments[line width=1pt](X1,X2 X3,X4)
+\NewDocumentCommand{\drawTick}{O{1pt} O{0.1} O{0.1} m}{
+    \def\w_{#1}
+    \def\dx_{#2}
+    \def\dy_{#3}
+    \tkzDefShiftPoint[#4](0,\dy_){x1_}
+    \tkzDefShiftPoint[#4](0,-\dy_){x2_}
+    \tkzDefShiftPoint[#4](\dx_,0){x3_}
+    \tkzDefShiftPoint[#4](-\dx_,0){x4_}
+    \tkzDrawSegments[line width=\w_](x1_,x2_ x3_,x4_)
+}
+\newcommand{\drawTimes}[1]{
+    \tkzDefShiftPoint[#1](0.1,0.1){x1_}
+    \tkzDefShiftPoint[#1](-0.1,-0.1){x2_}
+    \tkzDefShiftPoint[#1](0.1,-0.1){x3_}
+    \tkzDefShiftPoint[#1](-0.1,0.1){x4_}
+    \tkzDrawSegments[line width=1pt](x1_,x2_ x3_,x4_)
 }
 
 \newcommand*{\pgfMathsetmacro}[2]{\pgfmathparse{#2}\let#1\pgfmathresult}
