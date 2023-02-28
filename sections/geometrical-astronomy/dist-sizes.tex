@@ -1,36 +1,21 @@
 \subsection{Расстояние и размеры}
-\term{Астрономическая единица}~--- единица измерения расстояния в астрономии, равная большой полуоси орбиты Земли.
+В астрономии наравне с единицами Международной системы единиц, СИ, используются внесистемные единицы измерения длины.
+Одна из них, \term{Астрономическая единица}~--- единица измерения расстояния в астрономии, 
 \begin{equation}
-	1~\au = 149\:597\:870\:700~\text{м} \simeq 1.5 \times 10^{11}~\text{м}.
+	1~\au = 149\:597\:870\:700~\text{м} \simeq 1.5 \times 10^{11}~\text{м},
 \end{equation}
+величина которой близка к длине большой полуось орбиты Земли. Точно значение было привязано к метру на Генеральной Асамблеи Международного Астрономического Союза в 2012 году~\cite{au}.
 
-\term{Годичный параллакс}\footnote{Важно отметить, здесь $\pi$~--- лишь обозначение, ничего общего с числом $\pi$ не имеющее.} ($\pi$) объекта~--- это угол, под которым видно
-орбиту Земли из окрестностей данного объекта. Применяется к объектам вне
-Солнечной системы.
-\begin{equation}
-	\tg \pi = \frac{a_\oplus}{r},
-	\label{eq:parallax-sin}
-\end{equation}
-где $a_\oplus$~--- большая полуось орбиты Земли и $r$~--- расстояние до объекта
-имеют одинаковые единицы измерений. Учитывая малость угла $\pi$, можно считать $\tg\pi \simeq \pi$ в \eqref{eq:parallax-sin}, тогда
-\begin{equation}
-	\pi = \frac{a_\oplus}{r}.
-	\label{eq:parallax}
-\end{equation}
+Астрономическая единица используется для описания расстояний между объектами Солнечной системы и экзопланетных систем. Расстояния между звездами и размеры более крупных формирований имеют существенно большую величину, чем астрономическая единица, поэтому здесь она не используется.
 
-\begin{wrapfigure}[10]{r}{0.45\tw}
+\begin{wrapfigure}[7]{r}{0.45\tw}
 	\centering
-	\vspace{-2pc}
-	\begin{tikzpicture}
-%	    \tkzSetUpLabel[font=\footnotesize]
-%	    \tkzSetUpPoint[fill=white, size=2]
-%	    \tkzSetUpLine[line width=.4pt]
-%	    \tkzSetUpArc[line width=.4pt]
-%	    
+	\vspace{-1.3pc}
+	\begin{tikzpicture}	    
 	    \tkzDefPoint(0,0){Sun}
 	    \tkzDefPoint(3,0){Star}
 	    \tkzDefPoint(0,1){E}
-%	    
+
 	    \tkzLabelPoint[above](E){Земля}
 	    \tkzLabelPoint[below](Sun){Солнце}
 	    \tkzLabelPoint[below](Star){Звезда}
@@ -39,46 +24,49 @@
 	    \tkzDrawPolygon[thick](Sun,Star,E)
 	    \tkzMarkRightAngle[size=0.2](Star,Sun,E)
 	    \tkzMarkAngle(E,Star,Sun)
-	    \tkzLabelAngle[font=\footnotesize, pos=1.3](E,Star,Sun){$\pi$}   
+	    \tkzLabelAngle[font=\footnotesize, pos=1.2](E,Star,Sun){$p$}   
 	    
 	    \earth(E)
 	    \sun(Sun)
 	    \pointStar(Star)
 	    
 	    \tkzLabelSegment[below](Sun,Star){$r$}
-	    \tkzLabelSegment[left=-2pt](Sun,E){$a_\oplus$}
+	    \tkzLabelSegment[left=-2pt](Sun,E){1\,\text{а.\!\:е.}}
 	\end{tikzpicture}
 	\caption{Схема годичного параллакса}
 \end{wrapfigure}
-Расстояние $r$, с которого большая полуось орбиты Земли $a_\oplus$ видна под углом $\pi = 1''$ называется \term[парсек]{1 парсеком}. Так как
+Первым методом определения расстояния до звёзд был \imp{годичный параллакс}, основанный на видимом движении звезды в результате орбитального движения Земли. \term{Годичный параллакс} $p$ объекта~--- это угол, под которым отрезок длины 1~\au из окрестностей данного объекта, применяется к объектам вне
+Солнечной системы.
 \begin{equation}
-	1~\text{рад} = \frac{180^\circ}{\pi} \simeq  3 438' \simeq 206265''
-	\quad \Longrightarrow \quad \mathsf{1~\text{\sffamily пк} =
-	206265~\text{\sffamily а.\,е.}},
+	\tg p = \frac{1~\text{\au}}{r},
+	\label{eq:parallax-sin}
 \end{equation}
-следовательно, записывая большую полуось орбиты Земли в \au, а расстояние до звезды в парсеках, получаем параллакс в секундах. Таким образом,
+где $r$~--- расстояние до объекта. Учитывая малость угла $p$, можно считать $\tg p \simeq p$ в \eqref{eq:parallax-sin}, тогда
 \begin{equation}
-	r_\text{пк} = \frac{1~\au}{\pi''}.
-\end{equation}
-
-\term{Угловой размер объекта}~--- это угол, под которым видно объект. Для сферически симметричных объектов с радиусом $R$, угловой размер (диаметр) при наблюдении с расстояния $r$ определяется как
-\begin{equation}
-	\rho = 2 \arcsin \frac{R}{r}.
-\end{equation}
-В случае, когда $r\gg R$, можно считать, что $\sin \rho \simeq \rho$, тогда
-\begin{equation}
-	\rho \simeq \frac{2 R}{r}.
+	p \simeq \frac{1~\text{\au}}{r}.
+	\label{eq:parallax}
 \end{equation}
 
-\vspace{-1.5pc}
-\begin{figure}[h!]
-	\begin{minipage}[b]{0.5\tw}
-	   \centering
-        \begin{tikzpicture}
-            \tkzSetUpLine[line width=.4pt]
-            \tkzSetUpLabel[font=\footnotesize]
-            \tkzSetUpPoint[fill=white, size=2]
-        
+С помощью параллакса вводится ещё одна внесистемная единица длина, используемая в астрономии,~--- \term{парсек}. Это такое расстояние~$r$, что, находясь на нём, произвольный объект имеет годичный параллакс~$p = 1''$. Напомним,
+\begin{equation*}
+	1~\text{рад} = \frac{180^\circ}{\pi} =  \frac{10800'}{\pi} = \frac{648000''}{\pi} \simeq 206265'',
+\end{equation*}
+следовательно, 
+\begin{equation}
+    1~\text{пк} = \frac{648000}{\pi}~\text{\au} \simeq 3.085677581 \cdot 10^{16}~\text{м} \simeq 206265~\au
+\end{equation}
+В силу определение парсека, справедливо соотношение
+\begin{equation}
+	r~\lbrack \text{пк} \rbrack 
+	   = \frac{1~\lbrack \au \rbrack}{\pi~\lbrack '' \rbrack}.
+\end{equation}
+
+
+Достаточно часть в астрономии имеет значение \term{угловой размер объекта}~--- угол, под которым видно объект. Для несимметричных объектов понимается некая средняя величина, для объектов с осевой симметрией, например галактик, указывается два размера вдоль каждой из осей. Для сферически симметричных объектов с радиусом $R$, угловой размер (диаметр) при наблюдении с расстояния $r$, \lookPicRef{pic:angilar-size}, определяется как\\
+\begin{wrapfigure}[9]{r}{0.45\tw}
+		\centering
+		\vspace{-2pc}
+		\begin{tikzpicture}
             \tkzDefPoint(0,0){C}
             \tkzDefPoint(4,0){O}
             \tkzDefPointBy[homothety=center C ratio .25](O) \tkzGetPoint{U}
@@ -110,16 +98,22 @@
             
             \tkzDrawPoints(C, O, I1, I2)
         \end{tikzpicture}
-		\captionof{figure}{Угловой размер}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[b]{0.5\tw}
-		\centering
-		\begin{tikzpicture}
-            \tkzSetUpLine[line width=.4pt]
-            \tkzSetUpLabel[font=\footnotesize]
-            \tkzSetUpPoint[fill=white, size=2]
-        
+    	\caption{Угловой размер}
+		\label{pic:angilar-size}
+	\end{wrapfigure}
+\vspace{-2pc}
+\begin{equation}
+	\rho = 2 \arcsin \frac{R}{r}.
+\end{equation}
+В случае, когда $r\gg R$, можно считать, что $\sin \rho \simeq \rho$, тогда
+\begin{equation}
+	\rho \simeq \frac{2 R}{r}.
+\end{equation}
+
+\begin{wrapfigure}[6]{r}{0.45\tw}
+	\centering
+	\vspace{-1.5pc}
+	\begin{tikzpicture}
             \tkzDefPoint(0,0){O}
             \tkzDefPoint(4,0){S}
             \tkzDefPointBy[homothety=center O ratio .25](S) \tkzGetPoint{X}
@@ -139,17 +133,11 @@
             
             \tkzDrawPoints(C, O, S)
         \end{tikzpicture}
-		\captionof{figure}{Горизонтальный параллакс}
-	\end{minipage}
-\end{figure}
-
-\term{Горизонтальный параллакс}~$(p)$~--- это угловой радиус Земли при наблюдении с объекта:
+		\caption{Горизонтальный параллакс}
+		\label{pic:horizontal-parallax}
+\end{wrapfigure}
+Для определения расстояния до объектов Солнечной системы также используется метод параллакса. Измеряемая величина $p$ называется \term{горизонтальным параллаксом}, \lookPicRef{pic:horizontal-parallax},~--- это угловой радиус Земли при наблюдении из окрестностей объекта:
 \begin{equation}
-	\sin p=\frac{R_\oplus}{r}.
+	\sin p =\frac{R_\oplus}{r}.
 \end{equation}
-
-\term{Правило Тициуса-Боде} --- эмпирическая формула, приблизительно описывающая
-радиусы орбит планет в Солнечной системе:
-\begin{equation}r=\frac{3\cdot 2^n+4}{10}, \quad n=-\infty, 0, 1, 2...
-\end{equation}
-
+Так, средний горизонтальный параллакс Луны $p_{\rightmoon}$ составляет около $1^\circ$, а Солнца~--- $p_\odot \approx 9''$.
