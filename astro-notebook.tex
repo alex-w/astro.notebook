@@ -148,13 +148,15 @@
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikz/resource/,optimize command away=\includepdf]
 \usetikzlibrary{
+    angles,
     calc, 
     calligraphy, 
     decorations.markings,
     decorations.pathreplacing,
     fadings,
     shapes, 
-    snakes
+    snakes,
+    quotes
 }
 
 \input{sys/tikz-commands}
@@ -171,7 +173,23 @@
 %        line width=\dot@diameter,
         line cap=round,
         dash pattern=on 4pt off \dot@spacing
-    }
+    },
+    triple arc/.style={
+        double distance=4pt,
+        pic actions/.append code=\tikzset{postaction={draw}}
+    },
+    markII/.style={%
+        decoration={% 
+            post length=1mm,
+            pre length=1mm,
+            markings, %
+            mark= at position 0.5 with {%
+                \draw (-0.5pt,-1.5pt) -- (-0.5pt,1.5pt);
+                \draw (0.5pt,-1.5pt) -- (0.5pt,1.5pt);
+            }% 
+        },%
+        pic actions/.append code=\tikzset{postaction=decorate}%
+    }%
 }
 
 \makeatother

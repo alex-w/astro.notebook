@@ -1,55 +1,185 @@
-\subsection{Гравитационный маневр}
+\subsection{Гравитационный манёвр}
 \label{sec:grav-assist}
 
-\term{Гравитационный маневр}~--- изменение направления и скорости движения космического аппарата, а как следствие и параметров орбиты, в результате гравитационного взаимодействия с массивным третьим телом. Может осуществляться с применением тяги двигателя и без.
+\term{Гравитационный манёвр}~--- изменение направления и скорости движения космического аппарата, а как следствие и параметров орбиты, в результате гравитационного взаимодействия с массивным третьим телом. Может осуществляться с применением тяги двигателя и без.
 
-В общем случае рассматривается незамкнутое движение аппарата вокруг третьего тела, иначе  аппарат становится его спутником. Рассмотрим гравитационный маневр без двигателя подробнее и найдем максимальное достижимое в этой случае изменение скорости.
+В общем случае рассматривается незамкнутое движение аппарата вокруг третьего тела, иначе  аппарат становится его спутником. Рассмотрим гравитационный маневр без двигателя подробнее и найдем максимальное достижимое в этом случае изменение скорости.
 
-Из закона сохранения энергии ясно, что максимальная скорость достигается на минимальном расстоянии от гравитирующего тела, а из минимальности расстояния следует перпендикулярность вектора скорости к радиус-вектору аппарата в этот момент. Исходя из этого запишем законы сохранения для момента пересечения сферы влияния тела и момента максимального сближения с ним:
+\begin{wrapfigure}[16]{r}{0.55\tw}
+    \centering
+    \vspace{-0.5pc}
+    \begin{tikzpicture}        
+        \pgfmathsetmacro\r{3}
+        \pgfmathsetmacro\a{1}
+        \pgfmathsetmacro\b{1.5}
+        \pgfmathsetmacro\c{sqrt(\a^2 + \b^2}
+        \pgfmathsetmacro\al{acos(\a / \c)}
+        \pgfmathsetmacro\f{-\al}
+        \pgfmathsetmacro\dx{\c * cos(\al)}
+        \pgfmathsetmacro\dy{-\b}
+        \pgfmathsetmacro\t{(sin(\f) - \b * \a * cos(\f)) / (cos(\f) + \b / \a * sin(\f))}
+        \pgfmathsetmacro\d{-(\dy)^2 + \r^2 + 2 * \dx * \dy * \t - (\dx)^2 * \t^2 + \r^2 * \t^2}
+        
+
+        \tkzDefPoint(0,0){O}
+        \tkzDefPoint(0,\r){Y}
+        
+        
+        \tkzDrawCircle[dotted, black, line width=0.4pt](O,Y)
+        
+        \pgfmathsetmacro\xI{sqrt(\r^2-(\dy)^2)}
+        \tkzDefShiftPoint[O](\xI,-\dy){I}
+        \tkzDefPointBy[reflection = over O--Y](I) \tkzGetPoint{I'}
+        
+        \tkzDrawSegment[dashed](I,I')
+        
+
+        \pgfmathsetmacro\xJ{(\dy * \t - \dx * \t^2 + sqrt(\d))/(1 + \t^2)}
+        \pgfmathsetmacro\yJ{sqrt(\r^2 - (\xJ)^2)}
+        \tkzDefPoint(\xJ,\yJ){J}
+        
+        \pgfmathsetmacro\xJ{(\dy * \t - \dx * \t^2 - sqrt(\d))/(1 + \t^2)}
+        \pgfmathsetmacro\yJ{-sqrt(\r^2 - (\xJ)^2)}
+        \tkzDefPoint(\xJ,\yJ){J'}
+
+        \tkzDrawSegment[dashed](J,J')
+        
+        
+        \pgfmathsetmacro\nn{acos((\a * \r - \b^2) / \c / \r)}
+        \pgfmathsetmacro\nBegin{\f + \nn}
+        \pgfmathsetmacro\nEnd{360 + \f - \nn}
+        
+        \newcommand{\defHypPoint}[2]{
+            \pgfmathsetmacro\rr{\b^2 / \a / (1 - \c / \a * cos(#1 - \f))}
+            \tkzDefPoint({\rr * cos(#1 / 180 * pi)}, {\rr * sin(#1 / 180 * pi)}){#2}
+        }
+        \defHypPoint{\nBegin}{H'}
+        \foreach \n in {\fpeval{\nBegin},\fpeval{\nBegin + 3},...,\fpeval{\nEnd},\fpeval{\nEnd}} {
+            \defHypPoint{\n}{H}
+            \tkzDrawSegment[line width=0.6pt](H',H)
+            \tkzDefShiftPoint[H](0,0){H'}
+        }
+        
+
+        \tkzDefPoint({\r * cos(\nBegin / 180 * pi)},{\r * sin(\nBegin / 180 * pi)}){B}
+        \tkzDefPoint({\r * cos(\nEnd / 180 * pi)},{\r * sin(\nEnd / 180 * pi)}){E}
+        
+
+        \tkzDefPointBy[projection = onto I--I'](O) \tkzGetPoint{P}
+        \tkzInterLL(I,I')(J,J') \tkzGetPoint{C}
+        \tkzDefPointBy[homothety=center O ratio {1 - \a/\c}](C) \tkzGetPoint{Q}
+        
+
+        \def\vPx{-0.6}
+        \def\vPy{0.4} 
+        \tkzDefShiftPoint[O](\vPx,\vPy){O'}
+        \tkzDefPointWith[orthogonal,K=-1.25](Q,O) \tkzGetPoint{Q'}
+        
+
+        \def\vRIx{-0.7}
+        \def\vRIy{-0.043}
+        \tkzDefShiftPoint[B](\vRIx,\vRIy){Vri}
+        \tkzDefShiftPoint[B]({\vPx + \vRIx},{\vPy + \vRIy}){Vi}
+        \tkzDefShiftPoint[B](\vPx,\vPy){Pi}
+        
+        \tkzLabelSegment[above,pos=0.7](B,Vi){$\vec{v}_0$}
+        \tkzLabelSegment[below=-1pt, pos=0.4](B,Vri){$\vec{v}_0'$}
+        \tkzLabelSegment[above right=-2pt, pos=0.7](B,Pi){$\vec{u}$}
+        
+        
+        \def\vROx{-0.3}
+        \def\vROy{-0.6}
+        \tkzDefShiftPoint[E](\vROx,\vROy){Vro}
+        \tkzDefShiftPoint[E](\vPx,\vPy){Eo}
+        \tkzDefShiftPoint[E]({\vPx + \vROx},{\vPy + \vROy}){Vo}
+        
+        
+        \tkzLabelSegment[above=-1pt, pos=0.6](E,Vo){$\vec{v}_1$}
+        \tkzLabelSegment[right, pos=0.6](E,Vro){$\vec{v}_1'$}
+        \tkzLabelSegment[above right=-2pt, pos=0.6](E,Eo){$\vec{u}$}
+        
+        
+        \tkzLabelSegment[below left=-2pt](O,O'){$\vec{u}$}
+        \tkzLabelSegment[above left=-3pt](Q,Q'){$\vec{v}_\text{макс}$}
+        
+        
+        \tkzLabelSegment[right=-1pt](O,P){$b$}
+        \tkzLabelSegment[above right=-4pt](O,Q){$q$}
+        
+        \tkzMarkRightAngle[size=0.15](Q',Q,O)
+        \tkzMarkRightAngle[size=0.15](O,P,I)
+        
+        \tkzDefPointBy[homothety=center O ratio {-\c/\a}](Q) \tkzGetPoint{X}
+        
+        \tkzDefShiftPoint[X](\vROx,\vROy){VroX}
+        \tkzDefShiftPoint[X](\vRIx,\vRIy){VriX}
+        \tkzDefShiftPoint[X]({\vROx - \vRIx},{\vROy - \vRIy}){dV}
+        
+        \tkzLabelSegment[above](X,VriX){$\vec{v}_0'$}
+        \tkzLabelSegment[left, pos=0.6](X,VroX){$\vec{v}_1'$}
+        \tkzLabelSegment[above right=-2pt, pos=0.6](X,dV){$\Delta\vec{v}$}
+        
+        \tkzDrawSegments[line width=1pt, -latex](B,Vri B,Vi B,Pi E,Vro E,Vo E,Eo O,O' Q,Q' X,VriX X,dV X,VroX)
+        
+        
+        \tkzMarkAngle[size=0.5](I',C,J')
+        \tkzLabelAngle[pos=0.7](I',C,J'){\footnotesize$\varphi$}
+        
+        \tkzDrawSegments(O,P O,Q)
+        
+        \tkzDrawPoints(O, B, E, Q)
+    \end{tikzpicture}
+    \caption{Схема гравитационного маневра}
+    \label{pic:grav-assist}    
+\end{wrapfigure}
+Пусть третье тело и аппарат в момент входа второго в область гравитационного влияния первого имеют гелиоцентрические скорости $\vec{u}$ и $\vec{v}_0$ соответственно. Тогда скорость аппарата относительно третьего тела в момент входа в область его гравитационного влияния $\vec{v}_0' = \vec{v}_0 - \vec{u}$. Обозначим $|\vec{v}_0'| \equiv v_\infty$.
+
+Из закона сохранения энергии ясно, что максимальная скорость $\vec{v}_\text{макс}$ достигается на минимальном расстоянии $q$ от гравитирующего тела, а из минимальности расстояния следует перпендикулярность вектора скорости к радиус-вектору аппарата в этот момент. Исходя из этого, запишем законы сохранения для момента пересечения сферы влияния тела и момента максимального сближения с ним:
 \begin{align*}
-    \text{ЗСМИ:}&\quad V_\infty b = q V_\text{макс},\\
-    \text{ЗСЭ:}&\quad \frac{V_\infty^2}{2} = \frac{V_\text{макс}^2}{2} - \frac{GM}{q}.
+    \text{ЗСМИ:}&\quad v_\infty b = q v_\text{макс},\\
+    \text{ЗСЭ:}&\quad \frac{v_\infty^2}{2} = \frac{v_\text{макс}^2}{2} - \frac{GM}{q}.
 \end{align*}
-Откуда выразим максимальную скорость:
+Откуда можно выразить максимальную скорость:
 \begin{equation*}
-    V_\text{макс} = \sqrt{V_\infty^2 + \frac{2GM}{q}} = \sqrt{V_\infty^2 + \frac{2 V_1^2}{ \rho}},\\ \quad \rho \equiv \frac{q}{R_\text{пл}} > 1,
+    v_\text{макс} = \sqrt{v_\infty^2 + \frac{2GM}{q}} = \sqrt{v_\infty^2 + \frac{2 v_1^2}{ \rho}},\\ \quad \rho \equiv \frac{q}{R_\text{пл}} > 1,
 \end{equation*}
-где $V_1$~--- первая космическая скорость на поверхности тела, и прицельный параметр гиперболической орбиты аппарата
+где $v_1$~--- первая космическая скорость на поверхности тела. Далее, прицельный параметр гиперболической орбиты аппарата $b = \sqrt{e^2 - 1}$, с другой стороны
 \begin{equation*}
-     b = q \frac{V_\text{макс}}{V_\infty} = a(e - 1)\sqrt{1 + \frac{2 V_1^2}{\rho V_\infty^2}} = a\sqrt{e^2 - 1},
+     b = q \frac{v_\text{макс}}{v_\infty} = a(e - 1)\sqrt{1 + \frac{2 v_1^2}{\rho v_\infty^2}} = a\sqrt{e^2 - 1}.
 \end{equation*}
-отсюда получаем уравнение на эксцентриситет:
+Получаем уравнение на эксцентриситет:
 \begin{gather*}
     \sqrt{\frac{e + 1}{e - 1}} 
-        = \sqrt{1 + \frac{2 V_1^2 }{ \rho V_\infty^2}}
+        = \sqrt{1 + \frac{2 v_1^2 }{ \rho v_\infty^2}}
         = \sqrt{1 + \frac{2 }{\rho\nu^2}}, 
-        \quad \nu \equiv \frac{V_\infty}{V_1} > 0;\\
+        \quad \nu \equiv \frac{v_\infty}{v_1} > 0;\\
     e(\rho, \nu) = \rho\nu^2 + 1.
 \end{gather*}
 
-Далее найдем зависимость угла поворота, что то же самое, угла между асимптотами орбиты, от входных параметров:
+Далее находим зависимость угла поворота, что то же самое, угла между асимптотами орбиты, от входных параметров:
 \begin{gather*}
     \alpha = 2 \arctg \frac{b}{a} = 2 \arctg \frac{a \sqrt{e^2 - 1}}{a} = 2 \arctg \sqrt{e^2 - 1},\\
     \alpha(\rho, \nu) = 2 \arctg \sqrt{(\rho\nu^2 + 1)^2 - 1},\\
     \varphi(\rho, \nu) = \pi - \alpha( \rho, \nu).
 \end{gather*}
 
-Остается с помощью теоремы косинусов определить приращение скорости, получаемое при гравитационном маневре, 
+В силу симметрии гиперболы и законов сохранения величина относительной скорости в момент выхода из области гравитационного влияния третьего тела $|\vec{v}_1'| = v_\infty$. Остается с помощью теоремы косинусов определить $\Delta v$~--- величину приращения скорости, получаемого при гравитационном манёвре, 
 \begin{gather*}
-    (\Delta V)^2 = 2 V_\infty^2 - 2 V_\infty^2 \cos \phi = 2 V_\infty^2(1 + \cos \alpha),\\
-    \frac{\Delta V}{V_1} = \nu \sqrt{2 \left[ 1 + \cos \left(2 \arctg \sqrt{(\rho\nu^2 + 1)^2 - 1} \right) \right]}. 
+    (\Delta v)^2 = 2 v_\infty^2 - 2 v_\infty^2 \cos \varphi = 2 v_\infty^2(1 + \cos \alpha),\\
+    \frac{\Delta v}{v_1} = \nu \sqrt{2 \left[ 1 + \cos \left(2 \arctg \sqrt{(\rho\nu^2 + 1)^2 - 1} \right) \right]}. 
 \end{gather*}
 
 Для нахождения максимального приращения скорости необходимо решить задачу оптимизации, решение которой выходит за рамки этой книги, поэтому сразу приведем ответ:
 \begin{equation*}
     (\rho_0, \nu_0)
-        = \underset{\rho \geqslant 1,~\nu \geqslant 0} \argmax\, \frac{\Delta V (\rho, \nu)}{V_1} 
+        = \underset{\rho \geqslant 1,~\nu \geqslant 0} \argmax\, \frac{\Delta v (\rho, \nu)}{v_1} 
         = (1, 1).
 \end{equation*}
 Следовательно, максимальное приращение скорости при гравитационном маневре с выключенным двигателем составляет
 \begin{equation*}
-    (\Delta V)_\text{макс}
-%        = \nu_0 V_1 \sqrt{2 \left[ 1 + \cos \left(2 \arctg \sqrt{(\rho_0\nu_0^2 + 1)^2 - 1} \right) \right]}
+    (\Delta v)_\text{макс}
+        = \Delta v (\rho_0, \nu_0)
+%        = \nu_0 v_1 \sqrt{2 \left[ 1 + \cos \left(2 \arctg \sqrt{(\rho_0\nu_0^2 + 1)^2 - 1} \right) \right]}
         = \sqrt{\frac{G M}{R}}.
 \end{equation*}
 
@@ -73,9 +203,9 @@
 			\addplot3[surf,shader=interp] table[x=r, y=v, z=D] {data/grav-assist.txt};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Зависимость величины приращения скорости $\frac{\Delta V}{V_1}$ от параметров $\rho$ и $\nu$}
+	\caption{Зависимость величины приращения скорости $\frac{\Delta v}{v_1}$ от параметров $\rho$ и $\nu$}
 \end{wrapfigure}
-Важно понимать, полученная величина достигается только при определенной скорости входа в зону гравитационного влияния тела, а также при сверхблизком по меркам современной космонавтики пролете. Поэтому в действительности гравитационные маневры добавляют лишь некоторую часть этой скорости, которая используется для ускорения, торможения или поворота.
+Важно понимать, полученная величина достигается только при определенной скорости входа в зону гравитационного влияния тела, а также при сверхблизком по меркам современной космонавтики пролёте. Поэтому в действительности гравитационные маневры добавляют лишь некоторую часть этой скорости, которая используется для ускорения, торможения или поворота.
 
-Отличительной особенность гравитационного маневра с включением двигателя является возможное различие скорости входа и выхода из зоны влияния тела. Тем самым можно достичь произвольного изменения скорости, если это позволяют запасы топлива на борту аппарата.
+Отличительной особенность гравитационного манёвра с включением двигателя является возможное различие величины скорости входа и выхода из зоны влияния тела. Тем самым можно достичь произвольного изменения скорости, если это позволяют запасы топлива на борту аппарата.
 
