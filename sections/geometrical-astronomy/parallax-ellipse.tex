@@ -1,84 +1,95 @@
 \subsection{Параллактический эллипс}
-Движение Земли по орбите вокруг Солнца сопровождается изменением видимого положения объектов вне Солнечной системы. В приближении круговой орбиты движение Земли циклично, а значит, траектории объектов относительно геоцентрической системы координат также цикличны. Чтобы установить, что из себя представляют данные траектории необходимо спроецировать годичное движение Земли на плоскость, перпендикулярную лучу зрения на объект.
+Движение Земли по орбите вокруг Солнца сопровождается изменением видимого положения объектов вне Солнечной системы. Воспользуемся приближением, что орбита Земли круговая, тогда ее проекция на произвольную плоскость~--- эллипс с большой полуосью, равной радиусу орбиты Земли $a_\oplus$. 
+
+Согласно определению, величина параллакса~--- это угловое расстояние между Солнцем и наблюдателем при наблюдении из окрестностей объекта. Для его получения достаточно спроецировать положение наблюдателя на картинную, относительно объекта, плоскость, проходящую через Солнце; найти расстояние $x$ между проекцией и Солнцем; из отношения $x$ и расстояния до объекта вычислить параллакс.
+
+Рассмотрим объект с гелиоцентрическими эклиптическими координатами $\lambda$ и $\beta$. Проекция орбиты Земли на картинную плоскость относительно такого объекта~--- эллипс с большой полуосью $a_\oplus$ и малой $b$, где $b = a_\oplus \sin \beta$, \lookPicRef{pic:parallax-ellipse}. %todo: b != b
+
+В силу линейности параллакса... %todo: мозг уже не соображает
+
+В приближении круговой орбиты движение Земли циклично, а значит, траектории объектов относительно геоцентрической системы координат также цикличны. Чтобы установить, что из себя представляют данные траектории необходимо спроецировать годичное движение Земли на плоскость, перпендикулярную лучу зрения на объект.
 
 Проекция окружности всегда эллипс, кроме вырожденного случая~--- отрезка, когда угол проекции составляет $90^\circ$. Так как проецирование с углом $\eta$ между плоскостями~--- тоже самое, что сжатие с коэффициентом $1/\cos\eta$.
 
-\begin{wrapfigure}{r}{0.6\tw}
+\begin{wrapfigure}[10]{r}{0.47\tw}
 	\centering
-	\begin{tikzpicture}
-		\footnotesize
-		
-		%		\clip (-5, -3.5) rectangle (3.5, 3.5);
-		
-		%		\foreach \x in {-5, -4.9,...,3} {
-		%		\draw [line width=.1pt] (\x, -3) -- (\x, 3);
-		%		};
-		%
-		%		\foreach \x in {-5, -4,...,3} {
-		%		\draw [line width=.4pt] (\x , -3) -- (\x , 3);
-		%		};
-		%
-		%		\foreach \y in {-3, -2.9,...,3} {
-		%		\draw [line width=.1pt] (-5, \y) -- (3, \y);
-		%		};
-		%
-		%		\foreach \y in {-3, -2,...,3} {
-		%		\draw [line width=.4pt] (-5, \y) -- (3, \y);
-		%		};
-		
-		\coordinate (O) at (0, 0) {};
-		\coordinate (A1) at (-0.57, 0.98) {};
-		\coordinate (A2) at (0.57, -0.98) {};
-		\coordinate (B1) at (-3, 0) {};
-		\coordinate (B2) at (3, 0) {};
-		\coordinate (C1) at (1.5, 2.6) {};
-		\coordinate (C2) at (-1.5, -2.6) {};
-		\coordinate (D1) at (.75, 1.3) {};
-		\coordinate (D2) at (-.75, -1.3) {};
-		\coordinate (S) at (-3.5, 2) {};
-		
-		\draw [decoration={zigzag, segment length=1.1mm, amplitude=0.3mm}, decorate] (-2.8, 1.6) arc(-30:-10:0.81);
-		\draw [double, line cap=butt](-.3, 0) arc(180:150:.3);
-		\draw [double, line cap=butt](2.7, 0) arc(180:150:.3);
-		\draw [decoration={snake, segment length=1mm, amplitude=0.3mm}, decorate](0.3, 0) arc(0:60:.3);
-		\draw (.65, 1.127) -- (0.823, 1.027) -- (0.923, 1.2);
-		\draw (.12, -0.2) -- (.35, -.2) -- (.23, 0);
-		\draw (-2.14, 1.0) .. controls (-2.04, 1.07) .. (-2.1, 1.2);
-		
-		\draw (O) ellipse(3 and 1);
-		%		\draw (O) [rotate=60, dashes] ellipse(3 and 1);
-		
-		\draw (A1) .. controls (-.2, 1.54) and (.5, 1.55) .. (D1);
-		\draw (A2) .. controls (1.17, -.1) and (1.25, .9) .. (D1);
-		\draw (A2) .. controls (.2, -1.54) and (-.5, -1.55) .. (D2);
-		\draw (A1) .. controls (-1.17, .1) and (-1.25, -.9) .. (D2);
-		
-		\draw [dashes] (D1) -- (D2);
-		\draw [dashes] (B1) -- (B2);
-		\draw [dashes] (D1) -- (3, 0);
-		
-		\draw (A1) -- (A2);
-		\draw (O) -- (S);
-		\draw (D1) -- (S);
-		\draw (A2) -- (S);
-		
-		\pointStar (S);
-		
-		\point (A1);
-		\point (A2);
-		\point (B1);
-		\point (B2);
-		\point (O);
-		\point (D1);
-		\point (D2);
-		
-		\draw (-2.75, 1.82) node[anchor=north west] {$\pi_\beta$};
-		\draw (-1.85, 1.15) node[anchor=north] {$\pi_\alpha$};
-		\draw (-.4, .15) node[anchor=east] {$\beta$};
-		\draw (.25, .05) node[anchor=south west] {$\eta$};
-		
-	\end{tikzpicture}
+	\vspace{-0.5pc}
+	\pgfmathsetmacro\viewL{3} %3
+	\pgfmathsetmacro\viewB{65} %65
+    \tdplotsetmaincoords{\viewB}{-\viewL}
+    \begin{tikzpicture}[tdplot_main_coords]
+
+        \footnotesize
+
+        \pgfmathsetmacro\r{2}
+        \pgfmathsetmacro\d{3.5}
+        \pgfmathsetmacro\bet{35}
+        \pgfmathsetmacro\et{90 - \bet}
+        \pgfmathsetmacro\l{sqrt(\d^2 + \r^2 + 2 * \d * \r * cos(\bet))}
+        \pgfmathsetmacro\piB{asin(\r * sin(\bet) / \l)}
+        \pgfmathsetmacro\b{\d * sin(\piB)}
+        
+
+        \coordinate (O) at (0,0,0);
+        \coordinate (S) at ({-\d * cos(\bet) * cos(\viewL)}, {\d * cos(\bet) * sin(\viewL)}, {\d * sin(\bet)});
+        \coordinate (A) at ({\b * cos(\et) * cos(\viewL)}, {-\b * cos(\et) * sin(\viewL)}, {\b * sin(\et)});
+        \coordinate (B) at (0,-\r,0);
+        \coordinate (C) at ({-\b * cos(\et) * cos(\viewL)}, {\b * cos(\et) * sin(\viewL)}, {-\b * sin(\et)});
+        \coordinate (D) at (0,\r,0);
+        \coordinate (R) at ({\r*cos(\viewL)}, {-\r*sin(\viewL)}, 0);
+        \coordinate (L) at ({-\r*cos(\viewL)}, {\r*sin(\viewL)}, 0);
+        
+       
+        \draw [white] (S) -- (O)
+            pic [color=black, draw=black, angle radius=0.6cm, pic text={\footnotesize$\beta$}, angle eccentricity=1.3] {angle = S--O--L};
+            
+        \draw [white] (A) -- (R)
+            pic [markII, color=black, draw=black, angle radius=0.9cm, pic text={\footnotesize$\beta'$}, angle eccentricity=1.2] {angle = A--R--O};
+        
+        \draw [white] (O) -- (S)
+            pic [color=black, draw=black, angle radius=1cm, triple arc, line cap=butt, pic text={\footnotesize$\pi_\beta$},  angle eccentricity=1.35] {angle = O--S--A};
+            
+        \draw [white] (O) -- (S)
+            pic [color=black, pic text={\footnotesize \adjustbox{left=8pt}{$\pi_\lambda$}}, draw=black, angle radius=1.4cm, angle eccentricity=1.15, double, line cap=butt] {angle = B--S--O};
+        
+        \draw [white] (B) -- (O)
+            pic [draw=black, angle radius=2mm] {right angle=B--O--S}; 
+        \draw [white] (A) -- (O)
+            pic [draw=black, angle radius=2mm] {right angle=A--O--S};
+        \draw [white] (B) -- (O)
+            pic [draw=black, angle radius=2mm] {right angle=B--O--R};    
+            
+        \draw [dotted] (A) -- (C);   
+            
+        \draw [dashed](R) -- (L);
+        \draw [dashed] (B) -- (D); 
+    
+        \draw (S) -- (O);
+        \draw (S) -- (B);
+        \draw (S) -- (R);
+        
+        \node[below] at (barycentric cs:O=0.5,R=0.5) {\footnotesize $a_\oplus$};
+        
+        \node[above left=-3pt] at (barycentric cs:O=0.5,A=0.5) {\footnotesize $b$};
+        
+        \tdplotsetrotatedcoords{0}{0}{0};
+        \draw [tdplot_rotated_coords, thick] (0,0,0) circle (2);
+
+        \tdplotsetrotatedcoords{0}{-\et}{0};
+        \draw[tdplot_rotated_coords, dotted] (0,0,0) ellipse ({\b} and {\r});
+        
+        \tkzDefPoint(0,0){O1};
+        \sun(O1);
+        
+        \pointStar(S);
+        
+        \pgfmathsetmacro\x{0.5 * \r}
+        \pgfmathsetmacro\y{-\r * sqrt(1 - (\x/\r)^2)}
+        \tkzDefPoint(\x,\y){E}
+        \earth(E)
+    \end{tikzpicture}
 	\caption{Схема построения параллактического эллипса}
+	\label{pic:parallax-ellipse}
 \end{wrapfigure}
 Траектория Земли для наблюдателя, находящегося в окрестности объекта,~--- эллипс. Тогда понятно, что траектория объекта для наблюдателя на Земле также является эллипсом. Причем большая полуось этого эллипса равна параллаксу объекта $\pi = a_\oplus / r \equiv \pi_\lambda$, где $r$~--- гелиоцентрическое расстояние до объекта, а малая полуось
 \begin{equation*}
