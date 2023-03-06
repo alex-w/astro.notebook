@@ -157,8 +157,9 @@
 				]
 				table[x=x, y=y, z=I] {data/eiry-disk-y.txt};
 				
-				
-				\addplot3[surf] table[x=x, y=y, z=I] {data/eiry-disk.txt};
+				\ifthenelse{\boolean{useLightPlotVersion}}{}{
+				    \addplot3[surf] table[x=x, y=y, z=I] {data/eiry-disk.txt};
+				}
 			\end{axis}
 		\end{tikzpicture}
 		\caption{}
@@ -180,7 +181,9 @@
 				ylabel 			=	{$y$, $\frac{\lambda}{D}$},
 				]
 				
-				\addplot3[surf, shader=interp] table[x=x, y=y, z=I] {data/eiry-disk.txt};
+				\ifthenelse{\boolean{useLightPlotVersion}}{}{
+				    \addplot3[surf, shader=interp] table[x=x, y=y, z=I] {data/eiry-disk.txt};
+				}
 			\end{axis}
 		\end{tikzpicture}
 		\caption{}
@@ -228,7 +231,9 @@
 				]
 				table[x=x, y=y, z=I] {data/eiry-disk-y.txt};
 				
-				\addplot3[surf] table[x=x, y=y, z=I] {data/eiry-disk.txt};
+				\ifthenelse{\boolean{useLightPlotVersion}}{}{
+				    \addplot3[surf] table[x=x, y=y, z=I] {data/eiry-disk.txt};
+				}
 			\end{axis}
 		\end{tikzpicture}
 		\caption{}
@@ -250,7 +255,9 @@
 				ylabel 			=	{$y$, $\frac{\lambda}{D}$},
 				]
 				
-				\addplot3[surf, shader=interp] table[x=x, y=y, z=I] {data/eiry-disk.txt};
+				\ifthenelse{\boolean{useLightPlotVersion}}{}{
+				    \addplot3[surf, shader=interp] table[x=x, y=y, z=I] {data/eiry-disk.txt};
+				}
 			\end{axis}
 		\end{tikzpicture}
 		\caption{}
