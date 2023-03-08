@@ -35,16 +35,16 @@
 	   
 	   \tkzDrawSegments[semithick](D1,D2 F,P P,P' F,X X,X')
 	   
-	   \tkzDrawSegment[dim={{\footnotesize$p$},{-\xmax*0.45},left=1mm, midway}](F,D)
-	   \tkzDrawSegment[dim={{\footnotesize$q$},{\xmax*0.9},right=1mm, midway}](F,O)
-	   \tkzDrawSegment[dim={{\footnotesize$q$},{\xmax*0.9},right=1mm, midway}](O,D)
+	   \tkzDrawSegment[dim={{$q$},{\xmax*0.9},right=1mm, midway}](F,O)
+	   \tkzDrawSegment[dim={{$q$},{\xmax*0.9},right=1mm, midway}](O,D)
 	   
-	   \tkzLabelPoint[above right](F){$\mathbf{F}$}
-	   \tkzLabelPoint[below right](O){$\mathbf{O}$}
-	   \tkzLabelPoint[below](X){\adjustbox{left=6mm,raise=1ex}{$\mathbf{X}$}}
+	   \tkzLabelPoint[above right=-1pt](F){$\mathbf{F}$}
+	   \tkzLabelPoint[below right=-2pt](O){$\mathbf{O}$}
+	   \tkzLabelPoint[below left=-2pt](X){$\mathbf{X}$}
 	   \tkzLabelSegment[above](F,P){$p$}
-	   \tkzLabelSegment[left](F,X){$r$}
-	   \tkzLabelSegment[left](X,X'){$d$}
+	   \tkzLabelSegment[left](P,P'){$p$}
+	   \tkzLabelSegment[above left=-4pt](F,X){$r$}
+	   \tkzLabelSegment[right](X,X'){$d$}
 	   
 	   \tkzDrawSegments[dash dot, semithick](D,F')
 	   \tkzDrawSegments[semithick](D,F)
