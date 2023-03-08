@@ -1,10 +1,10 @@
 \begin{tikzpicture}[
     scale=2,
-    arrow/.style={
-    postaction=decorate,
+    arrow/.style 2 args={
+        postaction=decorate,
         decoration={
             markings, 
-            mark=at position .5 with {\arrow{#1}}
+            mark=at position #2 with {\arrow{#1}}
         } 
     }
 ]
@@ -47,13 +47,18 @@
     \tkzDefPointBy[rotation=center R4 angle 180-\ALPHA](C) 
     \tkzGetPoint{L}
     
-    
-    \tkzDrawSegments[arrow=latex](A,R1 R1,R2 R2,R3 R3,R4 R4,L)
+    \tkzDefPoint(-0.5,0){A0}
+    \tkzDefPoint(2,0){B0}
+    \tkzDrawSegment[dash dot, thick](A0,B0)
+%    
+    \tkzDrawSegments[arrow={latex}{0.5}](R1,R2 R2,R3 R3,R4 R4,L)
+    \tkzDrawSegments[arrow={latex}{0.7}](A,R1)
     \tkzDrawLines[dashed](C,R2 C,R3)
     
+    \tkzMarkAngle[line width = 0.15pt, size=0.01](C,R1,R2) % костыль для расстояния между дугами
     \tkzMarkAngles[size = 0.25](C,R1,R2 C,R2,R3 C,R3,R4)
     \tkzMarkAngles[size = 0.3](R1,R2,C R2,R3,C R3,R4,C)
-    \tkzLabelAngles[pos=0.4](C,R1,R2 C,R2,R3 C,R3,R4 R1,R2,C R2,R3,C R3,R4,C){\footnotesize $\beta$}
+    \tkzLabelAngles[pos=0.4, fill=white, inner sep=1pt](C,R1,R2 C,R2,R3 C,R3,R4 R1,R2,C R2,R3,C R3,R4,C){\footnotesize $\beta$}
     
     
     \tkzDefPointBy[homothety=center R1 ratio -0.5](C) \tkzGetPoint{C1}
@@ -75,7 +80,8 @@
     
     \tkzInterLL(R4,L)(A,R1)
     \tkzGetPoint{W}
-    \tkzMarkAngle[arc=l, mark=x, size=0.2, size=4pt](R1,W,L)
+    \tkzMarkAngle[line width = 0.2pt, size=0.01](C,R1,R2) % костыль для расстояния между дугами
+    \tkzMarkAngle[arc=lll, size=0.15](R1,W,L)
     \tkzLabelAngle[pos=0.3, font=\footnotesize](R1,W,L){$\omega$}
     
     \tkzDefMidPoint(A,R1)  \tkzGetPoint{M0}
@@ -83,10 +89,6 @@
     \tkzDefMidPoint(R2,R3) \tkzGetPoint{M2}
     \tkzDefMidPoint(R3,R4) \tkzGetPoint{M3}
     \tkzDefMidPoint(R4,L)  \tkzGetPoint{M4}
-    
-    \tkzDefPoint(-0.5,0){A0}
-    \tkzDefPoint(2,0){B0}
-    \tkzDrawSegment[dotted, thick](A0,B0))
     
     \tkzDefPointBy[homothety=center A ratio 0.1](R1) \tkzGetPoint{A'}
     \tkzDefPointBy[translation=from A to A'](A0)    \tkzGetPoint{A0'}

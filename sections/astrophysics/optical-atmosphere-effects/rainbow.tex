@@ -13,7 +13,7 @@
 \begin{wrapfigure}[13]{r}{0.47\tw}
     \vspace{-1.5pc}
     \input{sections/astrophysics/optical-atmosphere-effects/tikz/rainbow-schema-tikz}
-    \caption{Схера следования луча в капле при $k=2$}
+    \caption{Схема следования луча в капле при $k=2$}
 \end{wrapfigure}
 Представим такую каплю и отметим выделенное направление падения света пунктиром (см.~Рис.\,\ref{pic:rainbow}). Рассмотрим луч, падающий на каплю на расстоянии $\rho \in [0,1]$ радиусов капли от её оси. В таком случае угол падения луча на поверхность капли $\alpha = \arcsin \rho$. Пусть $n$~--- коэффициент преломления воды, тогда по закону Снеллиуса угол преломления 
 \begin{equation*}
@@ -84,8 +84,8 @@
                 \drawRainbowDispersion[-1]{1}
             \end{scope}
             \tkzDefPoint(1.2,-1.15){Label}
-            \tkzLabelPoint[below](Label){\tiny$42.2^\circ$}
-            \tkzLabelPoint[left=4pt](Label){\tiny$40.5^\circ$}
+            \tkzLabelPoint[below=-1pt](Label){\tiny$42.4^\circ$}
+            \tkzLabelPoint[left=6pt](Label){\tiny$40.5^\circ$}
         \end{tikzpicture}
         \captionof{figure}{$k=1$}
         \label{pic:rainbow-disp-1}
@@ -94,11 +94,12 @@
     \begin{subfigure}{0.3\tw}
         \centering
         \begin{tikzpicture}[scale=1.3]
-        
-            \drawRainbowDispersion{2}
+            \begin{scope}
+                \drawRainbowDispersion{2}
+            \end{scope}
             \tkzDefPoint(-0.2,-0.3){Label}
-            \tkzLabelPoint[below](Label){\tiny$53.7^\circ$}
-            \tkzLabelPoint[left=3pt](Label){\tiny$50.6^\circ$}
+            \tkzLabelPoint[below](Label){\adjustbox{right=18pt, raise=12pt}{\tiny$53.7^\circ$}}
+            \tkzLabelPoint[above](Label){\adjustbox{raise=18pt}{\tiny$50.4^\circ$}}
         \end{tikzpicture}
         \captionof{figure}{$k=2$}
         \label{pic:rainbow-disp-2}
@@ -107,11 +108,10 @@
     \begin{subfigure}{0.3\tw}
         \centering
         \begin{tikzpicture}[scale=1.3]
-        
             \drawRainbowDispersion{3}
             \tkzDefPoint(1.1,-1.3){Label}
-            \tkzLabelPoint[right=2pt](Label){\tiny${37.7^\circ}$}
-            \tkzLabelPoint[left=2pt](Label){\tiny${42.3^\circ}$}
+            \tkzLabelPoint[above right=-2pt](Label){\tiny${37.7^\circ}$}
+            \tkzLabelPoint[below left=-1pt](Label){\adjustbox{raise=15pt}{\tiny${42.5^\circ}$}}
         \end{tikzpicture}
         \captionof{figure}{$k=3$}
         \label{pic:rainbow-disp-3}
