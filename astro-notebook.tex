@@ -6,17 +6,36 @@
 \renewcommand{\year}{2023}
 \newcommand{\isbn}{ISBN 978-5-9909877-2-2}
 
-%%% Build data
-
-
 \usepackage{style/astro-notebook}
 
-\makeindex
+
+\usepackage{fontspec}
+
+\setmainfont{AntiquaPSCyr}[
+    Path=./fonts/AntiquaPSCyr/,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic
+]
+
+\setsansfont{TextbookPSCyr}[
+    Path=./fonts/TextbookPSCyr/,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic
+]
+
+%\makeindex
 
 %%% main
 \begin{document}
     \setboolean{useLightPlotVersion}{true}
+    
 %\includepdf[pages=-]{sys/empty-page.pdf}
+
     \input{sys/cover}
 	\input{sys/authors}
 	\setcounter{tocdepth}{2}

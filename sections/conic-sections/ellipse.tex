@@ -12,8 +12,10 @@
     \vspace{-1pc}
 	\centering
 	 \begin{tikzpicture}
-       \def\a{2}
-	   \def\e{0.7} 
+       \pgfmathsetmacro\a{2}
+	   \pgfmathsetmacro\e{0.7}
+	   \pgfmathsetmacro\b{\a * sqrt(1 - \e^2)}
+	   \pgfmathsetmacro\c{\a * (1 - \e)} 
 	   
 	   \tkzDefPoint(\a,0){X0}
 	   \foreach \nu in {0,0.05,...,6.4} {
@@ -37,30 +39,30 @@
 	   \tkzDefPointWith[orthogonal,K={sqrt(1-\e*\e)}](O,Q1) \tkzGetPoint{B1}
 	   \tkzDefPointWith[orthogonal,K={sqrt(1-\e*\e)}](O,Q2) \tkzGetPoint{B2}
 	   
-	   \tkzDrawSegments[thick](Q1,Q2 F1,P P,F2 B1,B2 F1,B1 B1,F2)
+	   \tkzDrawSegments[thick](Q1,Q2 F1,P P,F2 B1,O F1,B1 B1,F2)
 	   
-	   \tkzLabelPoint[below left](F1){$\mathbf{F_1}$}
-	   \tkzLabelPoint[below right](F2){$\mathbf{F_2}$}
-	   \tkzLabelPoint[below left](O){$\mathbf{O}$}
+	   \tkzLabelPoint[above=-1pt](F1){\adjustbox{right=10pt}{$\mathbf{F_1}$}}
+	   \tkzLabelPoint[above right=-2pt](F2){$\mathbf{F_2}$}
+	   \tkzLabelPoint[above](O){$\mathbf{O}$}
 	   
-	   \tkzLabelSegment[above](F1,P){$2a-p$}
-	   \tkzLabelSegment[above](F1,B1){$a$}
-	   \tkzLabelSegment[above](F2,B1){$a$}
+	   \tkzLabelSegment[above=2pt](F1,P){$2a-p$}
+	   \tkzLabelSegment[below left=-3pt](F1,B1){$a$}
+	   \tkzLabelSegment[below right=-3pt](F2,B1){$a$}
 	   
-	   \def\k{1.05}
+	   \tkzMarkRightAngles[size=0.15](P,F2,O B1,O,F2)
 	   
-	   \tkzDrawSegment[dim={$p$,{-(1-\e)/(1 - \e*\e)*\k*\k*\k},right=1mm, midway}](F2,P)
+	   \def\k{0.2}
 	   
-	    \tkzDrawSegment[dim={$b$,{1/sqrt(1 - \e*\e)*\k},left=1mm, midway}](O,B2)
-	    \tkzDrawSegment[dim={$b$,{-1/sqrt(1 - \e*\e)*\k},left=1mm, midway}](O,B1)
+	   \tkzDrawSegment[dim={$p$, \fpeval{\c+\k}cm, right=1mm}](P,F2)
+	   
+	   \tkzDrawSegment[dim={$b$, \fpeval{\a+\k}cm, left=1mm}](B1,O)
 
-	   \tkzDrawSegment[dim={$a$,{-sqrt(1 - \e*\e)*\k},below=1mm, midway}](O,Q2)
-	   \tkzDrawSegment[dim={$c$,{sqrt(1 - \e*\e)*\k / \e},below=1mm, midway}](O,F1)
-	   \tkzDrawSegment[dim={$Q$,{-sqrt(1-\e*\e)*\k*\k*\k*\k / (1+\e)},below=1mm, midway}](F1,Q2)
-	   \tkzDrawSegment[dim={$q$,{sqrt(1-\e*\e)*\k*\k*\k*\k / (1-\e)},below=1mm, midway}](F1,Q1)
+	   \tkzDrawSegment[dim={$a$, \fpeval{\b + \k}cm, below=1mm}](Q2,O)
+	   \tkzDrawSegment[dim={$c$, \fpeval{\b + \k}cm, below=1mm}](O,F1)
+	   \tkzDrawSegment[dim={$Q$, \fpeval{\b + 3*\k}cm, below=1mm}](Q2,F1)
+	   \tkzDrawSegment[dim={$q$, \fpeval{\b + 3*\k}cm, below=1mm}](F1,Q1)
 	   
-	   \tkzDrawPoints(O,F1,F2,Q1,Q2,B1,B2,P)     
-        
+	   \tkzDrawPoints(O, F1, F2, Q1, Q2, B1, P)     
     \end{tikzpicture}
 	\captionof{figure}{Эллипс}
 	\label{pic:ellipse}
