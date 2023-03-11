@@ -34,17 +34,54 @@
 	\varphi(r) = -\frac{GM}{r}.
 \end{equation}
 
-\term{Потенциальная энергия} $U(\vec{r})$ тела с массой $m$ в гравитационном поле тела с массой $M$~--- энергия, необходимая, чтобы переместить первое тело с бесконечности на вектор $\vec{r}$ от второго. Исходя из определения, потенциальная энергия определяется, как
+\begin{wrapfigure}[12]{r}{0.47\tw}
+    \centering
+    \vspace{-1pc}
+    \begin{tikzpicture}[scale=0.5]
+        \begin{scope}[yscale=0.5]
+            \draw [black, semithick] plot [smooth, tension=1] coordinates { (0,0) (1,2) (3,0) (6,1.5) (3,6) (6,10) (9,8) (8,11) (10,12)};
+        \end{scope}
+        
+        \tkzDefPoint(0, 0){R0}
+        \tkzDefPoint(2, -2){M}
+        \tkzDefPoint(6, 5){R}
+        \tkzDefShiftPoint[R](-2.1, -0.35){D}
+        \tkzDefPoint(10,6){I}
+        \tkzDefPointBy[homothety=center M ratio 0.7](R) \tkzGetPoint{F}
+        \tkzDefPointBy[projection=onto R--D](F) \tkzGetPoint{F'}
+        
+        
+        \tkzLabelPoint[above](I){$\infty$}
+        \tkzLabelPoint[right](M){$M$}
+        \tkzLabelPoint[above right=-1pt](R){$m$}
+        \tkzLabelSegment[below left=-3pt](M,R0){$\vec{R}$}
+        \tkzLabelSegment[below right=-3pt, pos=0.45](M,R){$\vec{r}$}
+        \tkzLabelSegment[right](R,F){$\vec{F}(\vec{r})$}
+        \tkzLabelSegment[above](R,D){$d\vec{r}$}
+        
+        \tkzDrawSegments[-latex](M,R0 M,R)
+        \tkzDrawSegments[thick, -latex](R,D R,F)
+        \tkzDrawSegments[dashed](F,F')
+        
+        \tkzMarkRightAngles[size=0.3](F,F',R)
+        
+        \tkzDrawPoints(M, R, R0, I)
+    \end{tikzpicture}
+    \caption{К выводу формулы потенциальной энергии}
+    \label{pic:potential-energy}    
+\end{wrapfigure}
+
+\term{Потенциальная энергия} $U(\vec{R})$ тела с массой $m$ в гравитационном поле тела с массой $M$~--- энергия, необходимая, чтобы переместить первое тело с бесконечности на вектор $\vec{R}$ от второго. Исходя из определения, потенциальная энергия определяется, как
 \begin{equation}
-    U(\vec r) =  \oint\limits_{+\infty}^\vec{r} \big(\vec F( \vec r),d \vec r\big).
+    U(\vec R) =  \oint\limits_{+\infty}^\vec{r} \big(\vec F( \vec r),d \vec r\big).
 \end{equation}
 Здесь интегрирование ведется вдоль пути перемещения тела с бесконечности в точку $\vec{r}$. Снова воспользуемся сферической симметрией гравитационного поля:
 \begin{multline}
-    U(\vec r) 
-    = - \oint\limits_{+\infty}^\vec{r} \big(m \nabla \varphi (\vec{r}), d \vec r\big)
-    = - \oint\limits_{+\infty}^\vec{r} m \frac{d \varphi(r)}{d r} \left( \frac{\vec r}{r}, d \vec r \right) = \\
-    = \int\limits_{+\infty}^r m \frac{d \varphi(r)}{d r} \,d r 
-    = \int\limits_{+\infty}^r m \, d \varphi(r) = -\frac{GMm}{r} = U(r).
+    U(\vec R) 
+    = - \oint\limits_{+\infty}^\vec{R} \big(m \nabla \varphi (\vec{r}), d \vec r\big)
+    = - \oint\limits_{+\infty}^\vec{R} m \frac{d \varphi(r)}{d r} \left( \frac{\vec r}{r}, d \vec r \right) = \\
+    = \int\limits_{+\infty}^R m \frac{d \varphi(r)}{d r} \,d r 
+    = \int\limits_{+\infty}^R m \, d \varphi(r) = -\frac{GMm}{R} = U(R).
 \end{multline}
 
 Напряженность гравитационного поля~--- отношение силы, действующей на точную пробное тело к массе этого тела, также называют \term[ускорение свободного падения]{ускорением свободного падения} и обозначают за $g$. Ускорение свободного падения вычисляется по формуле

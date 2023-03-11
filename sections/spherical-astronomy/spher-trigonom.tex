@@ -70,6 +70,145 @@
     \cos a \sin b = \sin a \cos b \cos C + \sin c \cos A.
 \end{gather}
 
+
+\begin{wrapfigure}[14]{r}{0.5\tw}
+    \centering
+    \vspace{-1pc}
+    \tdplotsetmaincoords{70}{170}
+    \begin{tikzpicture}[tdplot_main_coords]
+        \footnotesize
+        
+        \def\r{2.5}
+        \def\f{55}
+        \def\d{20}
+        \def\l{100}
+        \def\t{60}
+
+
+        % Draw spherical grid
+        \draw[tdplot_screen_coords,thin,black!30] (0,0,0) circle (\r);
+        \foreach \a in {-60,-30,...,60}{
+            \tdplotCsDrawLatCircle[thin,black!20]{\r}{\a}
+        }
+        \foreach \a in {0,30,...,150}{
+            \tdplotCsDrawLonCircle[thin,black!20]{\r}{\a}
+        }
+    
+        
+        % Delta coord of the intersection horizon and circle of equal right ascention
+        \pgfmathsetmacro{\deltaMin}{atan(-cos(\t)/tan(\f))}
+        
+        % Angle between horizon and circle of equal right ascention
+        \pgfmathsetmacro{\rotateAngle}{asin(cos(\t) * cos(\f) / sin(\deltaMin))}
+        
+        % 90 - Azimuth coord of the intersection horizon and circle of equal right ascention
+        \pgfmathsetmacro{\AA}{acos(sin(\t) * cos(\deltaMin))}
+        
+        
+        \pgfmathsetmacro\z{acos(sin(\f)*sin(\d) + cos(\f)*cos(\d)*cos(\t)}
+        \pgfmathsetmacro\a{asin(cos(\d) * sin(\t) / sin(\z))}
+        
+    
+        % Draw main azimuthal directions
+        \draw [gray] (0,\r,0) -- (0,-\r,0);
+        \draw [gray] (\r,0,0) -- (-\r,0,0);
+        
+        
+        % Mark  and label angle A and 180 - A near Z
+        \draw [double, fill=none, line cap=butt]({0.3*cos(180-\a - 3)},{0.3 * sin(180-\a -3)},\r) arc (180-\a-3:5:0.3);
+        \tdplotCsLabelPoint{\r}{0}{0}{\adjustbox{right=10pt}{\scriptsize$180 \! - \!\!A$}}{below=3pt}
+        
+        
+        % Mark and label angle t near P
+        \def\angleRadius{0.4}
+        \tdplotsetrotatedcoords{0}{-\f}{0};
+        \draw [tdplot_rotated_coords, canvas is yz plane at x = \r]({\angleRadius * cos(80)},{\angleRadius * sin(80)}) arc (80:{90 - \t - 5}:\angleRadius);
+        \tdplotCsLabelPoint{\r}{0}{90 - \f}{\adjustbox{raise=6pt}{$t$}}{right=9pt}
+        
+        
+         % Mark right angles
+        \tdplotsetrotatedcoords{0}{0}{180 - \a};
+        \draw [tdplot_rotated_coords](\r,0.2,0.2) coordinate (c) (\r,0.2,0) coordinate (a1) -- (c) (\r,0,0.2) coordinate (a2) -- (c) pic [angle radius=0.2cm] {right angle=a1--c--a2};
+        
+        \tdplotsetrotatedcoords{0}{90 - \f}{180 - \t};
+        \draw [tdplot_rotated_coords](\r,0.2,0.2) coordinate (c) (\r,0.2,0) coordinate (a1) -- (c) (\r,0,0.2) coordinate (a2) -- (c) pic [angle radius=0.2cm] {right angle=a1--c--a2};
+        
+        
+        % Draw triangle
+        \tdplotsetrotatedcoords{-90}{-90}{0};
+        \draw[tdplot_rotated_coords, thick] (\r,0,0) arc (0:{90 -  \f}:\r);
+        \tdplotsetrotatedcoords{\AA}{\rotateAngle}{\deltaMin};
+        \draw[tdplot_rotated_coords, thick] (\r,0,0) arc (0:{90 - \d}:\r);
+        \tdplotsetrotatedcoords{90 - \a}{-90}{0};
+        \draw[tdplot_rotated_coords, thick] (\r,0,0) arc (0:\z:\r);
+        
+        
+        %%%% Draw great circles
+        % Celestial equator
+        \tdplotCsDrawGreatCircle[semithick, tdplotCsFill/.style={opacity=0.0}]{\r}{0}{90 - \f}
+        % Circle of equal azimuths
+        \tdplotCsDrawGreatCircle[tdplotCsFill/.style={opacity=0.0}]{\r}{90 -\a}{90}
+        % Celestial meridial
+        \tdplotCsDrawGreatCircle[tdplotCsFill/.style={opacity=0.0}]{\r}{90}{90}
+        % Circle of equal right ascension
+        \tdplotCsDrawGreatCircle[tdplotCsFill/.style={opacity=0.0}]{\r}{180 + \AA}{180 - \rotateAngle}
+        % Horizon
+        \tdplotCsDrawLatCircle[semithick,tdplotCsFill/.style={opacity=0.00}]{\r}{0}
+
+        
+        % Draw and label points
+        \tdplotCsDrawPoint{\r}{0}{90}
+        \tdplotCsLabelPoint{\r}{0}{90}{$N$}{left}
+        
+        \tdplotCsDrawPoint{\r}{90}{90}
+        \tdplotCsLabelPoint{\r}{90}{90}{$W$}{below right=-2pt}
+        
+        \tdplotCsDrawPoint{\r}{180}{90}
+        \tdplotCsLabelPoint{\r}{180}{90}{$S$}{right}
+        
+        \tdplotCsDrawPoint{\r}{270}{90}
+        \tdplotCsLabelPoint{\r}{270}{90}{$E$}{above}
+        
+        \tdplotCsDrawPoint{\r}{0}{0}
+        \tdplotCsLabelPoint{\r}{0}{0}{$Z$}{above}
+        
+        \tdplotCsDrawPoint{\r}{0}{90 - \f}
+        \tdplotCsLabelPoint{\r}{0}{90 - \f}{$P$}{above}
+        
+        \tdplotCsLabelPoint{\r}{90 + \a / 2}{88}{$A$}{above right = 3pt}
+        
+        
+        % Label arcs
+        \tdplotCsLabelPoint{\r}{0}{45 - \f / 2}{\adjustbox{right=12pt}{$90 - \varphi$}}{above}
+        \tdplotCsLabelPoint{\r}{135 - \a / 2}{\z / 2}{$z$}{right=5pt}
+        \tdplotCsLabelPoint{\r}{90 - \a / 2}{(90 - \f + \z) / 2}{\adjustbox{left=15pt}{$90 - \delta$}}{below=-13pt}
+        \tdplotCsLabelPoint{\r}{180 - \t / 1.5}{45 + \f / 3}{$t$}{right}
+        \tdplotCsLabelPoint{\r}{180 - \a + 6}{\z + (90 - \z) / 5}{$\delta$}{right}
+        \tdplotCsLabelPoint{\r}{180 - \a}{\z + (90 - \z) / 2}{$h$}{left=-1pt}
+        
+        
+        % Draw intersection oof celestial equator and celestial meridian
+        \tdplotCsDrawPoint{\r}{180}{\f}
+        
+        % Draw star's projection on horizon
+        \tdplotCsDrawPoint{\r}{180-\a}{90}
+        
+        % Draw star's projection on celestial equator
+        \pgfmathsetmacro{\zz}{acos(cos(\f)*cos(\t)}
+        \pgfmathsetmacro{\aa}{180 - asin(sin(\t) / sin(\zz))}
+        \tdplotCsDrawPoint{\r}{\aa}{\zz}
+        
+        % Draw star
+        \draw ({\r * cos(180 - \a) * sin(\z)}, {\r * sin(180 - \a) * sin(\z)}, {\r * cos(\z)}) node[star, star points=5, star point ratio=2.25, fill=black, scale=0.35] {};
+        
+        % Draw the center of sphere
+        \tdplotCsDrawPoint{0}{0}{0}
+    \end{tikzpicture}
+
+    \caption{Параллактический треугольник}
+    \label{pic:paralactic-triangle}    
+\end{wrapfigure}
+
 \term{Параллактический треугольник}~--- треугольник на небесной сфере, образованный пересечением небесного меридиана, вертикального круга и часового круга светила. \imp{Вертикальный круг}~--- большой круг небесной сферы, проходящий через надир, зенит и светило. \imp{Часовой круг}~--- большой круг небесной сферы, проходящий через полюса мира и наблюдаемое светило.
 
 Применяя теоремы синусов и косинусов к параллактическому треугольнику, нетрудно получить следующие соотношения:

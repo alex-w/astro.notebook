@@ -4,32 +4,88 @@
 Вернемся к первому закону Кеплера, в частность к полученное уравнению орбиты \eqref{eq:first-kepler-law-conic-seq-eq}, определим, как знак полной механической энергии связан с видом орбиты. 
 
 Заметим, в принятых обозначениях $s$~--- перицентр орбиты, так как истинная аномалия отсчитывается от перицентра, то есть минимальное расстояние от тела до гравитирующего центра. Согласно закону сохранения энергии на минимальном расстоянии достигается максимальная скорость $v_\text{макс}$. Также из соображения минимальности расстояния, в это момент скорость перпендикулярна радиус вектору, следовательно момент импульса тела $L = m\sqrt{GMh} =  m s v_\text{макс}$, то есть
- \begin{equation*}
+\begin{equation*}
      v_\text{макс} = \frac{\sqrt{Gmh}}{s}.
- \end{equation*}
- Запишем закон сохранения энергии:
- \begin{gather*}
+\end{equation*}
+Запишем закон сохранения энергии:
+\begin{gather*}
      \frac{m v_\text{макс}^2}{2} - \frac{GMm}{s} = E_0,\\
      \frac{GMmh}{2s^2} - \frac{GMm}{s} = E_0,\\
      E_0 = GMm \cdot \frac{h - 2s}{2s^2}.
- \end{gather*}
+\end{gather*}
  
- Таким образом, если движение финитно~--- $E_0 < 0$, то $h < 2s$ и эксцентриситет
- \begin{equation*}
+\begin{wrapfigure}[12]{r}{0.6\tw}
+    \centering
+    \vspace{-1pc}
+    \begin{tikzpicture}        
+        \pgfmathsetmacro{\r}{1}
+        \pgfmathsetmacro{\ec}{0.0}
+        \pgfmathsetmacro{\ee}{0.4}
+        \pgfmathsetmacro{\ep}{1.001}
+        \pgfmathsetmacro{\eh}{1.7}
+        
+        \pgfmathsetmacro{\step}{1}
+        
+        \tkzDefPoint(0,0){O}
+        \tkzDefPoint(0,-\r){S}  
+    
+        \newcommand{\defConicPoint}[3]{
+            \pgfmathsetmacro\rr{\r / abs(1 - (#1)) *  abs(1 - (#1)^2) / (1 - (#1) * cos(#2))}
+            \tkzDefPoint({\fpeval{\rr * sin(#2 / 180 * pi)}}, {\fpeval{\rr * cos(#2 / 180 * pi)}}){#3}
+        }
+        
+        \newcommand{\drawConic}[4]{
+            \def\start{#1}
+            \def\next{\start + \step}
+            \defConicPoint{#2}{\start}{H'}
+            \tkzLabelPoint[#3](H'){#4}
+            \foreach \n in {\start,\fpeval{\next},...,180} {
+                \defConicPoint{#2}{\n}{H}
+                \tkzDefPointBy[reflection = over O--S](H) \tkzGetPoint{h}
+                \tkzDefPointBy[reflection = over O--S](H') \tkzGetPoint{h'}
+                \tkzDrawSegments[thick](H',H h,h')
+                \tkzDefShiftPoint[H](0,0){H'}
+            }
+        }
+        
+        \drawConic{0}{\ec}{above=-3pt}{$E_0 = \dfrac{\Pi}{2}$}
+        \drawConic{0}{\ee}{above}{$E_0 < 0$}
+        \drawConic{70}{\ep}{above=-2pt}{$E_0 = 0$}
+        \drawConic{87}{\eh}{above=-2pt}{$E_0 > 0$}
+        
+        \tkzDefPointBy[rotation=center S angle -90](O) \tkzGetPoint{V}
+        \tkzDrawSegment(O,S)
+        \tkzDrawSegment[semithick, -latex](S,V)
+        
+        \tkzLabelSegment[below, pos=0.7](S,V){$\vec{v}_\text{макс}$}
+        \tkzLabelSegment[left](O,S){$r$}
+        \tkzLabelPoint[above left=-2pt](O){$M$}
+        \tkzLabelPoint[below left=-1pt](S){$m$}
+        
+        \tkzMarkRightAngle[size=0.2](V,S,O)
+        
+        \tkzDrawPoints(O, S)
+    \end{tikzpicture}   
+    \caption{Типы орбит при различных значениях $E_0$}
+    \label{pic:orbit-types} 
+\end{wrapfigure}
+
+Таким образом, если движение финитно~--- $E_0 < 0$, то $h < 2s$ и эксцентриситет
+\begin{equation*}
      e = \frac{h-s}{s} < 1,
- \end{equation*}
- следовательно, орбита является \imp{эллипсом}. Пусть теперь $E_0=0$, тогда $h = 2s$ и $e = 1$, откуда орбита~--- \imp{парабола}. Остается рассмотреть случай $E_0 > 0$, тогда $h > 2s$, $e > 1$ и орбита является \imp{гиперболой}.
+\end{equation*}
+следовательно, орбита является \imp{эллипсом}. Пусть теперь $E_0=0$, тогда $h = 2s$ и $e = 1$, откуда орбита~--- \imp{парабола}. Остается рассмотреть случай $E_0 > 0$, тогда $h > 2s$, $e > 1$ и орбита является \imp{гиперболой}.
  
- Частным случаем эллиптической орбиты является \imp{окружность}, когда $s = h \equiv r$~--- радиус орбиты. В этом случае 
- \begin{equation*}
-     E_0 = -\frac{GMm}{2r} = \frac{\Pi}{2},
- \end{equation*}
- откуда $K = - \Pi / 2$, следовательно,
- \begin{gather}
-     \frac{m v_1^2}{2} = \frac{GMm}{2r}, \nonumber \\
-     v_1 = \frac{GM}{r}.
-     \label{eq:circle-speed}
- \end{gather} 
- Полученная скорость называется \term{первой космической} или \term{круговой} скоростью или и является минимальной скоростью, чтобы оставаться на орбите вокруг гравитирующего центра массы $M$ на расстоянии $r$ от него.
+Частным случаем эллиптической орбиты является \imp{окружность}, когда $s = h \equiv r$~--- радиус орбиты. В этом случае 
+\begin{equation*}
+    E_0 = -\frac{GMm}{2r} = \frac{\Pi}{2},
+\end{equation*}
+откуда $K = - \Pi / 2$, следовательно,
+\begin{gather}
+    \frac{m v_1^2}{2} = \frac{GMm}{2r}, \nonumber \\
+    v_1 = \frac{GM}{r}.
+    \label{eq:circle-speed}
+\end{gather} 
+Полученная скорость называется \term{первой космической} или \term{круговой} скоростью или и является минимальной скоростью, чтобы оставаться на орбите вокруг гравитирующего центра массы $M$ на расстоянии $r$ от него.
  
  

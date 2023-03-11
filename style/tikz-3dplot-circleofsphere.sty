@@ -276,11 +276,11 @@
     \begin{scope}[tdplot_rotated_coords]                                        %   Draw in rotated coord. system >>
       \tdplotCsComputeTransformRotScreen                                        %     Get \azz
       \pgfmathsetmacro{\bVisible}{\azz>0}                                       %     Test if point is on visible side
-       \ifthenelse{\bVisible=1}{%                                               %     Point on front side >>
+%       \ifthenelse{\bVisible=1}{%                                               %     Point on front side >>
          \draw[tdplotPtFront, fill=white] (0,0,\r) circle (0.3mm);           %       Draw it
-       }{%                                                                      %     << Point on back side >>
-         \node[tdplotPtBack] at (0,0,\r) {\tdtlotCsBacksidePoint};              %       Draw it
-       }                                                                        %     <<
+%       }{%                                                                      %     << Point on back side >>
+%         \node[tdplotPtBack] at (0,0,\r) {\tdtlotCsBacksidePoint};              %       Draw it
+%       }                                                                        %     <<
     \end{scope}                                                                 %   <<
   \end{scope}                                                                   % <<
 }
