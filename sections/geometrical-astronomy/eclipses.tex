@@ -4,6 +4,87 @@
 \begin{equation}
 	d_\text{тени} = 2 \cdot \frac{R_{\moon}(a_\oplus - R_\oplus) - R_\odot \left( a_{\moon} - R_\oplus \right)}{a_\oplus - a_{\moon}}.
 \end{equation}
+
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+        \tkzDefPoint(0, 0){X}
+        \tkzDefPoint(-3.5,0){C1}
+        \tkzDefShiftPoint[C1](0.5,0){R1}
+        
+        \def\k{2.5}
+        \tkzDefPointBy[homothety=center X  ratio \k](C1) \tkzGetPoint{C2}
+        \tkzDefPointBy[homothety=center X  ratio \k](R1) \tkzGetPoint{R2}
+        
+        \tkzDefLine[tangent from = X](C1,R1) \tkzGetPoints{A1}{B1}
+        \tkzDefLine[tangent from = X](C2,R2) \tkzGetPoints{A2}{B2}
+        
+        \tkzDrawPolygon[fill=gray!40,draw=none](X,A1,B1)
+        
+        \tkzDrawCircles[fill=white, thick, draw=black](C1,R1 C2,R2)
+        \tkzDrawSegments(X,A2 X,B2 X,C2 C2,A2 C2,B2 C1,A1 C1,B1)
+        
+        \tkzLabelSegments[left=-1pt](C2,B2 C2,A2){$R$}
+        \tkzLabelSegments[left=-2pt](C1,B1 C1,A1){$r$}
+        \tkzLabelSegment[above=-1.5pt](C1,C2){$d$}
+        \tkzLabelSegment[above=-1.5pt](C1,X){$x$}
+        
+        \tkzMarkRightAngles[size=0.15](C2,A2,X X,B2,C2 C1,A1,X X,B1,C1)
+        \tkzDrawPoints(C1, C2, A1, A2, B1, B2, X)
+    \end{tikzpicture}
+    \caption{\change{Схема построение тени}}
+    \label{pic:shadow-length}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+        \tkzDefPoint(0, 0){X}
+        \tkzDefPoint(-3.5,0){C1}
+        \tkzDefShiftPoint[C1](0.7,0){R1}
+        \tkzDefPoint(-0.5,0){C3}
+        \tkzDefShiftPoint[C3](-1,0){R3}
+        
+        \def\k{2.5}
+        \tkzDefPointBy[homothety=center X  ratio \k](C1) \tkzGetPoint{C2}
+        \tkzDefPointBy[homothety=center X  ratio \k](R1) \tkzGetPoint{R2}
+        
+        \tkzDefLine[tangent from = X](C1,R1) \tkzGetPoints{A1}{B1}
+        \tkzDefLine[tangent from = X](C2,R2) \tkzGetPoints{A2}{B2}
+        
+        \tkzInterLC(X,B1)(C3,R3)  \tkzGetPoints{x}{H1}
+        \tkzInterLC(X,A1)(C3,R3)  \tkzGetPoints{H2}{x}
+        
+        \tkzDrawPolygon[fill=gray!40,draw=none](X,A1,B1)
+        
+        
+        \tkzDrawCircles[fill=white, thick, draw=black](C1,R1 C2,R2 C3,R3)
+        \tkzDrawSegments(H2,A2 H1,B2 R3,C2 C2,A2 C2,B2 C1,A1 C1,B1)
+        \tkzDrawSegments[dashed](H2,X H1,X R3,X)
+        
+        \begin{scope}[
+            dim style/.style={black, latex-latex, opacity=1},
+            dim fence style/.style={black, opacity=1}
+        ]
+            \tkzDrawSegment[opacity=0, dim={$R$, -1.1cm, above=2pt}](C3,R3)
+            \tkzDrawSegment[opacity=0, dim={$d_2$, -1.5cm, above=2pt}](C3,C1)
+            \tkzDrawSegment[opacity=0, dim={$d_1$, -2cm, above=2pt}](C3,C2)
+            \tkzDrawSegment[opacity=0, dim={$h$, 1.1cm, below=2pt}](X,R3)
+            \tkzDrawSegment[opacity=0, dim={$x$, 1.5cm, above=2pt}](X,C1)
+        \end{scope}
+        
+        \tkzLabelSegments[right=-1pt](C2,B2 C2,A2){$R_0$}
+        \tkzLabelSegments[right=-2pt](C1,B1 C1,A1){$r$}
+        \tkzLabelSegments[left=-2pt](R3,H1 R3,H2){$s$}
+        
+        \tkzMarkRightAngles[size=0.15](C2,A2,X X,B2,C2 C1,A1,X X,B1,C1)
+        \tkzDrawPoints(C1, C2, A1, A2, B1, B2, X, C3, R3, H1, H2)
+    \end{tikzpicture}
+    \caption{\change{К вычислению диаметра пятна}}
+    \label{pic:shadow-size-on-surface}    
+\end{figure}
+
+
 Среднее значение  этой величины около 200~км, максимальное~--- около 215~км. При нецентральном затмении максимальный диаметр тени Луны на поверхности Земли может достигать 270~км. Это даёт оценку на продолжительность, равную 7.5 минутам. Большинство полных затмений длятся 2\,--\,4~минуты.
 
 \begin{figure}[h!]
