@@ -1,45 +1,46 @@
 \subsection{Точки Лагранжа}
 
-\begin{wrapfigure}[12]{r}{0.5\tw}
+\begin{wrapfigure}[10]{r}{0.5\tw}
 	\centering
-	\vspace{-.7pc}
-	\begin{tikzpicture}		
-		\def\r{2}
-		\def\mm{0.25}
-		\tkzDefPoint(0,0){M1}
-		\tkzDefPoint(\r,0){M2}
-		
-		\tkzDefPointBy[homothety=center M1 ratio 1 - \mm ](M2) \tkzGetPoint{L1}
-		\tkzDefPointBy[homothety=center M1 ratio 1 + \mm](M2) \tkzGetPoint{L2}
-		\tkzDefPointBy[homothety=center M1 ratio -1](M2) \tkzGetPoint{L3}
-		\tkzDefPointBy[rotation=center M1 angle 60](M2) \tkzGetPoint{L4}
-		\tkzDefPointBy[rotation=center M1 angle -60](M2) \tkzGetPoint{L5}
-		
-		\tkzDrawCircle[semithick, dashed, black](M1,M2)
-		
-		\tkzDrawSegments(M1,L4 M1,L5)
-		\tkzDrawLine(L3,M2)
-		
-		\tkzMarkAngle[size=0.5](M2,M1,L4)
-		\tkzLabelAngle[pos=0.8](M2,M1,L4){\footnotesize$60^\circ$}
-		\tkzMarkAngle[size=0.4](L5,M1,M2)
-		\tkzLabelAngle[pos=0.7](L5,M1,M2){\footnotesize$60^\circ$}
-		
-		\tkzLabelPoint[above](L1){$L_1$}
-		\tkzLabelPoint[above](L2){$L_2$}
-		\tkzLabelPoint[above left](L3){$L_3$}
-		\tkzLabelPoint[above right](L4){$L_4$}
-		\tkzLabelPoint[below right](L5){$L_5$}
-		
-		\tkzLabelPoint[below](M1){\adjustbox{left=7mm, raise=-5mm}{$M_1$}}
-		\tkzLabelPoint[below](M2){\adjustbox{right=9mm, raise=-3mm}{$M_2$}}
-		
-		\tkzDrawPoints(L1,L2,L3,L4,L5)
-		\tkzDrawPoint[size=12, fill=gray!50](M1)
-		\tkzDrawPoint[size=7, fill=gray!50](M2)
-	\end{tikzpicture}
-	\captionof{figure}{Точки Лагранжа}
-	\label{pic:larg-points-1}
+	\vspace{3pc}
+	\begin{tikzpicture}
+        \def\d{3.5}
+        \def\m{1}
+        \def\M{3.5}
+        \def\r{(3 * \M / \m)^(-1/3)}
+        \def\rrr{7 * \m / (12 * \M)}
+        \def\R{\fpeval{\d / (1 + 1 - \r)}}
+        \def\c{\fpeval{\m / (\M + \m)}}
+        \def\xL{\fpeval{\R / 2 * (\M - \m) / (\M + \m)}}
+        \def\yL{\fpeval{sqrt(3) / 2 * \R}}
+        
+        \tkzDefPoint(0,0){M}
+        \tkzDefShiftPoint[M](\R,0){m}
+        \tkzDefPointBy[homothety=center M ratio \c](m) \tkzGetPoint{C}
+        \tkzDefPointBy[homothety=center m ratio \r](M) \tkzGetPoint{L1}
+        \tkzDefPointBy[homothety=center m ratio {-\r}](M) \tkzGetPoint{L2}
+        \tkzDefPointBy[homothety=center M ratio {-1+\rrr}](m) \tkzGetPoint{L3}
+        \tkzDefShiftPoint[C](\xL,\yL){L4}
+        \tkzDefShiftPoint[C](\xL,-\yL){L5}
+        
+        \tkzDrawSegments[dashed](L2,L3 M,L4 M,L5 m,L5 m,L4)
+        
+        \tkzLabelPoint[below](M){\adjustbox{left=20pt}{$M_1$}}
+        \tkzLabelPoint[below](m){\adjustbox{right=22pt}{$M_2$}}
+        \tkzLabelPoint[above](C){ц.\,м.}
+        \tkzLabelPoint[below](L1){$L_1$}
+        \tkzLabelPoint[below](L2){$L_2$}
+        \tkzLabelPoint[below](L3){$L_3$}
+        \tkzLabelPoint[above](L4){$L_4$}
+        \tkzLabelPoint[below](L5){$L_5$}
+        
+        \tkzMarkAngles[size=0.2](m,M,L4 M,L4,m L4,m,M)
+        \tkzMarkAngles[size=0.25](L5,M,m m,L5,M M,m,L5)
+        
+        \tkzDrawPoints(M, m, C, L1, L2, L3, L4, L5)        
+    \end{tikzpicture}
+	\caption{Точки Лагранжа}
+	\label{pic:larg-points}
 \end{wrapfigure}
 \term{Точки Лагранжа}~--- точки во вращающейся системе из двух массивных тел, в которых третье тело с пренебрежимо малой массой, не испытывающее воздействие никаких других сил, кроме гравитационных со стороны двух первых тел, может оставаться неподвижным относительно этих тел. В данных точках гравитационные силы, действующие на малое тело, уравновешиваются силами инерции.
 
@@ -69,29 +70,37 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 \begin{wrapfigure}[4]{r}{0.45\tw}
 	\centering
 	\vspace{-.5pc}
-	\begin{tikzpicture}[scale = 0.66]
-		\footnotesize
-		%
-		\draw (5, 0) node [anchor= south] {$M_2$};
-		\draw (-1, 0) node [anchor= south] {$M_1$};
-		\draw (4, 0) node [anchor= south] {$L_1$};
-		\draw (0, 0) node [anchor= south] {ц.м.};
-		%
-		\draw [dashes] (-1, 0) -- (5, 0);
-		%
-		\draw[fill=white] (-1, 0) circle (0.05); %%% 1
-		\draw[fill=white] (5, 0) circle (0.05); %%% 2
-		\draw[fill=white] (4, 0) circle (0.05); %%% 3
-		\draw[fill=white] (0, 0) circle (0.05); %%% ЦМ
-		%
-		\draw [latex-latex] (4, -- -.3) -- (5, -.3);
-		\draw (4.5, -.3) node [anchor= north] {$r$};
-		%
-		\draw [latex-latex] (-1, -.3) -- (4, -.3);
-		\draw (1.5, -.3) node [anchor= north] {$R - r$};
-	\end{tikzpicture}
+	\begin{tikzpicture}
+        \def\R{4}
+        \def\m{1}
+        \def\M{5}
+        \def\r{3 * \M / \m)^(-1/3)}
+        \def\c{\m / (\M + \m)}
+        
+        \tkzDefPoint(0,0){M}
+        \tkzDefShiftPoint[M](\R,0){m}
+        \tkzDefPointBy[homothety=center M ratio \c](m) \tkzGetPoint{C}
+        \tkzDefPointBy[homothety=center m ratio \r](M) \tkzGetPoint{L}
+        
+        \tkzDrawSegment[dashed](M,m)
+        
+        \tkzLabelPoint[above](M){$M_1$}
+        \tkzLabelPoint[above](m){$M_2$}
+        \tkzLabelPoint[above](C){ц.\,м.}
+        \tkzLabelPoint[above](L){$L_1$}
+        
+        \begin{scope}[
+            dim style/.style={black, latex-latex, opacity=1},
+            dim fence style/.style={opacity=0}
+        ]
+            \tkzDrawSegment[opacity=0, dim={$R - r$, -0.2cm, below=2pt}](M,L)
+            \tkzDrawSegment[opacity=0, dim={$r$, -0.2cm, below=2pt}](L,m)
+        \end{scope}
+        
+        \tkzDrawPoints(M, m, C, L)
+    \end{tikzpicture}
 	\captionof{figure}{Расположение точки $L_1$}
-	%	\label{pic:larg-points}
+	\label{pic:larg-points-1-2}
 \end{wrapfigure}Получим выражения для расстояний от центра масс системы до точек Лагранжа. Проще всего это сделать для точек $L_1$ и $L_2$. Пусть $R$~--- расстояние между телами, $M_1$ и $M_2$~--- их массы. Будем искать расстояние~$r$ до точки $L_1$ от тела $M_2$.
 
 Из уравнения моментов сил тело с массой $M_2$ находится на расстоянии $\beta R$ от центра масс, где $\beta \equiv M_1 / (M_1 + M_2)$. Тело с массой $M_1$, соответственно, --- на расстоянии $\alpha R$, где $\alpha \equiv M_2 / (M_1 + M_2)$. Легко видеть, что $\alpha + \beta = 1$, данный факт будет использован ниже.
@@ -129,29 +138,38 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 \begin{wrapfigure}[4]{r}{0.4\tw}
 	\centering
 	\vspace{-1pc}
-	\begin{tikzpicture}[scale = 0.66]
-		\footnotesize
-		%
-		\draw (3, 0) node [anchor= south] {$M_2$};
-		\draw (0, 0) node [anchor= south] {$M_1$};
-		\draw (-3, 0) node [anchor= south] {$L_3$};
-		\draw (1, 0) node [anchor= south] {ц.м.};
-		%
-		\draw [dashes] (-3, 0) -- (3, 0);
-		%
-		\draw[fill=white] (0, 0) circle (0.05); %%% 1
-		\draw[fill=white] (3, 0) circle (0.05); %%% 2
-		\draw[fill=white] (-3, 0) circle (0.05); %%% 3
-		\draw[fill=white] (1, 0) circle (0.05); %%% ЦМ
-		%
-		\draw [latex-latex] (0, -.3) -- (3, -.3);
-		\draw (1.5, -.3) node [anchor= north] {$R$};
-		%
-		\draw [latex-latex] (-3, -.3) -- (0, -.3);
-		\draw (-1.5, -.3) node [anchor= north] {$R - r$};
-	\end{tikzpicture}
-	\captionof{figure}{Расположение точки $L_3$}
-	%	\label{pic:larg-points}
+	\begin{tikzpicture}
+        \def\d{4}
+        \def\m{1}
+        \def\M{2.7}
+        \def\r{7 * \m / (12 * \M)}
+        \def\R{\fpeval{\d / (1 + 1 - \r)}}
+        \def\c{\m / (\M + \m)}
+        
+        \tkzDefPoint(0,0){M}
+        \tkzDefShiftPoint[M](\R,0){m}
+        \tkzDefPointBy[homothety=center M ratio \c](m) \tkzGetPoint{C}
+        \tkzDefPointBy[homothety=center M ratio {-1+\r}](m) \tkzGetPoint{L}
+        
+        \tkzDrawSegment[dashed](L,m)
+        
+        \tkzLabelPoint[above](M){$M_1$}
+        \tkzLabelPoint[above](m){$M_2$}
+        \tkzLabelPoint[above](C){ц.\,м.}
+        \tkzLabelPoint[above](L){$L_3$}
+        
+        \begin{scope}[
+            dim style/.style={black, latex-latex, opacity=1},
+            dim fence style/.style={opacity=0}
+        ]
+            \tkzDrawSegment[opacity=0, dim={$R - r$, -0.2cm, below=2pt}](L,M)
+            \tkzDrawSegment[opacity=0, dim={$R$, -0.2cm, below=2pt}](M,m)
+        \end{scope}
+        
+        \tkzDrawPoints(M, m, C, L)
+    \end{tikzpicture}
+	\caption{Расположение точки $L_3$}
+	\label{pic:larg-points-3}
 \end{wrapfigure}
 Найдем теперь расстояние $R_3$ от центра масс до точки $L_3$. Пусть точка $L_3$ находится на расстоянии $R - r$ от тела с массой $M_1$. Будем искать расстояние~$r$. Запишем баланс сил, предварительно сократив на $Gm$:
 \begin{equation}
@@ -175,83 +193,93 @@ $L_3$ располагается за Солнцем. Точки $L_4$ и $L_5$
 Остается найти координаты точек Лагранжа $L_4$ и $L_5$, для этого рассмотрим~Рис.\,\ref{pic:larg-points-2}. Векторы $\vec{r}_1$, $\vec{r}_2$ и $\vec{r}_3$~--- радиус-векторы соответсвенно тела с массой $M_1$, тела с массой $M_2$ и центра масс относительно точки~$L_4$. В~силу симметрии  все рассуждения будут верны и для точки~$L_5$. Также на рисунке отмечены силы, действующие на тело, располагающееся в точке $L_4$: $\vec{F}_1$~--- сила гравитации от тела с массой $M_1$, $\vec{F}_2$~--- с массой $M_2$, сила инерции $\vec{F}_\text{ц.б.}$~--- центробежная, коллинеарна вектору~$\vec{r}_3$.
 
 \begin{figure}[h!]
-	\begin{subfigure}{0.47\tw}
-		\begin{tikzpicture}[scale = 0.66]
-			\footnotesize
-			\draw [-latex] (2, 5.2) -- (5,0);
-			\draw [-latex] (2, 5.2) -- (-1,0);
-			\draw [-latex] (2, 5.2) -- (0, 0);
-			
-			\draw (5, 0) node [anchor= north west] {$M_2$};
-			\draw (-0.9, 0) node [anchor= north east] {$M_1$};
-			\draw (0, 0) node [anchor= north] {ц.м.};
-			\draw (2, 5.2) node [anchor= south east] {$L_4$};
-			
-			\draw [dashes] (-1, 0) -- (5, 0);
-			
-			\draw (-.5, 0.87) node [anchor= south east] {$\vec{r}_1$};
-			\draw (3.5, 2.6) node [anchor= south west] {$\vec{r}_2$};
-			\draw (1, 2.6) node [anchor= north west] {$\vec{r}_3$};
-			
-			\draw [-latex, thick] (2, 5.2) -- (3, 3.47);
-			\draw [-latex, thick] (2, 5.2) -- (0, 1.74);
-			
-			\draw (1.1, 3.4) node [anchor= south east] {$\vec{F}_1$};
-			\draw (2.5, 4.2) node [anchor= south west] {$\vec{F}_2$};
-			
-			\draw [-latex, thick] (2, 5.2) -- (2.5, 6.5);
-			\draw (2.3, 5.7) node [anchor= west] {$\vec{F}_{\text{ц.б.}}$};
-			
-			%			\foreach \Point in {(-1, 0), (5, 0), (2, 5.2), (0, 0)}{
-			%    			\node at \Point {$\circ$};
-			%			}
-			
-			\draw[fill=white] (-1, 0) circle (0.05); %%% 1
-			\draw[fill=white] (5, 0) circle (0.05); %%% 2
-			\draw[fill=white] (2, 5.2) circle (0.05); %%% 3
-			\draw[fill=white] (0, 0) circle (0.05); %%% ЦМ
-		\end{tikzpicture}
+    \hfill
+    \begin{subfigure}{0.47\tw}
+        \centering
+		\begin{tikzpicture}
+            \def\R{3.5}
+            \def\m{1}
+            \def\M{3}
+            \def\xL{\fpeval{\R / 2 * (\M - \m) / (\M + \m)}}
+            \def\yL{\fpeval{sqrt(3) / 2 * \R}}
+            \def\c{\m / (\M + \m)}
+        
+            \tkzDefPoint(0,0){M}
+            \tkzDefShiftPoint[M](\R,0){m}
+            \tkzDefPointBy[homothety=center M ratio \c](m) \tkzGetPoint{C}
+            \tkzDefShiftPoint[C](\xL,\yL){L}
+        
+            \tkzDrawSegment[dashed](M,m)
+        
+            \tkzLabelPoint[below](M){$M_1$}
+            \tkzLabelPoint[below](m){$M_2$}
+            \tkzLabelPoint[below](C){ц.\,м.}
+            \tkzLabelPoint[above left=-2pt](L){$L_4$}
+        
+            \def\k{0.6}
+            \tkzDefPointBy[homothety=center L ratio \k](M) \tkzGetPoint{F1}
+            \tkzDefPointBy[homothety=center L ratio \fpeval{\k * \m / \M}](m) \tkzGetPoint{F2}
+            \tkzDefPointBy[homothety=center L ratio \fpeval{-\k * (1 - \m / \M)}](C) \tkzGetPoint{Fc}
+        
+            \tkzDrawSegments[-latex](L,M L,C L,m)
+            \tkzLabelSegment[above left=-2pt](F1,M){$\vec{r}_1$}
+            \tkzLabelSegment[above right=-2pt](F2,m){$\vec{r}_2$}
+            \tkzLabelSegment[right](L,C){$\vec{r}_3$}
+        
+            \tkzDrawSegments[thick, -latex](L,F1 L,F2 L,Fc)
+            \tkzLabelSegment[left](L,F1){$\vec{F}_1$}
+            \tkzLabelSegment[above right=-2pt](L,F2){$\vec{F}_2$}
+            \tkzLabelSegment[below right=-2pt, pos=0.6](L,Fc){$\vec{F}_\text{ц.\,б.}$}
+        
+            \tkzDrawPoints(M, m, C, L)
+        \end{tikzpicture}
 		\caption{Основной способ поиска координат точек $L_4$ и $L_5$}
 		\label{pic:larg-points-2}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.47\tw}
-		\begin{tikzpicture}[scale = 0.66]
-			\footnotesize
-			\draw [-latex] (0,0) -- (5,0);
-			\draw [-latex] (0,0) -- (-1,0);
-			
-			\draw (5, 0) node [anchor= north west] {$M_2$};
-			\draw (-0.9, 0) node [anchor= north east] {$M_1$};
-			\draw (0, 0) node [anchor= north] {ц.м.};
-			\draw (2, 5.2) node [anchor= south east] {$L_4$};
-			
-			\draw [-latex] (0,0) -- (2, 5.2);
-			
-			\draw [dashes] (-1, 0) -- (2, 5.2);
-			\draw [dashes] (5, 0) -- (2, 5.2);
-			
-			\draw (-0.3, 0) node [anchor= south ] {$\vec{r}_1$};
-			\draw (2.5, 0) node [anchor= south ] {$\vec{r}_2$};
-			\draw (1, 2.6) node [anchor= north west] {$\vec{r}_3$};
-			
-			\draw [-latex, thick] (2, 5.2) -- (3, 3.47);
-			\draw [-latex, thick] (2, 5.2) -- (0, 1.74);
-			
-			\draw (1.1, 3.4) node [anchor= south east] {$\vec{F}_1$};
-			\draw (2.5, 4.2) node [anchor= south west] {$\vec{F}_2$};
-			
-			\draw [-latex, thick] (2, 5.2) -- (2.5, 6.5);
-			\draw (2.3, 5.7) node [anchor= west] {$\vec{F}_{\text{ц.б.}}$};
-			
-			\draw[fill=white] (-1, 0) circle (0.05); %%% 1
-			\draw[fill=white] (5, 0) circle (0.05); %%% 2
-			\draw[fill=white] (2, 5.2) circle (0.05); %%% 3
-			\draw[fill=white] (0, 0) circle (0.05); %%% ЦМ
-		\end{tikzpicture}
+	    \centering
+	    \begin{tikzpicture}
+            \def\R{3.5}
+            \def\m{1}
+            \def\M{3}
+            \def\xL{\fpeval{\R / 2 * (\M - \m) / (\M + \m)}}
+            \def\yL{\fpeval{sqrt(3) / 2 * \R}}
+            \def\c{\m / (\M + \m)}
+        
+            \tkzDefPoint(0,0){M}
+            \tkzDefShiftPoint[M](\R,0){m}
+            \tkzDefPointBy[homothety=center M ratio \c](m) \tkzGetPoint{C}
+            \tkzDefShiftPoint[C](\xL,\yL){L}
+        
+            \tkzDrawSegments[dashed](M,L m,L)
+        
+            \tkzLabelPoint[below](M){$M_1$}
+            \tkzLabelPoint[below](m){$M_2$}
+            \tkzLabelPoint[below](C){ц.\,м.}
+            \tkzLabelPoint[above left=-2pt](L){$L_4$}
+        
+            \def\k{0.6}
+            \tkzDefPointBy[homothety=center L ratio \k](M) \tkzGetPoint{F1}
+            \tkzDefPointBy[homothety=center L ratio \fpeval{\k * \m / \M}](m) \tkzGetPoint{F2}
+            \tkzDefPointBy[homothety=center L ratio \fpeval{-\k * (1 - \m / \M)}](C) \tkzGetPoint{Fc}
+        
+            \tkzDrawSegments[-latex](C,M C,L C,m)
+            \tkzLabelSegment[above, pos=0.4](C,M){$\vec{r}_1$}
+            \tkzLabelSegment[right](C,L){$\vec{r}_2$}
+            \tkzLabelSegment[above](C,m){$\vec{r}_3$}
+        
+            \tkzDrawSegments[thick, -latex](L,F1 L,F2 L,Fc)
+            \tkzLabelSegment[left](L,F1){$\vec{F}_1$}
+            \tkzLabelSegment[above right=-2pt](L,F2){$\vec{F}_2$}
+            \tkzLabelSegment[below right=-2pt, pos=0.6](L,Fc){$\vec{F}_\text{ц.\,б.}$}
+        
+            \tkzDrawPoints(M, m, C, L)
+        \end{tikzpicture}
 		\caption{Альтернативный способ поиска координат точек $L_4$ и $L_5$}
 		\label{pic:larg-points-3}
 	\end{subfigure}
+	\hfill\!\!\!~
 	\caption{}
 \end{figure}
 
