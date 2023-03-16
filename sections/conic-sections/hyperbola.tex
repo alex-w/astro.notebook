@@ -101,7 +101,7 @@
 	\big||F_1 V| - |F_2 V|\big| = |q - (c + a)| = |a(e - 1) - a(e + 1)| = |-2a| = 2a.
 \end{equation*}
 
-Получим уравнение гиперболы в декартовых координатах. Пусть фокусы гиперболы находятся в точках $(\pm c, 0)$, а эксцентриситет равен $e$. Рассмотрим точку $A$ на гиперболе с координатами $(x,y)$. Подставим её координаты в определение гиперболы:
+Получим уравнение гиперболы в декартовых координатах. Пусть фокусы гиперболы находятся в точках $(\pm c, 0)$, а эксцентриситет равен~$e$. Рассмотрим точку $A$ на гиперболе с координатами $(x,y)$. Подставим её координаты в определение гиперболы:
 \begin{gather*}
 	\big| |F_1 A| - |F_2 A| \big| = 2a,\\
 	\left|\sqrt{(-c - x)^2 + y^2} - \sqrt{(c - x)^2 + y^2} \right| = 2a,\\
@@ -145,13 +145,92 @@
 	p= |y(c)| = b\sqrt{\frac{c^2}{a^2} - 1} = b \sqrt{e^2 - 1} = \frac{b^2}{a}.
 \end{equation}
 
-Найдем уравнение гиперболы в полярных координатах. Для сделаем замены $x = r \cos \varphi$ и $y = r \sin \varphi$ в каноническом уравнении гиперболы:
+\begin{wrapfigure}[9]{r}{0.5\tw}
+    \centering
+    \vspace{-1pc}
+    \begin{tikzpicture}
+        \def\a{1.3}
+        \def\e{1.4}
+        \pgfmathsetmacro\c{\a * \e}
+        \pgfmathsetmacro\b{sqrt(\c^2 - \a^2)}
+        \pgfmathsetmacro\p{\b^2 / \a}
+        
+        \tkzInit[
+            xmin=-1.45*\c,
+            xmax=1.45*\c,
+            ymin=-1.45*\c,
+            ymax=1.45*\c,
+        ]
+        \tkzClip
+        
+        \tkzDefPoint(0,0){O}
+        \tkzDefPoint(\c,0){F1}
+        \tkzDefPointBy[homothety=center O ratio -1](F1) \tkzGetPoint{F2}
+        \tkzDefPointBy[rotation=center O angle 90](F1) \tkzGetPoint{Y1}
+        \tkzDefPointBy[rotation=center O angle 90](F2) \tkzGetPoint{Y2}
+        
+        \foreach \r in {0.5,1,...,2} {
+            \tkzDefShiftPoint[O](\r,0){r}
+            \tkzDrawCircle[gray!40, line width=0.4pt](O,r)
+            \tkzDefShiftPoint[F1](\r,0){r}
+            \tkzDrawCircle[black, dotted, line width=0.4pt](F1,r)
+        }
+        
+        \tkzDefPoint(\a, 0){H'}
+        \foreach \f in {0,1,...,105} {
+            \pgfmathsetmacro\r{\p / (1 + \e * cos(\f))}
+            \tkzDefPoint(\fpeval{\c - \r * cos(\f / 180 * pi)}, \fpeval{\r * sin(\f / 180 * pi)}){H}
+            \tkzDrawSegment[semithick](H',H)
+            \tkzDefPointBy[reflection = over O--F1](H) \tkzGetPoint{h}
+            \tkzDefPointBy[reflection = over O--F1](H') \tkzGetPoint{h'}
+            \tkzDrawSegment[semithick](h',h)
+            \tkzDefPointBy[reflection = over O--Y1](H) \tkzGetPoint{h}
+            \tkzDefPointBy[reflection = over O--Y1](H') \tkzGetPoint{h'}
+            \tkzDrawSegment[semithick](h',h)
+            \tkzDefPointBy[symmetry=center O](H) \tkzGetPoint{h}
+            \tkzDefPointBy[symmetry=center O](H') \tkzGetPoint{h'}
+            \tkzDrawSegment[semithick](h',h)
+            \tkzDefShiftPoint[H](0,0){H'}
+        }
+        
+        \tkzDrawLines[-latex](F2,F1)
+        \tkzDrawLines[-latex, add=0.15 and 0.15](Y2,Y1)
+        
+        \pgfmathsetmacro\x{(\a + \c) / 2}
+        \pgfmathsetmacro\y{\b * sqrt(\x^2 / \a^2 - 1)}
+        \tkzDefPoint(\x,\y){P}
+        
+        \tkzDrawSegments[thick, -latex](O,P F1,P)
+        
+        \tkzLabelPoint[below](F1){$F_1$}
+        \tkzLabelPoint[below](F2){$F_2$}
+        \tkzLabelPoint[below left](O){$O$}
+        \tkzLabelSegment[above, pos=1.2](F2, F1){$x$}
+        \tkzLabelSegment[right, pos=1.15](Y2, Y1){$y$}
+        
+        \tkzLabelSegment[right, pos=0.6](F1,P){$\vec{r}$}
+        \tkzLabelSegment[above=-1pt, pos=0.65](O,P){$\vec{r}_0$}
+        
+        \tkzMarkAngle[line width = .3pt, size=0](F1,O,P)
+        \tkzMarkAngle[arc=ll, size=0.6](F1,O,P)
+        \tkzLabelAngle[pos=0.9](F1,O,P){\footnotesize$\varphi_0$}
+        
+        \tkzDefShiftPoint[F1](1,0){F1'}
+        \tkzMarkAngle[arc=l, size=0.2](F1',F1,P)
+        \tkzLabelAngle[pos=0.35](F1',F1,P){\footnotesize$\varphi$}
+        
+        \tkzDrawPoints(O, F1, F2, P)         
+    \end{tikzpicture}
+    \caption{К выводу уравнений гиперболы в полярных координатах}
+    \label{pic:hyp-polar-coord}    
+\end{wrapfigure}
+Найдем уравнение гиперболы в полярных координатах. Для сделаем замены $x = r_0 \cos \varphi$ и $y = r_0 \sin \varphi$ в каноническом уравнении гиперболы:
 \begin{gather*}
-	\frac{r^2 \cos^2 \varphi}{a^2} - \frac{r^2 \sin^2 \varphi}{b^2} = 1,\\
-	r^2 ( b^2 \cos^2 \varphi - a^2 \sin^2 \varphi) = a^2 b^2,\\
-	r^2 \big( (a^2 + b^2) \cos^2 \varphi - a^2 \big) = a^2 b^2,\\
+	\frac{r_0^2 \cos^2 \varphi}{a^2} - \frac{r_0^2 \sin^2 \varphi}{b^2} = 1,\\
+	r_0^2 ( b^2 \cos^2 \varphi - a^2 \sin^2 \varphi) = a^2 b^2,\\
+	r_0^2 \big( (a^2 + b^2) \cos^2 \varphi - a^2 \big) = a^2 b^2,\\
 %	r = \pm\frac{ab}{\sqrt{c^2 \cos^2 \varphi - a^2}},\\
-	r = \pm\frac{b}{\sqrt{e^2 \cos^2 \varphi - 1}}.
+	r_0 = \pm\frac{b}{\sqrt{e^2 \cos^2 \varphi - 1}}.
 \end{gather*}
 
 Проделаем тоже самое, только полюс полярных координат поместим в фокус с координатами $(c,0)$. Для этого нужно сделать замену $x' \hookrightarrow x - c$, обратно, $x \hookrightarrow x' + c$. Остаётся перейти к полярным координатам: $x' = r \cos \varphi$, $y = r \sin \varphi$, в каноническом уравнении гиперболы в декартовых координатах.
@@ -170,6 +249,69 @@
 \end{equation}
 
 Также, как и остальные конические сечения, гипербола имеет своё \imp{оптическое свойство}: свет от источника, находящегося в одном из фокусов гиперболы, отражается ветвями гиперболы таким образом, что продолжения отраженных лучей пересекаются во втором фокусе.
+
+\begin{wrapfigure}[13]{r}{0.45\tw}
+    \centering
+    \vspace{-1pc}
+    \begin{tikzpicture}
+        \def\a{1}
+        \def\e{1.5}
+        \pgfmathsetmacro\c{\a * \e}
+        \pgfmathsetmacro\b{sqrt(\c^2 - \a^2)}
+        \pgfmathsetmacro\p{\b^2 / \a}
+        
+        \tkzDefPoint(0,0){O}
+        \tkzDefPoint(\c,0){F1}
+        \tkzDefPointBy[homothety=center O ratio -1](F1) \tkzGetPoint{F2}
+        \tkzDefPointBy[rotation=center O angle 90](F1) \tkzGetPoint{Y1}
+        \tkzDefPointBy[rotation=center O angle 90](F2) \tkzGetPoint{Y2}
+        
+        
+        \tkzDefPoint(\a, 0){H'}
+        \foreach \f in {0,1,...,105} {
+            \pgfmathsetmacro\r{\p / (1 + \e * cos(\f))}
+            \tkzDefPoint(\fpeval{\c - \r * cos(\f / 180 * pi)}, \fpeval{\r * sin(\f / 180 * pi)}){H}
+            \tkzDrawSegment[semithick](H',H)
+            \tkzDefPointBy[reflection = over O--F1](H) \tkzGetPoint{h}
+            \tkzDefPointBy[reflection = over O--F1](H') \tkzGetPoint{h'}
+            \tkzDrawSegment[semithick](h',h)
+            \tkzDefPointBy[reflection = over O--Y1](H) \tkzGetPoint{h}
+            \tkzDefPointBy[reflection = over O--Y1](H') \tkzGetPoint{h'}
+            \tkzDrawSegment[semithick](h',h)
+            \tkzDefPointBy[symmetry=center O](H) \tkzGetPoint{h}
+            \tkzDefPointBy[symmetry=center O](H') \tkzGetPoint{h'}
+            \tkzDrawSegment[semithick](h',h)
+            \tkzDefShiftPoint[H](0,0){H'}
+        }
+        
+        \tkzDrawLines[-latex](F2,F1 Y2,Y1)
+        
+        \pgfmathsetmacro\x{(\a + \c) / 2}
+        \pgfmathsetmacro\y{\b * sqrt(\x^2 / \a^2 - 1)}
+        \tkzDefPoint(\x,\y){P}
+        
+        \pgfmathsetmacro{\tx}{0.5}
+        \pgfmathsetmacro{\ty}{\tx * \b * \x / (\a * sqrt(\x^2 - \a^2))}
+        \tkzDefShiftPoint[P](\tx,\ty){T}
+        
+        \tkzDrawLines[dashed, add=1.5 and 0.4](P,T)
+        
+        \tkzDrawSegments[thick, -latex](F2,P F1,P P,T)
+        
+        \tkzLabelPoint[below](F1){$F_1$}
+        \tkzLabelPoint[below](F2){$F_2$}
+        \tkzLabelPoint[below left](O){$O$}
+        \tkzLabelSegment[above, pos=1.2](F2, F1){$x$}
+        \tkzLabelSegment[right, pos=1.2](Y2, Y1){$y$}
+        \tkzLabelSegment[right](F1,P){$\vec{r}$}
+        \tkzLabelSegment[above=-1pt, pos=0.65](F2,P){$\vec{r}'$}
+        \tkzLabelSegment[left, pos=0.6](P,T){$\vec{t}$}
+        
+        \tkzDrawPoints(O, F1, F2, P)        
+    \end{tikzpicture}
+    \caption{К доказательству оптического свойства гиперболы}
+    \label{pic:hyp-optic-property}
+\end{wrapfigure}
 
 Для доказательства оптического свойства гиперболы положим, что фокусы имеют координаты $(\pm c, 0)$, где $c$~--- фокальное расстояние гиперболы, а произвольная точка гиперболы имеет координаты $(x, y)$ принадлежит гиперболе. Будем для удобства считать, что $y > 0$, случай $y < 0$ рассматривается аналогично. Тогда каноническое уравнение гиперболы можно представить в виде функции $y(x)$. При этом направляющий вектор $\vec t$ касательной к гиперболе в точке $(x, y)$, очевидно, можно представить, как
 \begin{equation*}
