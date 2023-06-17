@@ -1,18 +1,116 @@
 \subsection{Сумерки}
-\term{Сумерки}~--- часть суток, когда Солнце находится неглубоко под горизонтом.
-В зависимости от высоты Солнца под горизонтом различают \imp{гражданские}, \imp{навигационные} и \imp{астрономические} сумерки:\\
-\begin{minipage}{0.54\tw}
-	\begin{enumerate}
-		\item Гражданские~--- от $0^{\circ}$ до $-6^{\circ}$
-		\item Навигационные~--- от $-6^{\circ}$ до $-12^{\circ}$
-		\item Астрономические~--- от $-12^{\circ}$ до $-18^{\circ}$
-	\end{enumerate}
-	Когда Солнце опускается ниже $-18^{\circ}$, наступает ночь.
-\end{minipage}
-\hfill
-\begin{minipage}{0.44\tw}
-	\centering
-	\includegraphics[width=\tw]{spher-astro-dusk.pdf}
-	\captionof{figure}{Сумерки}
-\end{minipage}
-\newpage
+\begin{wrapfigure}[10]{r}{0.53\tw}
+    \centering
+    \vspace{-1pc}
+    \begin{tikzpicture}
+        \def\R{4}
+        \def\r{2.5}
+        \def\eps{0.1}
+        
+        \tkzDefPoint(0,0){C}
+        \tkzDefShiftPoint[C](\R,0){R}
+        \tkzDefShiftPoint[C](\r,0){r}
+        \tkzDefPoint(0,\r){G}
+        \tkzDefPoint({-sqrt(\R^2 - \r^2)},\r){S}
+
+        \tkzDefPointBy[homothety=center G ratio -0.5](S) \tkzGetPoint{Sun}
+        \tkzDrawSegment[-latex](G,Sun)
+        \tkzLabelPoint[right](Sun){$\odot$}
+
+        \def\a{12}
+
+        \begin{scope}
+
+            \tkzInit[
+                xmin=-\R - \eps,
+                xmax={0.7*\r},
+                ymin=-0.1*\R,
+                ymax=\R + \eps
+            ]
+            \tkzClip
+
+            \newcommand{\drawZone}[2]{
+                \begin{scope}[rotate={#1}]
+                    \tkzInit[
+                        xmin=-\R,
+                        xmax=0,
+                        ymin=0,
+                        ymax=\r
+                    ]
+                    \tkzClip
+
+                    \tkzDrawCircle[fill=#2](C,R)
+                \end{scope}
+            }
+
+            \drawZone{0*\a}{black!10}
+            \drawZone{1*\a}{black!20}
+            \drawZone{2*\a}{black!30}
+            \drawZone{3*\a}{black!40}
+        \end{scope}
+
+        \begin{scope}
+            \tkzInit[
+                xmin=-\R - \eps,
+                xmax={0.7*\r},
+                ymin=-0.1*\R - \eps,
+                ymax=\R + \eps
+            ]
+            \tkzClip
+
+            \tkzDrawCircle[fill=white, draw=none](C,r)
+        \end{scope}
+
+        \begin{scope}
+            \tkzInit[
+                xmin=-\R - \eps,
+                xmax={0.7*\r},
+                ymin=-0.1*\R,
+                ymax=\R + \eps
+            ]
+            \tkzClip
+            \tkzDrawCircle[black, semithick](C,R)
+            \tkzDrawCircle[fill=white, draw=black, semithick](C,r)
+        \end{scope}
+        
+        \tkzDrawSegments(G,C S,G)
+        \tkzMarkRightAngle[size=0.2](S,G,C)
+        \tkzDrawPoints(S,G)
+        \tkzDefShiftPoint[G](0,0){g}
+        \foreach \x in {1,...,3} {
+            \tkzDefPointBy[rotation=center C angle {\x*\a}](G) \tkzGetPoint{G'}
+            \tkzDefPointBy[rotation=center C angle {\x*\a}](S) \tkzGetPoint{S'}
+
+            \tkzMarkAngle[size={\x*0.05 + 1.3}](g,C,G')
+            \tkzLabelAngle[pos={\x*0.05 + 1.5}](g,C,G'){\adjustbox{right=9pt}{\scriptsize$6^{\circ}$}}
+
+            \tkzDrawSegments(G',C S',G')
+            \tkzMarkRightAngle[size=0.2](S',G',C)
+            \tkzDrawPoints(S',G')
+
+            \tkzDefShiftPoint[G'](0,0){g}
+        }
+
+        \foreach[count=\i from 0] \t in {{День}, {Граж. сум.}, {Нав. сум.}, {Астр. сум.}, {Ночь}} {
+            \tkzDefPointBy[rotation=center C angle {\i * \a}](G) \tkzGetPoint{G'}
+            \tkzDefPointBy[rotation=center C angle {\i * \a}](S) \tkzGetPoint{S'}
+            \tkzDrawSegment[
+                decorate,
+                decoration={
+                    text along path,
+                    text={|\footnotesize|\t},
+                    text align={
+                        left indent=12pt
+                    },
+                    raise=4pt
+                }
+            ](S',G')
+        }
+
+        \tkzDrawPoint(C)
+    \end{tikzpicture}
+    \caption{Сумерки}
+    \label{pic:dusk}
+\end{wrapfigure}
+
+\term{Сумерки}~--- время суток, когда Солнце находится неглубоко под горизонтом. В зависимости от высоты Солнца под горизонтом различают \imp{граж\-дан\-ские} (от~$0^\circ$ до~$-6^\circ$), \imp{нави\-га\-ци\-онные} (от~$-6^\circ$ до~$-12^\circ$) и \imp{астро\-но\-ми\-ческие} (от~$-12^\circ$ до~$-18^\circ$) сумерки. Когда Солнце опускается ниже~$-18^\circ$, наступает ночь.
