@@ -4,8 +4,8 @@ sections/*.log
 *.aux
 *.gz
 *.out
-astro-notebook.pdf
-astro-notebook.tex
+astro-notebook.*
+!astro-notebook.tex
 .texpadtmp/
 tikz/**
 !tikz/src

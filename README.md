@@ -7,7 +7,6 @@
 ## Сборка
 
 ```bash
-mkdir -p tikz/resource
-xelatex -shell-escape astro-notebook.tex
+sh build.sh
 ```
 Прогресс первой сборки (очень долгой) можно смотреть по увеливению количества файлов в созданной выше папке
