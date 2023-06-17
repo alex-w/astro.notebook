@@ -1,29 +1,44 @@
 \subsection{Движение по орбите}
-\begin{figure}[t]
+
+\begin{wrapfigure}[8]{r}{0.4\tw}
 	\centering
+	\vspace{-0.75pc}
 	\begin{tikzpicture}
-		\footnotesize
-		
-		\draw [thick] (0, 0) .. controls (2, 4) and (3, -1) .. (5, -1);
-		\draw [-latex] (0, -2) -- (1.25, 1.5);
-		\draw [-latex] (0, -2) -- (3.3, .1);
-		\draw [-latex] (1.25, 1.5) -- (3.3, .1);
-		
-		\draw (.3, -1.8) arc(31:70:0.36);
-		
-		\draw (.6, -.3) node [anchor = east] {$\vec{r}(t)$};
-		\draw (1.6, -.9) node [anchor = north west] {$\vec{r}(t + dt)$};
-		\draw (2.3, 0.9) node [anchor = north east] {$d\vec{r}$};
-		\draw (0.2, -1.5) node [anchor = south west] {$\boldsymbol{\omega} \,d t$};
-		
-		\draw[fill=white] (1.25, 1.5) circle (0.03);
-		\draw[fill=white] (3.3, .1) circle (0.03);
-		\draw[fill=white] (0, -2) circle (0.03);
-		
+        \def\R{4}
+        \def\w{1}
+        \def\s{1.5}
+        \def\r{2.5}
+        \def\eps{0.1}
+        
+        \tkzDefPoint(0,0){O}
+        \tkzDefPoint(0,\w){W}
+        \tkzDefPoint(0,\s){S}
+        \tkzDefPoint(2.4,-0.6){R1}
+        \tkzDefPoint(3,1){R2}
+        
+        \tkzGetPointCoord(R1){r}
+        \tkzGetPointCoord(R2){rr}
+        
+        \draw [black] plot [smooth, tension=1] coordinates { (0.5,-1) (\rx,\ry) (\rrx,\rry) (4,1.2)};
+        
+        \tkzDrawSegments[-latex,semithick](O,W O,S O,R1 O,R2 R1,R2)
+        
+        \tkzLabelPoint[below left = -1pt](W){$\boldsymbol{\omega}$}
+        \tkzLabelPoint[below left = -1pt](S){$\vec{s}$}
+        \tkzLabelSegment[below](O,R1){$\vec{r}$}
+        \tkzLabelSegment[above=1pt](O,R2){$\vec{r}(t + dt)$}
+        \tkzLabelSegment[left](R1,R2){$d\vec{r}(t)$}
+        
+        \tkzMarkRightAngle[size=0.2](R1,O,W)
+        \tkzMarkRightAngle[size=0.3](R2,O,W)
+        
+        \tkzMarkAngle[size=0.4, angle eccentricity=2](R1,O,R2)
+        \tkzLabelAngle[pos=0.8](R1,O,R2){\footnotesize$\boldsymbol{\omega} \, dt$}
+        
+        \tkzDrawPoints(O, R1, R2)
 	\end{tikzpicture}
 	\caption{}
-\end{figure}
-
+\end{wrapfigure}
 Рассмотрим такую физическую величину, как \term{секториальная ско\-рость}~--- это векторная величина, описывающая ориентированную площадь, заметаемую радиус вектором тела за единицу времени. Пусть в момент времени $t$ тело находилось в точке $\vec{r}(t)$, а через промежуток времени $dt$~--- в точке $\vec{r}(t + dt)$. Обозначим перемещение тела за этот промежуток времени как $d\vec{r}$. Его можно выразить через скорость тела в момент времени $t$, считая её постоянной на промежутке от $t$ до $t + dt$: $d\vec{r} = \vec{v} \,d t$. Площадь, которую заметает радиус-вектор тела $\vec{r}(t)$ равна половине параллелограмма, построенного на векторах $\vec{r}(t)$ и $d\vec{r}$, то есть
 \begin{equation*}
 	\vec{s} = \frac{1}{2} [\vec{r} \times \vec{v} dt],
