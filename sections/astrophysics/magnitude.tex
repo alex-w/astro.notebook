@@ -61,7 +61,7 @@
 
 \begin{figure}[t]
     \centering
-    \begin{subfigure}{\tw}
+    \begin{subcaptionblock}{\tw}
         \centering
         \begin{tikzpicture}
             \begin{axis} [
@@ -80,10 +80,10 @@
                 \addplot[black, smooth] table[x=l, y=J] {data/filters-data-J.txt} node at (axis cs:1250, 0.5) {\scriptsize{$J$}};
             \end{axis}
         \end{tikzpicture}
-    \end{subfigure}
+    \end{subcaptionblock}
     
     \vspace{0.5pc}
-    \begin{subfigure}{\tw}
+    \begin{subcaptionblock}{\tw}
         \centering
         \begin{tikzpicture}
 
@@ -101,7 +101,7 @@
                 \addplot[black, smooth] table[x=l, y=N] {data/filters-data-N.txt} node at (axis cs:10, 0.5) {\scriptsize{$N$}};
             \end{axis}
         \end{tikzpicture}
-    \end{subfigure}
+    \end{subcaptionblock}
     \caption{Профили пропускания фотометрических фильтров системы $U\!BV\!RIJKLMN$}
     \label{pic:johnson-bands}
 \end{figure}
