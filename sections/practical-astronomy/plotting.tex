@@ -32,7 +32,7 @@
     \item Удобно использовать график, где оси пересекаются в точке $(0,0)$. Для лучшей детализации допускается смещать точку пересечения по обеим осям. Однако не стоит забывать, что точка $(0,0)$ является ключевой для некоторых зависимостей. См.~\picRef{pic:good-axis-location} и \picRef{pic:bad-axis-location}.
 \begin{figure}[h]
     \hfill
-    \begin{subfigure}{0.46\tw}
+    \begin{subcaptionblock}{0.46\tw}
         \centering
         \begin{tikzpicture}[scale=0.75]
             \drawGrid{-1}{-1}{6}{5}
@@ -59,9 +59,9 @@
             \tkzLabelPoint[above=2pt](X){$t$, с}
         \end{tikzpicture}
         \caption{Обе величины принимают только положительные значения}
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill
-    \begin{subfigure}{0.46\tw}
+    \begin{subcaptionblock}{0.46\tw}
         \centering
         \begin{tikzpicture}[scale=0.75]
             \drawGrid{-1}{-3}{6}{3}
@@ -89,11 +89,11 @@
             \tkzLabelPoint[above=2pt](X){$t$, с}
         \end{tikzpicture}
         \caption{Зависимая величина принимает в том числе отрицательные значения}
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill \!\!\!~
     
     \hfill
-    \begin{subfigure}{0.46\tw}
+    \begin{subcaptionblock}{0.46\tw}
         \centering
         \begin{tikzpicture}[scale=0.75]
             \drawGrid{-3.5}{-3}{3.5}{3}
@@ -126,9 +126,9 @@
             \tkzLabelPoint[above=2pt](X){$\alpha$, \!$~^\circ$}
         \end{tikzpicture}
         \caption{Обе величины принимают и положительные и отрицательные значения}    
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill
-    \begin{subfigure}{0.46\tw}
+    \begin{subcaptionblock}{0.46\tw}
         \centering
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
@@ -159,14 +159,14 @@
             \tkzLabelPoint[above=2pt](X){$\phi$}
         \end{tikzpicture}
         \caption{Смещено пересечение осей для лучшей детализации}    
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill \!\!\!~
     \caption{Примеры {\bfseries хорошего} расположения координатных осей}
     \label{pic:good-axis-location}
 \end{figure}
 \begin{figure}[h]
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \centering
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
@@ -204,9 +204,9 @@
             \tkzLabelPoint[above=2pt](X){$\phi$}
         \end{tikzpicture}
         \caption{Недостаточно места для оцифровки вертикальной оси.  Необоснованное расположение пересечения осей. Неразумно много пустого места под горизонтальной осью.}    
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \centering
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
@@ -236,7 +236,7 @@
             \tkzLabelPoint[above=2pt](X){$t$, c}
         \end{tikzpicture}
         \caption{Основные линии миллиметровки не соответствуют основной градуировке вертикальной оси. Оцифровка вертикальной оси выполнены внутри области построения графика. Горизонтальная ось имеет нестандартное направление.}
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill \!\!\!~
     
     \caption{Примеры {\bfseries плохого} расположения координатных осей}
@@ -247,7 +247,7 @@
     \item[$\circ$] Для качественных графиках допустимо не указывать масштаб, единицы измерения указывать только у характерных значений. См.~\picRef{pic:good-axis-caption} и \picRef{pic:bad-axis-caption}
     \begin{figure}[h!]
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \centering
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
@@ -278,9 +278,9 @@
             \tkzLabelPoint[above=2pt](X){\adjustbox{right=16pt}{$t$, $\cdot 10^3$\,c}}
         \end{tikzpicture}
         \caption{В качестве значения используется формула.}
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \centering
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
@@ -320,7 +320,7 @@
             \tkzLabelPoint[above=2pt](X){$t$}
         \end{tikzpicture}
         \caption{Качественный график с указанием характерных значений по обоим осям.}
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill\!\!\!~
     \caption{Примеры {\bfseries хороших} подписей координатных осей}
     \label{pic:good-axis-caption}
@@ -328,7 +328,7 @@
 
 \begin{figure}[h]
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \centering
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
@@ -358,9 +358,9 @@
             \tkzLabelPoint[above=2pt](X){$t$}
         \end{tikzpicture}
         \caption{По горизонтальной оси не вынесены единицы измерения. Не подписана вертикальная ось. Не вынесен общий множитель значений по вертикальной оси.}
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \centering
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
@@ -395,7 +395,7 @@
             \tkzLabelPoint[above=2pt](X){$t$}
         \end{tikzpicture}
         \caption{Указаны единицы изменения у неоцифрованной вертикальной оси. Нет единиц измерения у оцифрванной горизонтальной оси. Несоблюдение пропорциональности в расположении характерных точек.}
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill\!\!\!~
     \caption{Примеры {\bfseries плохих} подписей координатных осей}
     \label{pic:bad-axis-caption}
@@ -405,7 +405,7 @@
     \begin{figure}[h!]
     \centering
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
          
@@ -452,9 +452,9 @@
             \tkzLabelPoint[above](X){$t$, с}
         \end{tikzpicture}
         \caption{Хороший график. Занимает около 70\% площади.}
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
          
@@ -501,7 +501,7 @@
             \tkzLabelPoint[above](X){$t$, с}
         \end{tikzpicture}
         \caption{График занимает существенно меньше 70\% области построения, выходит за пределы области построение~--- вылезает за край горизонтальной оси.}   
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill\!\!\!~
     \caption{Пример {\bfseries хорошего} и {\bfseries плохого} расположения графика за счет выбора масштаба осей и точки их пересечения.}
     \label{pic:plot-scale}
@@ -513,7 +513,7 @@
     
 \begin{figure}
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
          
@@ -554,9 +554,9 @@
             \tkzLabelPoint[above](X){$t$, с}
         \end{tikzpicture}
         \caption{Слишком частая и неравномерная оцифровка горизонтальной оси. Слишком редкая оцифровка вертикальной оси. На вертикальной оси отсутствуют штрихи.}    
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
          
@@ -596,7 +596,7 @@
             \tkzLabelPoint[above](X){$t$, с}
         \end{tikzpicture}
         \caption{Отсутствует оцифровка горизонтальной оси. Повторение нуля. Неравные деления по вертикальной оси.}
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill\!\!\!~
     \caption{Примеры {\bfseries плохой} оцифровки и разметки осей}
 \end{figure}
@@ -611,7 +611,7 @@
     
 \begin{figure}
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \centering
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
@@ -654,9 +654,9 @@
             \tkzLabelPoint[above](X){\adjustbox{right=16pt}{$t$, $10^{-3}$\,м}}
         \end{tikzpicture}
         \caption{Разрешенные ряды. Общий множитель оцифровки горизонтальной оси вынесен в подпись оси. Числа оцифровки вертикальной оси привереды с одинаковой точностью.}
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \centering
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
@@ -707,7 +707,7 @@
             \tkzLabelPoint[above](X){$t$, с}
         \end{tikzpicture} 
         \caption{Запрещенные ряды. Числа оцифровки горизонтальной оси указаны с разной точностью. По вертикальной оси штрихи и оцифровка сделаны через разные промежутки.}  
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill\!\!\!~
     \caption{}
 \end{figure}    
@@ -739,7 +739,7 @@
 
 \begin{figure}
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \centering
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
@@ -804,9 +804,9 @@
             \tkzLabelPoint[above](X){$\frac{M}{M_0}$}
         \end{tikzpicture}
         \caption{Две экспериментальные зависимости.}         
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \centering
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
@@ -859,14 +859,14 @@
             \tkzLabelPoint[above](X){\adjustbox{right=16pt}{$t$, $10^{-3}$\,м}}
         \end{tikzpicture}
         \caption{Экспериментальная зависимость с усами погрешностей.}    
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill\!\!\!~
     \caption{Примеры {\bfseries хороших} графиков экспериментальных зависимостей}
 \end{figure}
 
 \begin{figure}[h]
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \centering 
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
@@ -917,9 +917,9 @@
             \tkzLabelPoint[above](X){$\frac{M}{M_0}$}
         \end{tikzpicture} 
         \caption{Негладкая, неаккуратная, толстая, неяркая линия, поглащающая экспериментальные точки.}   
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill
-    \begin{subfigure}[t]{0.46\tw}
+    \begin{subcaptionblock}[t]{0.46\tw}
         \begin{tikzpicture}[scale=0.75]
             \tikzset{fixed point arithmetic}
          
@@ -983,7 +983,7 @@
             \tkzLabelPoint[above](X){$\frac{M}{M_0}$}
         \end{tikzpicture}
         \caption{Сплошная линия имеет ярко выраженный изгиб под одну точку, скорее всего это выброс, и его нужно проигнорировать. Пунктирная линия~--- ломаная, кроме этого за ней не видно экспериментальные точки.}
-    \end{subfigure}
+    \end{subcaptionblock}
     \hfill\!\!\!~
     \caption{Примеры {\bfseries плохих} графиков экспериментальных зависимостей}
 \end{figure}

@@ -521,7 +521,7 @@
 Продемонстрируем полученные зависимости (см.~Рис.\,\ref{pic:coma}), при следующих параметрах: $R = 1$, $h = 0.3$, $\alpha = 50^\circ$, $n=1.5$.
 
 \begin{figure}[h]
-	\begin{subfigure}{0.49\tw}
+	\begin{subcaptionblock}{0.49\tw}
 		\begin{tikzpicture}
 			\begin{axis}[
 				height	=	5cm,
@@ -555,9 +555,9 @@
 			\end{axis}
 		\end{tikzpicture}
 %		\caption{}
-	\end{subfigure}
+	\end{subcaptionblock}
 	\hfill
-	\begin{subfigure}{0.49\tw}
+	\begin{subcaptionblock}{0.49\tw}
 		\begin{tikzpicture}
 			\begin{axis}[
 				height	=	5cm,
@@ -576,7 +576,7 @@
 			\end{axis}
 		\end{tikzpicture}
 %		\caption{}
-	\end{subfigure}
+	\end{subcaptionblock}
 	\caption{}
 	\label{pic:coma}
 \end{figure}
@@ -587,7 +587,7 @@
 Для тонкой линзы выполняется правило, что лучи, проходящие через оптический центр не преломляются. А световые пучки, идущие под различными углами фокусируются на фокальной плоскости, перпендикулярной оптической оси. Отсюда следует, что параллельные пучки, идущие под углом $\alpha$ к оптической оси и проходящие через оптический центр тонкой линзы, фокусируются на расстоянии $F \tg \alpha$ от оптической оси. 
 
 \begin{figure}[h]
-\begin{subfigure}{0.49\tw}
+\begin{subcaptionblock}{0.49\tw}
 		\begin{tikzpicture}
 			\begin{axis}[
 				height	=	5cm,
@@ -607,9 +607,9 @@
 		\end{tikzpicture}
 		\caption{}
 		\label{pic:pitzval}
-	\end{subfigure}
+	\end{subcaptionblock}
 	\hfill
-	\begin{subfigure}{0.49\tw}
+	\begin{subcaptionblock}{0.49\tw}
 		\begin{tikzpicture}
 			\begin{axis}[
 				height	=	5cm,
@@ -639,7 +639,7 @@
 		\end{tikzpicture}
 		\caption{}
 		\label{pic:distorsion-y}
-	\end{subfigure}
+	\end{subcaptionblock}
 	\caption{}
 	
 \end{figure}
@@ -651,7 +651,7 @@
   
   \begin{figure}[h]
   \centering
-\begin{subfigure}{0.31\tw}
+\begin{subcaptionblock}{0.31\tw}
 	\centering
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -673,9 +673,9 @@
 		\end{tikzpicture}
 		\caption{Без дисторсии}
 %		\label{pic:pitzval}
-	\end{subfigure}
+	\end{subcaptionblock}
 	\hfill
-	\begin{subfigure}{0.31\tw}
+	\begin{subcaptionblock}{0.31\tw}
 	\centering
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -697,9 +697,9 @@
 		\end{tikzpicture}
 		\caption{Дисторсия <<бочка>>}
 %		\label{pic:pitzval}
-	\end{subfigure}
+	\end{subcaptionblock}
 	\hfill
-	\begin{subfigure}{0.31\tw}
+	\begin{subcaptionblock}{0.31\tw}
 	\centering
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -721,7 +721,7 @@
 		\end{tikzpicture}
 		\caption{Дисторсия <<подушка>>}
 %		\label{pic:pitzval}
-	\end{subfigure}
+	\end{subcaptionblock}
 	\caption{Виды дисторсии}
 	
 \end{figure}
