@@ -1,0 +1,23 @@
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[CO]{\slshape \small \leftmark}
+\fancyhead[LE, RO]{\slshape \small \thepage}
+\fancyhead[CE]{\slshape \hyperref[toc]{\title}}
+
+
+\RequirePackage{url}
+
+\RequirePackage{makeidx}
+\makeindex
+
+\RequirePackage{ifmtarg}
+\RequirePackage{textcase}
+
+\RequirePackage{ifthen}
+\newboolean{useLightPlotVersion}
+
+\tkzSetUpLine[line width=0.4pt]
+\tkzSetUpArc[line width=0.4pt]
+\tkzSetUpPoint[fill=white, size=2]
+\tkzSetUpLabel[font=\footnotesize]

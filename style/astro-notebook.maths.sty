@@ -1,0 +1,33 @@
+% Шрифты для математики
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{cancel}
+\RequirePackage{mathrsfs}
+\RequirePackage{mathtools}
+\RequirePackage{upgreek}
+\RequirePackage{xfrac}
+
+% Математические команды
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\scalar}[2]{\left(\vec{#1} \cdot \vec{#2}\right)}
+\newcommand{\scalarNoVec}[2]{\left(#1 \cdot #2 \right)}
+\newcommand{\cross}[2]{\left[\vec{#1} \times \vec{#2}\right]}
+\newcommand{\triple}[3]{\left( \vec{#1}, \vec{#2}, \vec{#3} \right)}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\argmax}{argmax}
+\newcommand{\LL}{\mathcal{L}}
+
+% Операторы
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\area}{Area}
+
+% Астрономические символы
+\RequirePackage{wasysym}
+\RequirePackage{starfont} % Значок Цереры
+
+% Настройки для математики
+\setcounter{MaxMatrixCols}{20}

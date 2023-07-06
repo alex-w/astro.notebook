@@ -1,0 +1,26 @@
+\newcommand{\term}[2][]{\,\!{\sffamily\bfseries#2}%
+\ifthenelse{\isempty{#1}}{}{\index{#1}}}
+\newcommand{\moon}{\!\!\rightmoon}
+\newcommand{\au}{\text{а.\,е.}}
+\newcommand{\tw}{\textwidth}
+\newcommand{\imp}[1]{{\itshape#1}}
+
+\newcommand{\change}[1]{\textcolor{red}{#1}}
+
+\newcommand*{\SectorRadius}{1ex}
+\newcommand*{\SectorHalfAngle}{40}
+\newcommand*{\SectorLineWidth}{.5pt}
+
+\newcommand{\picRef}[1]{Рис.\;\ref{#1}}
+\newcommand{\lookPicRef}[1]{см.~\picRef{#1}}
+
+\newcommand*{\sector}{%
+    \begin{pgfpicture}
+        \pgfpathmoveto{\pgforigin}%
+        \pgfpathlineto{\pgfpointpolar{90-(\SectorHalfAngle)}{\SectorRadius}}%
+        \pgfarc{90-(\SectorHalfAngle)}{90+\SectorHalfAngle}{\SectorRadius}%
+        \pgfpathclose
+        \pgfsetlinewidth{\SectorLineWidth}%
+        \pgfusepath{stroke}%
+    \end{pgfpicture}%
+}
