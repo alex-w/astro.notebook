@@ -1,0 +1,71 @@
+\paragraph{Зенитная дуга}
+
+\begin{wrapfigure}[9]{r}{0.3\tw}
+    \vspace{-0.8pc}
+    \centering
+    \begin{tikzpicture}
+        \def\a{-1.2}
+        \def\al{23}
+        \def\n{1.31}
+        
+        \pgfmathsetmacro\b{90 - asin(sin(90 - \al) / \n)}
+        \pgfmathsetmacro\del{90 - asin(\n * sin(\b))}
+        
+        \tkzDefPoint(0,0){C}
+        
+        \tkzDefShiftPoint[C](\a,0){I}
+        \tkzDefPointBy[homothety=center C ratio 2](I) \tkzGetPoint{I'}
+        \tkzDefPointWith[orthogonal,K=1.8](C,I) \tkzGetPoint{O'}
+        \tkzDefPointWith[orthogonal,K=-1](I,C) \tkzGetPoint{I1}
+        
+        \tkzDefPointBy[rotation=center I angle -\al](I') \tkzGetPoint{In}
+        \tkzDefPointBy[rotation=center I angle -\b](C) \tkzGetPoint{P}
+        \tkzInterLL(In,P)(C,O') \tkzGetPoint{O}
+       
+        \tkzDefPointBy[rotation=center O angle \del](O') \tkzGetPoint{Out}
+                
+        \tkzDefPointWith[orthogonal,K=1](O,C) \tkzGetPoint{O1}
+        \tkzInterLL(I,I1)(O,O1) \tkzGetPoint{X}
+
+        \tkzDrawSegment[arrow={latex}{0.3}](In,I)
+	    \tkzDrawSegment[arrow={latex}{0.52}](I,O)
+	    \tkzDrawSegment[arrow={latex}{0.9}](O,Out)
+        \tkzDrawSegments[thick](I',C O',C)
+        \tkzDrawLines[dashed](O,X I,X)
+   
+        \tkzMarkRightAngles[size=0.2](I,C,O' X,I,I' O',O,X)
+        
+        \tkzDrawPoints(C, I, O, X)
+        
+        \tkzMarkAngle[arc=ll, size=0.6](In,I,I')
+        \tkzLabelAngle[pos=0.9](In,I,I'){\footnotesize{$h_\odot$}}
+        
+        \tkzMarkAngle[arc=l, size=0.3](X,I,O)
+        \tkzLabelAngle[pos=0.45](X,I,O){\footnotesize{$\alpha$}}
+        
+        \tkzMarkAngle[arc=l, size=0.3, mark=|, mksize=2pt](I,O,X)
+        \tkzLabelAngle[pos=0.5](I,O,X){\footnotesize{$\beta$}}
+   
+        \tkzMarkAngle[arc=lll, size=0.6](O',O,Out)
+        \tkzLabelAngle[pos=0.8](O',O,Out){\footnotesize{$z$}}
+	\end{tikzpicture}
+	\caption{Схема хода лучей при формировании зенитной дуги}
+	\label{pic:circumzenithal-arc}    
+\end{wrapfigure}
+
+Радужная дуга недалеко от зенита~--- результат рефракции солнечного света в пластинчатых кристаллах льда, расположенных над наблюдателем. 
+
+Получим зависимость зенитное расстояния дуги от высоты Солнца над горизонтом $h_\odot$. Обозначит угол преломления солнечных лучей как $\alpha$, тогда закону Снеллиуса, $\cos h_\odot = n \sin \alpha$, откуда
+\begin{equation*}
+    \alpha = \frac{\cos h_\odot}{n},
+\end{equation*}
+где $n$~--- коэффициент преломления льда. Далее, так как пластинчатые кристаллы представляют собой правильные призмы, то угол между основанием и боковой гранью прямой, следовательно, угол падений лучей на боковую грань $\beta = 90^\circ - \alpha$. Отсюда вновь по закону Снеллиуса получаем зенитное расстояние зенитное дуги:
+\begin{equation}
+    z = \arccos n \sin \beta = \arccos \left( n \cos \arcsin \frac{\cos h_\odot}{n} \right).
+\end{equation}
+Откуда можно сделать вывод, что при высоте Солнца $h_\odot > h_\odot^{\text{макс}} $ зенитная дуга не наблюдается в силу полного внутреннего отражения солнечного света в кристаллах льда, где
+\begin{equation}
+    h_\odot^{\text{макс}} = \arccos \left( n \sin \arccos \frac{1}{n} \right) \simeq 32.2^\circ.
+    \label{eq:h-max-circumzenithal-arc}
+\end{equation}
+
