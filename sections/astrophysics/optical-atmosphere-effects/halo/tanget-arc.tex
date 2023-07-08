@@ -1,0 +1,51 @@
+\paragraph{Тангенциальная дуга}
+
+\begin{figure}[h!]
+    \foreach \h in {0,15,30,45} {
+        \begin{subcaptionblock}{0.48\tw}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    height	=	6.5cm,
+                    width	=	6.5cm,
+                    xmin    =  -2.01,
+                    xmax    =   2.01,
+                    ymin    =  -2.01,
+                    ymax    =   2.01,
+                    grid=none,
+                    axis line style={draw=none},
+                    every tick/.style={draw=none},
+                    yticklabels={,,},
+                    xticklabels={,,},
+                    legend cell align=left,
+                    legend style={
+                         draw=none,
+                         fill=none,
+                         font=\scriptsize,
+                         at={(axis cs:2.2, -1)}, 
+                         anchor=south west,
+                         row sep=.5pc,
+                    }
+                ]
+                    \addplot[only marks, mark = o, mark options={scale=0.2}, black] table[x=x, y=y] {data/tanget_arc_h\h.txt};
+%                    
+                    \foreach \hh in {-80,-70,...,-10,10,20,...,80} {
+                        \addplot+[smooth, dashes, gray] table[x=x, y=y] {data/tanget_arc_grid\hh.txt};
+                    }
+%                    
+                    \addplot+[smooth, gray, solid] table[x=x, y=y] {data/tanget_arc_grid0.txt};
+                    \addplot+[smooth, black, solid] table[x=x, y=y] {data/tanget_arc_grid_border.txt};
+                \end{axis}
+            \end{tikzpicture}
+            \caption{$h = \h^\circ$}
+        \end{subcaptionblock}
+        \ifthenelse{\isodd{\h}}{\\}{\hfill}
+    }
+    \caption{Результат компьютерного моделирования тангециальной дуги при разных высотах Солнца над горизонтом в стереографической проекции}
+    \label{pic:tanget-arc}
+\end{figure}
+
+В то время как пластинчатые кристаллы ориентируются горизонтальная торцевыми гранями, колончатые ориентируются горизонтально главной осью. В силу чего также имеют две степени свободы для вращения: вертикальную и вокруг своей оси.   
+
+\imp{Тангенциальная дуга} формируется в ходе различных преломлений солнченого света в горизонтально ориентированных колончатых кристаллах. Легко понять, что колончатые кристаллы, главная ось которых лежат в картинной плоскости~--- формируют верхнюю и нижнюю точки $22^\circ$~гало. Поэтому \imp{тангенциальная дуга} или две её части всегда касаются $22^\circ$~гало в этих точках, а в момент, когда Солнца находится в зените~--- совпадает в ним. 
+
+%Результаты компьютерного моделирования \imp{тангециальных дуг} при разной высоте Солнца можно увидеть на \picRef{pic:tanget-arc}.

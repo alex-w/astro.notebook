@@ -92,7 +92,14 @@
             }% 
         },%
         pic actions/.append code=\tikzset{postaction=decorate}%
-    }%
+    },
+    arrow/.style 2 args={
+        postaction=decorate,
+        decoration={
+            markings, 
+            mark=at position #2 with {\arrow{#1}}
+        } 
+    }
 }
 
 \makeatother
@@ -137,3 +144,8 @@
 
 %%% Шрифты
 \RequirePackage{style/astro-notebook.font}
+
+
+%%% Сноски
+\RequirePackage[symbol, perpage]{footmisc}
+\setfnsymbol{wiley}

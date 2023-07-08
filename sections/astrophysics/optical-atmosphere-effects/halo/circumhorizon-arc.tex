@@ -1,0 +1,67 @@
+\paragraph{Округло-горизонтальная}
+
+\begin{wrapfigure}[10]{r}{0.3\tw}
+    \vspace{-0.8pc}
+    \centering
+    \begin{tikzpicture}
+        \def\a{1.2}
+        \def\al{27}
+        \def\n{1.31}
+        
+        \pgfmathsetmacro\b{90 - asin(cos(\al) / \n)}
+        \pgfmathsetmacro\del{acos(\n * cos(asin (cos (\al) / \n)))}
+        
+        \tkzDefPoint(0,0){C}
+        
+        \tkzDefShiftPoint[C](0,\a){I}
+        \tkzDefPointBy[homothety=center C ratio 2](I) \tkzGetPoint{I'}
+        \tkzDefPointWith[orthogonal,K=2](C,I) \tkzGetPoint{O'}
+        \tkzDefPointWith[orthogonal,K=-1](I,C) \tkzGetPoint{I1}
+        
+        \tkzDefPointBy[rotation=center I angle -\al](I') \tkzGetPoint{In}
+        \tkzDefPointBy[rotation=center I angle -\b](C) \tkzGetPoint{P}
+        \tkzInterLL(In,P)(C,O') \tkzGetPoint{O}
+       
+        \tkzDefPointBy[rotation=center O angle \del](O') \tkzGetPoint{Out}
+                
+        \tkzDefPointWith[orthogonal,K=1](O,C) \tkzGetPoint{O1}
+        \tkzInterLL(I,I1)(O,O1) \tkzGetPoint{X}
+
+        \tkzDrawSegment[arrow={latex}{0.3}](In,I)
+	    \tkzDrawSegment[arrow={latex}{0.52}](I,O)
+	    \tkzDrawSegment[arrow={latex}{0.2}](O,Out)
+        \tkzDrawSegments[thick](I',C O',C)
+        \tkzDrawLines[dashed](O,X I,X)
+   
+        \tkzMarkRightAngles[size=0.2](I,C,O' X,I,I' O',O,X)
+        
+        \tkzDrawPoints(C, I, O, X)
+        
+        \tkzMarkAngle[arc=ll, size=0.65](In,I,I')
+        \tkzLabelAngle[pos=0.85](In,I,I'){\footnotesize{$z_\odot$}}
+        
+        \tkzMarkAngle[arc=l, size=0.3](X,I,O)
+        \tkzLabelAngle[pos=0.45](X,I,O){\footnotesize{$\alpha$}}
+        
+        \tkzMarkAngle[arc=l, size=0.3, mark=|, mksize=2pt](I,O,X)
+        \tkzLabelAngle[pos=0.57](I,O,X){\footnotesize{$\beta$}}
+   
+        \tkzMarkAngle[arc=lll, size=0.85](O',O,Out)
+        \tkzLabelAngle[pos=1.05](O',O,Out){\footnotesize{$h$}}
+	\end{tikzpicture}
+	\caption{Схема хода лучей, формирующих окологоризонтальную дугу}
+	\label{pic:circumhorizon-arc}    
+\end{wrapfigure}
+
+Относительно редко наблюдаемое явление преломления солнечного света в пластинчатых кристаллах льда. Схожее по физике формирования с зенитной дугой явление, однако здесь свет попадает в кристалл через боковую грань, а выходит через основание. Отсюда не сложно понять, что для наблюдения данного явления Солнце должно располагаться на зенитном расстоянии $z_\odot < z_\odot^\text{макс} = h_\odot^\text{макс} = 32.2^2$, значение $h_\odot^\text{макс}$ было получено в \eqref{eq:h-max-circumzenithal-arc}. 
+
+Исходя из рисунка \picRef{pic:circumhorizon-arc}, получим максимальную высоту $h_\text{макс}$, на которой может наблюдаться окологоризонтальная дуга. Для этого положим, что Солнце находится в зените. Понятно, что в этом случае яркость дуги будет нулевая. Однако рассчитаем высоту иммено для этого случая, как для предельного. Так как $z_\odot = 0$, следовательно, 
+\begin{equation*}
+    \beta = \arcsin \frac{1}{n},
+\end{equation*}
+тогда $\alpha = 90^\circ - \beta$ и 
+\begin{equation*}
+    h_\text{макс} 
+        = \arccos \left( n \cos \arcsin \frac{1}{n} \right) 
+        =\footnote{$\cos \arcsin x = \sin \arccos x = \sqrt{1 - x^2}.$}  h_\odot^\text{макс} \simeq 32.2^\circ.
+\end{equation*}
