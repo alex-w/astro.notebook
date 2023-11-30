@@ -18,7 +18,7 @@
 \begin{equation}
     \frac{1}{S} = \left| \frac{1}{T_1} \pm \frac{1}{T_2} \right|.
 \end{equation}
-    
+   
 Для внешних и внутренних планет, соответственно, выражения принимают вид:
 \begin{equation} \frac{1}{S} = \frac{1}{T_\oplus} - \frac{1}{T_\text{пл}} \quad \text{и} \quad \frac{1}{S} = \frac{1}{T_\text{пл}} - \frac{1}{T_\oplus},
 \end{equation}
@@ -29,6 +29,50 @@
 \begin{equation}
 	\frac{1}{S} = \frac{1}{T_1} + \frac{1}{T_2}.
 \end{equation}
+
+\begin{wrapfigure}[14]{r}{0.47\tw}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{sinodic-period-plot}
+    \begin{tikzpicture}
+		\begin{axis}[
+			width	=	6cm,
+			height	=	6cm,
+			xlabel	=	{$T_2 / T_1$},
+			ylabel	=	{$S / T_1$},
+			ymax	=	6,
+			ymin	=	0,
+			xmax	=	6,
+			xmin	=	0,
+			legend cell align=left,
+			legend style={
+				row sep = 0.8pc,
+				draw=none,
+				fill=none,
+				font=\scriptsize,
+				at={(axis cs:2.5, 5.5)}, anchor=north west,
+			},
+		]
+			\addplot [domain=0:1, samples=100, black] {-1 / (1 - 1 / x)};
+			\addplot [domain=1:6, samples=100, dash pattern=on 6pt off 2pt on 1pt off 2pt] {1 / (1 - 1 / x)};
+			\addplot [domain=0:6, samples=100, dash pattern=on 6pt off 2pt on 1pt off 2pt on 1pt off 2pt] {1 / (1 + 1 / x)};
+			
+			\addplot [dashed, line width=0.5pt] coordinates { (1,0) (1,6) };
+			\addplot [dashed, line width=0.5pt] coordinates { (0,1) (6,1) };
+			
+			\legend{
+			    $\dfrac{1}{T_1/T_2 - 1}$,
+				$\dfrac{1}{1 - T_1/T_2}$,
+				$\dfrac{1}{1 + T_1/T_2}$
+			}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{}
+	\label{pic:sinodic-period-plot}    
+\end{wrapfigure} 
+На~\picRef{pic:sinodic-period-plot} изображены зависимости продолжительности синодического периода от отношения периодов планет. Важно обратить внимание на вертикальную асимптоту, к которой стремится график в случае движения планет в одну сторону вокруг Солнца. Она отражает отсутствие смены фаз в случае движения объектов по одной круговой орбите.
+
+Горизонтальная асимптота является следствием стремления синодического периода к сидерическому периоду наблюдателя при стремлении сидерического периода объекта к бесконечности. При этом в случае сонаправленного движения синодический период приближается к сидерическому периоду наблюдателя сверху, а в случае встречного~--- снизу.
 
 {\footnotesize
 Рассмотрим подробнее описанные выше случаи на конкретных примерах.\newline
@@ -46,5 +90,70 @@
     T_\text{сут} = \left(\frac{1}{T_\text{ос}} - \frac{1}{T_\text{орб}}\right)^{-1} = 24~\text{часа}.
 \end{equation*}
 }
+
+\subsubsection*{Либрация}
+
+\begin{wrapfigure}[15]{r}{0.52\tw}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{libration-plot}
+     \begin{tikzpicture}
+		\begin{axis}[
+			width 	=	6cm,
+			height	=	6cm,
+			ymax	=	3.142,
+			xmax	=	6.284,
+			xmin	=	0,
+			ymin	=   -3.142,
+			xlabel	=	{$M$},
+			ylabel 	= 	{$\nu - M$},
+			legend cell align=left,
+			legend style={
+				draw=none,
+				fill=white,
+				font=\scriptsize,
+				at={(axis cs:3.5, 3)}, anchor=north west,
+			},
+			legend image post style={
+                minimum height=0.75em,
+                minimum width=3.5em,
+            },
+            xtick={0, pi / 2, pi, 3 * pi / 2, 2 * pi}, 
+            xticklabels={$0$, $\pi / 2$, $\pi$, $3\pi / 2$, $2\pi$},
+            ytick={-pi, -pi / 2, 0, pi / 2, pi}, 
+            yticklabels={$-\pi$, $-\dfrac{\pi}{2}$, $0$, $\dfrac{\pi}{2}$, $\pi$},
+		]
+			\addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt on 1pt off 2pt on 1pt off 2pt] table[x=m, y=e01] {data/libration.txt};
+			\addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt on 1pt off 2pt] table[x=m, y=e03] {data/libration.txt};
+			\addplot[smooth,dash pattern=on 6pt off 2pt on 1pt off 2pt] table[x=m, y=e05] {data/libration.txt};
+			\addplot[smooth,dash pattern=on 6pt off 2pt] table[x=m, y=e07] {data/libration.txt};
+			\addplot[smooth] table[x=m, y=e09] {data/libration.txt};
+			
+			\legend{
+			    $e=0.1$,
+				$e=0.3$,
+				$e=0.5$,
+				$e=0.7$,
+				$e=0.9$,
+			}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{}
+	\label{pic:libration-plot}
+\end{wrapfigure}
+Tермин \term{либрация} в астрономии используется для описания влияния неравномерности орбитального движения спутника его на видимое вращение, которое происходит в постоянной угловой скоростью. В случае сихрнонизации орбитального движения спутника и его вращения вокруг оси, например, Луна, либрация позволяет наблюдателю на Земле видеть более половины поверхности спутника. 
+
+Так как вращение спутника вокруг своей оси происходит с постоянной угловой скоростью, то оно линейным образом зависит от средней аномалии $M$ спутника. При этом средняя аномалия связана с эксцентрической аномалией $E$ уравнением Кеплера \eqref{eq:kepler-eq-E-nu-2}. Которая в свою очередь описывать истинную аномалию $\nu$, определяющую положение тела на орбите и, соотвветственно, его поворот относительно наблюдателя в следствии орбитального движения.
+
+Выразим эксцентрическую аномалию $E$ как функцию от средней аномалии $M$. Для этого воспользуемся методом неподвижной точки\,\cite{balk_dynamic_space_flight}. Пусть $E_0 = 0$, а $E_{n+1} = e \sin E_n + M$, такая последовательность сходится, см.~\cite{balk_dynamic_space_flight}. Не сложно  получить, что
+\begin{equation*}
+    E_n = M + e \sin \big( M + e \sin ( M + \ldots) \big).
+\end{equation*}
+Далее преобразуем \eqref{eq:kepler-eq-E-nu-2}, чтобы получить выражение для $nu$:
+\begin{equation*}
+    \nu = 2 \arctg \left( \tg \frac{E}{2} \sqrt{\frac{1 + e}{1 - e}} \right).
+\end{equation*}
+
+Разность $\nu - M$ определяет разность между наблюдаемой ориентацией спутника и ориентацией в случае круговой орбиты. График зависимости $\nu - M$ от $M$ или, что тоже самое, от части периода спутника приведем на \picRef{pic:libration-plot} для различных величин эксцентриситета $e$.
 
 

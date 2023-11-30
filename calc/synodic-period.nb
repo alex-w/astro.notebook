@@ -1,0 +1,78 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2014,         70]
+NotebookOptionsPosition[      1544,         53]
+NotebookOutlinePosition[      1936,         69]
+CellTagsIndexPosition[      1893,         66]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Synodic period", "Subtitle",
+ CellChangeTimes->{{3.9100057130805597`*^9, 
+  3.9100057356461687`*^9}},ExpressionUUID->"a7e20fe6-43a6-432e-9552-\
+8f29987c21f1"],
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Abs", "[", 
+      FractionBox["1", 
+       RowBox[{"1", "-", 
+        FractionBox["1", "x"]}]], "]"}], ",", 
+     RowBox[{"Abs", "[", 
+      FractionBox["1", 
+       RowBox[{"1", "+", 
+        FractionBox["1", "x"]}]], "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "5"}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"Full", ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "Automatic"}], "}"}]}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.909986448374405*^9, 3.9099865163966093`*^9}, {
+  3.9100011713871193`*^9, 3.910001186915159*^9}},
+ CellLabel->
+  "In[399]:=",ExpressionUUID->"6aff2cbb-87ba-48ac-b187-02799f2aa575"]
+}, Open  ]]
+},
+WindowSize->{808, 897},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (March 13, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"45bc1c9b-ac39-452a-80e9-352c75285d70"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 164, 3, 53, "Subtitle",ExpressionUUID->"a7e20fe6-43a6-432e-9552-8f29987c21f1"],
+Cell[747, 27, 781, 23, 56, "Input",ExpressionUUID->"6aff2cbb-87ba-48ac-b187-02799f2aa575"]
+}, Open  ]]
+}
+]
+*)
+
