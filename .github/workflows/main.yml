@@ -16,9 +16,18 @@ jobs:
           latexmk_shell_escape: true
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
       - name: Upload PDF file
-        uses: actions/upload-artifact@v3
+        id: upload-pdf
+        uses: actions/upload-artifact@v4
         with:
           name: PDF
-          path: astro-notebook.pdf
-
-          
+          path: astro-notebook-${{github.sha}}.pdf
+      - name: Send Telegram message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.actor }} created new commit
+            Commit message: ${{ github.event.commits[0].message }}
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            Output pdf: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.upload-pdf.outputs.artifact-id }}
