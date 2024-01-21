@@ -42,6 +42,7 @@
 откуда
 \begin{equation}
     x = \frac{r d}{R - r}.
+    \label{eq:eclipses-shadow-length}
 \end{equation}
 Так, например, длина тени Земли~--- области откуда не видно Солнца, составляет около $1.4 \times 10^{6}$~км.
 
@@ -124,11 +125,11 @@
 
 Среднее значение этой величины для системы Солнце~-- Земля~-- Луна составляет около 200~км, максимальное~--- около 215~км. При нецентральном затмении максимальный диаметр тени Луны на поверхности Земли может достигать 270~км. Это даёт оценку на продолжительность затмения, равную 7.5 минутам. Большинство полных затмений длятся 2\,--\,4~минуты.
 
-Далее, рассмотрим сферический объект~$E$ радиуса~$R$, сферический источник света~---~$S$ радиуса~$R_0$, находящегося на расстоянии~$D$ от центра~$E$, и сферическую ширму~--- $M$ радиуса $r$ на расстоянии~$d$ от центра~$E$. Определим максимальное угловое расстояние~$\gamma$ между источником~$S$ и ширмой~$M$, при наблюдении из центра объекта~$E$, чтобы на его поверхности могло наблюдаться затмение источника~$S$ ширмой~$M$, \lookPicRef{pic:eclipse-vertical-distance}.
+Далее, рассмотрим сферический объект~$E$ радиуса~$R$, сферический источник света~---~$S$ радиуса~$R_0$, находящегося на расстоянии~$D$ от центра~$E$, и сферическую ширму~--- $M$ радиуса $r$ на расстоянии~$d$ от центра~$E$. Определим максимальное угловое расстояние~$\gamma$ между источником~$S$ и ширмой~$M$, при наблюдении из центра объекта~$E$, чтобы на его поверхности могло наблюдаться \imp{полное} затмение источника~$S$ ширмой~$M$, \lookPicRef{pic:eclipse-vertical-distance}.
 
 \begin{figure}[h!]
     \centering
-    \tikzsetnextfilename{eclipse-vertical-distance}
+    \tikzsetnextfilename{full-eclipse-vertical-distance}
     \begin{tikzpicture}
         \footnotesize
         
@@ -228,20 +229,240 @@
 \end{figure}
 
 Для этого найдем угол $\alpha$. Это угол между общей касательной и прямой, проходящей через центры $M$ и $E$. Из равенства вертикальных углов следует, 
+\begin{equation}
+    \alpha = \arcsin \frac{R + r}{d},
+    \label{eq:eslipses-vertial-distance-alpha}
+\end{equation}
+из тех же соображений,
 \begin{equation*}
-    \alpha = \arcsin \frac{R + r}{d}.
-\end{equation*}
-
-Из тех же соображений,
-\begin{equation*}
-    \beta = \arcsin \frac{R + R_0}{D}.
+    \beta = \arcsin \frac{R_0 + R}{D}.
 \end{equation*}
 
 По рисунку легко заметить, что $\alpha$~внешний угол треугольника, в котором оставшимися углами являются $\beta$ и $\gamma$, откуда
 \begin{equation}
-    \gamma = \alpha - \beta = \arcsin \frac{R + r}{d} - \arcsin \frac{R + R_0}{D}.
+    \gamma = \alpha - \beta = \arcsin \frac{R + r}{d} - \arcsin \frac{R_0 + R}{D}.
 \end{equation}
 Для системы Солнце\,--\,Земля\,--\,Луна в приближении круговых орбит этот угол составляет около $1.21^\circ$.
+
+\begin{figure}[h!]
+    \centering
+    \tikzsetnextfilename{partial-eclipse-vertical-distance}
+     \begin{tikzpicture}
+        \footnotesize 
+        
+        % Radius of the Sun
+        \def\RS{1.5}
+        
+        % Radius of the Earth
+        \def\RE{0.8}
+        
+        % Radius of the Moon
+        \def\RM{0.5}
+    
+        % Earth orbit radius
+        \def\AE{7} % D
+        
+        % Moon orbit radius
+        \def\AM{2.5}
+        
+        
+        \def\eps{0.1}
+        \tkzInit[
+            ymax=2.6,
+            xmin=-8.6,
+            ymin=-1.8
+        ]
+        
+        \tkzClip
+        
+        % ALPHA
+        \pgfmathsetmacro\ALPHA{asin((\RE + \RM) / \AM)}
+   
+        % BETA
+        \pgfmathsetmacro\BETA{asin((\RS - \RE) / \AE)}
+     
+        % GAMMA
+        \pgfmathsetmacro\GAMMA{\ALPHA + \BETA}
+        
+        % Earth (E)
+        \tkzDefPoint(0,0){E}
+        \tkzDefCircle[R](E,\RE) \tkzGetPoint{e}
+        
+        % Sun (S)
+        \tkzDefShiftPoint[E](-\AE,0){S}
+        \tkzDefCircle[R](S,\RS) \tkzGetPoint{s}
+        
+        % Moon (M)
+        \tkzDefShiftPoint[E](-\AM,0){m}
+        \tkzDefPointBy[rotation=center E angle -\GAMMA](m) \tkzGetPoint{M}
+        \tkzDefCircle[R](M,\RM) \tkzGetPoint{m}
+        
+        %%% Semishadow (Ss)
+        % Tangent points of common to Sun, Moon and Earth tangent
+        \pgfmathsetmacro\Ex{\RE * \AE / (\RS - \RE)}
+        \tkzDefShiftPoint[E](\Ex, 0){EV}
+        \tkzDefPointBy[homothety=center S ratio (\RS / (\RS - \RE))](E) \tkzGetPoint{EV}
+        \tkzDefLine[tangent from = EV](S,s) \tkzGetPoints{x}{SsSu}
+        \tkzDefLine[tangent from = EV](E,e) \tkzGetPoints{x}{SsE}
+        \tkzDefLine[tangent from = EV](M,m) \tkzGetPoints{SsMd}{x}
+        
+        % Tangent points of common to Sun and Moon tangent on semishadow
+        \tkzDefPointBy[reflection=over S--M](SsMd) \tkzGetPoint{SsMu}
+        \tkzDefPointBy[reflection=over S--M](SsSu) \tkzGetPoint{SsSd}
+        
+        % Shadow
+        \tkzDefPointBy[homothety=center S ratio (\RS / (\RS - \RM))](M) \tkzGetPoint{FsV}
+        \tkzDefLine[tangent from = FsV](S,s) \tkzGetPoints{FsSd}{FsSu}
+        \tkzDefLine[tangent from = FsV](M,m) \tkzGetPoints{FsMd}{FsMu}        
+            
+        % Semishadow vertix
+        \tkzInterLL(SsSd,SsMu)(SsSu,SsMd) \tkzGetPoint{SsV}
+        \tkzCalcLength(SsSd,SsMu) \tkzGetLength{SsL}
+        
+        % Semishadow radius
+        \def\SsRatio{0.83}
+        \tkzCalcLength(SsV,SsMu) \tkzGetLength{SsLl}
+        \pgfmathsetmacro\SsR{\SsLl + \SsL * \SsRatio}
+        
+        % Angle alpha
+        \tkzInterLL(E,M)(SsSu,SsE) \tkzGetPoint{AlphaV}
+        
+        % Draw semishadow
+        \tkzFillSector[R with nodes, gray!30](SsV,\SsR)(SsMd,SsMu)
+        \tkzFillSector[white](SsV,SsMd)(SsMu)
+        
+        % Draw full shadow
+        \tkzFillPolygon[gray!70](FsMu,FsV,FsMd)
+        
+        % Draw objects
+        \tkzDrawCircles[black, thick, fill=white](E,e S,s M,m)
+        
+        \tkzDrawLines[semithick, add=0 and \SsRatio](SsSu,SsMd SsSd,SsMu)
+        \tkzDrawSegments[semithick](FsSu,FsV FsV,FsSd)
+        
+        \tkzDrawSegments(E,M)
+        \tkzDrawSegments(E,SsE)
+        \tkzDrawSegments(S,SsSu S,SsSd S,FsSu S,FsSd)
+        \tkzDrawSegments(M,SsMd M,SsMu M,FsMd M,FsMu)
+        \tkzDrawLines[add=0 and 0.27](S,E)
+        
+        \tkzLabelSegment[right](S,SsSu){$R_0$}
+        \tkzLabelSegment[left=-1pt](E,SsE){$R$}
+        \tkzLabelSegment[left=-1.5pt, pos=0.4](M,SsMd){$r$}
+        
+        \tkzMarkRightAngles[size=0.15](SsSu,SsE,E)
+        \tkzMarkRightAngles[size=0.15](FsMd,FsSd,S SsV,SsSd,S SsV,FsSu,S SsMd,SsSu,S)
+        \tkzMarkRightAngles[size=0.15](FsV,FsMd,M M,FsMu,FsV SsV,SsMu,M M,SsMd,SsV)
+        
+        \begin{scope}[
+            dim style/.style={black, latex-latex, opacity=1},
+            dim fence style/.style={black, opacity=1}
+        ]
+            \tkzDrawSegment[opacity=0, dim={$d$, 1cm, above right=1pt,fill=none}](M,E)
+            \tkzDrawSegment[opacity=0, dim={$D$, -1.6cm, above=2pt}](S,E)
+        \end{scope}
+        
+        \tkzDrawPoints(SsSu, SsSd, SsE, SsMu, SsMd)
+        \tkzDrawPoints(E, S, M, FsSu, FsSd, FsMd, FsMu, AlphaV)
+        
+        \tkzMarkAngle[arc=l, size=0.35](E,AlphaV,SsE)
+        \tkzLabelAngle[pos=0.5](E,AlphaV,SsE){\footnotesize$\alpha$}
+        
+        
+        \tkzMarkAngle[arc=lll, size=0.95](M,E,S)
+        \tkzLabelAngle[pos=1.15](M,E,S){\footnotesize$\gamma$}
+        
+        \pgfmathsetmacro\BetaR{\Ex - 1.7*\RE}
+        \tkzMarkAngle[arc=ll, size=\BetaR](SsE,EV,E)
+        \tkzLabelAngle[pos={\BetaR + 0.2}](SsE,EV,E){\footnotesize$\beta$}  
+    \end{tikzpicture}   
+    \caption{}
+    \label{pic:partial-eclipse-vertical-distance}
+\end{figure}
+
+Найдём теперь максимальное удаление $\gamma$, при котором на поверхности объекта $E$ может наблюдаться \imp{частичное} затмения источника $S$ ширмой $M$. Для этого обратимся к \picRef{pic:partial-eclipse-vertical-distance}, из него видно, что нас интересует угол $\gamma$, для которого в свою очередь выполняется $\gamma = 180^\circ - (90^\circ - \alpha) - (90^\circ - \beta) = \alpha + \beta$. Где угол $\alpha$, как в предыдущем случае, определяется выражением \eqref{eq:eslipses-vertial-distance-alpha}. А $\beta$~--- уголовой радиус конуса тени, создаваемой объектом $E$. Иначе, угол между общей касательной к $E$ и $S$ и прямой, проходящей через их центры.
+
+Найдём выражение для $\beta$. Пусть $x$~--- длина тени от объекта $E$, тогда с использованием выражения для длины тени \eqref{eq:eclipses-shadow-length} можно записать, что 
+\begin{equation*}
+    \beta = \arcsin \frac{R_0}{D + x} = \arcsin \frac{R_0}{D + \frac{RD}{R_0 - R}} = \arcsin\frac{R_0 - R}{D}.
+\end{equation*}
+Воспользуемся полученными результатами для записи окончательного выражения для $\gamma$:
+\begin{equation*}
+    \gamma = \arcsin \frac{R + r}{d} + \arcsin\frac{R_0 - R}{D}.
+\end{equation*}
+Для системы Солнце\,--\,Земля\,--\,Луна в приближении круговых орбит этот угол составляет около $1.47^\circ$. 
+
+Полученное выражение также может быть применено в расчёте возможности наблюдения прохождения внутренних планет по диску Солнца или покрытия далёких звёзд Луной. Во втором случае значимым остается только первое слагаемое, так как второе стремится к нулю в силу того, что расстояние до звёзд много больше размеров звёзд и объектов солнечной системы.
+
+\begin{wrapfigure}[7]{r}{0.37\tw}
+    \centering
+    \vspace{-1pc}
+    \tikzsetnextfilename{eclipses-node-distance}
+    \begin{tikzpicture}
+        \footnotesize 
+        \def\size{2}
+        \def\Gamma{1}
+        \def\i{35}
+        
+        \tkzDefPoint(0,0){O}
+        \tkzDefShiftPoint[O](-\size,0){E1}
+        \tkzDefShiftPoint[O](+\size,0){E2} 
+        
+        \tkzDefShiftPoint[E1](0,+\Gamma){G1}
+        \tkzDefShiftPoint[E1](0,-\Gamma){G1'}
+        \tkzDefShiftPoint[E2](0,+\Gamma){G2}
+        \tkzDefShiftPoint[E2](0,-\Gamma){G2'}
+        
+        \tkzDefPointsBy[rotation=center O angle -\i](E1, E2){}
+        
+        \tkzInterLL(E1',E2')(G1,G2) \tkzGetPoint{M}
+        \tkzInterLL(E1',E2')(G1',G2') \tkzGetPoint{M'}
+        
+        \tkzDrawSegments[semithick](E1',E2' E1,E2)
+        \tkzDrawSegments[dashed](G1,G2 G1',G2')
+        
+        \tkzDrawSegment[thick](M,M')
+        
+        \tkzDrawSegment[
+            decorate,
+            decoration = {
+                raise = 3pt, 
+                text along path,
+                text = {Эклиптика}, 
+                text align={right}
+            }
+        ](E1,E2)
+        
+        \tkzDrawSegment[
+            decorate,
+            decoration = {
+                raise = 3pt, 
+                text along path,
+                text = {~~Орбита~~~~~~~~Луны}, 
+                text align={center}
+            }
+        ](E1',E2')
+        
+        \tkzMarkAngle[size=0.4, arc=l](E1',O,E1)
+        \tkzLabelAngle[pos=0.55](E1',O,E1){\footnotesize$i$}
+        
+        \begin{scope}[
+            dim style/.style={black, latex-latex, opacity=1},
+            dim fence style/.style={black, opacity=0}
+        ]
+            \tkzDrawSegment[opacity=0, dim={$\gamma$, -0.1cm, right=2pt}](E1,G1)
+            \tkzDrawSegment[opacity=0, dim={$\gamma$, -0.1cm, right=2pt}](G1',E1)
+        \end{scope}
+        
+        \tkzDrawPoints(O, M, M')
+        \tkzLabelPoint[below](O){$\ascnode$}
+        \tkzLabelSegment[below](O,M'){$l$}
+        \tkzLabelSegment[below, pos=0.35](M,O){$l$}
+    \end{tikzpicture}
+    \caption{}
+    \label{pic:elipses-node-distance}    
+\end{wrapfigure}
+Найденное выше максимальное угловое расстояние центра ширмы от центра источника, при котором наблюдается частичное затмение, определяет ширину полосы вокруг эклиптики, \lookPicRef{pic:elipses-node-distance}, внутри которой должен оказаться центр Луны, чтобы на Земле была потенциальная возможность наблюдать солнечное затмение. Оказывается, что Луна должна располагаться не дальше, чем $l = \gamma / \sin i \simeq 16^\circ$ от узла\footnote{в случае круговой орбиты Луны}, где $i$~--- угол наклона орбиты Луны к эклиптике. 
 
 \begin{figure}[h!]
     \centering
