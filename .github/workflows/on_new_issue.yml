@@ -1,4 +1,4 @@
-name: Send new issue to Telegram
+name: Handle new issue
 on:
   issues:
     types: [opened, reopened]
@@ -14,3 +14,9 @@ jobs:
           message: |
             ${{ github.event.issue.user.login }} created new issue "${{ github.event.issue.title }}"
             See more by https://github.com/${{ github.repository }}/issues/${{ github.event.issue.number }}
+      - name: Add "inbox" label to the issue
+        uses: actions-ecosystem/action-add-labels@v2
+        with:
+          labels: |
+            inbox
+            new
