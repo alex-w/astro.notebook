@@ -4,7 +4,7 @@ sections/*.log
 *.aux
 *.gz
 *.out
-astro-notebook.*
+astro-notebook*
 !style/astro-notebook.*
 !astro-notebook.tex
 .texpadtmp/
