@@ -5,6 +5,8 @@ on:
 jobs:
   build_latex:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - name: Send Telegram message
         uses: appleboy/telegram-action@master
@@ -17,7 +19,6 @@ jobs:
       - name: Add "inbox" label to the issue
         uses: actions-ecosystem/action-add-labels@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: |
             inbox
             new
