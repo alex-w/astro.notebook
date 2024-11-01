@@ -1,0 +1,37 @@
+name: Handle new commit
+on:
+  push:
+    branches-ignore:
+      - master
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v4
+      - name: Create resources folder
+        run: mkdir -p tikz/resource
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: astro-notebook.tex
+          texlive_version: 2024
+          latexmk_use_xelatex: true
+          latexmk_shell_escape: true
+          args: -bibtex -xelatex -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: Upload PDF file
+        id: upload-pdf
+        uses: actions/upload-artifact@v4
+        with:
+          name: PDF
+          path: astro-notebook.pdf
+      - name: Send Telegram message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.actor }} created new commit
+            Commit message: ${{ github.event.commits[0].message }}
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            Output pdf: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.upload-pdf.outputs.artifact-id }}
